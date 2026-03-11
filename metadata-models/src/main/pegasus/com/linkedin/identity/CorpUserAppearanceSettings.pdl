@@ -14,4 +14,10 @@ record CorpUserAppearanceSettings {
    * Flag controlling whether the V2 UI for DataHub is shown.
    */
   showThemeV2: optional boolean
+
+  /**
+   * The preferred UI locale for the user, e.g. "en" or "de".
+   * When set, the DataHub frontend will display the UI in this language.
+   */
+  locale: optional string
 }

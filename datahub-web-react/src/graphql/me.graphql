@@ -30,6 +30,7 @@ query getMe {
                 appearance {
                     showSimplifiedHomepage
                     showThemeV2
+                    locale
                 }
                 views {
                     defaultView {
@@ -79,4 +80,8 @@ query getMe {
 
 mutation updateUserSetting($input: UpdateUserSettingInput!) {
     updateUserSetting(input: $input)
+}
+
+mutation updateUserLocale($input: UpdateUserLocaleInput!) {
+    updateUserLocale(input: $input)
 }

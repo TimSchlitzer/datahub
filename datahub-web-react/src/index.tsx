@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { App } from '@src/App';
+// Must be imported before App to ensure i18n is initialised before any component renders
+import '@src/i18n/config';
 import reportWebVitals from '@src/reportWebVitals';
 
 ReactDOM.render(

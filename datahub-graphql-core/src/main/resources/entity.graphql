@@ -828,6 +828,11 @@ type Mutation {
   updateUserSetting(input: UpdateUserSettingInput!): Boolean
 
   """
+  Update the preferred UI locale (language) for the current user.
+  """
+  updateUserLocale(input: UpdateUserLocaleInput!): Boolean
+
+  """
   Batch assign roles to users
   """
   batchAssignRole(input: BatchAssignRoleInput!): Boolean
@@ -4454,6 +4459,12 @@ type CorpUserAppearanceSettings {
   Flag controlling whether the V2 UI for DataHub is shown.
   """
   showThemeV2: Boolean
+
+  """
+  The preferred UI locale for the user, e.g. "en" or "de".
+  When set, the DataHub frontend will display the UI in this language.
+  """
+  locale: String
 }
 
 """
@@ -12279,6 +12290,16 @@ input UpdateUserSettingInput {
   The new value of the setting
   """
   value: Boolean!
+}
+
+"""
+Input required to update a user's preferred UI locale.
+"""
+input UpdateUserLocaleInput {
+  """
+  The locale code to set, e.g. "en" or "de".
+  """
+  locale: String!
 }
 
 """
