@@ -11,6 +11,7 @@ import {
     Wrench,
 } from '@phosphor-icons/react';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Redirect, Route, Switch, useHistory, useLocation, useRouteMatch } from 'react-router';
 import styled from 'styled-components';
 
@@ -81,6 +82,7 @@ const ContentContainer = styled.div`
 `;
 
 export const SettingsPage = () => {
+    const { t } = useTranslation();
     const { path, url } = useRouteMatch();
     const { pathname } = useLocation();
     const history = useHistory();
@@ -116,12 +118,12 @@ export const SettingsPage = () => {
             // Personal Section
             {
                 type: NavBarMenuItemTypes.Group,
-                title: 'Personal',
+                title: t('settings.personal'),
                 key: 'personal',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Views',
+                        title: t('settings.views'),
                         key: 'views',
                         link: `${url}/views`,
                         isHidden: !showViews,
@@ -129,7 +131,7 @@ export const SettingsPage = () => {
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'My Notifications',
+                        title: t('settings.myNotifications'),
                         key: 'personal-notifications',
                         link: `${url}/personal-notifications`,
                         isHidden: !subscriptionsEnabled,
@@ -137,7 +139,7 @@ export const SettingsPage = () => {
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'My Subscriptions',
+                        title: t('settings.mySubscriptions'),
                         key: 'personal-subscriptions',
                         link: `${url}/personal-subscriptions`,
                         isHidden: !subscriptionsEnabled,
@@ -148,12 +150,12 @@ export const SettingsPage = () => {
             // Developer Section
             {
                 type: NavBarMenuItemTypes.Group,
-                title: 'Developer',
+                title: t('settings.developer'),
                 key: 'developer',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Access Tokens',
+                        title: t('settings.accessTokens.label'),
                         key: 'tokens',
                         link: `${url}/tokens`,
                         isHidden: !showAccessTokens,
@@ -164,12 +166,12 @@ export const SettingsPage = () => {
             // Access Section
             {
                 type: NavBarMenuItemTypes.Group,
-                title: 'Access',
+                title: t('settings.access'),
                 key: 'access',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Users & Groups',
+                        title: t('settings.groups'),
                         key: 'identities',
                         link: `${url}/identities`,
                         isHidden: !showUsersGroups,
@@ -177,7 +179,7 @@ export const SettingsPage = () => {
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Permissions',
+                        title: t('settings.permissions'),
                         key: 'permissions',
                         link: `${url}/permissions`,
                         isHidden: !showPolicies,
@@ -188,12 +190,12 @@ export const SettingsPage = () => {
             // Manage Section
             {
                 type: NavBarMenuItemTypes.Group,
-                title: 'Manage',
+                title: t('settings.manage'),
                 key: 'manage',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Features',
+                        title: t('settings.features.label'),
                         key: 'features',
                         link: `${url}/features`,
                         isHidden: !showFeatures,
@@ -201,7 +203,7 @@ export const SettingsPage = () => {
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Home Page',
+                        title: t('settings.homePage'),
                         key: 'posts',
                         link: `${url}/posts`,
                         isHidden: !showHomePagePosts,
@@ -209,7 +211,7 @@ export const SettingsPage = () => {
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Ownership Types',
+                        title: t('settings.ownershipTypes'),
                         key: 'ownership',
                         link: `${url}/ownership`,
                         isHidden: !showOwnershipTypes,
@@ -220,12 +222,12 @@ export const SettingsPage = () => {
             // Preferences Section
             {
                 type: NavBarMenuItemTypes.Group,
-                title: 'Preferences',
+                title: t('settings.preferencesTitle'),
                 key: 'preferences',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Appearance',
+                        title: t('settings.preferences.appearance'),
                         key: 'preferences',
                         link: `${url}/preferences`,
                         icon: <Wrench />,
@@ -243,8 +245,8 @@ export const SettingsPage = () => {
             <NavBarContainer>
                 <NavBarHeader>
                     <div>
-                        <NavBarTitle>Settings</NavBarTitle>
-                        <NavBarSubTitle>Manage your settings</NavBarSubTitle>
+                        <NavBarTitle>{t('settings.title')}</NavBarTitle>
+                        <NavBarSubTitle>{t('settings.manageSettings')}</NavBarSubTitle>
                     </div>
                     {isThemeV2 && !isShowNavBarRedesign && (
                         <a href="/logOut">
@@ -254,7 +256,7 @@ export const SettingsPage = () => {
                                 onClick={handleLogout}
                                 data-testid="log-out-menu-item"
                             >
-                                Log Out
+                                {t('settings.logOut')}
                             </Button>
                         </a>
                     )}

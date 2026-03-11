@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -31,6 +32,8 @@ export const Features = () => {
      * and create a hook file for the new feature in the same directory
      */
 
+    const { t } = useTranslation();
+
     // Hooks to get and update the document propagation settings
     const { isColPropagateChecked, setIsColPropagateChecked } = useGetDocPropagationSettings();
     const { updateDocPropagation } = useUpdateDocPropagationSettings();
@@ -39,8 +42,8 @@ export const Features = () => {
     const features: FeatureType[] = [
         {
             key: uuidv4(),
-            title: 'Documentation Propagation',
-            description: 'Automatically propagate documentation from upstream to downstream columns and assets.',
+            title: t('settings.features.docPropagation.label'),
+            description: t('settings.features.docPropagation.description'),
             settings: [
                 {
                     key: uuidv4(),
@@ -58,9 +61,8 @@ export const Features = () => {
             options: [
                 {
                     key: uuidv4(),
-                    title: 'Column Level Propagation',
-                    description:
-                        'Propagate new documentation from upstream to downstream columns based on column-level lineage relationships.',
+                    title: t('settings.features.docPropagation.columnLabel'),
+                    description: t('settings.features.docPropagation.columnDescription'),
                     isAvailable: true,
                     checked: isColPropagateChecked,
                     onChange: (checked: boolean) => {
@@ -93,7 +95,7 @@ export const Features = () => {
         <Page>
             <SourceContainer>
                 <Container>
-                    <PageTitle title="Features" subTitle="Explore and configure specific features" />
+                    <PageTitle title={t('settings.features.pageTitle')} subTitle={t('settings.features.pageSubtitle')} />
                 </Container>
                 {features.map((feature) => (
                     <Feature {...feature} />

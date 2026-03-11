@@ -1,6 +1,7 @@
 import { PageTitle, Switch, colors } from '@components';
 import { message } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -70,6 +71,7 @@ const DescriptionText = styled.div`
 `;
 
 export const Preferences = () => {
+    const { t } = useTranslation();
     // Current User Urn
     const { user, refetchUser } = useUserContext();
     const isThemeV2 = useIsThemeV2();
@@ -93,18 +95,15 @@ export const Preferences = () => {
             <SourceContainer>
                 <TokensContainer>
                     <HeaderContainer>
-                        <PageTitle title="Appearance" subTitle="Manage your appearance settings." />
+                        <PageTitle title={t('settings.preferences.appearance')} subTitle={t('settings.preferences.subtitle')} />
                     </HeaderContainer>
                 </TokensContainer>
                 {showSimplifiedHomepageSetting && (
                     <StyledCard>
                         <UserSettingRow>
                             <TextContainer>
-                                <SettingText>Show simplified homepage </SettingText>
-                                <DescriptionText>
-                                    Limits entity browse cards on homepage to Domains, Charts, Datasets, Dashboards and
-                                    Glossary Terms
-                                </DescriptionText>
+                                <SettingText>{t('settings.preferences.simplifiedHomepage')}</SettingText>
+                                <DescriptionText>{t('settings.preferences.simplifiedHomepageDescription')}</DescriptionText>
                             </TextContainer>
                             <Switch
                                 label=""
@@ -123,7 +122,7 @@ export const Preferences = () => {
                                             ? EventType.ShowStandardHomepageEvent
                                             : EventType.ShowSimplifiedHomepageEvent,
                                     });
-                                    message.success({ content: 'Setting updated!', duration: 2 });
+                                    message.success({ content: t('common.settingUpdated'), duration: 2 });
                                     refetchUser?.();
                                 }}
                             />
@@ -135,11 +134,8 @@ export const Preferences = () => {
                         <StyledCard>
                             <UserSettingRow>
                                 <TextContainer>
-                                    <SettingText>Try New User Experience</SettingText>
-                                    <DescriptionText>
-                                        Enable an early preview of the new DataHub UX - a complete makeover for your app
-                                        with a sleek new design and advanced features.
-                                    </DescriptionText>
+                                    <SettingText>{t('settings.preferences.themeV2')}</SettingText>
+                                    <DescriptionText>{t('settings.preferences.themeV2Description')}</DescriptionText>
                                 </TextContainer>
                                 <Switch
                                     label=""
@@ -159,7 +155,7 @@ export const Preferences = () => {
                                                 ? EventType.RevertV2ThemeEvent
                                                 : EventType.ShowV2ThemeEvent,
                                         });
-                                        message.success({ content: 'Setting updated!', duration: 2 });
+                                        message.success({ content: t('common.settingUpdated'), duration: 2 });
                                         refetchUser?.();
                                     }}
                                 />
@@ -171,11 +167,8 @@ export const Preferences = () => {
                     <StyledCard>
                         <UserSettingRow>
                             <TextContainer>
-                                <SettingText>Show Applications</SettingText>
-                                <DescriptionText>
-                                    Applications are another way to organize your data, similar to Domains. They are
-                                    hidden by default.
-                                </DescriptionText>
+                                <SettingText>{t('settings.preferences.showApplications')}</SettingText>
+                                <DescriptionText>{t('settings.preferences.showApplicationsDescription')}</DescriptionText>
                             </TextContainer>
                             <Switch
                                 label=""
@@ -188,7 +181,7 @@ export const Preferences = () => {
                                             },
                                         },
                                     });
-                                    message.success({ content: 'Setting updated!', duration: 2 });
+                                    message.success({ content: t('common.settingUpdated'), duration: 2 });
                                     appConfig?.refreshContext();
                                 }}
                             />
@@ -196,7 +189,7 @@ export const Preferences = () => {
                     </StyledCard>
                 )}
                 {!showSimplifiedHomepageSetting && !isThemeV2Toggleable && !canManageApplicationAppearance && (
-                    <div style={{ color: colors.gray[1700] }}>No appearance settings found.</div>
+                    <div style={{ color: colors.gray[1700] }}>{t('settings.preferences.noAppearanceSettings')}</div>
                 )}
             </SourceContainer>
         </Page>
