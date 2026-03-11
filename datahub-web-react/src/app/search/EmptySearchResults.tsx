@@ -1,6 +1,7 @@
 import { RocketOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
@@ -23,14 +24,14 @@ const Section = styled.div`
     margin-bottom: 16px;
 `;
 
-function getRefineSearchText(filters: FacetFilterInput[], viewUrn?: string | null) {
+function getRefineSearchText(filters: FacetFilterInput[], t: (key: string) => string, viewUrn?: string | null) {
     let text = '';
     if (filters.length && viewUrn) {
-        text = 'clearing all filters and selected view';
+        text = t('search.tryOptionFilterAndViewUrn');
     } else if (filters.length) {
-        text = 'clearing all filters';
+        text = t('search.tryOptionFilter');
     } else if (viewUrn) {
-        text = 'clearing the selected view';
+        text = t('search.tryOptionViewUrn');
     }
 
     return text;
@@ -44,8 +45,9 @@ export default function EmptySearchResults({ suggestions }: Props) {
     const { query, filters, viewUrn } = useGetSearchQueryInputs();
     const history = useHistory();
     const userContext = useUserContext();
+    const { t } = useTranslation();
     const suggestText = suggestions.length > 0 ? suggestions[0].text : '';
-    const refineSearchText = getRefineSearchText(filters, viewUrn);
+    const refineSearchText = getRefineSearchText(filters, t, viewUrn);
 
     const onClickExploreAll = useCallback(() => {
         analytics.event({ type: EventType.SearchResultsExploreAllClickEvent });
@@ -66,25 +68,26 @@ export default function EmptySearchResults({ suggestions }: Props) {
 
     return (
         <NoDataContainer>
-            <Section>No results found for &quot;{query}&quot;</Section>
+            <Section>{t('search.noResultsFor', { query })}</Section>
             {refineSearchText && (
                 <>
-                    Try <SuggestedText onClick={clearFiltersAndView}>{refineSearchText}</SuggestedText>{' '}
+                    {t('search.try')} <SuggestedText onClick={clearFiltersAndView}>{refineSearchText}</SuggestedText>{' '}
                     {suggestText && (
                         <>
-                            or searching for <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
+                            {t('search.orSearchFor')}{' '}
+                            <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
                         </>
                     )}
                 </>
             )}
             {!refineSearchText && suggestText && (
                 <>
-                    Did you mean <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
+                    {t('search.didYouMean')} <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
                 </>
             )}
             {!refineSearchText && !suggestText && (
                 <Button onClick={onClickExploreAll}>
-                    <RocketOutlined /> Explore all
+                    <RocketOutlined /> {t('search.exploreAll')}
                 </Button>
             )}
         </NoDataContainer>

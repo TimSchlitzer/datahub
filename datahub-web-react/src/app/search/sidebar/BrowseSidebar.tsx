@@ -1,6 +1,7 @@
 import Icon, { CaretDownFilled } from '@ant-design/icons';
 import { Select, Tooltip, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY, ANTD_GRAY_V2 } from '@app/entity/shared/constants';
@@ -74,6 +75,7 @@ const BrowseSidebar = ({ visible }: Props) => {
     });
     const [browserWidth, setBrowserWith] = useState(window.innerWidth * 0.2);
     const [sortBy, setSortBy] = useState('default');
+    const { t } = useTranslation();
 
     return (
         <>
@@ -84,12 +86,12 @@ const BrowseSidebar = ({ visible }: Props) => {
                 data-testid="browse-v2"
             >
                 <SidebarHeader>
-                    <Typography.Text strong> Navigate</Typography.Text>
-                    <Tooltip title="Sort folder results" showArrow={false} placement="left">
+                    <Typography.Text strong> {t('search.sidebar.navigate')}</Typography.Text>
+                    <Tooltip title={t('search.sidebar.sortTooltip')} showArrow={false} placement="left">
                         <SelectWrapper>
                             <StyledIcon component={SortIcon} />
                             <Select
-                                placeholder="Sort"
+                                placeholder={t('search.sidebar.sort')}
                                 placement="bottomRight"
                                 dropdownStyle={{ minWidth: '110px' }}
                                 onChange={(value) => setSortBy(value)}
@@ -97,20 +99,20 @@ const BrowseSidebar = ({ visible }: Props) => {
                                 suffixIcon={<CaretDownFilled />}
                             >
                                 <Select.Option key="sort" value="sort">
-                                    Size (Default)
+                                    {t('search.sidebar.sortBySize')}
                                 </Select.Option>
                                 <Select.Option key="AtoZ" value="AtoZ">
-                                    Name A to Z
+                                    {t('search.sidebar.sortByNameAZ')}
                                 </Select.Option>
                                 <Select.Option key="ZtoA" value="ZtoA">
-                                    Name Z to A
+                                    {t('search.sidebar.sortByNameZA')}
                                 </Select.Option>
                             </Select>
                         </SelectWrapper>
                     </Tooltip>
                 </SidebarHeader>
                 <SidebarBody visible={visible}>
-                    {entityAggregations && !entityAggregations.length && <div>No results found</div>}
+                    {entityAggregations && !entityAggregations.length && <div>{t('search.sidebar.noResults')}</div>}
                     {entityAggregations
                         ?.filter((entityAggregation) => entityAggregation?.value !== 'DATA_PRODUCT')
                         ?.map((entityAggregation) => (
