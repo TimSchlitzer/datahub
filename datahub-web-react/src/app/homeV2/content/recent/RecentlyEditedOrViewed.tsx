@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { EntityCardList } from '@app/homeV2/content/recent/EntityCardList';
 
@@ -18,5 +19,6 @@ type Props = {
 
 // TODO: Decide whether we want the lightbulb or not.
 export const RecentlyEditedOrViewed = ({ entities }: Props) => {
-    return <EntityCardList title="You recently viewed" entities={entities} isHomePage />;
+    const { t } = useTranslation();
+    return <EntityCardList title={t('home.recentlyViewed')} entities={entities} isHomePage />;
 };

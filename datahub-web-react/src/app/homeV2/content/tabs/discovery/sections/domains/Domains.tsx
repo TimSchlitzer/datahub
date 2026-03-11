@@ -1,6 +1,7 @@
 import { Skeleton } from 'antd';
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType, HomePageModule } from '@app/analytics';
@@ -23,6 +24,7 @@ const SkeletonCard = styled(Skeleton.Button)<{ width: string }>`
 `;
 
 export const Domains = () => {
+    const { t } = useTranslation();
     const history = useHistory();
     const { user } = useUserContext();
     const { isUserInitializing } = useContext(OnboardingContext);
@@ -54,7 +56,7 @@ export const Domains = () => {
         <div id={HOME_PAGE_DOMAINS_ID}>
             {showSkeleton && <HorizontalListSkeletons Component={SkeletonCard} />}
             {!showSkeleton && !!domains.length && (
-                <Section title="Domains" actionText="View all" onClickAction={navigateToDomains}>
+                <Section title={t('home.domains')} actionText={t('home.viewAll')} onClickAction={navigateToDomains}>
                     <Carousel>
                         {domains.map((domain) => (
                             // eslint-disable-next-line
