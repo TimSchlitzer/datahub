@@ -1,4 +1,4 @@
-import { PageTitle, Switch, colors } from '@components';
+import { PageTitle, Select, Switch, colors } from '@components';
 import { message } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -10,8 +10,14 @@ import { useAppConfig } from '@app/useAppConfig';
 import { useIsThemeV2, useIsThemeV2EnabledForUser, useIsThemeV2Toggleable } from '@app/useIsThemeV2';
 
 import { useUpdateApplicationsSettingsMutation } from '@graphql/app.generated';
-import { useUpdateUserSettingMutation } from '@graphql/me.generated';
+import { useUpdateUserLocaleMutation, useUpdateUserSettingMutation } from '@graphql/me.generated';
 import { UserSetting } from '@types';
+
+const LANGUAGE_OPTIONS = [
+    { value: 'en', label: 'English' },
+    { value: 'de', label: 'Deutsch' },
+    { value: 'pt-BR', label: 'Português (Brasil)' },
+];
 
 const Page = styled.div`
     width: 100%;
@@ -71,7 +77,7 @@ const DescriptionText = styled.div`
 `;
 
 export const Preferences = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     // Current User Urn
     const { user, refetchUser } = useUserContext();
     const isThemeV2 = useIsThemeV2();
@@ -86,6 +92,9 @@ export const Preferences = () => {
 
     const [updateUserSettingMutation] = useUpdateUserSettingMutation();
     const [updateApplicationsSettingsMutation] = useUpdateApplicationsSettingsMutation();
+    const [updateUserLocaleMutation] = useUpdateUserLocaleMutation();
+
+    const currentLocale = user?.settings?.appearance?.locale ?? i18n.language;
 
     const showSimplifiedHomepageSetting = !isThemeV2;
     const canManageApplicationAppearance = userContext?.platformPrivileges?.manageFeatures;
@@ -188,6 +197,28 @@ export const Preferences = () => {
                         </UserSettingRow>
                     </StyledCard>
                 )}
+                <StyledCard>
+                    <UserSettingRow>
+                        <TextContainer>
+                            <SettingText>{t('settings.preferences.language')}</SettingText>
+                            <DescriptionText>{t('settings.preferences.languageDescription')}</DescriptionText>
+                        </TextContainer>
+                        <Select
+                            options={LANGUAGE_OPTIONS}
+                            values={[currentLocale]}
+                            onUpdate={async (values) => {
+                                const locale = values[0];
+                                if (!locale) return;
+                                i18n.changeLanguage(locale);
+                                await updateUserLocaleMutation({
+                                    variables: { input: { locale } },
+                                });
+                                message.success({ content: t('common.settingUpdated'), duration: 2 });
+                                refetchUser?.();
+                            }}
+                        />
+                    </UserSettingRow>
+                </StyledCard>
                 {!showSimplifiedHomepageSetting && !isThemeV2Toggleable && !canManageApplicationAppearance && (
                     <div style={{ color: colors.gray[1700] }}>{t('settings.preferences.noAppearanceSettings')}</div>
                 )}
