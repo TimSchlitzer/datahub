@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled, { useTheme } from 'styled-components/macro';
 
@@ -100,6 +101,7 @@ export function NavLinksMenu(props: Props) {
     const me = useUserContext();
     const { config } = useAppConfig();
     const themeConfig = useTheme();
+    const { t } = useTranslation();
     const version = config?.appVersion;
 
     // Submenu states
@@ -139,15 +141,15 @@ export function NavLinksMenu(props: Props) {
     const menuItems: Array<NavMenuItem> = [
         {
             icon: AnalyticsMenuIcon,
-            title: 'Analytics',
-            description: 'Explore data usage and trends',
+            title: t('nav.analytics'),
+            description: t('nav.analyticsDescription'),
             link: PageRoutes.ANALYTICS,
             isHidden: !showAnalytics,
         },
         {
             icon: GovernMenuIcon,
-            title: 'Govern',
-            description: 'Manage data access and quality',
+            title: t('nav.govern'),
+            description: t('nav.governDescription'),
             link: null,
             subMenu: {
                 isOpen: showGovernMenu,
@@ -155,33 +157,33 @@ export function NavLinksMenu(props: Props) {
                 close: () => setShowGovernMenu(false),
                 items: [
                     {
-                        title: 'Glossary',
-                        description: 'View and modify your business glossary',
+                        title: t('nav.glossary'),
+                        description: t('nav.glossaryLongDescription'),
                         link: PageRoutes.GLOSSARY,
                         isHidden: false,
                     },
                     {
-                        title: 'Tags',
-                        description: 'View and modify your tags',
+                        title: t('nav.tags'),
+                        description: t('nav.tagsDescription'),
                         link: PageRoutes.MANAGE_TAGS,
                         isHidden: false,
                     },
                     {
-                        title: 'Business Attributes',
-                        description: 'Universal field for data consistency',
+                        title: t('nav.businessAttributes'),
+                        description: t('nav.businessAttributeDescription'),
                         link: PageRoutes.BUSINESS_ATTRIBUTE,
                         isHidden: !businessAttributesFlag,
                     },
                     {
-                        title: 'Domains',
-                        description: 'Manage related groups of data assets',
+                        title: t('nav.domains'),
+                        description: t('nav.domainsDescription'),
                         link: PageRoutes.DOMAINS,
                         isHidden: false,
                     },
                     {
-                        title: 'Structured Properties',
+                        title: t('nav.structuredProperties'),
                         showNewTag: true,
-                        description: `Manage custom properties for your data assets`,
+                        description: t('nav.structuredPropertiesDescription'),
                         link: PageRoutes.STRUCTURED_PROPERTIES,
                         isHidden: !showStructuredProperties,
                     },
@@ -190,22 +192,22 @@ export function NavLinksMenu(props: Props) {
         },
         {
             icon: IngestionMenuIcon,
-            title: 'Ingestion',
-            description: 'Manage data integrations and pipelines',
+            title: t('nav.ingestion'),
+            description: t('nav.ingestionDescription'),
             link: PageRoutes.INGESTION,
             isHidden: !showIngestion,
         },
         {
             icon: SettingsMenuIcon,
-            title: 'Settings',
-            description: 'Manage your account and preferences',
+            title: t('nav.settings'),
+            description: t('nav.settingsDescription'),
             link: PageRoutes.SETTINGS,
             isHidden: !showSettings,
         },
         {
             icon: HelpMenuIcon,
-            title: 'Help',
-            description: 'Explore help resources and documentation',
+            title: t('nav.help'),
+            description: t('nav.helpDescription'),
             link: null,
             isHidden: false,
             subMenu: {
@@ -214,23 +216,23 @@ export function NavLinksMenu(props: Props) {
                 close: () => setShowHelpMenu(false),
                 items: [
                     {
-                        title: 'Product Tour',
-                        description: 'Take a quick tour of this page',
+                        title: t('nav.productTour'),
+                        description: t('nav.productTourDescription'),
                         isHidden: false,
                         rel: 'noopener noreferrer',
                         onClick: showOnboardingTour,
                     },
                     {
-                        title: 'GraphiQL',
-                        description: 'Explore the GraphQL API',
+                        title: t('nav.graphiql'),
+                        description: t('nav.graphiqlDescription'),
                         link: HelpLinkRoutes.GRAPHIQL ? resolveRuntimePath(HelpLinkRoutes.GRAPHIQL) : null,
                         isHidden: false,
                         target: '_blank',
                         rel: 'noopener noreferrer',
                     },
                     {
-                        title: 'OpenAPI',
-                        description: 'Explore the OpenAPI endpoints',
+                        title: t('nav.openapi'),
+                        description: t('nav.openapiDescription'),
                         link: resolveRuntimePath(HelpLinkRoutes.OPENAPI),
                         isHidden: false,
                         target: '_blank',
