@@ -42,27 +42,27 @@ export const Features = () => {
     const features: FeatureType[] = [
         {
             key: uuidv4(),
-            title: t('settings.features.docPropagation.label'),
+            title: t('settings.features.docPropagation.title'),
             description: t('settings.features.docPropagation.description'),
             settings: [
                 {
                     key: uuidv4(),
-                    title: 'Rollback Propagation Changes',
+                    title: t('settings.features.docPropagation.rollback.title'),
                     isAvailable: false,
-                    buttonText: 'Rollback',
+                    buttonText: t('settings.features.docPropagation.rollback.button'),
                 },
                 {
                     key: uuidv4(),
-                    title: 'Backfill existing documentation from upstream to downstream columns/assets',
+                    title: t('settings.features.docPropagation.backfill.title'),
                     isAvailable: false,
-                    buttonText: 'Initialize',
+                    buttonText: t('settings.features.docPropagation.backfill.button'),
                 },
             ],
             options: [
                 {
                     key: uuidv4(),
-                    title: t('settings.features.docPropagation.columnLabel'),
-                    description: t('settings.features.docPropagation.columnDescription'),
+                    title: t('settings.features.docPropagation.columnLevel.title'),
+                    description: t('settings.features.docPropagation.columnLevel.description'),
                     isAvailable: true,
                     checked: isColPropagateChecked,
                     onChange: (checked: boolean) => {
@@ -74,14 +74,13 @@ export const Features = () => {
                 },
                 {
                     key: uuidv4(),
-                    title: 'Asset Level Propagation',
-                    description:
-                        'Propagate new documentation from upstream to downstream assets based on data lineage relationships.',
+                    title: t('settings.features.docPropagation.assetLevel.title'),
+                    description: t('settings.features.docPropagation.assetLevel.description'),
                     checked: false,
                     onChange: (_: boolean) => null,
                     isAvailable: true,
                     isDisabled: true,
-                    disabledMessage: 'Coming soon!',
+                    disabledMessage: t('settings.features.docPropagation.assetLevel.comingSoon'),
                 },
             ],
             isNew: true,

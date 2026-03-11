@@ -1842,7 +1842,8 @@
         "personal": "Personal Token",
         "remoteExecutor": "Remote Executor",
         "serviceAccount": "Service Account"
-      }
+      },
+      "loading": "Loading tokens..."
     },
     "myAccount": "My Account",
     "personal": "Personal",

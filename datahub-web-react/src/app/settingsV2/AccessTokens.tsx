@@ -303,7 +303,7 @@ export const AccessTokens = () => {
     return (
         <SourceContainer>
             {tokensLoading && !tokensData && (
-                <Message type="loading" content="Loading tokens..." style={{ marginTop: '10%' }} />
+                <Message type="loading" content={t('settings.accessTokens.loading')} style={{ marginTop: '10%' }} />
             )}
             {tokensError && message.error(t('common.error'))}
             {revokeTokenError && message.error(t('common.error'))}

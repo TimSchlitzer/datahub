@@ -1842,7 +1842,8 @@
         "personal": "Persönliches Token",
         "remoteExecutor": "Remote Executor",
         "serviceAccount": "Dienstkonto"
-      }
+      },
+      "loading": "Token werden geladen…"
     },
     "myAccount": "Mein Konto",
     "personal": "Persönlich",
