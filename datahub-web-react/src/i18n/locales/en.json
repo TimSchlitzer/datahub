@@ -708,6 +708,24 @@
           "viewMore": "View {{count}} more",
           "sampleValues": "Sample Values"
         }
+      },
+      "operations": {
+        "table": {
+          "time": "Time",
+          "duration": "Duration",
+          "runId": "Run ID",
+          "task": "Task",
+          "status": "Status",
+          "inputs": "Inputs",
+          "outputs": "Outputs"
+        },
+        "tooltip": {
+          "viewTaskRunDetails": "View task run details"
+        },
+        "status": {
+          "notAvailable": "N/A"
+        },
+        "loading": "Fetching runs..."
       }
     },
     "shared": {

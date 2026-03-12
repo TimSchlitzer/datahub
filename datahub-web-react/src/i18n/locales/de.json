@@ -708,6 +708,24 @@
           "viewMore": "{{count}} weitere anzeigen",
           "sampleValues": "Beispielwerte"
         }
+      },
+      "operations": {
+        "table": {
+          "time": "Zeit",
+          "duration": "Dauer",
+          "runId": "Ausführungs-ID",
+          "task": "Aufgabe",
+          "status": "Status",
+          "inputs": "Eingaben",
+          "outputs": "Ausgaben"
+        },
+        "tooltip": {
+          "viewTaskRunDetails": "Details der Task-Ausführung anzeigen"
+        },
+        "status": {
+          "notAvailable": "K.A."
+        },
+        "loading": "Ausführungen werden geladen..."
       }
     },
     "shared": {

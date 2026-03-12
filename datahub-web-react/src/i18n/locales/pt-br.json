@@ -725,6 +725,24 @@
           "viewMore": "Ver {{count}} mais",
           "sampleValues": "Valores de Amostra"
         }
+      },
+      "operations": {
+        "table": {
+          "time": "Hora",
+          "duration": "Duração",
+          "runId": "ID da Execução",
+          "task": "Tarefa",
+          "status": "Status",
+          "inputs": "Entradas",
+          "outputs": "Saídas"
+        },
+        "tooltip": {
+          "viewTaskRunDetails": "Visualizar detalhes da execução da tarefa"
+        },
+        "status": {
+          "notAvailable": "N/D"
+        },
+        "loading": "Carregando execuções..."
       }
     },
     "shared": {

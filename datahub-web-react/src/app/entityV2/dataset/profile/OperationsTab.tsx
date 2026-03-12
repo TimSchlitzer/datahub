@@ -2,6 +2,7 @@ import { DeliveredProcedureOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import { Pagination, Table, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -54,85 +55,86 @@ function getStatusForStyling(status: DataProcessRunStatus, resultType: DataProce
     return 'RUNNING';
 }
 
-const columns = [
-    {
-        title: 'Time',
-        dataIndex: 'time',
-        key: 'time',
-        render: (value) => (
-            <Tooltip title={new Date(Number(value)).toUTCString()}>{new Date(Number(value)).toLocaleString()}</Tooltip>
-        ),
-    },
-    {
-        title: 'Duration',
-        dataIndex: 'duration',
-        key: 'duration',
-        render: (durationMs: number) => formatDuration(durationMs),
-    },
-    {
-        title: 'Run ID',
-        dataIndex: 'name',
-        key: 'name',
-    },
-    {
-        title: 'Task',
-        dataIndex: 'parentTemplate',
-        key: 'parentTemplate',
-        render: (parentTemplate) => <CompactEntityNameList entities={[parentTemplate]} />,
-    },
-    {
-        title: 'Status',
-        dataIndex: 'status',
-        key: 'status',
-        render: (status: any, row) => {
-            const statusForStyling = getStatusForStyling(status, row?.resultType);
-            const Icon = getExecutionRequestStatusIcon(statusForStyling);
-            const text = getExecutionRequestStatusDisplayText(statusForStyling);
-            const color = getExecutionRequestStatusDisplayColor(statusForStyling);
-            return (
-                <>
-                    <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
-                        {Icon && <Icon style={{ color }} />}
-                        <Typography.Text strong style={{ color, marginLeft: 8 }}>
-                            {text || 'N/A'}
-                        </Typography.Text>
-                    </div>
-                </>
-            );
-        },
-    },
-    {
-        title: 'Inputs',
-        dataIndex: 'inputs',
-        key: 'inputs',
-        render: (inputs) => <CompactEntityNameList entities={inputs} />,
-    },
-    {
-        title: 'Outputs',
-        dataIndex: 'outputs',
-        key: 'outputs',
-        render: (outputs) => <CompactEntityNameList entities={outputs} />,
-    },
-    {
-        title: '',
-        dataIndex: 'externalUrl',
-        key: 'externalUrl',
-        render: (externalUrl) =>
-            externalUrl && (
-                <Tooltip title="View task run details">
-                    <ExternalUrlLink href={externalUrl}>
-                        <DeliveredProcedureOutlined />
-                    </ExternalUrlLink>
-                </Tooltip>
-            ),
-    },
-];
-
 const PAGE_SIZE = 20;
 
 export const OperationsTab = () => {
+    const { t } = useTranslation();
     const { urn, entityData } = useEntityData();
     const [page, setPage] = useState(1);
+
+    const columns = [
+        {
+            title: t('entity.dataset.operations.table.time'),
+            dataIndex: 'time',
+            key: 'time',
+            render: (value) => (
+                <Tooltip title={new Date(Number(value)).toUTCString()}>{new Date(Number(value)).toLocaleString()}</Tooltip>
+            ),
+        },
+        {
+            title: t('entity.dataset.operations.table.duration'),
+            dataIndex: 'duration',
+            key: 'duration',
+            render: (durationMs: number) => formatDuration(durationMs),
+        },
+        {
+            title: t('entity.dataset.operations.table.runId'),
+            dataIndex: 'name',
+            key: 'name',
+        },
+        {
+            title: t('entity.dataset.operations.table.task'),
+            dataIndex: 'parentTemplate',
+            key: 'parentTemplate',
+            render: (parentTemplate) => <CompactEntityNameList entities={[parentTemplate]} />,
+        },
+        {
+            title: t('entity.dataset.operations.table.status'),
+            dataIndex: 'status',
+            key: 'status',
+            render: (status: any, row) => {
+                const statusForStyling = getStatusForStyling(status, row?.resultType);
+                const Icon = getExecutionRequestStatusIcon(statusForStyling);
+                const text = getExecutionRequestStatusDisplayText(statusForStyling);
+                const color = getExecutionRequestStatusDisplayColor(statusForStyling);
+                return (
+                    <>
+                        <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
+                            {Icon && <Icon style={{ color }} />}
+                            <Typography.Text strong style={{ color, marginLeft: 8 }}>
+                                {text || t('entity.dataset.operations.status.notAvailable')}
+                            </Typography.Text>
+                        </div>
+                    </>
+                );
+            },
+        },
+        {
+            title: t('entity.dataset.operations.table.inputs'),
+            dataIndex: 'inputs',
+            key: 'inputs',
+            render: (inputs) => <CompactEntityNameList entities={inputs} />,
+        },
+        {
+            title: t('entity.dataset.operations.table.outputs'),
+            dataIndex: 'outputs',
+            key: 'outputs',
+            render: (outputs) => <CompactEntityNameList entities={outputs} />,
+        },
+        {
+            title: '',
+            dataIndex: 'externalUrl',
+            key: 'externalUrl',
+            render: (externalUrl) =>
+                externalUrl && (
+                    <Tooltip title={t('entity.dataset.operations.tooltip.viewTaskRunDetails')}>
+                        <ExternalUrlLink href={externalUrl}>
+                            <DeliveredProcedureOutlined />
+                        </ExternalUrlLink>
+                    </Tooltip>
+                ),
+        },
+    ];
 
     // Fetch data across all siblings.
     const allUrns = [
@@ -219,7 +221,7 @@ export const OperationsTab = () => {
             {loading && (
                 <LoadingContainer>
                     <LoadingSvg height={80} width={80} />
-                    <LoadingText>Fetching runs...</LoadingText>
+                    <LoadingText>{t('entity.dataset.operations.loading')}</LoadingText>
                 </LoadingContainer>
             )}
             {!loading && (
