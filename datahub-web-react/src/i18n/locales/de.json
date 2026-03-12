@@ -791,7 +791,7 @@
       },
       "sidebar": {
         "documentation": "Dokumentation",
-        "owners": "Eigentümer"
+        "owners": "Besitzer"
       },
       "documentation": {
         "sectionTitle": "Dokumentation",
@@ -811,7 +811,7 @@
       },
       "incidents": {
         "sectionTitle": "Vorfälle",
-        "subtitle": "Verwalte laufende Datenprobleme für dieses Asset",
+        "subtitle": "Laufende Datenvorfälle für diesen Asset anzeigen und verwalten",
         "noIncidents": "Noch keine Vorfälle"
       },
       "emptyMessages": {
@@ -820,8 +820,8 @@
         "tagsDescription": "Taggen Sie Entitäten, um sie besser auffindbar zu machen und ihre wichtigsten Attribute hervorzuheben.",
         "terms": "Noch keine Begriffe",
         "termsDescription": "Wenden Sie Glossarbegriffe auf Entitäten an, um ihre Daten zu klassifizieren.",
-        "owners": "Noch keine Eigentümer",
-        "ownersDescription": "Das Hinzufügen von Eigentümern hilft Ihnen, den Überblick zu bewahren, wer für diese Daten verantwortlich ist.",
+        "owners": "Noch keine Besitzer",
+        "ownersDescription": "Das Hinzufügen von Besitzern hilft Ihnen, den Überblick zu bewahren, wer für diese Daten verantwortlich ist.",
         "properties": "Keine Eigenschaften",
         "propertiesDescription": "Eigenschaften werden hier angezeigt, wenn sie in Ihrer Datenquelle vorhanden sind.",
         "queries": "Noch keine Abfragen",
