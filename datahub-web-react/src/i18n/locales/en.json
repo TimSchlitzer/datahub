@@ -691,6 +691,7 @@
       },
       "incidents": {
         "sectionTitle": "Incidents",
+        "subtitle": "View and manage ongoing data incidents for this asset",
         "noIncidents": "No incidents yet"
       },
       "emptyMessages": {

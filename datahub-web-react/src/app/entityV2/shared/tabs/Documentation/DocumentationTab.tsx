@@ -3,6 +3,7 @@ import { Button as AntButton, Typography } from 'antd';
 import queryString from 'query-string';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData, useRouteToTab } from '@app/entity/shared/EntityContext';
@@ -46,6 +47,7 @@ interface Props {
 }
 
 export const DocumentationTab = ({ properties }: { properties?: Props }) => {
+    const { t } = useTranslation();
     const hideLinksButton = properties?.hideLinksButton;
     const { urn, entityData } = useEntityData();
 
@@ -82,7 +84,7 @@ export const DocumentationTab = ({ properties }: { properties?: Props }) => {
                                 type="text"
                                 onClick={() => routeToTab({ tabName: 'Documentation', tabParams: { editing: true } })}
                             >
-                                <EditOutlined /> Edit
+                                <EditOutlined /> {t('entity.shared.documentation.editButton')}
                             </AntButton>
                         </div>
                         <div>
@@ -104,7 +106,7 @@ export const DocumentationTab = ({ properties }: { properties?: Props }) => {
                             [<Editor content={displayedDescription} readOnly />]
                         ) : (
                             <DocumentationContainer>
-                                <Typography.Text type="secondary">No documentation added yet.</Typography.Text>
+                                <Typography.Text type="secondary">{t('entity.shared.emptyMessages.documentation')}</Typography.Text>
                             </DocumentationContainer>
                         )}
                         {!hideLinksButton && <RelatedSection />}
@@ -117,7 +119,7 @@ export const DocumentationTab = ({ properties }: { properties?: Props }) => {
                             data-testid="add-documentation"
                             onClick={() => routeToTab({ tabName: 'Documentation', tabParams: { editing: true } })}
                         >
-                            <PlusOutlined /> Add Documentation
+                            <PlusOutlined /> {t('entity.shared.documentation.addButton')}
                         </Button>
                     </EmptyTab>
                 </EmptyTabWrapper>

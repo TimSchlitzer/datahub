@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React, { Dispatch, SetStateAction } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { CreateIncidentButton } from '@app/entityV2/shared/tabs/Incident/CreateIncidentButton';
@@ -38,11 +39,12 @@ export const IncidentTitleContainer = ({
     setShowIncidentBuilder: Dispatch<SetStateAction<boolean>>;
     setEntity: Dispatch<SetStateAction<EntityStagedForIncident>>;
 }) => {
+    const { t } = useTranslation();
     return (
         <TitleContainer>
             <div className="left-section">
-                <IncidentListTitle>Incidents</IncidentListTitle>
-                <SubTitle>View and manage ongoing data incidents for this asset</SubTitle>
+                <IncidentListTitle>{t('entity.shared.incidents.sectionTitle')}</IncidentListTitle>
+                <SubTitle>{t('entity.shared.incidents.subtitle')}</SubTitle>
             </div>
             <CreateIncidentButton
                 privileges={privileges}

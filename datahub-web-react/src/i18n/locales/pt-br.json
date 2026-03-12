@@ -708,6 +708,7 @@
       },
       "incidents": {
         "sectionTitle": "Incidentes",
+        "subtitle": "Visualize e gerencie incidentes de dados em andamento para este ativo",
         "noIncidents": "Nenhum incidente ainda"
       },
       "emptyMessages": {

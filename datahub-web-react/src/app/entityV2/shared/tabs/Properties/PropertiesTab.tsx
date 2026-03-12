@@ -1,5 +1,6 @@
 import { Empty, Table } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -49,6 +50,7 @@ interface Props {
 }
 
 export const PropertiesTab = ({ renderType = TabRenderType.DEFAULT, properties }: Props) => {
+    const { t } = useTranslation();
     const fieldPath = properties?.fieldPath;
     const fieldUrn = properties?.fieldUrn;
     const fieldProperties = properties?.fieldProperties;
@@ -83,11 +85,11 @@ export const PropertiesTab = ({ renderType = TabRenderType.DEFAULT, properties }
     const propertyTableColumns = [
         {
             width: '40%',
-            title: 'Name',
+            title: t('entity.shared.properties.name'),
             render: (propertyRow: PropertyRow) => <NameColumn propertyRow={propertyRow} filterText={filterText} />,
         },
         {
-            title: 'Value',
+            title: t('entity.shared.properties.value'),
             ellipsis: true,
             render: (propertyRow: PropertyRow) => (
                 <ValuesColumn
@@ -137,7 +139,7 @@ export const PropertiesTab = ({ renderType = TabRenderType.DEFAULT, properties }
                 columns={propertyTableColumns}
                 dataSource={dataSource}
                 locale={{
-                    emptyText: <EmptyText description="No properties found" image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: <EmptyText description={t('entity.shared.emptyMessages.properties')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
                 }}
                 rowKey="qualifiedName"
                 expandable={{

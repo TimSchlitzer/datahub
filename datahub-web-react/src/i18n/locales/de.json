@@ -691,6 +691,7 @@
       },
       "incidents": {
         "sectionTitle": "Vorfälle",
+        "subtitle": "Verwalte laufende Datenprobleme für dieses Asset",
         "noIncidents": "Noch keine Vorfälle"
       },
       "emptyMessages": {

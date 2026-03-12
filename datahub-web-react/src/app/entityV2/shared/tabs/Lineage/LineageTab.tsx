@@ -1,5 +1,6 @@
 import { colors } from '@components';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -69,6 +70,7 @@ export function LineageTab({ properties, renderType }: Props) {
 }
 
 function WideLineageTab({ defaultDirection }: { defaultDirection: LineageDirection }) {
+    const { t } = useTranslation();
     const { isTabFullsize } = useContext(TabFullsizedContext);
     const { urn, entityType } = useEntityData();
     const isLineageV2 = useLineageV2();
@@ -80,10 +82,10 @@ function WideLineageTab({ defaultDirection }: { defaultDirection: LineageDirecti
                 <LineageTabHeader>
                     <LineageSwitchWrapper>
                         <LineageViewSwitch selected={isVisualizeView} onClick={() => setVisualizeView(true)}>
-                            Explorer
+                            {t('entity.shared.lineage.explorer')}
                         </LineageViewSwitch>
                         <LineageViewSwitch selected={!isVisualizeView} onClick={() => setVisualizeView(false)}>
-                            Impact Analysis
+                            {t('entity.shared.lineage.impactAnalysis')}
                         </LineageViewSwitch>
                     </LineageSwitchWrapper>
                 </LineageTabHeader>
