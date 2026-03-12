@@ -652,6 +652,76 @@
     "year_interval": "(0-1)[{{count}} ano];(2-inf)[{{count}} anos];"
   },
   "entity": {
+    "dataset": {
+      "tabs": {
+        "summary": "Resumo",
+        "columns": "Colunas",
+        "viewDefinition": "Definição da View",
+        "documentation": "Documentação",
+        "preview": "Visualização",
+        "lineage": "Linhagem",
+        "access": "Acesso",
+        "properties": "Propriedades",
+        "queries": "Consultas",
+        "stats": "Estatísticas",
+        "quality": "Qualidade",
+        "governance": "Governança",
+        "runs": "Execuções",
+        "incidents": "Incidentes"
+      }
+    },
+    "shared": {
+      "tabs": {
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualização",
+        "access": "Acesso",
+        "runs": "Execuções"
+      },
+      "sidebarTabs": {
+        "lineageDesc": "Visualizar as dependências upstream e downstream deste ativo de dados",
+        "propertiesDesc": "Visualizar propriedades adicionais sobre este ativo",
+        "columnsDesc": "Visualizar as colunas deste ativo de dados"
+      }
+    },
+    "dashboard": {
+      "tabs": {
+        "contents": "Conteúdos",
+        "datasets": "Conjuntos de Dados"
+      }
+    },
+    "chart": {
+      "tabs": {
+        "fields": "Campos",
+        "dashboards": "Painéis"
+      }
+    },
+    "dataJob": {
+      "tabs": {
+        "pipeline": "Pipeline"
+      }
+    },
+    "glossaryTerm": {
+      "tabs": {
+        "relatedAssets": "Ativos Relacionados",
+        "schema": "Esquema",
+        "relatedTerms": "Termos Relacionados"
+      }
+    },
+    "domain": {
+      "tabs": {
+        "assets": "Ativos",
+        "dataProducts": "Produtos de Dados"
+      }
+    },
+    "container": {
+      "tabs": {
+        "contents": "Conteúdos"
+      }
+    },
     "membershipThisGroupCannotEdit": "A associação a este grupo não pode ser editada no DataHub, pois é originária",
     "areSureDeleteThisDataProduct": "Tem certeza de que deseja excluir este produto de dados?",
     "manageView": "Gerenciar Views",
@@ -905,6 +975,7 @@
     "viewAll": "Ver tudo",
     "recentlyViewed": "Visualizados recentemente",
     "noAnnouncements": "Nenhum anúncio no momento!",
+    "announcements": "Anúncios",
     "onboarding": {
       "addDataSources": "Adicionar fontes de dados",
       "addDataSourcesSubtitle": "Conecte suas fontes de dados ao DataHub",
@@ -915,6 +986,81 @@
       "addDomains": "Criar domínios",
       "addDomainsSubtitle": "Organize seus ativos de dados em domínios",
       "addDomainsButton": "Criar domínio"
+    },
+    "reference": {
+      "learnMore": "Saiba mais",
+      "noneFound": "Nenhum encontrado",
+      "assets": {
+        "title": "Seus ativos",
+        "subtitle": "Coisas das quais você é proprietário",
+        "filter": "Filtrar ativos que você possui...",
+        "empty": "Você ainda não possui nenhum ativo.",
+        "learnMore": "sobre propriedade"
+      },
+      "domains": {
+        "title": "Seus domínios",
+        "subtitle": "Domínios dos quais você é proprietário",
+        "filter": "Filtrar domínios que você possui...",
+        "empty": "Você ainda não é proprietário de nenhum domínio.",
+        "learnMore": "sobre domínios"
+      },
+      "glossary": {
+        "title": "Seus termos do glossário",
+        "subtitle": "Termos do glossário que você possui",
+        "titleAlt": "Seu glossário",
+        "filter": "Filtrar termos e grupos do glossário...",
+        "empty": "Você ainda não criou nenhum termo ou grupo do glossário.",
+        "learnMore": "sobre itens do glossário"
+      },
+      "groups": {
+        "title": "Seus grupos",
+        "subtitle": "Os grupos ou equipes dos quais você faz parte",
+        "empty": "Você ainda não faz parte de nenhum grupo."
+      },
+      "tags": {
+        "title": "Suas tags",
+        "subtitle": "Tags que você criou",
+        "filter": "Filtrar tags que você possui...",
+        "empty": "Você ainda não criou nenhuma tag.",
+        "learnMore": "sobre tags"
+      },
+      "pinnedLinks": {
+        "title": "Links fixados",
+        "subtitle": "Links fixados pelos administradores do DataHub"
+      }
+    },
+    "insights": {
+      "foundational": {
+        "title": "Ativos fundamentais",
+        "subtitle": "Principais ativos de dados da sua organização com base em popularidade, atualidade e impacto"
+      },
+      "largestTables": "Maiores tabelas por número de linhas",
+      "recentlyCreated": {
+        "title": "Tabelas criadas recentemente",
+        "subtitle": "Tabelas criadas nas últimas 2 semanas"
+      },
+      "recentlyUpdated": {
+        "title": "Tabelas atualizadas recentemente",
+        "subtitle": "Tabelas atualizadas nas últimas 2 semanas"
+      },
+      "popularGlossary": {
+        "title": "Termos do glossário populares",
+        "subtitle": "Termos do glossário mais utilizados"
+      },
+      "newAssets": "Novos ativos",
+      "hideAnnouncements": "Ocultar anúncios"
+    },
+    "introduce": {
+      "beforeWeBegin": "Antes de começarmos",
+      "tellUsMore": "Conte-nos mais sobre você para que possamos personalizar sua experiência",
+      "selectRole": "Selecione sua função",
+      "selectTools": "Opcional – Selecione suas ferramentas de dados",
+      "continueTo": "Continuar para o DataHub",
+      "getStarted": "Começar",
+      "skip": "Pular",
+      "journeyTitle": "Comece sua jornada com dados",
+      "journeySubtitle": "Milhares de profissionais de dados usam o DataHub para descobrir dados confiáveis, garantir a qualidade dos dados e colaborar com seus colegas",
+      "selectPersona": "Selecionar persona"
     }
   },
   "ingest": {
@@ -1798,8 +1944,25 @@
     "clearAllFilters": "limpar todos os filtros",
     "clearSelectedView": "limpar a visualização selecionada",
     "clearAllFiltersAndView": "limpar todos os filtros e a visualização selecionada",
+    "filters": {
+      "matchAll": "Mostrar resultados que correspondam a",
+      "noFilters": "Nenhum filtro aplicado.",
+      "showResultsMatch": "Mostrar resultados que correspondam a",
+      "title": "Filtrar",
+      "basic": "Filtros Básicos",
+      "advanced": "Filtros Avançados",
+      "clearAll": "limpar tudo"
+    },
+    "sort": {
+      "tooltip": "Ordenar resultados da pesquisa",
+      "label": "Ordenar",
+      "labelBy": "Ordenar por"
+    },
     "sidebar": {
       "navigate": "Navegar",
+      "hide": "Ocultar painel de navegação",
+      "open": "Abrir painel de navegação",
+      "loadError": "Falha ao carregar a barra lateral.",
       "sortTooltip": "Ordenar resultados das pastas",
       "sort": "Ordenar",
       "sortBySize": "Tamanho (Padrão)",
@@ -1807,10 +1970,7 @@
       "sortByNameZA": "Nome Z a A",
       "noResults": "Nenhum resultado encontrado"
     },
-    "filters": {
-      "matchAll": "Mostrar resultados que correspondam a",
-      "noFilters": "Nenhum filtro aplicado."
-    }
+    "moreForYou": "Mais que pode te interessar"
   },
   "settings": {
     "ownershipTypeName": "Nome do tipo de propriedade",

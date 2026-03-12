@@ -1,6 +1,7 @@
 import { Button, colors } from '@components';
 import { Divider, Typography } from 'antd';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { SEARCH_RESULTS_BROWSE_SIDEBAR_ID } from '@app/onboarding/config/SearchOnboardingConfig';
@@ -41,13 +42,13 @@ const StyledEntitySidebarContainer = styled.div<{
         max-width ${PLATFORM_BROWSE_TRANSITION_MS}ms ease-in-out,
         min-width ${PLATFORM_BROWSE_TRANSITION_MS}ms ease-in-out;
 
-    background-color: #ffffff;
+    background-color: ${(props) => props.theme.colors.bg};
     border-radius: ${(props) =>
         props.$isShowNavBarRedesign ? props.theme.styles['border-radius-navbar-redesign'] : '8px'};
     box-shadow: ${(props) =>
         props.$isShowNavBarRedesign
             ? props.theme.styles['box-shadow-navbar-redesign']
-            : '0px 0px 5px rgba(0, 0, 0, 0.08)'};
+            : props.theme.colors.shadowNavbar};
 `;
 
 export const StyledSidebar = styled.div`
@@ -102,6 +103,7 @@ type Props = {
 };
 
 const BrowseSidebar = ({ visible }: Props) => {
+    const { t } = useTranslation();
     const isPlatformBrowseMode = useIsPlatformBrowseMode();
     const [isClosed, setIsClosed] = useState(false);
     const [isHidden, setIsHidden] = useState(false);
@@ -128,7 +130,7 @@ const BrowseSidebar = ({ visible }: Props) => {
                 <Controls isCollapsed={isClosed}>
                     {!isClosed ? (
                         <NavigateTitle level={5} isClosed={isClosed}>
-                            Navigate
+                            {t('search.sidebar.navigate')}
                         </NavigateTitle>
                     ) : null}
                     <Button

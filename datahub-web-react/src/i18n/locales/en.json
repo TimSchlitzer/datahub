@@ -635,6 +635,76 @@
     "year_interval": "(0-1)[{{count}} year];(2-inf)[{{count}} years];"
   },
   "entity": {
+    "dataset": {
+      "tabs": {
+        "summary": "Summary",
+        "columns": "Columns",
+        "viewDefinition": "View Definition",
+        "documentation": "Documentation",
+        "preview": "Preview",
+        "lineage": "Lineage",
+        "access": "Access",
+        "properties": "Properties",
+        "queries": "Queries",
+        "stats": "Stats",
+        "quality": "Quality",
+        "governance": "Governance",
+        "runs": "Runs",
+        "incidents": "Incidents"
+      }
+    },
+    "shared": {
+      "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs"
+      },
+      "sidebarTabs": {
+        "lineageDesc": "View this data asset's upstream and downstream dependencies",
+        "propertiesDesc": "View additional properties about this asset",
+        "columnsDesc": "View this data asset's columns"
+      }
+    },
+    "dashboard": {
+      "tabs": {
+        "contents": "Contents",
+        "datasets": "Datasets"
+      }
+    },
+    "chart": {
+      "tabs": {
+        "fields": "Fields",
+        "dashboards": "Dashboards"
+      }
+    },
+    "dataJob": {
+      "tabs": {
+        "pipeline": "Pipeline"
+      }
+    },
+    "glossaryTerm": {
+      "tabs": {
+        "relatedAssets": "Related Assets",
+        "schema": "Schema",
+        "relatedTerms": "Related Terms"
+      }
+    },
+    "domain": {
+      "tabs": {
+        "assets": "Assets",
+        "dataProducts": "Data Products"
+      }
+    },
+    "container": {
+      "tabs": {
+        "contents": "Contents"
+      }
+    },
     "membershipThisGroupCannotEddit": "Membership in this group cannot be edited in DataHub as it originates from",
     "areSureDeleteThisDataProduct": "Are you sure you want to delete this Data Product?",
     "manageView": "Manager Views",
@@ -881,6 +951,7 @@
     "viewAll": "View All",
     "recentlyViewed": "Recently Viewed",
     "noAnnouncements": "No announcements yet!",
+    "announcements": "Announcements",
     "onboarding": {
       "addDataSources": "Add Data Sources",
       "addDataSourcesSubtitle": "Connect data platforms",
@@ -891,6 +962,81 @@
       "addDomains": "Add Domains",
       "addDomainsSubtitle": "Configure data domains",
       "addDomainsButton": "Add"
+    },
+    "reference": {
+      "learnMore": "Learn more",
+      "noneFound": "None found",
+      "assets": {
+        "title": "Your assets",
+        "subtitle": "Things you are an owner of",
+        "filter": "Filter assets you own...",
+        "empty": "You do not own any assets yet.",
+        "learnMore": "about ownership"
+      },
+      "domains": {
+        "title": "Your domains",
+        "subtitle": "Domains that you are an owner of",
+        "filter": "Filter domains you own...",
+        "empty": "You are not the owner of any domains yet.",
+        "learnMore": "about domains"
+      },
+      "glossary": {
+        "title": "Your glossary terms",
+        "subtitle": "Glossary Terms that you own",
+        "titleAlt": "Your glossary",
+        "filter": "Filter glossary terms and groups...",
+        "empty": "You have not created any glossary terms or groups yet.",
+        "learnMore": "about glossary items"
+      },
+      "groups": {
+        "title": "Your groups",
+        "subtitle": "The groups or teams you are part of",
+        "empty": "You are not part of any groups yet."
+      },
+      "tags": {
+        "title": "Your tags",
+        "subtitle": "Tags that you created",
+        "filter": "Filter tags you own...",
+        "empty": "You have not created any tags yet.",
+        "learnMore": "about tags"
+      },
+      "pinnedLinks": {
+        "title": "Pinned Links",
+        "subtitle": "Links pinned by your DataHub admins"
+      }
+    },
+    "insights": {
+      "foundational": {
+        "title": "Foundational Assets",
+        "subtitle": "Key data assets for your organization based popularity, freshness, and impact"
+      },
+      "largestTables": "Largest Tables by Rows",
+      "recentlyCreated": {
+        "title": "Recently Created Tables",
+        "subtitle": "Tables created in the last 2 weeks"
+      },
+      "recentlyUpdated": {
+        "title": "Recently Updated Tables",
+        "subtitle": "Tables updated in the last 2 weeks"
+      },
+      "popularGlossary": {
+        "title": "Popular Glossary Terms",
+        "subtitle": "Commonly used glossary terms"
+      },
+      "newAssets": "New Assets",
+      "hideAnnouncements": "Hide announcements"
+    },
+    "introduce": {
+      "beforeWeBegin": "Before we begin",
+      "tellUsMore": "Tell us more about yourself, so we can personalize your experience",
+      "selectRole": "Select your Role",
+      "selectTools": "Optional - Select your Data Tools",
+      "continueTo": "Continue to DataHub",
+      "getStarted": "Get Started",
+      "skip": "Skip",
+      "journeyTitle": "Start your data journey",
+      "journeySubtitle": "Thousands of data professionals use DataHub to discover trusted data, ensure data quality and collaborate with their colleagues",
+      "selectPersona": "Select a Persona"
     }
   },
   "ingest": {
@@ -1774,8 +1920,25 @@
     "clearAllFilters": "Clear all filters",
     "clearSelectedView": "Clear selected view",
     "clearAllFiltersAndView": "Clear all filters and view",
+    "filters": {
+      "matchAll": "Show results matching",
+      "noFilters": "No filters applied.",
+      "showResultsMatch": "Show results that match",
+      "title": "Filter",
+      "basic": "Basic Filters",
+      "advanced": "Advanced Filters",
+      "clearAll": "clear all"
+    },
+    "sort": {
+      "tooltip": "Sort search results",
+      "label": "Sort",
+      "labelBy": "Sort by"
+    },
     "sidebar": {
       "navigate": "Navigate",
+      "hide": "Hide the navigation panel",
+      "open": "Open the navigation panel",
+      "loadError": "The sidebar failed to load.",
       "sortTooltip": "Sort folder results",
       "sort": "Sort",
       "sortBySize": "Size (Default)",
@@ -1783,10 +1946,7 @@
       "sortByNameZA": "Name Z to A",
       "noResults": "No results"
     },
-    "filters": {
-      "matchAll": "Show results matching",
-      "noFilters": "No filters applied."
-    }
+    "moreForYou": "More you may be interested in"
   },
   "settings": {
     "ownershipTypeName": "Ownership type name",

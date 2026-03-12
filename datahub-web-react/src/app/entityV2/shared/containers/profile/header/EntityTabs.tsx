@@ -37,7 +37,7 @@ export const EntityTabs = <T,>({ tabs, selectedTab }: Props) => {
 
     const finalTabs: Tab[] = tabs.map((t) => ({
         key: t.name,
-        name: t.name,
+        name: t.label ?? t.name,
         component: (
             <TabContent>
                 <t.component

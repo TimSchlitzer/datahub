@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -9,17 +10,18 @@ const Text = styled.div`
 `;
 
 export const EmptyGlossaryNodesYouOwn = () => {
+    const { t } = useTranslation();
     return (
         <Text>
-            You have not created any glossary terms or groups yet. <br />
+            {t('home.reference.glossary.empty')} <br />
             <a
                 target="_blank"
                 rel="noreferrer noopener"
                 href="https://docs.datahub.com/docs/glossary/business-glossary/"
             >
-                Learn more
+                {t('home.reference.learnMore')}
             </a>{' '}
-            about glossary items.
+            {t('home.reference.glossary.learnMore')}.
         </Text>
     );
 };

@@ -1,6 +1,7 @@
 import Icon from '@ant-design/icons/lib/components/Icon';
 import { Button, Tooltip } from 'antd';
 import React, { memo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import CollapseIcon from '@images/collapse.svg?react';
@@ -19,8 +20,9 @@ type Props = {
 };
 
 const ToggleSidebarButton = ({ isOpen, onClick }: Props) => {
+    const { t } = useTranslation();
     const [pauseTooltip, setPauseTooltip] = useState(false);
-    const title = isOpen ? 'Hide the navigation panel' : 'Open the navigation panel';
+    const title = isOpen ? t('search.sidebar.hide') : t('search.sidebar.open');
     const placement = isOpen ? 'bottom' : 'bottomRight';
 
     const onClickButton = () => {

@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -50,6 +51,7 @@ const ShowAll = styled(Link)`
 export const POPULAR_GLOSSARY_TERMS_ID = 'PopularGlossaryTerms';
 
 export const PopularGlossaryTerms = () => {
+    const { t } = useTranslation();
     const [loaded, setLoaded] = useState(false);
     const { isUserInitializing } = useContext(OnboardingContext);
     const userContext = useUserContext();
@@ -83,7 +85,7 @@ export const PopularGlossaryTerms = () => {
         [glossaryRecommendationModule],
     );
 
-    const title = 'Popular Glossary Terms';
+    const title = t('home.insights.popularGlossary.title');
     const handleViewAll = () => {
         analytics.event({
             type: EventType.HomePageClick,
@@ -124,17 +126,17 @@ export const PopularGlossaryTerms = () => {
             {!showSkeleton && !!recommendedGlossaryTerms.length && (
                 <InsightCard id={POPULAR_GLOSSARY_TERMS_ID} minWidth={340} maxWidth={500}>
                     <Header>
-                        <Tooltip title="Commonly used glossary terms" showArrow={false} placement="top">
+                        <Tooltip title={t('home.insights.popularGlossary.subtitle')} showArrow={false} placement="top">
                             <Title>{title}</Title>
                         </Tooltip>
                         <ShowAll to={PageRoutes.GLOSSARY} onClick={handleViewAll}>
-                            View all
+                            {t('home.viewAll')}
                         </ShowAll>
                     </Header>
                     <EntityLinkList
                         entities={recommendedGlossaryTerms}
                         loading={false}
-                        empty={recommendedGlossaryTerms?.length === 0 || 'No assets found'}
+                        empty={recommendedGlossaryTerms?.length === 0 || t('common.noResults')}
                         onClickEntity={handleClickEntity}
                     />
                 </InsightCard>

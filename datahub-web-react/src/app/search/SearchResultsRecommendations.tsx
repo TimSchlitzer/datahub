@@ -1,5 +1,6 @@
 import { Divider, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -33,6 +34,7 @@ type Props = {
 };
 
 export const SearchResultsRecommendations = ({ userUrn, query, filters }: Props) => {
+    const { t } = useTranslation();
     const scenario = ScenarioType.SearchResults;
     const { data } = useListRecommendationsQuery({
         variables: {
@@ -54,7 +56,7 @@ export const SearchResultsRecommendations = ({ userUrn, query, filters }: Props)
         <>
             {recommendationModules && !!recommendationModules.length && (
                 <RecommendationsContainer data-testid="recommendation-container-id">
-                    <RecommendationTitle level={3}>More you may be interested in</RecommendationTitle>
+                    <RecommendationTitle level={3}>{t('search.moreForYou')}</RecommendationTitle>
                     {recommendationModules &&
                         recommendationModules.map((module) => (
                             <RecommendationContainer>

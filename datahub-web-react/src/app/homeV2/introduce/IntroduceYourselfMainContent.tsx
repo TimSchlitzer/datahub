@@ -6,6 +6,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import { Button, Select, message } from 'antd';
 import { orderBy } from 'lodash';
 import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
@@ -260,6 +261,7 @@ const DEFAULT_PERSONA = PersonaType.TECHNICAL_USER;
 
 // TODO: Make section ordering dynamic based on populated data.
 export const IntroduceYourselfMainContent = () => {
+    const { t } = useTranslation();
     const userContext = useUserContext();
     const { refetchUser, user } = userContext;
     const defaultDataPlatforms = useGetDataPlatforms();
@@ -457,12 +459,12 @@ export const IntroduceYourselfMainContent = () => {
     return (
         <Container>
             <Content>
-                <Title>Before we begin</Title>
-                <Subtitle>Tell us more about yourself, so we can personalize your experience</Subtitle>
+                <Title>{t('home.introduce.beforeWeBegin')}</Title>
+                <Subtitle>{t('home.introduce.tellUsMore')}</Subtitle>
                 <SelectWrapper>
                     <AccountCircleOutlinedIcon />
                     <Select
-                        placeholder="Select your Role"
+                        placeholder={t('home.introduce.selectRole')}
                         suffixIcon={<KeyboardArrowDownOutlinedIcon />}
                         data-testid="introduce-role-select"
                         size="large"
@@ -481,7 +483,7 @@ export const IntroduceYourselfMainContent = () => {
                 <SelectWrapper>
                     <SettingsOutlinedIcon />
                     <Select
-                        placeholder="Optional - Select your Data Tools"
+                        placeholder={t('home.introduce.selectTools')}
                         size="large"
                         style={selectStyles}
                         onChange={(value) => setSelectedPlatforms(value)}
@@ -539,11 +541,11 @@ export const IntroduceYourselfMainContent = () => {
                     loading={loading}
                     disabled={!hasPersona}
                 >
-                    Get Started
+                    {t('home.introduce.getStarted')}
                 </DoneButton>
                 <Footer>
-                    <Tooltip placement="bottom" title="Continue to DataHub">
-                        <SkipButton onClick={onSkip}>Skip</SkipButton>
+                    <Tooltip placement="bottom" title={t('home.introduce.continueTo')}>
+                        <SkipButton onClick={onSkip}>{t('home.introduce.skip')}</SkipButton>
                     </Tooltip>
                 </Footer>
             </Content>

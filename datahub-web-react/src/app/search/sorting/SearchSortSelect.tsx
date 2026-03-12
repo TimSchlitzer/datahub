@@ -1,9 +1,9 @@
 import Icon, { CaretDownFilled } from '@ant-design/icons';
 import { Select, Tooltip } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-import { ANTD_GRAY } from '@app/entity/shared/constants';
 import { useSearchContext } from '@app/search/context/SearchContext';
 import { DEFAULT_SORT_OPTION, SORT_OPTIONS } from '@app/search/context/constants';
 
@@ -16,33 +16,34 @@ const SelectWrapper = styled.span`
 
     .ant-select-selection-item {
         // !important is necessary because updating Select styles for antd is impossible
-        color: ${ANTD_GRAY[8]} !important;
+        color: ${(props) => props.theme.colors.textSecondary} !important;
         font-weight: 700;
     }
 
     .ant-select-selection-placeholder {
-        color: ${ANTD_GRAY[8]};
+        color: ${(props) => props.theme.colors.textSecondary};
         font-weight: 700;
     }
 `;
 
 const StyledIcon = styled(Icon)`
-    color: ${ANTD_GRAY[8]};
+    color: ${(props) => props.theme.colors.textSecondary};
     font-size: 16px;
     margin-right: -8px;
 `;
 
 export default function SearchSortSelect() {
+    const { t } = useTranslation();
     const { selectedSortOption, setSelectedSortOption } = useSearchContext();
 
     const options = Object.entries(SORT_OPTIONS).map(([value, option]) => ({ value, label: option.label }));
 
     return (
-        <Tooltip title="Sort search results" showArrow={false} placement="left">
+        <Tooltip title={t('search.sort.tooltip')} showArrow={false} placement="left">
             <SelectWrapper>
                 <StyledIcon component={SortIcon} />
                 <Select
-                    placeholder="Sort"
+                    placeholder={t('search.sort.label')}
                     value={selectedSortOption === DEFAULT_SORT_OPTION ? null : selectedSortOption}
                     options={options}
                     bordered={false}

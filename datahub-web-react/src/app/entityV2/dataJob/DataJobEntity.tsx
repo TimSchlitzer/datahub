@@ -8,6 +8,7 @@ import {
     WarningCircle,
 } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
@@ -94,7 +95,9 @@ export class DataJobEntity implements Entity<DataJob> {
 
     useEntityQuery = useGetDataJobQuery;
 
-    renderProfile = (urn: string) => (
+    renderProfile = (urn: string) => {
+        const { t } = useTranslation();
+        return (
         <EntityProfile
             urn={urn}
             entityType={EntityType.DataJob}
@@ -105,27 +108,32 @@ export class DataJobEntity implements Entity<DataJob> {
             tabs={[
                 {
                     name: 'Documentation',
+                    label: t('entity.shared.tabs.documentation'),
                     component: DocumentationTab,
                     icon: FileText,
                 },
                 {
                     name: 'Pipeline',
+                    label: t('entity.dataJob.tabs.pipeline'),
                     component: DataJobFlowTab,
                     icon: Share,
                 },
                 {
                     name: 'Lineage',
+                    label: t('entity.shared.tabs.lineage'),
                     component: LineageTab,
                     icon: TreeStructure,
                     supportsFullsize: true,
                 },
                 {
                     name: 'Properties',
+                    label: t('entity.shared.tabs.properties'),
                     component: PropertiesTab,
                     icon: ListBullets,
                 },
                 {
                     name: 'Runs',
+                    label: t('entity.shared.tabs.runs'),
                     component: RunsTab,
                     icon: ArrowsClockwise,
                     display: {
@@ -135,6 +143,7 @@ export class DataJobEntity implements Entity<DataJob> {
                 },
                 {
                     name: 'Incidents',
+                    label: t('entity.shared.tabs.incidents'),
                     icon: WarningCircle,
                     component: IncidentTab,
                     getCount: (_, dataJob) => {
@@ -145,7 +154,8 @@ export class DataJobEntity implements Entity<DataJob> {
             sidebarSections={this.getSidebarSections()}
             sidebarTabs={this.getSidebarTabs()}
         />
-    );
+        );
+    };
 
     getSidebarSections = () => [
         { component: SidebarEntityHeader },
@@ -166,11 +176,14 @@ export class DataJobEntity implements Entity<DataJob> {
         { component: StatusSection },
     ];
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Lineage',
+            label: t('entity.shared.tabs.lineage'),
             component: LineageTab,
-            description: "View this data asset's upstream and downstream dependencies",
+            description: t('entity.shared.sidebarTabs.lineageDesc'),
             icon: TreeStructure,
             properties: {
                 actionType: SidebarTitleActionType.LineageExplore,
@@ -178,11 +191,13 @@ export class DataJobEntity implements Entity<DataJob> {
         },
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: ListBullets,
         },
     ];
+    };
 
     getOverridePropertiesFromEntity = (dataJob?: DataJob | null): GenericEntityProperties => {
         // TODO: Get rid of this once we have correctly formed platform coming back.

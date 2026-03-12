@@ -1,5 +1,6 @@
 import { Divider } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -90,6 +91,7 @@ export default function BasicFilters({
     const visibleFilters = shouldShowMoreDropdown ? filters?.slice(0, NUM_VISIBLE_FILTER_DROPDOWNS) : filters;
     const hiddenFilters = shouldShowMoreDropdown ? filters?.slice(NUM_VISIBLE_FILTER_DROPDOWNS) : [];
     const filterRendererRegistry = useFilterRendererRegistry();
+    const { t } = useTranslation();
 
     return (
         <span id={SEARCH_RESULTS_FILTERS_ID}>
@@ -130,7 +132,7 @@ export default function BasicFilters({
                         onClick={showAdvancedFilters}
                         marginTop={0}
                     >
-                        Advanced Filters
+                        {t('search.filters.advanced')}
                     </TextButton>
                 </FilterButtonsWrapper>
             </FlexSpacer>
@@ -150,7 +152,7 @@ export default function BasicFilters({
                             ))}
                         </FlexWrapper>
                         <TextButton type="text" onClick={onClearFilters} height={14} data-testid="clear-all-filters">
-                            clear all
+                            {t('search.filters.clearAll')}
                         </TextButton>
                     </FlexSpacer>
                 </>

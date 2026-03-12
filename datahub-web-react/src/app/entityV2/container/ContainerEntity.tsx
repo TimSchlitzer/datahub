@@ -1,6 +1,7 @@
 import { AppstoreOutlined, FileOutlined, UnlockOutlined } from '@ant-design/icons';
 import { Folder, ListBullets } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import AccessManagement from '@app/entity/shared/tabs/Dataset/AccessManagement/AccessManagement';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
@@ -78,7 +79,9 @@ export class ContainerEntity implements Entity<Container> {
 
     appconfig = useAppConfig;
 
-    renderProfile = (urn: string) => (
+    renderProfile = (urn: string) => {
+        const { t } = useTranslation();
+        return (
         <EntityProfile
             urn={urn}
             entityType={EntityType.Container}
@@ -89,6 +92,7 @@ export class ContainerEntity implements Entity<Container> {
             tabs={[
                 {
                     name: 'Summary',
+                    label: t('entity.shared.tabs.summary'),
                     component: ContainerSummaryTab,
                     icon: SUMMARY_TAB_ICON,
                     display: {
@@ -99,21 +103,25 @@ export class ContainerEntity implements Entity<Container> {
                 },
                 {
                     name: 'Contents',
+                    label: t('entity.container.tabs.contents'),
                     component: ContainerEntitiesTab,
                     icon: AppstoreOutlined,
                 },
                 {
                     name: 'Documentation',
+                    label: t('entity.shared.tabs.documentation'),
                     component: DocumentationTab,
                     icon: FileOutlined,
                 },
                 {
                     name: 'Properties',
+                    label: t('entity.shared.tabs.properties'),
                     component: PropertiesTab,
                     icon: ListBullets,
                 },
                 {
                     name: 'Access',
+                    label: t('entity.shared.tabs.access'),
                     component: AccessManagement,
                     icon: UnlockOutlined,
                     display: {
@@ -130,7 +138,8 @@ export class ContainerEntity implements Entity<Container> {
             sidebarSections={this.getSidebarSections()}
             sidebarTabs={this.getSidebarTabs()}
         />
-    );
+        );
+    };
 
     getSidebarSections = () => [
         {
@@ -172,14 +181,18 @@ export class ContainerEntity implements Entity<Container> {
         // },
     ];
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: ListBullets,
         },
     ];
+    };
 
     renderPreview = (previewType: PreviewType, data: Container) => {
         const genericProperties = this.getGenericEntityProperties(data);

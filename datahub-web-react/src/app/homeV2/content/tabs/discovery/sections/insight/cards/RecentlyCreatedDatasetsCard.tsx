@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SearchListInsightCard } from '@app/homeV2/content/tabs/discovery/sections/insight/cards/SearchListInsightCard';
 import {
@@ -13,12 +14,13 @@ const MAX_AGE_DAYS = 14;
 export const RECENTLY_CREATED_DATASETS_ID = 'RecentlyCreatedDatasets';
 
 export const RecentlyCreatedDatasetsCard = () => {
+    const { t } = useTranslation();
     return (
         <SearchListInsightCard
             id={RECENTLY_CREATED_DATASETS_ID}
             types={[EntityType.Dataset]}
-            tip="Tables created in the last 2 weeks"
-            title="Recently Created Tables"
+            tip={t('home.insights.recentlyCreated.subtitle')}
+            title={t('home.insights.recentlyCreated.title')}
             filters={buildRecentlyCreatedDatasetsFilters(MAX_AGE_DAYS)}
             sort={buildRecentlyCreatedDatasetsSort()}
         />

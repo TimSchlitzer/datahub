@@ -1,5 +1,6 @@
 import { Alert, Button } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const StyledAlert = styled(Alert)`
@@ -11,15 +12,16 @@ type Props = {
 };
 
 const SidebarLoadingError = ({ onClickRetry }: Props) => {
+    const { t } = useTranslation();
     return (
         <StyledAlert
-            message="The sidebar failed to load."
+            message={t('search.sidebar.loadError')}
             showIcon
             type="error"
             action={
                 onClickRetry && (
                     <Button size="small" danger onClick={onClickRetry}>
-                        Retry
+                        {t('common.retry')}
                     </Button>
                 )
             }

@@ -1,6 +1,7 @@
 import { AppstoreOutlined, FileOutlined, LayoutOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { BookmarkSimple } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewContext, PreviewType } from '@app/entityV2/Entity';
@@ -125,6 +126,7 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
     ];
 
     getProfileTabs = (): EntityTab[] => {
+        const { t } = useTranslation();
         const showSummaryTab = useShowAssetSummaryPage();
 
         return [
@@ -132,6 +134,7 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
                 ? [
                       {
                           name: 'Summary',
+                          label: t('entity.shared.tabs.summary'),
                           component: SummaryTab,
                           id: 'asset-summary-tab',
                       },
@@ -141,6 +144,7 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
                 ? [
                       {
                           name: 'Documentation',
+                          label: t('entity.shared.tabs.documentation'),
                           component: DocumentationTab,
                           icon: FileOutlined,
                       },
@@ -148,12 +152,14 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
                 : []),
             {
                 name: 'Related Assets',
+                label: t('entity.glossaryTerm.tabs.relatedAssets'),
                 getCount: useGlossaryRelatedAssetsTabCount,
                 component: GlossaryRelatedEntity,
                 icon: AppstoreOutlined,
             },
             {
                 name: 'Schema',
+                label: t('entity.glossaryTerm.tabs.schema'),
                 component: SchemaTab,
                 icon: LayoutOutlined,
                 properties: {
@@ -168,6 +174,7 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
             },
             {
                 name: 'Related Terms',
+                label: t('entity.glossaryTerm.tabs.relatedTerms'),
                 getCount: (entityData, _, loading) => {
                     const totalRelatedTerms = Object.keys(RelatedTermTypes).reduce((acc, curr) => {
                         return acc + (entityData?.[curr]?.total || 0);
@@ -179,20 +186,25 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
             },
             {
                 name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
                 component: PropertiesTab,
                 icon: UnorderedListOutlined,
             },
         ];
     };
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: UnorderedListOutlined,
         },
     ];
+    };
 
     getOverridePropertiesFromEntity = (glossaryTerm?: GlossaryTerm | null): GenericEntityProperties => {
         // if dataset has subTypes filled out, pick the most specific subtype and return it

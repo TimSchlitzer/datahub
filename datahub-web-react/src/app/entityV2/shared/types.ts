@@ -53,6 +53,7 @@ export type EntityTabProps = {
 
 export type EntityTab = {
     name: string;
+    label?: string; // Optional display label (for i18n); falls back to name if absent
     component: React.FunctionComponent<EntityTabProps>;
     icon?: React.FunctionComponent<any>;
     display?: {
@@ -67,6 +68,7 @@ export type EntityTab = {
 
 export type EntitySidebarTab = {
     name: string;
+    label?: string; // Optional display label (for i18n); falls back to name if absent
     component: React.FunctionComponent<EntityTabProps>;
     icon: React.FunctionComponent<any>;
     selectedIcon?: React.FunctionComponent<any>; // Icon to use when this tab is selected

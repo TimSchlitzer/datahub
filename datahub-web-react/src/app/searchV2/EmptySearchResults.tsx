@@ -1,12 +1,12 @@
 import { RocketOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
 import { useUserContext } from '@app/context/useUserContext';
-import { ANTD_GRAY_V2 } from '@app/entity/shared/constants';
 import { SuggestedText } from '@app/searchV2/suggestions/SearchQuerySugggester';
 import useGetSearchQueryInputs from '@app/searchV2/useGetSearchQueryInputs';
 import { navigateToSearchUrl } from '@app/searchV2/utils/navigateToSearchUrl';
@@ -16,21 +16,21 @@ import { FacetFilterInput, SearchSuggestion } from '@types';
 const NoDataContainer = styled.div`
     margin: 40px auto;
     font-size: 16px;
-    color: ${ANTD_GRAY_V2[8]};
+    color: ${(props) => props.theme.colors.textSecondary};
 `;
 
 const Section = styled.div`
     margin-bottom: 16px;
 `;
 
-function getRefineSearchText(filters: FacetFilterInput[], viewUrn?: string | null) {
+function getRefineSearchText(filters: FacetFilterInput[], t: (key: string) => string, viewUrn?: string | null) {
     let text = '';
     if (filters.length && viewUrn) {
-        text = 'clearing all filters and selected view';
+        text = t('search.clearAllFiltersAndView');
     } else if (filters.length) {
-        text = 'clearing all filters';
+        text = t('search.clearAllFilters');
     } else if (viewUrn) {
-        text = 'clearing the selected view';
+        text = t('search.clearSelectedView');
     }
 
     return text;
@@ -41,11 +41,12 @@ interface Props {
 }
 
 export default function EmptySearchResults({ suggestions }: Props) {
+    const { t } = useTranslation();
     const { query, filters, viewUrn } = useGetSearchQueryInputs();
     const history = useHistory();
     const userContext = useUserContext();
     const suggestText = suggestions.length > 0 ? suggestions[0].text : '';
-    const refineSearchText = getRefineSearchText(filters, viewUrn);
+    const refineSearchText = getRefineSearchText(filters, t, viewUrn);
 
     const onClickExploreAll = useCallback(() => {
         analytics.event({ type: EventType.SearchResultsExploreAllClickEvent });
@@ -66,25 +67,25 @@ export default function EmptySearchResults({ suggestions }: Props) {
 
     return (
         <NoDataContainer>
-            <Section>No results found for &quot;{query}&quot;</Section>
+            <Section>{t('search.noResultsFor')} &quot;{query}&quot;</Section>
             {refineSearchText && (
                 <>
-                    Try <SuggestedText onClick={clearFiltersAndView}>{refineSearchText}</SuggestedText>{' '}
+                    {t('search.try')} <SuggestedText onClick={clearFiltersAndView}>{refineSearchText}</SuggestedText>{' '}
                     {suggestText && (
                         <>
-                            or searching for <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
+                            {t('search.orSearchFor')} <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
                         </>
                     )}
                 </>
             )}
             {!refineSearchText && suggestText && (
                 <>
-                    Did you mean <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
+                    {t('search.didYouMean')} <SuggestedText onClick={searchForSuggestion}>{suggestText}</SuggestedText>
                 </>
             )}
             {!refineSearchText && !suggestText && (
                 <Button onClick={onClickExploreAll}>
-                    <RocketOutlined /> Explore all
+                    <RocketOutlined /> {t('search.exploreAll')}
                 </Button>
             )}
         </NoDataContainer>

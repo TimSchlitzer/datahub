@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { ChartLine, ListBullets, TreeStructure } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
@@ -98,7 +99,9 @@ export class ChartEntity implements Entity<Chart> {
 
     useEntityQuery = useGetChartQuery;
 
-    renderProfile = (urn: string) => (
+    renderProfile = (urn: string) => {
+        const { t } = useTranslation();
+        return (
         <EntityProfile
             urn={urn}
             entityType={EntityType.Chart}
@@ -112,6 +115,7 @@ export class ChartEntity implements Entity<Chart> {
             tabs={[
                 {
                     name: 'Summary',
+                    label: t('entity.shared.tabs.summary'),
                     component: ChartSummaryTab,
                     icon: SUMMARY_TAB_ICON,
                     display: {
@@ -124,11 +128,13 @@ export class ChartEntity implements Entity<Chart> {
                 },
                 {
                     name: 'Documentation',
+                    label: t('entity.shared.tabs.documentation'),
                     component: DocumentationTab,
                     icon: FileOutlined,
                 },
                 {
                     name: 'Fields',
+                    label: t('entity.chart.tabs.fields'),
                     component: InputFieldsTab,
                     icon: LayoutOutlined,
                     display: {
@@ -138,6 +144,7 @@ export class ChartEntity implements Entity<Chart> {
                 },
                 {
                     name: 'Preview',
+                    label: t('entity.shared.tabs.preview'),
                     component: EmbedTab,
                     icon: EyeOutlined,
                     display: {
@@ -151,6 +158,7 @@ export class ChartEntity implements Entity<Chart> {
                 },
                 {
                     name: 'Lineage',
+                    label: t('entity.shared.tabs.lineage'),
                     component: LineageTab,
                     icon: PartitionOutlined,
                     properties: {
@@ -160,11 +168,13 @@ export class ChartEntity implements Entity<Chart> {
                 },
                 {
                     name: 'Properties',
+                    label: t('entity.shared.tabs.properties'),
                     component: PropertiesTab,
                     icon: UnorderedListOutlined,
                 },
                 {
                     name: 'Dashboards',
+                    label: t('entity.chart.tabs.dashboards'),
                     component: ChartDashboardsTab,
                     icon: DashboardOutlined,
                     display: {
@@ -174,6 +184,7 @@ export class ChartEntity implements Entity<Chart> {
                 },
                 {
                     name: 'Incidents',
+                    label: t('entity.shared.tabs.incidents'),
                     getCount: (_, chart, loading) => {
                         return !loading ? chart?.chart?.activeIncidents?.total : undefined;
                     },
@@ -184,7 +195,8 @@ export class ChartEntity implements Entity<Chart> {
             sidebarSections={this.getSidebarSections()}
             sidebarTabs={this.getSidebarTabs()}
         />
-    );
+        );
+    };
 
     getSidebarSections = () => [
         {
@@ -228,11 +240,14 @@ export class ChartEntity implements Entity<Chart> {
         },
     ];
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Lineage',
+            label: t('entity.shared.tabs.lineage'),
             component: LineageTab,
-            description: "View this data asset's upstream and downstream dependencies",
+            description: t('entity.shared.sidebarTabs.lineageDesc'),
             icon: TreeStructure,
             properties: {
                 actionType: SidebarTitleActionType.LineageExplore,
@@ -240,11 +255,13 @@ export class ChartEntity implements Entity<Chart> {
         },
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: ListBullets,
         },
     ];
+    };
 
     getOverridePropertiesFromEntity = (chart?: Chart | null): GenericEntityProperties => {
         // TODO: Get rid of this once we have correctly formed platform coming back.

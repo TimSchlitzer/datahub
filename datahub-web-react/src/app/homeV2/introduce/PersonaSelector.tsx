@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { getColor } from '@components/theme/utils';
@@ -60,10 +61,11 @@ type Props = {
 };
 
 export const PersonaSelector = ({ onSelect, selectedPersona }: Props) => {
+    const { t } = useTranslation();
     return (
         <PersonaSelectorContainer>
             <Heading size="md" type="h4" color="gray">
-                Select a Persona
+                {t('home.introduce.selectPersona')}
             </Heading>
             {PERSONA_TYPES_TO_DISPLAY.map((urn) => (
                 <PersonaCard onClick={() => onSelect(urn)} key={urn} selected={urn === selectedPersona}>

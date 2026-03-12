@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SearchListInsightCard } from '@app/homeV2/content/tabs/discovery/sections/insight/cards/SearchListInsightCard';
 import {
@@ -11,10 +12,11 @@ import { EntityType } from '@types';
 export const MOST_ROWS_ID = 'MostRows';
 
 export const MostRowsCard = () => {
+    const { t } = useTranslation();
     return (
         <SearchListInsightCard
             id={MOST_ROWS_ID}
-            title="Largest Tables by Rows"
+            title={t('home.insights.largestTables')}
             types={[EntityType.Dataset]}
             filters={buildMostRowsFilters()}
             sort={buildMostRowsSort()}

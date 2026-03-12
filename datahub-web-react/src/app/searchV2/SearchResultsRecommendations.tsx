@@ -1,8 +1,8 @@
 import { Divider, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-import { ANTD_GRAY } from '@app/entity/shared/constants';
 import { RecommendationModule } from '@app/recommendations/RecommendationModule';
 
 import { useListRecommendationsQuery } from '@graphql/recommendations.generated';
@@ -23,7 +23,7 @@ const ThinDivider = styled(Divider)`
 `;
 
 const RecommendationTitle = styled(Typography.Title)`
-    color: ${ANTD_GRAY[7]};
+    color: ${(props) => props.theme.colors.textSecondary};
 `;
 
 type Props = {
@@ -33,6 +33,7 @@ type Props = {
 };
 
 export const SearchResultsRecommendations = ({ userUrn, query, filters }: Props) => {
+    const { t } = useTranslation();
     const scenario = ScenarioType.SearchResults;
     const { data } = useListRecommendationsQuery({
         variables: {
@@ -54,7 +55,7 @@ export const SearchResultsRecommendations = ({ userUrn, query, filters }: Props)
         <>
             {!!recommendationModules?.length && (
                 <RecommendationsContainer data-testid="recommendation-container-id">
-                    <RecommendationTitle level={3}>More you may be interested in</RecommendationTitle>
+                    <RecommendationTitle level={3}>{t('search.moreForYou')}</RecommendationTitle>
                     {recommendationModules.map((module) => (
                         <RecommendationContainer key={module.moduleId}>
                             <RecommendationTitle level={5}>{module.title}</RecommendationTitle>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -9,14 +10,15 @@ const Text = styled.div`
 `;
 
 export const EmptyAssetsYouOwn = () => {
+    const { t } = useTranslation();
     return (
         <Text>
-            You do not own any assets yet.
+            {t('home.reference.assets.empty')}
             <br />
             <a target="_blank" rel="noreferrer noopener" href="https://docs.datahub.com/docs/ownership/ownership-types">
-                Learn more
+                {t('home.reference.learnMore')}
             </a>{' '}
-            about ownership.
+            {t('home.reference.assets.learnMore')}.
         </Text>
     );
 };

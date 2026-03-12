@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -9,5 +10,6 @@ const Text = styled.div`
 `;
 
 export const EmptyGroupsYouAreIn = () => {
-    return <Text>You are not part of any groups yet.</Text>;
+    const { t } = useTranslation();
+    return <Text>{t('home.reference.groups.empty')}</Text>;
 };

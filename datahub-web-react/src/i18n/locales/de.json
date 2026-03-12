@@ -635,6 +635,76 @@
     "year_interval": "(0-1)[{{count}} Jahr];(2-inf)[{{count}} Jahre];"
   },
   "entity": {
+    "dataset": {
+      "tabs": {
+        "summary": "Zusammenfassung",
+        "columns": "Spalten",
+        "viewDefinition": "View-Definition",
+        "documentation": "Dokumentation",
+        "preview": "Vorschau",
+        "lineage": "Herkunft",
+        "access": "Zugriff",
+        "properties": "Eigenschaften",
+        "queries": "Abfragen",
+        "stats": "Statistiken",
+        "quality": "Qualität",
+        "governance": "Governance",
+        "runs": "Ausführungen",
+        "incidents": "Vorfälle"
+      }
+    },
+    "shared": {
+      "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Ausführungen"
+      },
+      "sidebarTabs": {
+        "lineageDesc": "Zeigen Sie die upstream- und downstream-Abhängigkeiten dieses Daten-Assets an",
+        "propertiesDesc": "Zusätzliche Eigenschaften dieses Assets anzeigen",
+        "columnsDesc": "Zeigen Sie die Spalten dieses Daten-Assets an"
+      }
+    },
+    "dashboard": {
+      "tabs": {
+        "contents": "Inhalte",
+        "datasets": "Datensätze"
+      }
+    },
+    "chart": {
+      "tabs": {
+        "fields": "Felder",
+        "dashboards": "Dashboards"
+      }
+    },
+    "dataJob": {
+      "tabs": {
+        "pipeline": "Pipeline"
+      }
+    },
+    "glossaryTerm": {
+      "tabs": {
+        "relatedAssets": "Verwandte Assets",
+        "schema": "Schema",
+        "relatedTerms": "Verwandte Begriffe"
+      }
+    },
+    "domain": {
+      "tabs": {
+        "assets": "Assets",
+        "dataProducts": "Datenprodukte"
+      }
+    },
+    "container": {
+      "tabs": {
+        "contents": "Inhalte"
+      }
+    },
     "membershipThisGroupCannotEddit": "Die Mitgliedschaft in dieser Gruppe kann in DataHub nicht bearbeitet werden, da sie stammt aus",
     "areSureDeleteThisDataProduct": "Möchten Sie dieses Datenprodukt wirklich löschen?",
     "manageView": "Ansichten verwalten",
@@ -881,6 +951,7 @@
     "viewAll": "Alle anzeigen",
     "recentlyViewed": "Zuletzt angesehen",
     "noAnnouncements": "Noch keine Ankündigungen!",
+    "announcements": "Ankündigungen",
     "onboarding": {
       "addDataSources": "Datenquellen hinzufügen",
       "addDataSourcesSubtitle": "Datenplattformen verbinden",
@@ -891,6 +962,81 @@
       "addDomains": "Domänen hinzufügen",
       "addDomainsSubtitle": "Datendomänen konfigurieren",
       "addDomainsButton": "Hinzufügen"
+    },
+    "reference": {
+      "learnMore": "Mehr erfahren",
+      "noneFound": "Keine gefunden",
+      "assets": {
+        "title": "Ihre Assets",
+        "subtitle": "Dinge, bei denen Sie Eigentümer sind",
+        "filter": "Assets filtern, die Sie besitzen...",
+        "empty": "Sie besitzen noch keine Assets.",
+        "learnMore": "über Eigentümerschaft"
+      },
+      "domains": {
+        "title": "Ihre Domänen",
+        "subtitle": "Domänen, bei denen Sie Eigentümer sind",
+        "filter": "Domänen filtern, die Sie besitzen...",
+        "empty": "Sie sind noch nicht Eigentümer einer Domäne.",
+        "learnMore": "über Domänen"
+      },
+      "glossary": {
+        "title": "Ihre Glossarbegriffe",
+        "subtitle": "Glossarbegriffe, die Ihnen gehören",
+        "titleAlt": "Ihr Glossar",
+        "filter": "Glossarbegriffe und -gruppen filtern...",
+        "empty": "Sie haben noch keine Glossarbegriffe oder -gruppen erstellt.",
+        "learnMore": "über Glossareinträge"
+      },
+      "groups": {
+        "title": "Ihre Gruppen",
+        "subtitle": "Die Gruppen oder Teams, denen Sie angehören",
+        "empty": "Sie sind noch kein Mitglied einer Gruppe."
+      },
+      "tags": {
+        "title": "Ihre Tags",
+        "subtitle": "Tags, die Sie erstellt haben",
+        "filter": "Tags filtern, die Sie besitzen...",
+        "empty": "Sie haben noch keine Tags erstellt.",
+        "learnMore": "über Tags"
+      },
+      "pinnedLinks": {
+        "title": "Angeheftete Links",
+        "subtitle": "Links, die von Ihren DataHub-Administratoren angeheftet wurden"
+      }
+    },
+    "insights": {
+      "foundational": {
+        "title": "Grundlegende Assets",
+        "subtitle": "Wichtige Daten-Assets Ihrer Organisation basierend auf Popularität, Aktualität und Auswirkung"
+      },
+      "largestTables": "Größte Tabellen nach Zeilenanzahl",
+      "recentlyCreated": {
+        "title": "Kürzlich erstellte Tabellen",
+        "subtitle": "In den letzten 2 Wochen erstellte Tabellen"
+      },
+      "recentlyUpdated": {
+        "title": "Kürzlich aktualisierte Tabellen",
+        "subtitle": "In den letzten 2 Wochen aktualisierte Tabellen"
+      },
+      "popularGlossary": {
+        "title": "Beliebte Glossarbegriffe",
+        "subtitle": "Häufig verwendete Glossarbegriffe"
+      },
+      "newAssets": "Neue Assets",
+      "hideAnnouncements": "Ankündigungen ausblenden"
+    },
+    "introduce": {
+      "beforeWeBegin": "Bevor wir beginnen",
+      "tellUsMore": "Erzählen Sie uns mehr über sich, damit wir Ihre Erfahrung personalisieren können",
+      "selectRole": "Wählen Sie Ihre Rolle",
+      "selectTools": "Optional – Wählen Sie Ihre Datenwerkzeuge",
+      "continueTo": "Weiter zu DataHub",
+      "getStarted": "Loslegen",
+      "skip": "Überspringen",
+      "journeyTitle": "Beginnen Sie Ihre Datenreise",
+      "journeySubtitle": "Tausende von Datenprofis nutzen DataHub, um vertrauenswürdige Daten zu entdecken, Datenqualität sicherzustellen und mit ihren Kollegen zusammenzuarbeiten",
+      "selectPersona": "Persona auswählen"
     }
   },
   "ingest": {
@@ -1774,8 +1920,25 @@
     "clearAllFilters": "Alle Filter zurücksetzen",
     "clearSelectedView": "Ausgewählte Ansicht zurücksetzen",
     "clearAllFiltersAndView": "Alle Filter und Ansicht zurücksetzen",
+    "filters": {
+      "matchAll": "Ergebnisse anzeigen, die übereinstimmen",
+      "noFilters": "Keine Filter angewendet.",
+      "showResultsMatch": "Ergebnisse anzeigen, die übereinstimmen mit",
+      "title": "Filter",
+      "basic": "Einfache Filter",
+      "advanced": "Erweiterte Filter",
+      "clearAll": "alle zurücksetzen"
+    },
+    "sort": {
+      "tooltip": "Suchergebnisse sortieren",
+      "label": "Sortieren",
+      "labelBy": "Sortieren nach"
+    },
     "sidebar": {
       "navigate": "Navigieren",
+      "hide": "Navigationsbereich ausblenden",
+      "open": "Navigationsbereich öffnen",
+      "loadError": "Die Seitenleiste konnte nicht geladen werden.",
       "sortTooltip": "Ordnerergebnisse sortieren",
       "sort": "Sortieren",
       "sortBySize": "Größe (Standard)",
@@ -1783,10 +1946,7 @@
       "sortByNameZA": "Name Z bis A",
       "noResults": "Keine Ergebnisse"
     },
-    "filters": {
-      "matchAll": "Ergebnisse anzeigen, die übereinstimmen",
-      "noFilters": "Keine Filter angewendet."
-    }
+    "moreForYou": "Mehr, das Sie interessieren könnte"
   },
   "settings": {
     "ownershipTypeName": "Ownership Typ Name",

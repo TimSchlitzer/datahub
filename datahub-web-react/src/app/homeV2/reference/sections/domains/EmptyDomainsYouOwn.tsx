@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -9,14 +10,15 @@ const Text = styled.div`
 `;
 
 export const EmptyDomainsYouOwn = () => {
+    const { t } = useTranslation();
     return (
         <Text>
-            You are not the owner of any domains yet.
+            {t('home.reference.domains.empty')}
             <br />
             <a target="_blank" rel="noreferrer noopener" href="https://docs.datahub.com/docs/domains">
-                Learn more
+                {t('home.reference.learnMore')}
             </a>{' '}
-            about domains.
+            {t('home.reference.domains.learnMore')}.
         </Text>
     );
 };

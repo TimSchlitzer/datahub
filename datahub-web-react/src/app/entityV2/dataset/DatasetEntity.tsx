@@ -13,6 +13,7 @@ import {
 } from '@ant-design/icons';
 import { Columns, ListBullets, Table, TreeStructure } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
@@ -171,32 +172,38 @@ export class DatasetEntity implements Entity<Dataset> {
         // },
     ];
 
-    getSidebarTabs = () => [
-        {
-            name: 'Lineage',
-            component: LineageTab,
-            description: "View this data asset's upstream and downstream dependencies",
-            icon: TreeStructure,
-            properties: {
-                actionType: SidebarTitleActionType.LineageExplore,
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
+            {
+                name: 'Lineage',
+                label: t('entity.dataset.tabs.lineage'),
+                component: LineageTab,
+                description: "View this data asset's upstream and downstream dependencies",
+                icon: TreeStructure,
+                properties: {
+                    actionType: SidebarTitleActionType.LineageExplore,
+                },
             },
-        },
-        {
-            name: 'Columns',
-            component: SchemaTab,
-            description: "View this data asset's columns",
-            icon: Columns,
-            properties: {
-                fullHeight: true,
+            {
+                name: 'Columns',
+                label: t('entity.dataset.tabs.columns'),
+                component: SchemaTab,
+                description: "View this data asset's columns",
+                icon: Columns,
+                properties: {
+                    fullHeight: true,
+                },
             },
-        },
-        {
-            name: 'Properties',
-            component: PropertiesTab,
-            description: 'View additional properties about this asset',
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.dataset.tabs.properties'),
+                component: PropertiesTab,
+                description: 'View additional properties about this asset',
+                icon: ListBullets,
+            },
+        ];
+    };
 
     #shouldMergeInLineage(dataset?: Dataset | null, flags?: FeatureFlagsConfig): boolean {
         // Lineage query must include platform and typeNames on dataset and its sibling
@@ -244,11 +251,13 @@ export class DatasetEntity implements Entity<Dataset> {
 
     getProfileTabs = (): EntityTab[] => {
         const showSummaryTab = useShowDatasetSummaryPage();
+        const { t } = useTranslation();
         return [
             ...(showSummaryTab
                 ? [
                       {
                           name: 'Summary',
+                          label: t('entity.dataset.tabs.summary'),
                           component: SummaryTab,
                           icon: SUMMARY_TAB_ICON,
                       },
@@ -256,19 +265,21 @@ export class DatasetEntity implements Entity<Dataset> {
                 : []),
             {
                 name: 'Columns',
+                label: t('entity.dataset.tabs.columns'),
                 component: SchemaTab,
                 icon: LayoutOutlined,
                 getCount: useGetColumnTabCount,
             },
             {
                 name: 'View Definition',
+                label: t('entity.dataset.tabs.viewDefinition'),
                 component: ViewDefinitionTab,
                 icon: CodeOutlined,
                 display: {
                     visible: (_, dataset: GetDatasetQuery) =>
                         !!dataset?.dataset?.viewProperties?.logic ||
                         !!dataset?.dataset?.subTypes?.typeNames
-                            ?.map((t) => t.toLocaleLowerCase())
+                            ?.map((tabType) => tabType.toLocaleLowerCase())
                             .includes(SUBTYPES.VIEW.toLocaleLowerCase()),
                     enabled: (_, dataset: GetDatasetQuery) => !!dataset?.dataset?.viewProperties?.logic,
                 },
@@ -277,6 +288,7 @@ export class DatasetEntity implements Entity<Dataset> {
                 ? [
                       {
                           name: 'Documentation',
+                          label: t('entity.dataset.tabs.documentation'),
                           component: DocumentationTab,
                           icon: FileOutlined,
                       },
@@ -284,6 +296,7 @@ export class DatasetEntity implements Entity<Dataset> {
                 : []),
             {
                 name: 'Preview',
+                label: t('entity.dataset.tabs.preview'),
                 component: EmbedTab,
                 icon: EyeOutlined,
                 display: {
@@ -293,11 +306,13 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: 'Lineage',
+                label: t('entity.dataset.tabs.lineage'),
                 component: LineageTab,
                 icon: PartitionOutlined,
             },
             {
                 name: 'Access',
+                label: t('entity.dataset.tabs.access'),
                 component: AccessManagement,
                 icon: UnlockOutlined,
                 display: {
@@ -307,6 +322,7 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: 'Properties',
+                label: t('entity.dataset.tabs.properties'),
                 component: PropertiesTab,
                 icon: UnorderedListOutlined,
                 getCount: (_, dataset: GetDatasetQuery) => {
@@ -318,6 +334,7 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: 'Queries',
+                label: t('entity.dataset.tabs.queries'),
                 component: QueriesTab,
                 icon: ConsoleSqlOutlined,
                 display: {
@@ -327,6 +344,7 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: 'Stats',
+                label: t('entity.dataset.tabs.stats'),
                 component: StatsTabWrapper,
                 icon: FundOutlined,
                 display: {
@@ -340,11 +358,13 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: QUALITY_TAB_NAME,
+                label: t('entity.dataset.tabs.quality'),
                 component: AcrylValidationsTab, // Use SaaS specific Validations Tab.
                 icon: CheckCircleOutlined,
             },
             {
                 name: GOVERNANCE_TAB_NAME,
+                label: t('entity.dataset.tabs.governance'),
                 icon: () => (
                     <span
                         style={{
@@ -363,7 +383,8 @@ export class DatasetEntity implements Entity<Dataset> {
                 },
             },
             {
-                name: 'Runs', // TODO: Rename this to DatasetRunsTab.
+                name: 'Runs',
+                label: t('entity.dataset.tabs.runs'),
                 component: OperationsTab,
                 display: {
                     visible: (_, dataset: GetDatasetQuery) => {
@@ -376,6 +397,7 @@ export class DatasetEntity implements Entity<Dataset> {
             },
             {
                 name: 'Incidents',
+                label: t('entity.dataset.tabs.incidents'),
                 icon: WarningOutlined,
                 component: IncidentTab,
                 getCount: (_, dataset) => {

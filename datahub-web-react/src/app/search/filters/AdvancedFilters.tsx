@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -44,6 +45,7 @@ export default function AdvancedFilters({
     showBasicFilters,
     onChangeUnionType,
 }: Props) {
+    const { t } = useTranslation();
     const { filterField, setFilterField, onFilterFieldSelect, onSelectValueFromModal } = useAdvancedSearchSelectFilters(
         { selectedFilters: activeFilters, onFilterSelect: onChangeFilters },
     );
@@ -56,7 +58,7 @@ export default function AdvancedFilters({
         <>
             {activeFilters?.length >= 2 && (
                 <AnyAllToggle>
-                    Show results that match{' '}
+                    {t('search.filters.showResultsMatch')}{' '}
                     <AdvancedSearchFilterOverallUnionTypeSelect
                         unionType={unionType}
                         onUpdate={(newValue) => onChangeUnionType(newValue)}
@@ -94,12 +96,12 @@ export default function AdvancedFilters({
                             isCompact
                         />
                     ))}
-                    {!activeFilters.length && <EmptyStateSection>No filters applied.</EmptyStateSection>}
+                    {!activeFilters.length && <EmptyStateSection>{t('search.filters.noFilters')}</EmptyStateSection>}
                 </FlexWrapper>
                 <FilterButtonsWrapper>
                     {showSaveViewButton && <SaveViewButton activeFilters={activeFilters} unionType={unionType} />}
                     <TextButton disabled={onlyShowAdvancedFilters} type="text" onClick={showBasicFilters} marginTop={0}>
-                        Basic Filters
+                        {t('search.filters.basic')}
                     </TextButton>
                 </FilterButtonsWrapper>
             </FlexSpacer>

@@ -1,6 +1,7 @@
 import { AppstoreOutlined, FileDoneOutlined, FileOutlined, UnorderedListOutlined } from '@ant-design/icons';
 import { Globe, ListBullets } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
 import DataProductsTab from '@app/entityV2/domain/DataProductsTab/DataProductsTab';
@@ -125,27 +126,34 @@ export class DomainEntity implements Entity<Domain> {
         },
     ];
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: ListBullets,
         },
     ];
+    };
 
     getProfileTabs = (): EntityTab[] => {
+        const { t } = useTranslation();
         const showSummaryTab = useShowAssetSummaryPage();
         return [
             {
                 id: EntityProfileTab.SUMMARY_TAB,
                 name: 'Summary',
+                label: t('entity.shared.tabs.summary'),
                 component: showSummaryTab ? SummaryTab : DomainSummaryTab,
                 icon: SUMMARY_TAB_ICON,
             },
             {
                 id: EntityProfileTab.DOMAIN_ENTITIES_TAB,
                 name: 'Assets',
+                label: t('entity.domain.tabs.assets'),
                 getCount: (entityData, _) => {
                     return entityData?.entities?.total;
                 },
@@ -157,6 +165,7 @@ export class DomainEntity implements Entity<Domain> {
                       {
                           id: EntityProfileTab.DOCUMENTATION_TAB,
                           name: 'Documentation',
+                          label: t('entity.shared.tabs.documentation'),
                           component: DocumentationTab,
                           icon: FileOutlined,
                       },
@@ -165,6 +174,7 @@ export class DomainEntity implements Entity<Domain> {
             {
                 id: EntityProfileTab.DATA_PRODUCTS_TAB,
                 name: 'Data Products',
+                label: t('entity.domain.tabs.dataProducts'),
                 getCount: (entityData, _) => {
                     return entityData?.dataProducts?.total;
                 },
@@ -173,6 +183,7 @@ export class DomainEntity implements Entity<Domain> {
             },
             {
                 name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
                 component: PropertiesTab,
                 icon: UnorderedListOutlined,
             },

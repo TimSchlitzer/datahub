@@ -347,7 +347,7 @@ export const EntitySidebarTabs = <T,>({ tabs, selectedTab, onSelectTab, hideColl
                                         )}
                                     </IconWrapper>
                                     <TabTextWithTooltip
-                                        text={(() => {
+                                        text={tab.label !== undefined ? tab.label : (() => {
                                             switch (name) {
                                                 case 'Summary':
                                                     return 'Summary';
