@@ -1,5 +1,6 @@
 import { blue, green } from '@ant-design/colors';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entityV2/shared/constants';
@@ -30,17 +31,21 @@ const NullablePill = styled(Pill)`
 `;
 
 export function PrimaryKeyLabel() {
-    return <PrimaryKeyPill>Primary Key</PrimaryKeyPill>;
+    const { t } = useTranslation();
+    return <PrimaryKeyPill>{t('entity.dataset.schema.constraints.primaryKey')}</PrimaryKeyPill>;
 }
 
 export function ForeignKeyLabel() {
-    return <ForeignKeyPill>Foreign Key</ForeignKeyPill>;
+    const { t } = useTranslation();
+    return <ForeignKeyPill>{t('entity.dataset.schema.constraints.foreignKey')}</ForeignKeyPill>;
 }
 
 export function PartitioningKeyLabel() {
-    return <PrimaryKeyPill>Partition Key</PrimaryKeyPill>;
+    const { t } = useTranslation();
+    return <PrimaryKeyPill>{t('entity.dataset.schema.constraints.partitionKey')}</PrimaryKeyPill>;
 }
 
 export default function NullableLabel() {
-    return <NullablePill>Nullable</NullablePill>;
+    const { t } = useTranslation();
+    return <NullablePill>{t('entity.dataset.schema.constraints.nullable')}</NullablePill>;
 }

@@ -5,6 +5,7 @@ import type { FixedType } from 'rc-table/lib/interface';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useDebounce } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useVT } from 'virtualizedtableforantd4';
 
@@ -184,6 +185,7 @@ export default function SchemaTable({
     refetch,
     visibleColumns,
 }: Props): JSX.Element {
+    const { t } = useTranslation();
     const { urn: entityUrn } = useEntityData();
     const location = useLocation();
 
@@ -236,7 +238,7 @@ export default function SchemaTable({
         () => ({
             fixed: 'left' as FixedType,
             width: 200,
-            title: 'Name',
+            title: t('entity.dataset.schema.table.name'),
             dataIndex: 'fieldPath',
             key: 'fieldPath',
             render: schemaTitleRenderer,
@@ -245,26 +247,26 @@ export default function SchemaTable({
             sorter: (sourceA, sourceB) =>
                 translateFieldPath(sourceA.fieldPath).localeCompare(translateFieldPath(sourceB.fieldPath)),
         }),
-        [schemaTitleRenderer],
+        [schemaTitleRenderer, t],
     );
 
     const typeColumn = useMemo(
         () => ({
             width: 100,
-            title: 'Type',
+            title: t('entity.dataset.schema.table.type'),
             dataIndex: 'type',
             key: 'type',
             render: schemaTypeRenderer,
             sorter: (sourceA, sourceB) => sourceA.type.localeCompare(sourceB.type),
         }),
-        [schemaTypeRenderer],
+        [schemaTypeRenderer, t],
     );
 
     const descriptionColumn = useMemo(
         () => ({
             ellipsis: true,
             className: 'description-column',
-            title: 'Description',
+            title: t('entity.dataset.schema.table.description'),
             dataIndex: 'description',
             key: 'description',
             render: descriptionRender,
@@ -272,26 +274,26 @@ export default function SchemaTable({
                 (extractFieldDescription(sourceA).sanitizedDescription ? 1 : 0) -
                 (extractFieldDescription(sourceB).sanitizedDescription ? 1 : 0),
         }),
-        [descriptionRender, extractFieldDescription],
+        [descriptionRender, extractFieldDescription, t],
     );
 
     const tagColumn = useMemo(
         () => ({
             width: 100,
-            title: 'Tags',
+            title: t('entity.dataset.schema.table.tags'),
             dataIndex: 'globalTags',
             key: 'tag',
             render: tagRenderer,
             sorter: (sourceA, sourceB) =>
                 extractFieldTagsInfo(sourceA).numberOfTags - extractFieldTagsInfo(sourceB).numberOfTags,
         }),
-        [tagRenderer, extractFieldTagsInfo],
+        [tagRenderer, extractFieldTagsInfo, t],
     );
 
     const termColumn = useMemo(
         () => ({
             width: 200,
-            title: 'Glossary Terms',
+            title: t('entity.dataset.schema.table.glossaryTerms'),
             dataIndex: 'globalTags',
             key: 'term',
             render: termRenderer,
@@ -299,18 +301,18 @@ export default function SchemaTable({
                 extractFieldGlossaryTermsInfo(sourceA).numberOfTerms -
                 extractFieldGlossaryTermsInfo(sourceB).numberOfTerms,
         }),
-        [termRenderer, extractFieldGlossaryTermsInfo],
+        [termRenderer, extractFieldGlossaryTermsInfo, t],
     );
 
     const businessAttributeColumn = useMemo(
         () => ({
             width: 150,
-            title: 'Business Attribute',
+            title: t('entity.dataset.schema.table.businessAttribute'),
             dataIndex: 'businessAttribute',
             key: 'businessAttribute',
             render: businessAttributeRenderer,
         }),
-        [businessAttributeRenderer],
+        [businessAttributeRenderer, t],
     );
 
     // Function to get the count of each usageStats fieldPath
@@ -329,13 +331,13 @@ export default function SchemaTable({
     const usageColumn = useMemo(
         () => ({
             width: 100,
-            title: 'Stats',
+            title: t('entity.dataset.schema.table.stats'),
             dataIndex: 'fieldPath',
             key: 'usage',
             render: usageStatsRenderer,
             sorter: (sourceA, sourceB) => getCount(sourceA.fieldPath) - getCount(sourceB.fieldPath),
         }),
-        [usageStatsRenderer, getCount],
+        [usageStatsRenderer, getCount, t],
     );
 
     const allColumns = useMemo(() => {

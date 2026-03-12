@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -25,14 +26,15 @@ interface Props {
 }
 
 export default function StatsSection({ fieldProfile, setSelectedTabName }: Props) {
+    const { t } = useTranslation();
     // If current field profile doesn't exist or historic profiles don't have multiple profiles of the current field
     if (!fieldProfile) return null;
 
     return (
         <>
             <SidebarSection
-                title="Stats"
-                extra={<ViewAll onClick={() => setSelectedTabName('Statistics')}>View all</ViewAll>}
+                title={t('entity.dataset.schema.drawer.stats')}
+                extra={<ViewAll onClick={() => setSelectedTabName(t('entity.dataset.schema.drawer.statistics'))}>{t('entity.dataset.schema.drawer.viewAll')}</ViewAll>}
                 content={<StatsSummaryRow fieldProfile={fieldProfile} />}
             />
             <StyledDivider dashed />

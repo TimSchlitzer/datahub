@@ -1,6 +1,7 @@
 import { BookOpen, ChartBar, Code, ListBullets } from '@phosphor-icons/react';
 import { Drawer, Typography } from 'antd';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity } from '@app/entity/shared/EntityContext';
@@ -103,6 +104,7 @@ export default function SchemaFieldDrawer({
     mask = false,
     defaultSelectedTabName = 'About',
 }: Props) {
+    const { t } = useTranslation();
     const expandedFieldIndex = useMemo(
         () => displayedRows.findIndex((row) => row.fieldPath === expandedDrawerFieldPath),
         [expandedDrawerFieldPath, displayedRows],
@@ -179,7 +181,7 @@ export default function SchemaFieldDrawer({
 
     const tabs: any = [
         {
-            name: 'About',
+            name: t('entity.dataset.schema.drawer.about'),
             icon: BookOpen,
             component: AboutFieldTab,
             properties: {
@@ -198,7 +200,7 @@ export default function SchemaFieldDrawer({
             },
         },
         {
-            name: 'Statistics',
+            name: t('entity.dataset.schema.drawer.statistics'),
             icon: ChartBar,
             component: StatsTabWrapper,
             properties: {
@@ -210,16 +212,16 @@ export default function SchemaFieldDrawer({
             },
         },
         {
-            name: 'Queries',
+            name: t('entity.dataset.schema.drawer.queries'),
             component: SchemaFieldQueriesSidebarTab,
-            description: 'View queries about this field',
+            description: t('entity.dataset.schema.drawer.viewQueriesDesc'),
             icon: Code,
             properties: { fieldPath: expandedField?.fieldPath },
         },
         {
-            name: 'Properties',
+            name: t('entity.dataset.schema.drawer.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this field',
+            description: t('entity.dataset.schema.drawer.viewPropertiesDesc'),
             icon: ListBullets,
             properties: {
                 fieldPath: expandedField?.fieldPath,
@@ -298,7 +300,7 @@ export default function SchemaFieldDrawer({
                 >
                     <DrawerContent>
                         <TimelineHeaderWrapper>
-                            <TimelineHeader>Timeline for table</TimelineHeader>
+                            <TimelineHeader>{t('entity.dataset.schema.drawer.timelineForTable')}</TimelineHeader>
                         </TimelineHeaderWrapper>
                         <SchemaTimelineSection />
                     </DrawerContent>

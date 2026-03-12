@@ -3,6 +3,7 @@ import { Tooltip } from '@components';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { EditorProps } from '@components/components/Editor/types';
@@ -64,6 +65,7 @@ interface Props {
 }
 
 export default function FieldDescription({ expandedField, editableFieldInfo, editorProps }: Props) {
+    const { t } = useTranslation();
     const isSchemaEditable = React.useContext(SchemaEditableContext);
     const urn = useMutationUrn();
     const refetch = useRefetch();
@@ -124,7 +126,7 @@ export default function FieldDescription({ expandedField, editableFieldInfo, edi
     return (
         <>
             <SidebarSection
-                title="Description"
+                title={t('entity.dataset.schema.drawer.description')}
                 extra={
                     isSchemaEditable && (
                         <SectionActionButton
@@ -148,7 +150,7 @@ export default function FieldDescription({ expandedField, editableFieldInfo, edi
                                     }}
                                 >
                                     <StyledPlusOutlined />
-                                    <AddDescriptionText>Add Description</AddDescriptionText>
+                                    <AddDescriptionText>{t('entity.dataset.schema.drawer.addDescription')}</AddDescriptionText>
                                 </AddNewDescription>,
                             ]}
                         {!!displayedDescription && (
@@ -167,7 +169,7 @@ export default function FieldDescription({ expandedField, editableFieldInfo, edi
             />
             {isModalVisible && (
                 <UpdateDescriptionModal
-                    title={displayedDescription ? 'Update description' : 'Add description'}
+                    title={displayedDescription ? t('entity.dataset.schema.drawer.updateDescription') : t('entity.dataset.schema.drawer.addDescription')}
                     description={displayedDescription || ''}
                     original={expandedField.description || ''}
                     propagatedDescription={propagatedDescription || ''}
