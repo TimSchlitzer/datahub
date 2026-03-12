@@ -845,36 +845,84 @@
     },
     "dashboard": {
       "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
         "contents": "Inhalte",
         "datasets": "Datensätze"
       }
     },
     "chart": {
       "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
         "fields": "Felder",
         "dashboards": "Dashboards"
       }
     },
     "dataJob": {
       "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
         "pipeline": "Pipeline"
       }
     },
     "glossaryTerm": {
       "tabs": {
-        "relatedAssets": "Verwandte Assets",
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
+        "relatedAssets": "Zugehörige Assets",
         "schema": "Schema",
-        "relatedTerms": "Verwandte Begriffe"
+        "relatedTerms": "Zugehörige Begriffe"
       }
     },
     "domain": {
       "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
         "assets": "Assets",
         "dataProducts": "Datenprodukte"
       }
     },
     "container": {
       "tabs": {
+        "summary": "Zusammenfassung",
+        "documentation": "Dokumentation",
+        "lineage": "Herkunft",
+        "properties": "Eigenschaften",
+        "incidents": "Vorfälle",
+        "preview": "Vorschau",
+        "access": "Zugriff",
+        "runs": "Läufe",
         "contents": "Inhalte"
       }
     },

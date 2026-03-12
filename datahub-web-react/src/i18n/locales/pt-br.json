@@ -862,37 +862,85 @@
     },
     "dashboard": {
       "tabs": {
-        "contents": "Conteúdos",
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
+        "contents": "Conteúdo",
         "datasets": "Conjuntos de Dados"
       }
     },
     "chart": {
       "tabs": {
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
         "fields": "Campos",
         "dashboards": "Painéis"
       }
     },
     "dataJob": {
       "tabs": {
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
         "pipeline": "Pipeline"
       }
     },
     "glossaryTerm": {
       "tabs": {
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
         "relatedAssets": "Ativos Relacionados",
-        "schema": "Esquema",
+        "schema": "Schema",
         "relatedTerms": "Termos Relacionados"
       }
     },
     "domain": {
       "tabs": {
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
         "assets": "Ativos",
         "dataProducts": "Produtos de Dados"
       }
     },
     "container": {
       "tabs": {
-        "contents": "Conteúdos"
+        "summary": "Resumo",
+        "documentation": "Documentação",
+        "lineage": "Linhagem",
+        "properties": "Propriedades",
+        "incidents": "Incidentes",
+        "preview": "Visualizar",
+        "access": "Acesso",
+        "runs": "Execuções",
+        "contents": "Conteúdo"
       }
     },
     "membershipThisGroupCannotEdit": "A associação a este grupo não pode ser editada no DataHub, pois é originária",

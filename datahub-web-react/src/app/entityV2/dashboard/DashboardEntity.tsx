@@ -9,6 +9,7 @@ import {
 } from '@ant-design/icons';
 import { ChartBar, ListBullets, TreeStructure } from '@phosphor-icons/react';
 import * as React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
 import { Entity, EntityCapabilityType, IconStyleType, PreviewType } from '@app/entityV2/Entity';
@@ -97,7 +98,9 @@ export class DashboardEntity implements Entity<Dashboard> {
 
     useEntityQuery = useGetDashboardQuery;
 
-    renderProfile = (urn: string) => (
+    renderProfile = (urn: string) => {
+        const { t } = useTranslation();
+        return (
         <EntityProfile
             urn={urn}
             entityType={EntityType.Dashboard}
@@ -111,11 +114,13 @@ export class DashboardEntity implements Entity<Dashboard> {
             tabs={[
                 {
                     name: 'Summary',
+                    label: t('entity.shared.tabs.summary'),
                     component: DashboardSummaryTab,
                     icon: SUMMARY_TAB_ICON,
                 },
                 {
                     name: 'Contents',
+                    label: t('entity.dashboard.tabs.contents'),
                     component: DashboardChartsTab,
                     icon: AppstoreOutlined,
                     display: {
@@ -127,6 +132,7 @@ export class DashboardEntity implements Entity<Dashboard> {
                 },
                 {
                     name: 'Datasets',
+                    label: t('entity.dashboard.tabs.datasets'),
                     component: DashboardDatasetsTab,
                     icon: TableOutlined,
                     display: {
@@ -136,11 +142,13 @@ export class DashboardEntity implements Entity<Dashboard> {
                 },
                 {
                     name: 'Documentation',
+                    label: t('entity.shared.tabs.documentation'),
                     component: DocumentationTab,
                     icon: FileOutlined,
                 },
                 {
                     name: 'Preview',
+                    label: t('entity.shared.tabs.preview'),
                     component: EmbedTab,
                     icon: EyeOutlined,
                     display: {
@@ -154,6 +162,7 @@ export class DashboardEntity implements Entity<Dashboard> {
                 },
                 {
                     name: 'Lineage',
+                    label: t('entity.shared.tabs.lineage'),
                     component: LineageTab,
                     icon: PartitionOutlined,
                     properties: {
@@ -163,11 +172,13 @@ export class DashboardEntity implements Entity<Dashboard> {
                 },
                 {
                     name: 'Properties',
+                    label: t('entity.shared.tabs.properties'),
                     component: PropertiesTab,
                     icon: UnorderedListOutlined,
                 },
                 {
                     name: 'Incidents',
+                    label: t('entity.shared.tabs.incidents'),
                     icon: WarningOutlined,
                     component: IncidentTab,
                     getCount: (_, dashboard) => {
@@ -178,7 +189,8 @@ export class DashboardEntity implements Entity<Dashboard> {
             sidebarSections={this.getSidebarSections()}
             sidebarTabs={this.getSidebarTabs()}
         />
-    );
+        );
+    };
 
     getSidebarSections = () => [
         {
@@ -222,11 +234,14 @@ export class DashboardEntity implements Entity<Dashboard> {
         },
     ];
 
-    getSidebarTabs = () => [
+    getSidebarTabs = () => {
+        const { t } = useTranslation();
+        return [
         {
             name: 'Lineage',
+            label: t('entity.shared.tabs.lineage'),
             component: LineageTab,
-            description: "View this data asset's upstream and downstream dependencies",
+            description: t('entity.shared.sidebarTabs.lineageDesc'),
             icon: TreeStructure,
             properties: {
                 defaultDirection: LineageDirection.Upstream,
@@ -235,11 +250,13 @@ export class DashboardEntity implements Entity<Dashboard> {
         },
         {
             name: 'Properties',
+            label: t('entity.shared.tabs.properties'),
             component: PropertiesTab,
-            description: 'View additional properties about this asset',
+            description: t('entity.shared.sidebarTabs.propertiesDesc'),
             icon: ListBullets,
         },
     ];
+    };
 
     getOverridePropertiesFromEntity = (dashboard?: Dashboard | null): GenericEntityProperties => {
         // TODO: Get rid of this once we have correctly formed platform coming back.

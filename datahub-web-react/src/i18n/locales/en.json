@@ -845,23 +845,55 @@
     },
     "dashboard": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "contents": "Contents",
         "datasets": "Datasets"
       }
     },
     "chart": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "fields": "Fields",
         "dashboards": "Dashboards"
       }
     },
     "dataJob": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "pipeline": "Pipeline"
       }
     },
     "glossaryTerm": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "relatedAssets": "Related Assets",
         "schema": "Schema",
         "relatedTerms": "Related Terms"
@@ -869,12 +901,28 @@
     },
     "domain": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "assets": "Assets",
         "dataProducts": "Data Products"
       }
     },
     "container": {
       "tabs": {
+        "summary": "Summary",
+        "documentation": "Documentation",
+        "lineage": "Lineage",
+        "properties": "Properties",
+        "incidents": "Incidents",
+        "preview": "Preview",
+        "access": "Access",
+        "runs": "Runs",
         "contents": "Contents"
       }
     },
