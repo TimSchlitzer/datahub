@@ -668,6 +668,58 @@
         "lineageDesc": "Zeigen Sie die upstream- und downstream-Abhängigkeiten dieses Daten-Assets an",
         "propertiesDesc": "Zusätzliche Eigenschaften dieses Assets anzeigen",
         "columnsDesc": "Zeigen Sie die Spalten dieses Daten-Assets an"
+      },
+      "sidebar": {
+        "documentation": "Dokumentation",
+        "owners": "Eigentümer"
+      },
+      "documentation": {
+        "sectionTitle": "Dokumentation",
+        "addButton": "Dokumentation hinzufügen",
+        "editButton": "Bearbeiten",
+        "noDocumentation": "Noch keine Dokumentation hinzugefügt"
+      },
+      "properties": {
+        "sectionTitle": "Eigenschaften",
+        "name": "Name",
+        "value": "Wert",
+        "noProperties": "Keine Eigenschaften gefunden"
+      },
+      "lineage": {
+        "explorer": "Explorer",
+        "impactAnalysis": "Auswirkungsanalyse"
+      },
+      "incidents": {
+        "sectionTitle": "Vorfälle",
+        "noIncidents": "Noch keine Vorfälle"
+      },
+      "emptyMessages": {
+        "documentation": "Noch keine Dokumentation",
+        "tags": "Noch keine Tags",
+        "tagsDescription": "Taggen Sie Entitäten, um sie besser auffindbar zu machen und ihre wichtigsten Attribute hervorzuheben.",
+        "terms": "Noch keine Begriffe",
+        "termsDescription": "Wenden Sie Glossarbegriffe auf Entitäten an, um ihre Daten zu klassifizieren.",
+        "owners": "Noch keine Eigentümer",
+        "ownersDescription": "Das Hinzufügen von Eigentümern hilft Ihnen, den Überblick zu bewahren, wer für diese Daten verantwortlich ist.",
+        "properties": "Keine Eigenschaften",
+        "propertiesDescription": "Eigenschaften werden hier angezeigt, wenn sie in Ihrer Datenquelle vorhanden sind.",
+        "queries": "Noch keine Abfragen",
+        "queriesDescription": "Erstellen, zeigen und teilen Sie häufig verwendete Abfragen für diesen Datensatz.",
+        "domain": "Noch keine Domäne",
+        "domainDescription": "Gruppieren Sie verwandte Entitäten basierend auf Ihrer Organisationsstruktur, indem Sie sie einer Domäne hinzufügen.",
+        "dataProduct": "Noch kein Produkt",
+        "dataProductDescription": "Gruppieren Sie verwandte Entitäten basierend auf gemeinsamen Merkmalen, indem Sie sie zu einem Datenprodukt hinzufügen.",
+        "application": "Noch keine Anwendung",
+        "applicationDescription": "Verknüpfen Sie Entitäten mit Anwendungen, um Eigentümerschaft und Lebenszyklus zu verfolgen.",
+        "contains": "Enthält keine Glossarbegriffe",
+        "containsDescription": "Begriffe können andere Begriffe enthalten, um eine \"Enthält\"-Beziehung darzustellen.",
+        "inherits": "Erbt keine Glossarbegriffe",
+        "inheritsDescription": "Begriffe können von anderen Begriffen erben, um eine \"Ist Ein\"-Beziehung darzustellen.",
+        "containedBy": "Wird von keinen Glossarbegriffen enthalten",
+        "containedByDescription": "Begriffe können von anderen Begriffen enthalten werden, um eine \"Enthält\"-Beziehung darzustellen.",
+        "inheritedBy": "Wird von keinen Glossarbegriffen geerbt",
+        "inheritedByDescription": "Begriffe können von anderen Begriffen geerbt werden, um eine \"Ist Ein\"-Beziehung darzustellen.",
+        "structuredProps": "Kein Wert gesetzt"
       }
     },
     "dashboard": {

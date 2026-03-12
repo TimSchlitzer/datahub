@@ -1,6 +1,7 @@
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useEntityData, useMutationUrn, useRouteToTab } from '@app/entity/shared/EntityContext';
 import { EMPTY_MESSAGES, ENTITY_TYPES_WITH_NEW_SUMMARY_TAB } from '@app/entityV2/shared/constants';
@@ -31,6 +32,7 @@ interface Props {
 }
 
 export const SidebarAboutSection = ({ properties, readOnly }: Props) => {
+    const { t } = useTranslation();
     const { entityData, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const isLineageMode = useIsLineageMode();
@@ -56,7 +58,7 @@ export const SidebarAboutSection = ({ properties, readOnly }: Props) => {
     return (
         <>
             <SidebarSection
-                title="Documentation"
+                title={t('entity.shared.sidebar.documentation')}
                 content={
                     <>
                         {displayedDescription && (
@@ -67,7 +69,7 @@ export const SidebarAboutSection = ({ properties, readOnly }: Props) => {
                             />
                         )}
                         {hasContent && <LinksSection hideLinksButton={hideLinksButton} readOnly />}
-                        {!hasContent && <EmptySectionText message={EMPTY_MESSAGES.documentation.title} />}
+                        {!hasContent && <EmptySectionText message={t('entity.shared.emptyMessages.documentation')} />}
                     </>
                 }
                 extra={

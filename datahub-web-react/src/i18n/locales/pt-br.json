@@ -685,6 +685,58 @@
         "lineageDesc": "Visualizar as dependências upstream e downstream deste ativo de dados",
         "propertiesDesc": "Visualizar propriedades adicionais sobre este ativo",
         "columnsDesc": "Visualizar as colunas deste ativo de dados"
+      },
+      "sidebar": {
+        "documentation": "Documentação",
+        "owners": "Proprietários"
+      },
+      "documentation": {
+        "sectionTitle": "Documentação",
+        "addButton": "Adicionar Documentação",
+        "editButton": "Editar",
+        "noDocumentation": "Nenhuma documentação adicionada ainda"
+      },
+      "properties": {
+        "sectionTitle": "Propriedades",
+        "name": "Nome",
+        "value": "Valor",
+        "noProperties": "Nenhuma propriedade encontrada"
+      },
+      "lineage": {
+        "explorer": "Explorador",
+        "impactAnalysis": "Análise de Impacto"
+      },
+      "incidents": {
+        "sectionTitle": "Incidentes",
+        "noIncidents": "Nenhum incidente ainda"
+      },
+      "emptyMessages": {
+        "documentation": "Nenhuma documentação ainda",
+        "tags": "Nenhuma tag ainda",
+        "tagsDescription": "Marque entidades com tags para ajudar a torná-las mais descobríveis e destacar seus atributos mais importantes.",
+        "terms": "Nenhum termo ainda",
+        "termsDescription": "Aplique termos de glossário a entidades para classificar seus dados.",
+        "owners": "Nenhum proprietário ainda",
+        "ownersDescription": "Adicionar proprietários ajuda você a manter o controle de quem é responsável por estes dados.",
+        "properties": "Nenhuma propriedade",
+        "propertiesDescription": "As propriedades aparecerão aqui se existirem em sua fonte de dados.",
+        "queries": "Nenhuma consulta ainda",
+        "queriesDescription": "Crie, visualize e compartilhe consultas usadas frequentemente para este conjunto de dados.",
+        "domain": "Nenhum domínio ainda",
+        "domainDescription": "Agrupe entidades relacionadas com base em sua estrutura organizacional, adicionando-as a um Domínio.",
+        "dataProduct": "Nenhum produto ainda",
+        "dataProductDescription": "Agrupe entidades relacionadas com base em características compartilhadas, adicionando-as a um Produto de Dados.",
+        "application": "Nenhuma aplicação ainda",
+        "applicationDescription": "Associe entidades a aplicações para rastrear propriedade e ciclo de vida.",
+        "contains": "Não contém nenhum Termo do Glossário",
+        "containsDescription": "Os termos podem conter outros termos para representar um relacionamento do tipo \"Contém\".",
+        "inherits": "Não herda nenhum Termo do Glossário",
+        "inheritsDescription": "Os termos podem herdar de outros termos para representar um relacionamento do tipo \"É um\".",
+        "containedBy": "Não é contido por nenhum Termo do Glossário",
+        "containedByDescription": "Os termos podem ser contidos por outros termos para representar um relacionamento do tipo \"Contém\".",
+        "inheritedBy": "Não é herdado por nenhum Termo do Glossário",
+        "inheritedByDescription": "Os termos podem ser herdados por outros termos para representar um relacionamento do tipo \"É um\".",
+        "structuredProps": "Nenhum valor definido"
       }
     },
     "dashboard": {

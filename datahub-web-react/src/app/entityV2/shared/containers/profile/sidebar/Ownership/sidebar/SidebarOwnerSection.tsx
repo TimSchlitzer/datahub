@@ -1,5 +1,6 @@
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEntityData, useMutationUrn, useRefetch } from '@app/entity/shared/EntityContext';
@@ -36,6 +37,7 @@ interface Props {
 }
 
 export const SidebarOwnerSection = ({ properties, readOnly }: Props) => {
+    const { t } = useTranslation();
     const { entityType, entityData } = useEntityData();
     const mutationUrn = useMutationUrn();
 
@@ -80,7 +82,7 @@ export const SidebarOwnerSection = ({ properties, readOnly }: Props) => {
     return (
         <div id={ENTITY_PROFILE_OWNERS_ID}>
             <SidebarSection
-                title="Owners"
+                title={t('entity.shared.sidebar.owners')}
                 content={
                     <Content>
                         <OwnershipSections>
@@ -97,7 +99,7 @@ export const SidebarOwnerSection = ({ properties, readOnly }: Props) => {
                                 );
                             })}
                         </OwnershipSections>
-                        {ownersEmpty && <EmptySectionText message={EMPTY_MESSAGES.owners.title} />}
+                        {ownersEmpty && <EmptySectionText message={t('entity.shared.emptyMessages.owners')} />}
                     </Content>
                 }
                 extra={

@@ -668,6 +668,58 @@
         "lineageDesc": "View this data asset's upstream and downstream dependencies",
         "propertiesDesc": "View additional properties about this asset",
         "columnsDesc": "View this data asset's columns"
+      },
+      "sidebar": {
+        "documentation": "Documentation",
+        "owners": "Owners"
+      },
+      "documentation": {
+        "sectionTitle": "Documentation",
+        "addButton": "Add Documentation",
+        "editButton": "Edit",
+        "noDocumentation": "No documentation added yet"
+      },
+      "properties": {
+        "sectionTitle": "Properties",
+        "name": "Name",
+        "value": "Value",
+        "noProperties": "No properties found"
+      },
+      "lineage": {
+        "explorer": "Explorer",
+        "impactAnalysis": "Impact Analysis"
+      },
+      "incidents": {
+        "sectionTitle": "Incidents",
+        "noIncidents": "No incidents yet"
+      },
+      "emptyMessages": {
+        "documentation": "No documentation yet",
+        "tags": "No tags yet",
+        "tagsDescription": "Tag entities to help make them more discoverable and call out their most important attributes.",
+        "terms": "No terms yet",
+        "termsDescription": "Apply glossary terms to entities to classify their data.",
+        "owners": "No owners yet",
+        "ownersDescription": "Adding owners helps you keep track of who is responsible for this data.",
+        "properties": "No properties",
+        "propertiesDescription": "Properties will appear here if they exist in your data source.",
+        "queries": "No queries yet",
+        "queriesDescription": "Create, view, and share commonly used queries for this dataset.",
+        "domain": "No domain yet",
+        "domainDescription": "Group related entities based on your organizational structure using by adding them to a Domain.",
+        "dataProduct": "No product yet",
+        "dataProductDescription": "Group related entities based on shared characteristics by adding them to a Data Product.",
+        "application": "No application yet",
+        "applicationDescription": "Associate entities with applications to track ownership and lifecycle.",
+        "contains": "Does not Contain any Glossary Terms",
+        "containsDescription": "Terms can contain other terms to represent a \"Has A\" style relationship.",
+        "inherits": "Does not Inherit any Glossary Terms",
+        "inheritsDescription": "Terms can inherit from other terms to represent an \"Is A\" style relationship.",
+        "containedBy": "Is not Contained by any Glossary Terms",
+        "containedByDescription": "Terms can be contained by other terms to represent a \"Has A\" style relationship.",
+        "inheritedBy": "Is not Inherited by any Glossary Terms",
+        "inheritedByDescription": "Terms can be inherited by other terms to represent an \"Is A\" style relationship.",
+        "structuredProps": "No value set"
       }
     },
     "dashboard": {
