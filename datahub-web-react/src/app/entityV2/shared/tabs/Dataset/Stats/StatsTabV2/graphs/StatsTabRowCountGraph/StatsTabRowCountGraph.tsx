@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import RowCountGraph from '@app/entityV2/shared/graphs/RowCountGraph';
 import { useStatsSectionsContext } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/StatsSectionsContext';
@@ -14,9 +15,9 @@ import { LookbackWindow } from '@app/entityV2/shared/tabs/Dataset/Stats/lookback
 import useRowCountData from '@app/entityV2/shared/useRowCountData';
 import { TimeRange } from '@src/types.generated';
 
-const DEFAULT_GRAPH_NAME = 'Row Count';
-
 export default function StatsTabRowCountGraph(): JSX.Element {
+    const { t } = useTranslation();
+    const DEFAULT_GRAPH_NAME = t('entity.dataset.stats.graphs.rowCount');
     const {
         sections,
         setSectionState,

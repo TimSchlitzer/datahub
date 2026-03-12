@@ -1,5 +1,6 @@
 import { BarChart, GraphCard } from '@components';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useStatsSectionsContext } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/StatsSectionsContext';
 import NoPermission from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/graphs/NoPermission';
@@ -22,6 +23,7 @@ import { pluralize } from '@src/app/shared/textUtil';
 import { TimeRange } from '@src/types.generated';
 
 const QueryCountChart = () => {
+    const { t } = useTranslation();
     const {
         dataInfo: { capabilitiesLoading, oldestDatasetUsageTime },
         statsEntityUrn,
@@ -73,7 +75,7 @@ const QueryCountChart = () => {
         );
     };
 
-    const chartName = 'Daily Query Count';
+    const chartName = t('entity.dataset.stats.graphs.dailyQueryCount');
 
     return (
         <GraphCard

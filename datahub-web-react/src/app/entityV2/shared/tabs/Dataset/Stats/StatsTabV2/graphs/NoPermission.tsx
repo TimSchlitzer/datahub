@@ -1,6 +1,7 @@
 import { Text } from '@components';
 import React from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import { EmptyMessageContainer } from '@src/alchemy-components/components/GraphCard/components';
 
@@ -13,13 +14,14 @@ interface Props {
 }
 
 const NoPermission = ({ statName }: Props) => {
+    const { t } = useTranslation();
     return (
         <EmptyMessageContainer data-testid="no-permissions">
             <EmptyMessageWrapper>
                 <Text size="2xl" weight="bold" color="gray">
-                    No Permission
+                    {t('entity.dataset.stats.permissions.noPermission')}
                 </Text>
-                <Text color="gray">{`You do not have permission to view ${statName} data.`}</Text>
+                <Text color="gray">{t('entity.dataset.stats.permissions.noDataPermission', { statName })}</Text>
             </EmptyMessageWrapper>
         </EmptyMessageContainer>
     );

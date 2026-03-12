@@ -743,6 +743,51 @@
           "notAvailable": "N/D"
         },
         "loading": "Carregando execuções..."
+      },
+      "stats": {
+        "highlights": {
+          "title": "Destaques",
+          "subTitle": "Veja as estatísticas mais recentes para esta tabela",
+          "latest": "Mais recente",
+          "last30Days": "Últimos 30 dias"
+        },
+        "columnStats": {
+          "title": "Estatísticas de Coluna",
+          "subTitle": "Veja as estatísticas mais recentes para cada coluna desta tabela.",
+          "searchPlaceholder": "Pesquisar nome da coluna",
+          "table": {
+            "nullPercentage": "Percentual nulo",
+            "uniqueValues": "Valores únicos",
+            "min": "Mín",
+            "max": "Máx",
+            "column": "Coluna",
+            "type": "Tipo",
+            "view": "Visualizar"
+          }
+        },
+        "historical": {
+          "title": "Histórico",
+          "subTitle": "Veja tendências importantes para esta tabela"
+        },
+        "timeRange": {
+          "choosePlaceholder": "Escolher intervalo de tempo"
+        },
+        "permissions": {
+          "noPermission": "Sem permissão",
+          "noDataPermission": "Você não tem permissão para visualizar dados de {{statName}}."
+        },
+        "changeHistory": {
+          "noDataReported": "Nenhum dado reportado",
+          "noChangesThisDay": "Nenhuma alteração neste dia",
+          "viewDetails": "Ver detalhes",
+          "title": "Detalhes do histórico de alterações",
+          "changeTypeLabel": "Tipo de alteração",
+          "usersLabel": "Usuários"
+        },
+        "graphs": {
+          "dailyQueryCount": "Contagem de consultas diárias",
+          "rowCount": "Contagem de linhas"
+        }
       }
     },
     "shared": {

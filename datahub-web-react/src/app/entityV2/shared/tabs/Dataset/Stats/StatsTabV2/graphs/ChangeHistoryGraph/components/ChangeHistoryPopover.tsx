@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import {
     AnyOperationType,
@@ -68,6 +69,7 @@ export default function ChangeHistoryPopover({
     defaultCustomOperationTypes,
     selectedOperationTypes,
 }: ChangeHistoryPopoverProps) {
+    const { t } = useTranslation();
     const operations = useMemo(
         () =>
             Object.entries(
@@ -96,7 +98,7 @@ export default function ChangeHistoryPopover({
     const renderNoData = () => {
         return (
             <Text size="sm" color="gray" weight="bold" data-testid="no-data-reported">
-                No data reported
+                {t('entity.dataset.stats.changeHistory.noDataReported')}
             </Text>
         );
     };
@@ -104,7 +106,7 @@ export default function ChangeHistoryPopover({
     const renderNoDataThisDay = () => {
         return (
             <Text size="sm" color="gray" weight="bold" data-testid="no-changes-this-day">
-                No changes this day
+                {t('entity.dataset.stats.changeHistory.noChangesThisDay')}
             </Text>
         );
     };
@@ -137,7 +139,7 @@ export default function ChangeHistoryPopover({
                     <LinkContainer>
                         {operations.length > 0 && (
                             <Button variant="text" size="xs" onClick={() => onViewDetails?.()}>
-                                View Details
+                                {t('entity.dataset.stats.changeHistory.viewDetails')}
                             </Button>
                         )}
                     </LinkContainer>

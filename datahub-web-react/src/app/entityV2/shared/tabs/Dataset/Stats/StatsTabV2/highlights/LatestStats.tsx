@@ -1,5 +1,6 @@
 import { Card, Text } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useStatsSectionsContext } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/StatsSectionsContext';
 import { ViewButton } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/highlights/ViewButton';
@@ -17,6 +18,7 @@ import { pluralize } from '@src/app/shared/textUtil';
 import { countFormatter } from '@src/utils/formatter';
 
 const LatestStats = () => {
+    const { t } = useTranslation();
     const { columnStats, rowCount, columnCount } = useGetStatsData();
     const hasColumnStats = columnStats?.length > 0;
 
@@ -26,7 +28,7 @@ const LatestStats = () => {
     return (
         <LatestStatsContainer data-testid="latest-stats">
             <Text size="sm" weight="bold">
-                Latest
+                {t('entity.dataset.stats.highlights.latest')}
             </Text>
             <StatCards>
                 <Card

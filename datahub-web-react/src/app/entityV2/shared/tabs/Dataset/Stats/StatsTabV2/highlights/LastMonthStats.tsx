@@ -1,5 +1,6 @@
 import { Card, Text } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useStatsSectionsContext } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/StatsSectionsContext';
 import { ViewButton } from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/highlights/ViewButton';
@@ -17,6 +18,7 @@ import { capitalizeFirstLetter, pluralize } from '@src/app/shared/textUtil';
 import { countFormatter } from '@src/utils/formatter';
 
 const LastMonthStats = () => {
+    const { t } = useTranslation();
     const { users, queryCount, totalOperations } = useGetStatsData();
     const { scrollToSection } = useGetStatsSections();
     const { sections } = useStatsSectionsContext();
@@ -24,7 +26,7 @@ const LastMonthStats = () => {
     return (
         <LastMonthStatsContainer data-testid="last-month-stats">
             <Text size="sm" weight="bold">
-                Last 30 days
+                {t('entity.dataset.stats.highlights.last30Days')}
             </Text>
             <StatCards>
                 <Card

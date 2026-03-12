@@ -1,6 +1,7 @@
 import { Table, Text } from '@components';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
 
 import { ExtendedSchemaFields } from '@app/entityV2/dataset/profile/schema/utils/types';
 import SchemaFieldDrawer from '@app/entityV2/shared/tabs/Dataset/Schema/components/SchemaFieldDrawer/SchemaFieldDrawer';
@@ -49,6 +50,7 @@ interface Props {
 }
 
 function ColumnStatsTable({ columnStats, searchQuery }: Props) {
+    const { t } = useTranslation();
     const { entityWithSchema } = useGetEntityWithSchema();
     const rawFields = entityWithSchema?.schemaMetadata?.fields;
 
@@ -92,6 +94,7 @@ function ColumnStatsTable({ columnStats, searchQuery }: Props) {
         tableData: columnStatsTableData,
         searchQuery,
         setExpandedDrawerFieldPath,
+        t,
     });
 
     const { selectPreviousField, selectNextField } = useKeyboardControls(

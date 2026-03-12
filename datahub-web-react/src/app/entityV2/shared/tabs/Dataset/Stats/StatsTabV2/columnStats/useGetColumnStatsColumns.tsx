@@ -21,13 +21,14 @@ interface Props {
     tableData: Array<any>;
     searchQuery: string;
     setExpandedDrawerFieldPath: React.Dispatch<React.SetStateAction<string | null>>;
+    t: (key: string) => string;
 }
 
-export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDrawerFieldPath }: Props) => {
+export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDrawerFieldPath, t }: Props) => {
     // Optional columns. Defines how to render a column given a value exists somewhere in the profile.
     const optionalColumns = [
         {
-            title: 'Null Percentage',
+            title: t('entity.dataset.stats.columnStats.table.nullPercentage'),
             key: 'nullPercentage',
             render: (record) => record.nullPercentage,
             alignment: 'right' as AlignmentOptions,
@@ -36,7 +37,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
             },
         },
         {
-            title: 'Unique Values',
+            title: t('entity.dataset.stats.columnStats.table.uniqueValues'),
             key: 'uniqueValues',
             render: (record) => record.uniqueValues,
             alignment: 'right' as AlignmentOptions,
@@ -45,7 +46,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
             },
         },
         {
-            title: 'Min',
+            title: t('entity.dataset.stats.columnStats.table.min'),
             key: 'min',
             render: (record) => record.min,
             alignment: 'right' as AlignmentOptions,
@@ -54,7 +55,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
             },
         },
         {
-            title: 'Max',
+            title: t('entity.dataset.stats.columnStats.table.max'),
             key: 'max',
             render: (record) => record.max,
             alignment: 'right' as AlignmentOptions,
@@ -67,7 +68,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
     // Column and type columns always required.
     const requiredColumns = [
         {
-            title: 'Column',
+            title: t('entity.dataset.stats.columnStats.table.column'),
             key: 'column',
             render: (record) => (
                 <ColumnName ellipsis={{ tooltip: record.column }}>
@@ -81,7 +82,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
             },
         },
         {
-            title: 'Type',
+            title: t('entity.dataset.stats.columnStats.table.type'),
             key: 'type',
             render: (record) => {
                 // Handle both object format { type: 'STRING' } and direct string format
@@ -116,7 +117,7 @@ export const useGetColumnStatsColumns = ({ tableData, searchQuery, setExpandedDr
                         setExpandedDrawerFieldPath(record.originalFieldPath);
                     }}
                 >
-                    View
+                    {t('entity.dataset.stats.columnStats.table.view')}
                 </Button>
             </ViewButton>
         ),

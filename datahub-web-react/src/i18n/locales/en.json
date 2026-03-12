@@ -726,6 +726,51 @@
           "notAvailable": "N/A"
         },
         "loading": "Fetching runs..."
+      },
+      "stats": {
+        "highlights": {
+          "title": "Highlights",
+          "subTitle": "View the latest statistics for this table",
+          "latest": "Latest",
+          "last30Days": "Last 30 days"
+        },
+        "columnStats": {
+          "title": "Column Stats",
+          "subTitle": "View latest stats for each column in this table.",
+          "searchPlaceholder": "Search Column Name",
+          "table": {
+            "nullPercentage": "Null Percentage",
+            "uniqueValues": "Unique Values",
+            "min": "Min",
+            "max": "Max",
+            "column": "Column",
+            "type": "Type",
+            "view": "View"
+          }
+        },
+        "historical": {
+          "title": "Historical",
+          "subTitle": "View important trends for this table"
+        },
+        "timeRange": {
+          "choosePlaceholder": "Choose time range"
+        },
+        "permissions": {
+          "noPermission": "No Permission",
+          "noDataPermission": "You do not have permission to view {{statName}} data."
+        },
+        "changeHistory": {
+          "noDataReported": "No data reported",
+          "noChangesThisDay": "No changes this day",
+          "viewDetails": "View Details",
+          "title": "Change History Details",
+          "changeTypeLabel": "Change Type",
+          "usersLabel": "Users"
+        },
+        "graphs": {
+          "dailyQueryCount": "Daily Query Count",
+          "rowCount": "Row Count"
+        }
       }
     },
     "shared": {

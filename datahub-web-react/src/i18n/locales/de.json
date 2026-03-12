@@ -726,6 +726,51 @@
           "notAvailable": "K.A."
         },
         "loading": "Ausführungen werden geladen..."
+      },
+      "stats": {
+        "highlights": {
+          "title": "Highlights",
+          "subTitle": "Siehe die neuesten Statistiken für diese Tabelle",
+          "latest": "Neueste",
+          "last30Days": "Letzte 30 Tage"
+        },
+        "columnStats": {
+          "title": "Spaltenstatistiken",
+          "subTitle": "Siehe die neuesten Statistiken für jede Spalte in dieser Tabelle.",
+          "searchPlaceholder": "Spaltennamen durchsuchen",
+          "table": {
+            "nullPercentage": "Null-Prozentsatz",
+            "uniqueValues": "Eindeutige Werte",
+            "min": "Min",
+            "max": "Max",
+            "column": "Spalte",
+            "type": "Typ",
+            "view": "Anzeigen"
+          }
+        },
+        "historical": {
+          "title": "Verlauf",
+          "subTitle": "Siehe wichtige Trends für diese Tabelle"
+        },
+        "timeRange": {
+          "choosePlaceholder": "Zeitraum wählen"
+        },
+        "permissions": {
+          "noPermission": "Keine Berechtigung",
+          "noDataPermission": "Sie haben keine Berechtigung, um {{statName}}-Daten anzuzeigen."
+        },
+        "changeHistory": {
+          "noDataReported": "Keine Daten gemeldet",
+          "noChangesThisDay": "Keine Änderungen an diesem Tag",
+          "viewDetails": "Details anzeigen",
+          "title": "Änderungsverlauf – Details",
+          "changeTypeLabel": "Änderungstyp",
+          "usersLabel": "Benutzer"
+        },
+        "graphs": {
+          "dailyQueryCount": "Tägliche Abfragezahl",
+          "rowCount": "Zeilenanzahl"
+        }
       }
     },
     "shared": {
