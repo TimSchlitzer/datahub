@@ -1,6 +1,7 @@
 import Editor from '@monaco-editor/react';
 import { Form, Input, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entityV2/shared/constants';
@@ -33,6 +34,7 @@ type Props = {
 };
 
 export default function QueryBuilderForm({ state, updateState }: Props) {
+    const { t } = useTranslation();
     const updateQuery = (query) => {
         updateState({
             ...state,
@@ -56,7 +58,10 @@ export default function QueryBuilderForm({ state, updateState }: Props) {
 
     return (
         <Form layout="vertical">
-            <Form.Item required label={<Typography.Text strong>Query</Typography.Text>}>
+            <Form.Item
+                required
+                label={<Typography.Text strong>{t('entity.dataset.queries.form.queryLabel')}</Typography.Text>}
+            >
                 <EditorWrapper>
                     <Editor
                         options={QUERY_EDITOR_OPTIONS}
@@ -71,7 +76,7 @@ export default function QueryBuilderForm({ state, updateState }: Props) {
             <Form.Item
                 rules={[{ min: 1, max: 500 }]}
                 hasFeedback
-                label={<Typography.Text strong>Title</Typography.Text>}
+                label={<Typography.Text strong>{t('entity.dataset.queries.form.titleLabel')}</Typography.Text>}
             >
                 <Input
                     data-testid="query-builder-title-input"
@@ -81,7 +86,9 @@ export default function QueryBuilderForm({ state, updateState }: Props) {
                     placeholder="Join Transactions and Users Tables"
                 />
             </Form.Item>
-            <Form.Item label={<Typography.Text strong>Description</Typography.Text>}>
+            <Form.Item
+                label={<Typography.Text strong>{t('entity.dataset.queries.form.descriptionLabel')}</Typography.Text>}
+            >
                 <StyledEditor
                     data-testid="query-builder-description-input"
                     doNotFocus

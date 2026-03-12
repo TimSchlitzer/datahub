@@ -1,5 +1,6 @@
 import { message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -41,6 +42,7 @@ type Props = {
 };
 
 export default function QueryBuilderModal({ initialState, datasetUrn, onClose, onSubmit }: Props) {
+    const { t } = useTranslation();
     const isUpdating = initialState?.urn !== undefined;
 
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
@@ -71,7 +73,7 @@ export default function QueryBuilderModal({ initialState, datasetUrn, onClose, o
                             type: EventType.CreateQueryEvent,
                         });
                         message.success({
-                            content: `Created Query!`,
+                            content: t('entity.dataset.queries.message.queryCreated'),
                             duration: 3,
                         });
                         onSubmit?.(data?.createQuery);
@@ -108,7 +110,7 @@ export default function QueryBuilderModal({ initialState, datasetUrn, onClose, o
                             type: EventType.UpdateQueryEvent,
                         });
                         message.success({
-                            content: `Edited Query!`,
+                            content: t('entity.dataset.queries.message.queryUpdated'),
                             duration: 3,
                         });
                         onSubmit?.(data?.updateQuery);
@@ -135,19 +137,23 @@ export default function QueryBuilderModal({ initialState, datasetUrn, onClose, o
             <StyledModal
                 width={MODAL_WIDTH}
                 bodyStyle={MODAL_BODY_STYLE}
-                title={isUpdating ? 'Edit Query' : 'New Query'}
+                title={
+                    isUpdating
+                        ? t('entity.dataset.queries.modal.editQueryTitle')
+                        : t('entity.dataset.queries.modal.newQueryTitle')
+                }
                 className="query-builder-modal"
                 open
                 onCancel={() => setShowConfirmationModal(true)}
                 buttons={[
                     {
-                        text: 'Cancel',
+                        text: t('entity.dataset.queries.modal.cancel'),
                         variant: 'text',
                         onClick: () => onClose?.(),
                         buttonDataTestId: 'query-builder-cancel-button',
                     },
                     {
-                        text: 'Save',
+                        text: t('entity.dataset.queries.modal.save'),
                         variant: 'filled',
                         id: 'createQueryButton',
                         buttonDataTestId: 'query-builder-save-button',

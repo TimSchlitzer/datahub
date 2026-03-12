@@ -2,6 +2,7 @@ import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import ActorAvatar from '@app/entityV2/shared/ActorAvatar';
@@ -111,6 +112,7 @@ interface EditDeleteProps {
 }
 
 export const EditDeleteColumn = ({ query, hoveredQueryUrn, onEdited, onDeleted }: EditDeleteProps) => {
+    const { t } = useTranslation();
     const [editingQuery, setEditingQuery] = useState<Query | null>(null);
     const [showConfirmationModal, setShowConfirmationModal] = useState(false);
     const [deleteQueryMutation] = useDeleteQueryMutation();
@@ -121,7 +123,7 @@ export const EditDeleteColumn = ({ query, hoveredQueryUrn, onEdited, onDeleted }
             .then(({ errors }) => {
                 if (!errors) {
                     message.success({
-                        content: `Deleted Query!`,
+                        content: t('entity.dataset.queries.message.queryDeleted'),
                         duration: 3,
                     });
                     onDeleted?.(query);
@@ -164,8 +166,8 @@ export const EditDeleteColumn = ({ query, hoveredQueryUrn, onEdited, onDeleted }
                 isOpen={showConfirmationModal}
                 handleClose={() => setShowConfirmationModal(false)}
                 handleConfirm={deleteQuery}
-                modalTitle="Delete Query"
-                modalText="Are you sure you want to delete this query?"
+                modalTitle={t('entity.dataset.queries.message.deleteConfirmTitle')}
+                modalText={t('entity.dataset.queries.message.deleteConfirmContent')}
             />
         </>
     );

@@ -1,5 +1,6 @@
 import moment from 'moment';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import TopUsersFacepile from '@app/entityV2/shared/containers/profile/sidebar/shared/TopUsersFacepile';
@@ -47,12 +48,13 @@ export default function useQueryTableColumns({
     sorting,
     showPagination,
 }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistryV2();
     // only rely on backend sorting if we provide a sorting config and we are paginating
     const shouldRelyOnBackendSorting = sorting && showPagination;
 
     const titleColumn = {
-        title: 'Title',
+        title: t('entity.dataset.queries.form.titleLabel'),
         dataIndex: 'title',
         key: 'name',
         field: 'name',
@@ -63,14 +65,14 @@ export default function useQueryTableColumns({
     };
 
     const descriptionColumn = {
-        title: 'Description',
+        title: t('entity.dataset.queries.form.descriptionLabel'),
         dataIndex: 'description',
         key: 'description',
         render: (description: string) => <QueryDescription description={description} />,
     };
 
     const queryTextColumn = (width?: string | number) => ({
-        title: 'Query Text',
+        title: t('entity.dataset.queries.form.queryLabel'),
         dataIndex: 'query',
         key: 'query',
         render: (rowQuery: string) => {
@@ -98,7 +100,7 @@ export default function useQueryTableColumns({
     });
 
     const createdByColumn = {
-        title: 'Created By',
+        title: t('entity.dataset.queries.form.createdByLabel') || 'Created By',
         dataIndex: 'createdBy',
         key: 'createdBy',
         sorter: shouldRelyOnBackendSorting
@@ -115,7 +117,7 @@ export default function useQueryTableColumns({
     };
 
     const createdDateColumn = {
-        title: 'Date Created',
+        title: t('entity.dataset.queries.form.dateCreatedLabel') || 'Date Created',
         dataIndex: 'createdTime',
         key: 'dateCreated',
         field: 'createdAt',
@@ -126,7 +128,7 @@ export default function useQueryTableColumns({
     };
 
     const powersColumn = {
-        title: 'Powers',
+        title: t('entity.dataset.queries.form.powersLabel') || 'Powers',
         dataIndex: 'poweredEntity',
         key: 'powers',
         sorter: (queryA, queryB) => {
@@ -146,7 +148,7 @@ export default function useQueryTableColumns({
     };
 
     const topUsersColumn = {
-        title: 'Top Users',
+        title: t('entity.dataset.queries.form.topUsersLabel') || 'Top Users',
         dataIndex: 'usedBy',
         key: 'usedBy',
         className: 'usedBy',
@@ -168,7 +170,7 @@ export default function useQueryTableColumns({
     };
 
     const columnsColumn = {
-        title: 'Columns',
+        title: t('entity.dataset.queries.form.columnsLabel') || 'Columns',
         key: 'columns',
         width: 105,
         render: (query: Query) => <ColumnsColumn query={query} />,

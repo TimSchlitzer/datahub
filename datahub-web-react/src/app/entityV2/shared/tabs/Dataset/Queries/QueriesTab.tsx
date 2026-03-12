@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useBaseEntity } from '@app/entity/shared/EntityContext';
@@ -32,6 +33,7 @@ const Content = styled.div<{ $backgroundColor: string }>`
 `;
 
 export default function QueriesTab() {
+    const { t } = useTranslation();
     const isSeparateSiblings = useIsSeparateSiblingsMode();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
     const entityUrn = baseEntity?.dataset?.urn;
@@ -121,7 +123,7 @@ export default function QueriesTab() {
                     <>
                         {(highlightedQueries.length > 0 || highlightedQueriesLoading) && (
                             <QueriesListSection
-                                title="Highlighted Queries"
+                                title={t('entity.dataset.queries.section.highlighted')}
                                 section={QueriesTabSection.Highlighted}
                                 tooltip="Curated queries relevant to this dataset"
                                 tooltipPosition="bottom"
@@ -138,18 +140,18 @@ export default function QueriesTab() {
                         )}
                         {highlightedQueries.length === 0 && !highlightedQueriesLoading && (
                             <EmptyQueriesSection
-                                sectionName="Highlighted Queries"
+                                sectionName={t('entity.dataset.queries.section.highlighted')}
                                 tooltip="Curated queries relevant to this dataset"
                                 tooltipPosition="bottom"
                                 showButton
-                                buttonLabel="Add Highlighted Query"
+                                buttonLabel={t('entity.dataset.queries.button.addQuery')}
                                 isButtonDisabled={!canEditQueries}
                                 onButtonClick={() => setShowQueryBuilder(true)}
                             />
                         )}
                         {downstreamQueries.length > 0 && (
                             <QueriesListSection
-                                title="Downstream Queries"
+                                title={t('entity.dataset.queries.section.downstream')}
                                 section={QueriesTabSection.Downstream}
                                 tooltip="Queries that power downstream assets"
                                 queries={downstreamQueries}
@@ -159,7 +161,7 @@ export default function QueriesTab() {
                         )}
                         {recentQueries.length > 0 && (
                             <QueriesListSection
-                                title="Recent Queries"
+                                title={t('entity.dataset.queries.section.recentQueries')}
                                 section={QueriesTabSection.Recent}
                                 tooltip="Recently executed queries against this dataset"
                                 queries={recentQueries}

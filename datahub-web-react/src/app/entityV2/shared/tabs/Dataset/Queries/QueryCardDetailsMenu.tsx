@@ -1,6 +1,7 @@
 import { DeleteOutlined, MoreOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ConfirmationModal } from '@app/sharedV2/modals/ConfirmationModal';
@@ -18,6 +19,7 @@ export type Props = {
 };
 
 export default function QueryCardDetailsMenu({ urn, onDeleted, index }: Props) {
+    const { t } = useTranslation();
     const [deleteQueryMutation] = useDeleteQueryMutation();
     const [showConfirmationModal, setShowConfirmationModa] = useState(false);
 
@@ -26,7 +28,7 @@ export default function QueryCardDetailsMenu({ urn, onDeleted, index }: Props) {
             .then(({ errors }) => {
                 if (!errors) {
                     message.success({
-                        content: `Deleted Query!`,
+                        content: t('entity.dataset.queries.message.queryDeleted'),
                         duration: 3,
                     });
                     onDeleted?.(urn);
@@ -60,8 +62,8 @@ export default function QueryCardDetailsMenu({ urn, onDeleted, index }: Props) {
                 isOpen={showConfirmationModal}
                 handleClose={() => setShowConfirmationModa(false)}
                 handleConfirm={deleteQuery}
-                modalTitle="Delete Query"
-                modalText="Are you sure you want to delete this query?"
+                modalTitle={t('entity.dataset.queries.message.deleteConfirmTitle')}
+                modalText={t('entity.dataset.queries.message.deleteConfirmContent')}
             />
         </>
     );
