@@ -651,6 +651,63 @@
         "governance": "Governance",
         "runs": "Ausführungen",
         "incidents": "Vorfälle"
+      },
+      "schema": {
+        "table": {
+          "name": "Name",
+          "type": "Typ",
+          "description": "Beschreibung",
+          "tags": "Tags",
+          "glossaryTerms": "Glossarbegriffe",
+          "businessAttribute": "Geschäftsattribut",
+          "stats": "Statistiken"
+        },
+        "constraints": {
+          "primaryKey": "Primärschlüssel",
+          "foreignKey": "Fremdschlüssel",
+          "partitionKey": "Partitionsschlüssel",
+          "nullable": "Nullable"
+        },
+        "drawer": {
+          "about": "Über",
+          "statistics": "Statistiken",
+          "queries": "Abfragen",
+          "properties": "Eigenschaften",
+          "viewQueriesDesc": "Abfragen zu diesem Feld anzeigen",
+          "viewPropertiesDesc": "Zusätzliche Eigenschaften zu diesem Feld anzeigen",
+          "column": "Spalte",
+          "description": "Beschreibung",
+          "addDescription": "Beschreibung hinzufügen",
+          "updateDescription": "Beschreibung aktualisieren",
+          "tags": "Tags",
+          "glossaryTerms": "Glossarbegriffe",
+          "sampleValues": "Beispielwerte",
+          "popularity": "Beliebtheit",
+          "notes": "Notizen",
+          "addNote": "+ Notiz hinzufügen",
+          "deprecation": "Veraltet",
+          "stats": "Statistiken",
+          "viewAll": "Alle anzeigen",
+          "usageQueries": "{{count}} Abfragen / Monat",
+          "noUsageData": "Keine Spaltenutzungsdaten",
+          "changeHistory": "Änderungsverlauf",
+          "timelineForTable": "Zeitstrahl für Tabelle"
+        },
+        "statsV2": {
+          "noStats": "Keine Spaltenstatistiken gefunden",
+          "statsInsights": "Statistiken & Erkenntnisse",
+          "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+          "nullCount": "Null-Anzahl",
+          "nullPct": "Null %",
+          "distinctCount": "Unterschiedliche Anzahl",
+          "distinctPct": "Unterschiedlich %",
+          "max": "Maximum",
+          "min": "Minimum",
+          "median": "Median",
+          "stdDev": "Standardabweichung",
+          "viewMore": "{{count}} weitere anzeigen",
+          "sampleValues": "Beispielwerte"
+        }
       }
     },
     "shared": {

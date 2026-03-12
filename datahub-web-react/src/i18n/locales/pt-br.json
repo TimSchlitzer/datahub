@@ -668,6 +668,63 @@
         "governance": "Governança",
         "runs": "Execuções",
         "incidents": "Incidentes"
+      },
+      "schema": {
+        "table": {
+          "name": "Nome",
+          "type": "Tipo",
+          "description": "Descrição",
+          "tags": "Tags",
+          "glossaryTerms": "Termos do Glossário",
+          "businessAttribute": "Atributo de Negócio",
+          "stats": "Estatísticas"
+        },
+        "constraints": {
+          "primaryKey": "Chave Primária",
+          "foreignKey": "Chave Estrangeira",
+          "partitionKey": "Chave de Partição",
+          "nullable": "Anulável"
+        },
+        "drawer": {
+          "about": "Sobre",
+          "statistics": "Estatísticas",
+          "queries": "Consultas",
+          "properties": "Propriedades",
+          "viewQueriesDesc": "Visualizar consultas sobre este campo",
+          "viewPropertiesDesc": "Visualizar propriedades adicionais sobre este campo",
+          "column": "Coluna",
+          "description": "Descrição",
+          "addDescription": "Adicionar Descrição",
+          "updateDescription": "Atualizar descrição",
+          "tags": "Tags",
+          "glossaryTerms": "Termos do Glossário",
+          "sampleValues": "Valores de Amostra",
+          "popularity": "Popularidade",
+          "notes": "Notas",
+          "addNote": "+ Adicionar Nota",
+          "deprecation": "Deprecação",
+          "stats": "Estatísticas",
+          "viewAll": "Ver tudo",
+          "usageQueries": "{{count}} consultas / mês",
+          "noUsageData": "Nenhum dado de uso de coluna",
+          "changeHistory": "Histórico de Alterações",
+          "timelineForTable": "Linha do Tempo para a Tabela"
+        },
+        "statsV2": {
+          "noStats": "Nenhuma estatística de coluna encontrada",
+          "statsInsights": "Estatísticas e Insights",
+          "lastUpdated": "Última Atualização: {{date}}",
+          "nullCount": "Contagem de Nulos",
+          "nullPct": "% de Nulos",
+          "distinctCount": "Contagem Distinta",
+          "distinctPct": "% Distinto",
+          "max": "Máximo",
+          "min": "Mínimo",
+          "median": "Mediana",
+          "stdDev": "Desvio Padrão",
+          "viewMore": "Ver {{count}} mais",
+          "sampleValues": "Valores de Amostra"
+        }
       }
     },
     "shared": {

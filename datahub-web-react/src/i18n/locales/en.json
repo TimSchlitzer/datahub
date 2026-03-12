@@ -651,6 +651,63 @@
         "governance": "Governance",
         "runs": "Runs",
         "incidents": "Incidents"
+      },
+      "schema": {
+        "table": {
+          "name": "Name",
+          "type": "Type",
+          "description": "Description",
+          "tags": "Tags",
+          "glossaryTerms": "Glossary Terms",
+          "businessAttribute": "Business Attribute",
+          "stats": "Stats"
+        },
+        "constraints": {
+          "primaryKey": "Primary Key",
+          "foreignKey": "Foreign Key",
+          "partitionKey": "Partition Key",
+          "nullable": "Nullable"
+        },
+        "drawer": {
+          "about": "About",
+          "statistics": "Statistics",
+          "queries": "Queries",
+          "properties": "Properties",
+          "viewQueriesDesc": "View queries about this field",
+          "viewPropertiesDesc": "View additional properties about this field",
+          "column": "Column",
+          "description": "Description",
+          "addDescription": "Add Description",
+          "updateDescription": "Update description",
+          "tags": "Tags",
+          "glossaryTerms": "Glossary Terms",
+          "sampleValues": "Sample Values",
+          "popularity": "Popularity",
+          "notes": "Notes",
+          "addNote": "+ Add Note",
+          "deprecation": "Deprecation",
+          "stats": "Stats",
+          "viewAll": "View all",
+          "usageQueries": "{{count}} queries / month",
+          "noUsageData": "No column usage data",
+          "changeHistory": "Change History",
+          "timelineForTable": "Timeline for table"
+        },
+        "statsV2": {
+          "noStats": "No column statistics found",
+          "statsInsights": "Stats & Insights",
+          "lastUpdated": "Last Updated: {{date}}",
+          "nullCount": "Null Count",
+          "nullPct": "Null %",
+          "distinctCount": "Distinct Count",
+          "distinctPct": "Distinct %",
+          "max": "Max",
+          "min": "Min",
+          "median": "Median",
+          "stdDev": "Standard Deviation",
+          "viewMore": "View {{count}} more",
+          "sampleValues": "Sample Values"
+        }
       }
     },
     "shared": {
