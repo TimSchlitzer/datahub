@@ -2,8 +2,8 @@ import { EditOutlined, ExpandAltOutlined, PlusOutlined } from '@ant-design/icons
 import { Button as AntButton, Typography } from 'antd';
 import queryString from 'query-string';
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { useEntityData, useRouteToTab } from '@app/entity/shared/EntityContext';
@@ -106,7 +106,9 @@ export const DocumentationTab = ({ properties }: { properties?: Props }) => {
                             [<Editor content={displayedDescription} readOnly />]
                         ) : (
                             <DocumentationContainer>
-                                <Typography.Text type="secondary">{t('entity.shared.emptyMessages.documentation')}</Typography.Text>
+                                <Typography.Text type="secondary">
+                                    {t('entity.shared.emptyMessages.documentation')}
+                                </Typography.Text>
                             </DocumentationContainer>
                         )}
                         {!hideLinksButton && <RelatedSection />}

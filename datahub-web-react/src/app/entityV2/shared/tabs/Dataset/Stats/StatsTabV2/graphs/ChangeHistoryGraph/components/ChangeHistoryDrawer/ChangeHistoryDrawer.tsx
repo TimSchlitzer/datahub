@@ -1,7 +1,7 @@
 import { Drawer, SelectOption } from '@components';
 import React, { useEffect, useMemo, useState } from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 import ChangeHistoryTimeline from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/graphs/ChangeHistoryGraph/components/ChangeHistoryDrawer/components/ChangeHistoryTimeline';
 import DateSwitcher from '@app/entityV2/shared/tabs/Dataset/Stats/StatsTabV2/graphs/ChangeHistoryGraph/components/ChangeHistoryDrawer/components/DateSwitcher';

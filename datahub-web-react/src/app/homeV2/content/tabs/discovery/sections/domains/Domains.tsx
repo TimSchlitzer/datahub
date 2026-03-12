@@ -1,7 +1,7 @@
 import { Skeleton } from 'antd';
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import analytics, { EventType, HomePageModule } from '@app/analytics';

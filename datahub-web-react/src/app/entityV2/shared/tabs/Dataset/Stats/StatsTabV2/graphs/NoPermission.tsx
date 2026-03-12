@@ -1,7 +1,7 @@
 import { Text } from '@components';
 import React from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 import { EmptyMessageContainer } from '@src/alchemy-components/components/GraphCard/components';
 

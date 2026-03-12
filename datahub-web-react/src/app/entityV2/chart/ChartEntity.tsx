@@ -102,99 +102,99 @@ export class ChartEntity implements Entity<Chart> {
     renderProfile = (urn: string) => {
         const { t } = useTranslation();
         return (
-        <EntityProfile
-            urn={urn}
-            entityType={EntityType.Chart}
-            useEntityQuery={useGetChartQuery}
-            useUpdateQuery={useUpdateChartMutation}
-            getOverrideProperties={this.getOverridePropertiesFromEntity}
-            headerDropdownItems={headerDropdownItems}
-            subHeader={{
-                component: ChartStatsSummarySubHeader,
-            }}
-            tabs={[
-                {
-                    name: 'Summary',
-                    label: t('entity.shared.tabs.summary'),
-                    component: ChartSummaryTab,
-                    icon: SUMMARY_TAB_ICON,
-                    display: {
-                        visible: (_, chart: GetChartQuery) =>
-                            !!chart?.chart?.subTypes?.typeNames?.includes(SubType.TableauWorksheet) ||
-                            !!chart?.chart?.subTypes?.typeNames?.includes(SubType.Looker) ||
-                            chart?.chart?.platform?.name === MODE,
-                        enabled: () => true,
+            <EntityProfile
+                urn={urn}
+                entityType={EntityType.Chart}
+                useEntityQuery={useGetChartQuery}
+                useUpdateQuery={useUpdateChartMutation}
+                getOverrideProperties={this.getOverridePropertiesFromEntity}
+                headerDropdownItems={headerDropdownItems}
+                subHeader={{
+                    component: ChartStatsSummarySubHeader,
+                }}
+                tabs={[
+                    {
+                        name: 'Summary',
+                        label: t('entity.shared.tabs.summary'),
+                        component: ChartSummaryTab,
+                        icon: SUMMARY_TAB_ICON,
+                        display: {
+                            visible: (_, chart: GetChartQuery) =>
+                                !!chart?.chart?.subTypes?.typeNames?.includes(SubType.TableauWorksheet) ||
+                                !!chart?.chart?.subTypes?.typeNames?.includes(SubType.Looker) ||
+                                chart?.chart?.platform?.name === MODE,
+                            enabled: () => true,
+                        },
                     },
-                },
-                {
-                    name: 'Documentation',
-                    label: t('entity.shared.tabs.documentation'),
-                    component: DocumentationTab,
-                    icon: FileOutlined,
-                },
-                {
-                    name: 'Fields',
-                    label: t('entity.chart.tabs.fields'),
-                    component: InputFieldsTab,
-                    icon: LayoutOutlined,
-                    display: {
-                        visible: (_, chart: GetChartQuery) => (chart?.chart?.inputFields?.fields?.length || 0) > 0,
-                        enabled: (_, chart: GetChartQuery) => (chart?.chart?.inputFields?.fields?.length || 0) > 0,
+                    {
+                        name: 'Documentation',
+                        label: t('entity.shared.tabs.documentation'),
+                        component: DocumentationTab,
+                        icon: FileOutlined,
                     },
-                },
-                {
-                    name: 'Preview',
-                    label: t('entity.shared.tabs.preview'),
-                    component: EmbedTab,
-                    icon: EyeOutlined,
-                    display: {
-                        visible: (_, chart: GetChartQuery) =>
-                            !!chart?.chart?.embed?.renderUrl &&
-                            PREVIEW_SUPPORTED_PLATFORMS.includes(chart?.chart?.platform.urn),
-                        enabled: (_, chart: GetChartQuery) =>
-                            !!chart?.chart?.embed?.renderUrl &&
-                            PREVIEW_SUPPORTED_PLATFORMS.includes(chart?.chart?.platform.urn),
+                    {
+                        name: 'Fields',
+                        label: t('entity.chart.tabs.fields'),
+                        component: InputFieldsTab,
+                        icon: LayoutOutlined,
+                        display: {
+                            visible: (_, chart: GetChartQuery) => (chart?.chart?.inputFields?.fields?.length || 0) > 0,
+                            enabled: (_, chart: GetChartQuery) => (chart?.chart?.inputFields?.fields?.length || 0) > 0,
+                        },
                     },
-                },
-                {
-                    name: 'Lineage',
-                    label: t('entity.shared.tabs.lineage'),
-                    component: LineageTab,
-                    icon: PartitionOutlined,
-                    properties: {
-                        defaultDirection: LineageDirection.Upstream,
+                    {
+                        name: 'Preview',
+                        label: t('entity.shared.tabs.preview'),
+                        component: EmbedTab,
+                        icon: EyeOutlined,
+                        display: {
+                            visible: (_, chart: GetChartQuery) =>
+                                !!chart?.chart?.embed?.renderUrl &&
+                                PREVIEW_SUPPORTED_PLATFORMS.includes(chart?.chart?.platform.urn),
+                            enabled: (_, chart: GetChartQuery) =>
+                                !!chart?.chart?.embed?.renderUrl &&
+                                PREVIEW_SUPPORTED_PLATFORMS.includes(chart?.chart?.platform.urn),
+                        },
                     },
-                    supportsFullsize: true,
-                },
-                {
-                    name: 'Properties',
-                    label: t('entity.shared.tabs.properties'),
-                    component: PropertiesTab,
-                    icon: UnorderedListOutlined,
-                },
-                {
-                    name: 'Dashboards',
-                    label: t('entity.chart.tabs.dashboards'),
-                    component: ChartDashboardsTab,
-                    icon: DashboardOutlined,
-                    display: {
-                        visible: (_, _1) => true,
-                        enabled: (_, chart: GetChartQuery) => (chart?.chart?.dashboards?.total || 0) > 0,
+                    {
+                        name: 'Lineage',
+                        label: t('entity.shared.tabs.lineage'),
+                        component: LineageTab,
+                        icon: PartitionOutlined,
+                        properties: {
+                            defaultDirection: LineageDirection.Upstream,
+                        },
+                        supportsFullsize: true,
                     },
-                },
-                {
-                    name: 'Incidents',
-                    label: t('entity.shared.tabs.incidents'),
-                    getCount: (_, chart, loading) => {
-                        return !loading ? chart?.chart?.activeIncidents?.total : undefined;
+                    {
+                        name: 'Properties',
+                        label: t('entity.shared.tabs.properties'),
+                        component: PropertiesTab,
+                        icon: UnorderedListOutlined,
                     },
-                    icon: WarningOutlined,
-                    component: IncidentTab,
-                },
-            ]}
-            sidebarSections={this.getSidebarSections()}
-            sidebarTabs={this.getSidebarTabs()}
-        />
+                    {
+                        name: 'Dashboards',
+                        label: t('entity.chart.tabs.dashboards'),
+                        component: ChartDashboardsTab,
+                        icon: DashboardOutlined,
+                        display: {
+                            visible: (_, _1) => true,
+                            enabled: (_, chart: GetChartQuery) => (chart?.chart?.dashboards?.total || 0) > 0,
+                        },
+                    },
+                    {
+                        name: 'Incidents',
+                        label: t('entity.shared.tabs.incidents'),
+                        getCount: (_, chart, loading) => {
+                            return !loading ? chart?.chart?.activeIncidents?.total : undefined;
+                        },
+                        icon: WarningOutlined,
+                        component: IncidentTab,
+                    },
+                ]}
+                sidebarSections={this.getSidebarSections()}
+                sidebarTabs={this.getSidebarTabs()}
+            />
         );
     };
 
@@ -243,24 +243,24 @@ export class ChartEntity implements Entity<Chart> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Lineage',
-            label: t('entity.shared.tabs.lineage'),
-            component: LineageTab,
-            description: t('entity.shared.sidebarTabs.lineageDesc'),
-            icon: TreeStructure,
-            properties: {
-                actionType: SidebarTitleActionType.LineageExplore,
+            {
+                name: 'Lineage',
+                label: t('entity.shared.tabs.lineage'),
+                component: LineageTab,
+                description: t('entity.shared.sidebarTabs.lineageDesc'),
+                icon: TreeStructure,
+                properties: {
+                    actionType: SidebarTitleActionType.LineageExplore,
+                },
             },
-        },
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: ListBullets,
+            },
+        ];
     };
 
     getOverridePropertiesFromEntity = (chart?: Chart | null): GenericEntityProperties => {

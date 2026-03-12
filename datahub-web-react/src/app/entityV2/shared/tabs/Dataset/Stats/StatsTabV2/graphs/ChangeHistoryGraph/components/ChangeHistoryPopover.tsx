@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import React, { useMemo } from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 import {
     AnyOperationType,

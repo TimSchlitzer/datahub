@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import AddRelatedTermsModal from '@app/entityV2/glossaryTerm/profile/AddRelatedTermsModal';
@@ -48,6 +49,7 @@ const TitleContainer = styled.div`
 const messageStyle = { marginTop: '10%' };
 
 export default function GlossaryRelatedTermsResult({ glossaryRelatedTermType, glossaryRelatedTermResult }: Props) {
+    const { t } = useTranslation();
     const [isShowingAddModal, setIsShowingAddModal] = useState(false);
     const glossaryRelatedTermUrns: Array<string> = [];
     glossaryRelatedTermResult.forEach((item: any) => {
@@ -63,6 +65,16 @@ export default function GlossaryRelatedTermsResult({ glossaryRelatedTermType, gl
         glossaryRelatedTermType === RelatedTermTypes.isRelatedTerms ||
         glossaryRelatedTermType === RelatedTermTypes.hasRelatedTerms;
 
+    const getTranslatedTermType = (termType: string): string => {
+        const termTypeMap: { [key: string]: string } = {
+            [RelatedTermTypes.hasRelatedTerms]: 'entity.glossaryTerm.relatedTerms.contains',
+            [RelatedTermTypes.isRelatedTerms]: 'entity.glossaryTerm.relatedTerms.inherits',
+            [RelatedTermTypes.containedBy]: 'entity.glossaryTerm.relatedTerms.containedBy',
+            [RelatedTermTypes.isAChildren]: 'entity.glossaryTerm.relatedTerms.inheritedBy',
+        };
+        return t(termTypeMap[termType] || termType);
+    };
+
     return (
         <>
             {contentLoading ? (
@@ -71,7 +83,7 @@ export default function GlossaryRelatedTermsResult({ glossaryRelatedTermType, gl
                 <ListWrapper>
                     <TitleContainer>
                         <Typography.Title style={{ margin: '0' }} level={3}>
-                            {glossaryRelatedTermType}
+                            {getTranslatedTermType(glossaryRelatedTermType)}
                         </Typography.Title>
                         {canEditRelatedTerms && (
                             <Button
@@ -79,7 +91,7 @@ export default function GlossaryRelatedTermsResult({ glossaryRelatedTermType, gl
                                 onClick={() => setIsShowingAddModal(true)}
                                 data-testid="add-related-term-button"
                             >
-                                <CustomIcon iconSvg={addTerm} /> Add Terms
+                                <CustomIcon iconSvg={addTerm} /> {t('entity.glossaryTerm.relatedTerms.addTerms')}
                             </Button>
                         )}
                     </TitleContainer>

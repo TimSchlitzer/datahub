@@ -967,6 +967,109 @@
                 "contents": "Contents"
             }
         },
+        "glossaryTerm": {
+            "relatedTerms": {
+                "contains": "Contains",
+                "inherits": "Inherits",
+                "containedBy": "Contained by",
+                "inheritedBy": "Inherited by",
+                "addTerms": "Add Terms",
+                "modal": {
+                    "title": "Add Related Terms",
+                    "placeholder": "Search for Glossary Terms...",
+                    "cancel": "Cancel",
+                    "add": "Add"
+                },
+                "messages": {
+                    "failed": "Failed to move: {{error}}",
+                    "adding": "Adding...",
+                    "success": "Added Related Terms!"
+                }
+            }
+        },
+        "domain": {
+            "summary": {
+                "contents": {
+                    "title": "Assets",
+                    "viewAll": "View all"
+                },
+                "dataProducts": {
+                    "title": "Data Products",
+                    "createButton": "Create Data Product",
+                    "viewAll": "View all"
+                }
+            },
+            "dataProductsTab": {
+                "newDataProduct": "New Data Product",
+                "searchPlaceholder": "Search data products...",
+                "noDataProducts": "No Data Products",
+                "modal": {
+                    "title": "Create Data Product",
+                    "cancel": "Cancel",
+                    "create": "Create"
+                },
+                "messages": {
+                    "created": "Created Data Product!",
+                    "error": "Failed to create Data Product. An unexpected error occurred"
+                }
+            }
+        },
+        "chart": {
+            "summary": {
+                "measures": "Measures",
+                "dimensions": "Dimensions",
+                "temporals": "Temporals"
+            },
+            "fieldTable": {
+                "name": "Name",
+                "description": "Description",
+                "viewMore": "View {{count}} More"
+            },
+            "statsSummary": {
+                "charts": "charts",
+                "viewsLastMonth": "views last month",
+                "views": "views",
+                "users": "users",
+                "moreViewsThan": "More views than {{percentile}}% of similar assets in the past 30 days",
+                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
+                "createdOn": "Created on {{date}}",
+                "changedOn": "Changed on {{date}}",
+                "lastChangedTooltip": "The time at which the chart was last changed in the source platform",
+                "changed": "Changed {{time}}"
+            }
+        },
+        "dashboard": {
+            "summary": {
+                "generalInfo": "General Info",
+                "relatedAssets": "Related Assets",
+                "dataSources": "Data Sources",
+                "contents": "Contents"
+            },
+            "statsSummary": {
+                "charts": "charts",
+                "viewsLastMonth": "views last month",
+                "views": "views",
+                "users": "users",
+                "moreViewsOften": "More views often than {{percentile}}% of similar assets in the past 30 days",
+                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
+                "createdOn": "Created on {{date}}",
+                "changedOn": "Changed on {{date}}",
+                "lastChangedTooltip": "The time at which the dashboard was last changed in the source platform",
+                "changed": "Changed {{time}}"
+            }
+        },
+        "dataJob": {
+            "runsTab": {
+                "time": "Time",
+                "runId": "Run ID",
+                "status": "Status",
+                "inputs": "Inputs",
+                "outputs": "Outputs",
+                "viewTaskRunDetails": "View task run details",
+                "notAvailable": "N/A",
+                "loading": "Fetching runs..."
+            }
+        },
         "membershipThisGroupCannotEddit": "Membership in this group cannot be edited in DataHub as it originates from",
         "areSureDeleteThisDataProduct": "Are you sure you want to delete this Data Product?",
         "manageView": "Manager Views",

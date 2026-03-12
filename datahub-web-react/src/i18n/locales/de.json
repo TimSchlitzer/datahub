@@ -967,6 +967,109 @@
                 "contents": "Inhalte"
             }
         },
+        "glossaryTerm": {
+            "relatedTerms": {
+                "contains": "Enthält",
+                "inherits": "Erbt",
+                "containedBy": "Enthalten von",
+                "inheritedBy": "Geerbt von",
+                "addTerms": "Begriffe hinzufügen",
+                "modal": {
+                    "title": "Zugehörige Begriffe hinzufügen",
+                    "placeholder": "Nach Glossarbegriffen suchen...",
+                    "cancel": "Abbrechen",
+                    "add": "Hinzufügen"
+                },
+                "messages": {
+                    "failed": "Verschieben fehlgeschlagen: {{error}}",
+                    "adding": "Wird hinzugefügt...",
+                    "success": "Zugehörige Begriffe hinzugefügt!"
+                }
+            }
+        },
+        "domain": {
+            "summary": {
+                "contents": {
+                    "title": "Vermögenswerte",
+                    "viewAll": "Alle anzeigen"
+                },
+                "dataProducts": {
+                    "title": "Datenprodukte",
+                    "createButton": "Datenprodukt erstellen",
+                    "viewAll": "Alle anzeigen"
+                }
+            },
+            "dataProductsTab": {
+                "newDataProduct": "Neues Datenprodukt",
+                "searchPlaceholder": "Datenprodukte suchen...",
+                "noDataProducts": "Keine Datenprodukte",
+                "modal": {
+                    "title": "Datenprodukt erstellen",
+                    "cancel": "Abbrechen",
+                    "create": "Erstellen"
+                },
+                "messages": {
+                    "created": "Datenprodukt erstellt!",
+                    "error": "Fehler beim Erstellen des Datenprodukts. Ein unerwarteter Fehler ist aufgetreten"
+                }
+            }
+        },
+        "chart": {
+            "summary": {
+                "measures": "Maßnahmen",
+                "dimensions": "Dimensionen",
+                "temporals": "Zeitliche"
+            },
+            "fieldTable": {
+                "name": "Name",
+                "description": "Beschreibung",
+                "viewMore": "{{count}} weitere anzeigen"
+            },
+            "statsSummary": {
+                "charts": "Diagramme",
+                "viewsLastMonth": "Ansichten im letzten Monat",
+                "views": "Ansichten",
+                "users": "Benutzer",
+                "moreViewsThan": "Mehr Ansichten als {{percentile}}% der ähnlichen Vermögenswerte in den letzten 30 Tagen",
+                "moreUsersThan": "Mehr Benutzer als {{percentile}}% der ähnlichen Vermögenswerte in den letzten 30 Tagen",
+                "createdOn": "Erstellt am {{date}}",
+                "changedOn": "Geändert am {{date}}",
+                "lastChangedTooltip": "Der Zeitpunkt, zu dem das Diagramm zuletzt in der Quellplattform geändert wurde",
+                "changed": "Geändert {{time}}"
+            }
+        },
+        "dashboard": {
+            "summary": {
+                "generalInfo": "Allgemeine Informationen",
+                "relatedAssets": "Zugehörige Vermögenswerte",
+                "dataSources": "Datenquellen",
+                "contents": "Inhalte"
+            },
+            "statsSummary": {
+                "charts": "Diagramme",
+                "viewsLastMonth": "Ansichten im letzten Monat",
+                "views": "Ansichten",
+                "users": "Benutzer",
+                "moreViewsOften": "Ansichten öfter als {{percentile}}% der ähnlichen Vermögenswerte in den letzten 30 Tagen",
+                "moreUsersThan": "Mehr Benutzer als {{percentile}}% der ähnlichen Vermögenswerte in den letzten 30 Tagen",
+                "createdOn": "Erstellt am {{date}}",
+                "changedOn": "Geändert am {{date}}",
+                "lastChangedTooltip": "Der Zeitpunkt, zu dem das Dashboard zuletzt in der Quellplattform geändert wurde",
+                "changed": "Geändert {{time}}"
+            }
+        },
+        "dataJob": {
+            "runsTab": {
+                "time": "Zeit",
+                "runId": "Lauf-ID",
+                "status": "Status",
+                "inputs": "Eingaben",
+                "outputs": "Ausgaben",
+                "viewTaskRunDetails": "Details zur Task-Ausführung anzeigen",
+                "notAvailable": "N/V",
+                "loading": "Läufe werden abgerufen..."
+            }
+        },
         "membershipThisGroupCannotEddit": "Die Mitgliedschaft in dieser Gruppe kann in DataHub nicht bearbeitet werden, da sie stammt aus",
         "areSureDeleteThisDataProduct": "Möchten Sie dieses Datenprodukt wirklich löschen?",
         "manageView": "Ansichten verwalten",

@@ -139,7 +139,12 @@ export const PropertiesTab = ({ renderType = TabRenderType.DEFAULT, properties }
                 columns={propertyTableColumns}
                 dataSource={dataSource}
                 locale={{
-                    emptyText: <EmptyText description={t('entity.shared.emptyMessages.properties')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: (
+                        <EmptyText
+                            description={t('entity.shared.emptyMessages.properties')}
+                            image={Empty.PRESENTED_IMAGE_SIMPLE}
+                        />
+                    ),
                 }}
                 rowKey="qualifiedName"
                 expandable={{

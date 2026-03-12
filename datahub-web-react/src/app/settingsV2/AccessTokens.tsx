@@ -252,7 +252,8 @@ export const AccessTokens = () => {
             dataIndex: 'expiresAt',
             key: 'expiresAt',
             render: (expiresAt: string) => {
-                if (expiresAt === null) return <NeverExpireText>{t('settings.accessTokens.table.never')}</NeverExpireText>;
+                if (expiresAt === null)
+                    return <NeverExpireText>{t('settings.accessTokens.table.never')}</NeverExpireText>;
                 const localeTimezone = getLocaleTimezone();
                 const formattedExpireAt = new Date(expiresAt);
                 return (
@@ -308,7 +309,10 @@ export const AccessTokens = () => {
             {tokensError && message.error(t('common.error'))}
             {revokeTokenError && message.error(t('common.error'))}
             <TokensContainer>
-                <PageTitle title={t('settings.accessTokens.pageTitle')} subTitle={t('settings.accessTokens.pageSubtitle')} />
+                <PageTitle
+                    title={t('settings.accessTokens.pageTitle')}
+                    subTitle={t('settings.accessTokens.pageSubtitle')}
+                />
             </TokensContainer>
             <Divider />
             {isTokenAuthEnabled === false && (
@@ -411,7 +415,9 @@ export const AccessTokens = () => {
                 dataSource={tableData}
                 rowKey="urn"
                 locale={{
-                    emptyText: <Empty description={t('settings.accessTokens.noTokens')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: (
+                        <Empty description={t('settings.accessTokens.noTokens')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                    ),
                 }}
                 pagination={false}
             />

@@ -2,6 +2,7 @@ import { DeliveredProcedureOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import { Pagination, Table, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -52,9 +53,11 @@ function getStatusForStyling(status?: DataProcessRunStatus, resultType?: DataPro
     return 'RUNNING';
 }
 
-const columns = [
+const PAGE_SIZE = 20;
+
+const getColumns = (t: any) => [
     {
-        title: 'Time',
+        title: t('entity.dataJob.runsTab.time'),
         dataIndex: 'time',
         key: 'time',
         render: (value) => (
@@ -62,12 +65,12 @@ const columns = [
         ),
     },
     {
-        title: 'Run ID',
+        title: t('entity.dataJob.runsTab.runId'),
         dataIndex: 'name',
         key: 'name',
     },
     {
-        title: 'Status',
+        title: t('entity.dataJob.runsTab.status'),
         dataIndex: 'status',
         key: 'status',
         render: (status: any, row) => {
@@ -79,7 +82,7 @@ const columns = [
                     <div style={{ display: 'flex', justifyContent: 'left', alignItems: 'center' }}>
                         <LastRunIcon status={status} resultType={row?.resultType} />
                         <Typography.Text strong style={{ color, marginLeft: 8 }}>
-                            {text || 'N/A'}
+                            {text || t('entity.dataJob.runsTab.notAvailable')}
                         </Typography.Text>
                     </div>
                 </>
@@ -87,14 +90,14 @@ const columns = [
         },
     },
     {
-        title: 'Inputs',
+        title: t('entity.dataJob.runsTab.inputs'),
         dataIndex: 'inputs',
         key: 'inputs',
         render: (inputs) => <CompactEntityNameList entities={inputs} placement="right" />,
         width: 150,
     },
     {
-        title: 'Outputs',
+        title: t('entity.dataJob.runsTab.outputs'),
         dataIndex: 'outputs',
         key: 'outputs',
         render: (outputs) => <CompactEntityNameList entities={outputs} placement="right" />,
@@ -106,7 +109,7 @@ const columns = [
         key: 'externalUrl',
         render: (externalUrl) =>
             externalUrl && (
-                <Tooltip title="View task run details">
+                <Tooltip title={t('entity.dataJob.runsTab.viewTaskRunDetails')}>
                     <ExternalUrlLink href={externalUrl}>
                         <DeliveredProcedureOutlined />
                     </ExternalUrlLink>
@@ -115,11 +118,11 @@ const columns = [
     },
 ];
 
-const PAGE_SIZE = 20;
-
 export const RunsTab = () => {
+    const { t } = useTranslation();
     const { urn } = useEntityData();
     const [page, setPage] = useState(1);
+    const columns = getColumns(t);
 
     const { loading, data } = useGetExecutionRunsQuery({
         variables: {
@@ -146,7 +149,7 @@ export const RunsTab = () => {
         return (
             <LoadingContainer>
                 <LoadingSvg height={80} width={80} />
-                <LoadingText>Fetching runs...</LoadingText>
+                <LoadingText>{t('entity.dataJob.runsTab.loading')}</LoadingText>
             </LoadingContainer>
         );
     }

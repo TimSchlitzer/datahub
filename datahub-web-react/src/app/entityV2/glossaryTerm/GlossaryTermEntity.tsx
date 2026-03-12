@@ -196,14 +196,14 @@ export class GlossaryTermEntity implements Entity<GlossaryTerm> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: UnorderedListOutlined,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: UnorderedListOutlined,
+            },
+        ];
     };
 
     getOverridePropertiesFromEntity = (glossaryTerm?: GlossaryTerm | null): GenericEntityProperties => {

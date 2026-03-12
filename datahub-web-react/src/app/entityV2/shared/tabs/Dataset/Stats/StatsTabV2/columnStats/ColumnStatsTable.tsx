@@ -1,7 +1,7 @@
 import { Table, Text } from '@components';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 import { ExtendedSchemaFields } from '@app/entityV2/dataset/profile/schema/utils/types';
 import SchemaFieldDrawer from '@app/entityV2/shared/tabs/Dataset/Schema/components/SchemaFieldDrawer/SchemaFieldDrawer';

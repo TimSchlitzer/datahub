@@ -68,7 +68,9 @@ export const OperationsTab = () => {
             dataIndex: 'time',
             key: 'time',
             render: (value) => (
-                <Tooltip title={new Date(Number(value)).toUTCString()}>{new Date(Number(value)).toLocaleString()}</Tooltip>
+                <Tooltip title={new Date(Number(value)).toUTCString()}>
+                    {new Date(Number(value)).toLocaleString()}
+                </Tooltip>
             ),
         },
         {

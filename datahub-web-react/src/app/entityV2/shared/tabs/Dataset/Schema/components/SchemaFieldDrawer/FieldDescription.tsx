@@ -150,7 +150,9 @@ export default function FieldDescription({ expandedField, editableFieldInfo, edi
                                     }}
                                 >
                                     <StyledPlusOutlined />
-                                    <AddDescriptionText>{t('entity.dataset.schema.drawer.addDescription')}</AddDescriptionText>
+                                    <AddDescriptionText>
+                                        {t('entity.dataset.schema.drawer.addDescription')}
+                                    </AddDescriptionText>
                                 </AddNewDescription>,
                             ]}
                         {!!displayedDescription && (
@@ -169,7 +171,11 @@ export default function FieldDescription({ expandedField, editableFieldInfo, edi
             />
             {isModalVisible && (
                 <UpdateDescriptionModal
-                    title={displayedDescription ? t('entity.dataset.schema.drawer.updateDescription') : t('entity.dataset.schema.drawer.addDescription')}
+                    title={
+                        displayedDescription
+                            ? t('entity.dataset.schema.drawer.updateDescription')
+                            : t('entity.dataset.schema.drawer.addDescription')
+                    }
                     description={displayedDescription || ''}
                     original={expandedField.description || ''}
                     propagatedDescription={propagatedDescription || ''}

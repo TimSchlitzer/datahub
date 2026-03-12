@@ -1,6 +1,7 @@
 import { Table, Typography } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -40,13 +41,14 @@ interface Props {
 }
 
 export default function ChartFieldsTable({ urn, rows }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const hasSeeMore = rows.length > MAX_ROWS;
 
     const nameColumn = {
         ellipsis: true,
         width: '45%',
-        title: 'Name',
+        title: t('entity.chart.fieldTable.name'),
         dataIndex: 'fieldPath',
         key: 'fieldPath',
         filtered: true,
@@ -56,7 +58,7 @@ export default function ChartFieldsTable({ urn, rows }: Props) {
     const descriptionColumn = {
         ellipsis: true,
         width: '45%',
-        title: 'Description',
+        title: t('entity.chart.fieldTable.description'),
         dataIndex: 'description',
         key: 'description',
         render: descriptionRender,
@@ -81,7 +83,7 @@ export default function ChartFieldsTable({ urn, rows }: Props) {
             />
             {hasSeeMore && (
                 <SeeMoreLink type="text" to={`${entityRegistry.getEntityUrl(EntityType.Chart, urn)}/Fields`}>
-                    View {rows.length - MAX_ROWS} More
+                    {t('entity.chart.fieldTable.viewMore', { count: rows.length - MAX_ROWS })}
                 </SeeMoreLink>
             )}
         </TableContainer>

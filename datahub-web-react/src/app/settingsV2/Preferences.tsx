@@ -104,7 +104,10 @@ export const Preferences = () => {
             <SourceContainer>
                 <TokensContainer>
                     <HeaderContainer>
-                        <PageTitle title={t('settings.preferences.appearance')} subTitle={t('settings.preferences.subtitle')} />
+                        <PageTitle
+                            title={t('settings.preferences.appearance')}
+                            subTitle={t('settings.preferences.subtitle')}
+                        />
                     </HeaderContainer>
                 </TokensContainer>
                 {showSimplifiedHomepageSetting && (
@@ -112,7 +115,9 @@ export const Preferences = () => {
                         <UserSettingRow>
                             <TextContainer>
                                 <SettingText>{t('settings.preferences.simplifiedHomepage')}</SettingText>
-                                <DescriptionText>{t('settings.preferences.simplifiedHomepageDescription')}</DescriptionText>
+                                <DescriptionText>
+                                    {t('settings.preferences.simplifiedHomepageDescription')}
+                                </DescriptionText>
                             </TextContainer>
                             <Switch
                                 label=""
@@ -177,7 +182,9 @@ export const Preferences = () => {
                         <UserSettingRow>
                             <TextContainer>
                                 <SettingText>{t('settings.preferences.showApplications')}</SettingText>
-                                <DescriptionText>{t('settings.preferences.showApplicationsDescription')}</DescriptionText>
+                                <DescriptionText>
+                                    {t('settings.preferences.showApplicationsDescription')}
+                                </DescriptionText>
                             </TextContainer>
                             <Switch
                                 label=""

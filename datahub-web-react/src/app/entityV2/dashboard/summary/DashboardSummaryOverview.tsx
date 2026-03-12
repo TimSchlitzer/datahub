@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity, useEntityData } from '@app/entity/shared/EntityContext';
@@ -50,6 +51,7 @@ const EntitiesList = styled.div`
 `;
 
 export default function DashboardSummaryOverview() {
+    const { t } = useTranslation();
     const { loading } = useEntityData();
     const dashboard = useBaseEntity<GetDashboardQuery>()?.dashboard;
     const entityRegistry = useEntityRegistryV2();
@@ -88,18 +90,18 @@ export default function DashboardSummaryOverview() {
     return (
         <SummaryColumns>
             <MainSection>
-                <SummaryHeader>General Info</SummaryHeader>
+                <SummaryHeader>{t('entity.dashboard.summary.generalInfo')}</SummaryHeader>
 
                 {!!owner && <SummaryCreatedBySection owner={owner} />}
             </MainSection>
 
             <MainSection>
-                <SummaryHeader>Related Assets</SummaryHeader>
+                <SummaryHeader>{t('entity.dashboard.summary.relatedAssets')}</SummaryHeader>
                 <AssetSections>
                     {!!dataSources?.length && (
                         <MainSection>
                             <StyledTitle>
-                                Data Sources
+                                {t('entity.dashboard.summary.dataSources')}
                                 <Count>{dataSources.length} </Count>
                             </StyledTitle>
                             <EntitiesList>
@@ -129,7 +131,7 @@ export default function DashboardSummaryOverview() {
                     {!!charts?.length && (
                         <MainSection>
                             <StyledTitle>
-                                Contents
+                                {t('entity.dashboard.summary.contents')}
                                 <Count>{charts.length} </Count>
                             </StyledTitle>
                             <EntitiesList>

@@ -129,14 +129,14 @@ export class DomainEntity implements Entity<Domain> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: ListBullets,
+            },
+        ];
     };
 
     getProfileTabs = (): EntityTab[] => {

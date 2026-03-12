@@ -16,7 +16,14 @@ interface SampleDrawerProps {
 export default function AllSamplesDrawer({ samples, fieldType, onBack, onViewSample, open }: SampleDrawerProps) {
     const { t } = useTranslation();
     return (
-        <Drawer title={t('entity.dataset.schema.drawer.sampleValues')} open={open} closable={false} onBack={onBack} maskTransparent width={560}>
+        <Drawer
+            title={t('entity.dataset.schema.drawer.sampleValues')}
+            open={open}
+            closable={false}
+            onBack={onBack}
+            maskTransparent
+            width={560}
+        >
             <SamplesTable samples={samples} fieldType={fieldType} onViewSample={onViewSample} />
         </Drawer>
     );

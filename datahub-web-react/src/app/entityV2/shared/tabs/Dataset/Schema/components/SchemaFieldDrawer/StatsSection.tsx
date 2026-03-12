@@ -34,7 +34,11 @@ export default function StatsSection({ fieldProfile, setSelectedTabName }: Props
         <>
             <SidebarSection
                 title={t('entity.dataset.schema.drawer.stats')}
-                extra={<ViewAll onClick={() => setSelectedTabName(t('entity.dataset.schema.drawer.statistics'))}>{t('entity.dataset.schema.drawer.viewAll')}</ViewAll>}
+                extra={
+                    <ViewAll onClick={() => setSelectedTabName(t('entity.dataset.schema.drawer.statistics'))}>
+                        {t('entity.dataset.schema.drawer.viewAll')}
+                    </ViewAll>
+                }
                 content={<StatsSummaryRow fieldProfile={fieldProfile} />}
             />
             <StyledDivider dashed />

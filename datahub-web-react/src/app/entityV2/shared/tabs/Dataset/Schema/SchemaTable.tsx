@@ -3,9 +3,9 @@ import { SorterResult } from 'antd/lib/table/interface';
 import ResizeObserver from 'rc-resize-observer';
 import type { FixedType } from 'rc-table/lib/interface';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { useDebounce } from 'react-use';
-import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { useVT } from 'virtualizedtableforantd4';
 

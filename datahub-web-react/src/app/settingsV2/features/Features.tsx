@@ -94,7 +94,10 @@ export const Features = () => {
         <Page>
             <SourceContainer>
                 <Container>
-                    <PageTitle title={t('settings.features.pageTitle')} subTitle={t('settings.features.pageSubtitle')} />
+                    <PageTitle
+                        title={t('settings.features.pageTitle')}
+                        subTitle={t('settings.features.pageSubtitle')}
+                    />
                 </Container>
                 {features.map((feature) => (
                     <Feature {...feature} />

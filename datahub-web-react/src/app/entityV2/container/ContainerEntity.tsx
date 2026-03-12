@@ -82,62 +82,62 @@ export class ContainerEntity implements Entity<Container> {
     renderProfile = (urn: string) => {
         const { t } = useTranslation();
         return (
-        <EntityProfile
-            urn={urn}
-            entityType={EntityType.Container}
-            useEntityQuery={useGetContainerQuery}
-            useUpdateQuery={undefined}
-            getOverrideProperties={this.getOverridePropertiesFromEntity}
-            headerDropdownItems={headerDropdownItems}
-            tabs={[
-                {
-                    name: 'Summary',
-                    label: t('entity.shared.tabs.summary'),
-                    component: ContainerSummaryTab,
-                    icon: SUMMARY_TAB_ICON,
-                    display: {
-                        visible: (_, container: GetContainerQuery) =>
-                            !!container?.container?.subTypes?.typeNames?.includes(SubType.TableauWorkbook),
-                        enabled: () => true,
-                    },
-                },
-                {
-                    name: 'Contents',
-                    label: t('entity.container.tabs.contents'),
-                    component: ContainerEntitiesTab,
-                    icon: AppstoreOutlined,
-                },
-                {
-                    name: 'Documentation',
-                    label: t('entity.shared.tabs.documentation'),
-                    component: DocumentationTab,
-                    icon: FileOutlined,
-                },
-                {
-                    name: 'Properties',
-                    label: t('entity.shared.tabs.properties'),
-                    component: PropertiesTab,
-                    icon: ListBullets,
-                },
-                {
-                    name: 'Access',
-                    label: t('entity.shared.tabs.access'),
-                    component: AccessManagement,
-                    icon: UnlockOutlined,
-                    display: {
-                        visible: (_, container: GetContainerQuery) => {
-                            return (
-                                this.appconfig().config.featureFlags.showAccessManagement &&
-                                !!container?.container?.access
-                            );
+            <EntityProfile
+                urn={urn}
+                entityType={EntityType.Container}
+                useEntityQuery={useGetContainerQuery}
+                useUpdateQuery={undefined}
+                getOverrideProperties={this.getOverridePropertiesFromEntity}
+                headerDropdownItems={headerDropdownItems}
+                tabs={[
+                    {
+                        name: 'Summary',
+                        label: t('entity.shared.tabs.summary'),
+                        component: ContainerSummaryTab,
+                        icon: SUMMARY_TAB_ICON,
+                        display: {
+                            visible: (_, container: GetContainerQuery) =>
+                                !!container?.container?.subTypes?.typeNames?.includes(SubType.TableauWorkbook),
+                            enabled: () => true,
                         },
-                        enabled: (_, _2) => true,
                     },
-                },
-            ]}
-            sidebarSections={this.getSidebarSections()}
-            sidebarTabs={this.getSidebarTabs()}
-        />
+                    {
+                        name: 'Contents',
+                        label: t('entity.container.tabs.contents'),
+                        component: ContainerEntitiesTab,
+                        icon: AppstoreOutlined,
+                    },
+                    {
+                        name: 'Documentation',
+                        label: t('entity.shared.tabs.documentation'),
+                        component: DocumentationTab,
+                        icon: FileOutlined,
+                    },
+                    {
+                        name: 'Properties',
+                        label: t('entity.shared.tabs.properties'),
+                        component: PropertiesTab,
+                        icon: ListBullets,
+                    },
+                    {
+                        name: 'Access',
+                        label: t('entity.shared.tabs.access'),
+                        component: AccessManagement,
+                        icon: UnlockOutlined,
+                        display: {
+                            visible: (_, container: GetContainerQuery) => {
+                                return (
+                                    this.appconfig().config.featureFlags.showAccessManagement &&
+                                    !!container?.container?.access
+                                );
+                            },
+                            enabled: (_, _2) => true,
+                        },
+                    },
+                ]}
+                sidebarSections={this.getSidebarSections()}
+                sidebarTabs={this.getSidebarTabs()}
+            />
         );
     };
 
@@ -184,14 +184,14 @@ export class ContainerEntity implements Entity<Container> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: ListBullets,
+            },
+        ];
     };
 
     renderPreview = (previewType: PreviewType, data: Container) => {

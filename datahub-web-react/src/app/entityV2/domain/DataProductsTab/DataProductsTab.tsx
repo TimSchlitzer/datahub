@@ -3,6 +3,7 @@ import { Button, Empty, Pagination } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { DomainsPaginationContainer } from '@app/domain/DomainsList';
@@ -49,6 +50,7 @@ const LoadingWrapper = styled.div`
 const DEFAULT_PAGE_SIZE = 10;
 
 export default function DataProductsTab() {
+    const { t } = useTranslation();
     const { refetch } = useEntityContext();
     const { entityData } = useEntityData();
     const entityRegistry = useEntityRegistry();
@@ -112,11 +114,11 @@ export default function DataProductsTab() {
                     onClick={() => setIsCreateModalVisible(true)}
                     data-testid="create-data-product-button"
                 >
-                    <PlusOutlined /> New Data Product
+                    <PlusOutlined /> {t('entity.domain.dataProductsTab.newDataProduct')}
                 </Button>
                 <SearchBar
                     initialQuery={query || ''}
-                    placeholderText="Search data products..."
+                    placeholderText={t('entity.domain.dataProductsTab.searchPlaceholder')}
                     suggestions={[]}
                     style={{
                         maxWidth: 220,
@@ -135,7 +137,7 @@ export default function DataProductsTab() {
             <ResultsWrapper>
                 {!loading && !displayedDataProducts.length && (
                     <Empty
-                        description="No Data Products"
+                        description={t('entity.domain.dataProductsTab.noDataProducts')}
                         image={Empty.PRESENTED_IMAGE_SIMPLE}
                         style={{ color: ANTD_GRAY[7] }}
                     />

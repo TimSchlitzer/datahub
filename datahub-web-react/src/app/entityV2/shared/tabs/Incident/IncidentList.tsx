@@ -1,7 +1,7 @@
 import { Empty } from 'antd';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 
 import { useEntityData, useRefetch } from '@app/entity/shared/EntityContext';
 import { combineEntityDataWithSiblings } from '@app/entity/shared/siblingUtils';

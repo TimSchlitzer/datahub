@@ -2,6 +2,7 @@ import { ClockCircleOutlined, EyeOutlined, QuestionCircleOutlined, TeamOutlined 
 import { Popover, Tooltip } from '@components';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import ExpandingStat from '@app/entityV2/dataset/shared/ExpandingStat';
@@ -44,9 +45,10 @@ export const DashboardStatsSummary = ({
     lastUpdatedMs,
     createdMs,
 }: Props) => {
+    const { t } = useTranslation();
     // acryl-main only.
     const effectiveViewCount = (!!viewCountLast30Days && viewCountLast30Days) || viewCount;
-    const effectiveViewCountText = (!!viewCountLast30Days && 'views last month') || 'views';
+    const effectiveViewCountText = (!!viewCountLast30Days && t('entity.dashboard.statsSummary.viewsLastMonth')) || t('entity.dashboard.statsSummary.views');
 
     const statsViews = [
         (!!chartCount && (
@@ -55,7 +57,7 @@ export const DashboardStatsSummary = ({
                 render={(isExpanded) => (
                     <StatText color={ANTD_GRAY[8]}>
                         <b>{isExpanded ? formatNumberWithoutAbbreviation(chartCount) : countFormatter(chartCount)}</b>{' '}
-                        charts
+                        {t('entity.dashboard.statsSummary.charts')}
                     </StatText>
                 )}
             />
@@ -69,7 +71,7 @@ export const DashboardStatsSummary = ({
                     <Typography.Text type="secondary">
                         <PercentileLabel
                             percentile={viewCountPercentileLast30Days}
-                            description={`More views often than ${viewCountPercentileLast30Days}% of similar assets in the past 30 days`}
+                            description={t('entity.dashboard.statsSummary.moreViewsOften', { percentile: viewCountPercentileLast30Days })}
                         />
                     </Typography.Text>
                 )}
@@ -79,12 +81,12 @@ export const DashboardStatsSummary = ({
         (!!uniqueUserCountLast30Days && (
             <StatText>
                 <TeamOutlined style={{ marginRight: 8, color: ANTD_GRAY[7] }} />
-                {formatNumber(uniqueUserCountLast30Days)} users
+                {formatNumber(uniqueUserCountLast30Days)} {t('entity.dashboard.statsSummary.users')}
                 {!!uniqueUserPercentileLast30Days && (
                     <Typography.Text type="secondary">
                         <PercentileLabel
                             percentile={uniqueUserPercentileLast30Days}
-                            description={`More users than ${uniqueUserPercentileLast30Days}% of similar assets in the past 30 days`}
+                            description={t('entity.dashboard.statsSummary.moreUsersThan', { percentile: uniqueUserPercentileLast30Days })}
                         />
                     </Typography.Text>
                 )}
@@ -95,10 +97,10 @@ export const DashboardStatsSummary = ({
             <Popover
                 content={
                     <>
-                        {createdMs && <div>Created on {toLocalDateTimeString(createdMs)}.</div>}
+                        {createdMs && <div>{t('entity.dashboard.statsSummary.createdOn', { date: toLocalDateTimeString(createdMs) })}</div>}
                         <div>
-                            Changed on {toLocalDateTimeString(lastUpdatedMs)}.{' '}
-                            <Tooltip title="The time at which the dashboard was last changed in the source platform">
+                            {t('entity.dashboard.statsSummary.changedOn', { date: toLocalDateTimeString(lastUpdatedMs) })}{' '}
+                            <Tooltip title={t('entity.dashboard.statsSummary.lastChangedTooltip')}>
                                 <HelpIcon />
                             </Tooltip>
                         </div>
@@ -107,7 +109,7 @@ export const DashboardStatsSummary = ({
             >
                 <StatText>
                     <ClockCircleOutlined style={{ marginRight: 8, color: ANTD_GRAY[7] }} />
-                    Changed {toRelativeTimeString(lastUpdatedMs)}
+                    {t('entity.dashboard.statsSummary.changed', { time: toRelativeTimeString(lastUpdatedMs) })}
                 </StatText>
             </Popover>
         )) ||

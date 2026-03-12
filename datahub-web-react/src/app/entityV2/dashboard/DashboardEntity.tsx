@@ -101,94 +101,97 @@ export class DashboardEntity implements Entity<Dashboard> {
     renderProfile = (urn: string) => {
         const { t } = useTranslation();
         return (
-        <EntityProfile
-            urn={urn}
-            entityType={EntityType.Dashboard}
-            useEntityQuery={useGetDashboardQuery}
-            useUpdateQuery={useUpdateDashboardMutation}
-            getOverrideProperties={this.getOverridePropertiesFromEntity}
-            headerDropdownItems={headerDropdownItems}
-            subHeader={{
-                component: DashboardStatsSummarySubHeader,
-            }}
-            tabs={[
-                {
-                    name: 'Summary',
-                    label: t('entity.shared.tabs.summary'),
-                    component: DashboardSummaryTab,
-                    icon: SUMMARY_TAB_ICON,
-                },
-                {
-                    name: 'Contents',
-                    label: t('entity.dashboard.tabs.contents'),
-                    component: DashboardChartsTab,
-                    icon: AppstoreOutlined,
-                    display: {
-                        visible: (_, dashboard: GetDashboardQuery) =>
-                            (dashboard?.dashboard?.charts?.total || 0) > 0 ||
-                            (dashboard?.dashboard?.datasets?.total || 0) === 0,
-                        enabled: (_, dashboard: GetDashboardQuery) => (dashboard?.dashboard?.charts?.total || 0) > 0,
+            <EntityProfile
+                urn={urn}
+                entityType={EntityType.Dashboard}
+                useEntityQuery={useGetDashboardQuery}
+                useUpdateQuery={useUpdateDashboardMutation}
+                getOverrideProperties={this.getOverridePropertiesFromEntity}
+                headerDropdownItems={headerDropdownItems}
+                subHeader={{
+                    component: DashboardStatsSummarySubHeader,
+                }}
+                tabs={[
+                    {
+                        name: 'Summary',
+                        label: t('entity.shared.tabs.summary'),
+                        component: DashboardSummaryTab,
+                        icon: SUMMARY_TAB_ICON,
                     },
-                },
-                {
-                    name: 'Datasets',
-                    label: t('entity.dashboard.tabs.datasets'),
-                    component: DashboardDatasetsTab,
-                    icon: TableOutlined,
-                    display: {
-                        visible: (_, dashboard: GetDashboardQuery) => (dashboard?.dashboard?.datasets?.total || 0) > 0,
-                        enabled: (_, dashboard: GetDashboardQuery) => (dashboard?.dashboard?.datasets?.total || 0) > 0,
+                    {
+                        name: 'Contents',
+                        label: t('entity.dashboard.tabs.contents'),
+                        component: DashboardChartsTab,
+                        icon: AppstoreOutlined,
+                        display: {
+                            visible: (_, dashboard: GetDashboardQuery) =>
+                                (dashboard?.dashboard?.charts?.total || 0) > 0 ||
+                                (dashboard?.dashboard?.datasets?.total || 0) === 0,
+                            enabled: (_, dashboard: GetDashboardQuery) =>
+                                (dashboard?.dashboard?.charts?.total || 0) > 0,
+                        },
                     },
-                },
-                {
-                    name: 'Documentation',
-                    label: t('entity.shared.tabs.documentation'),
-                    component: DocumentationTab,
-                    icon: FileOutlined,
-                },
-                {
-                    name: 'Preview',
-                    label: t('entity.shared.tabs.preview'),
-                    component: EmbedTab,
-                    icon: EyeOutlined,
-                    display: {
-                        visible: (_, dashboard: GetDashboardQuery) =>
-                            !!dashboard?.dashboard?.embed?.renderUrl &&
-                            PREVIEW_SUPPORTED_PLATFORMS.includes(dashboard?.dashboard?.platform.urn),
-                        enabled: (_, dashboard: GetDashboardQuery) =>
-                            !!dashboard?.dashboard?.embed?.renderUrl &&
-                            PREVIEW_SUPPORTED_PLATFORMS.includes(dashboard?.dashboard?.platform.urn),
+                    {
+                        name: 'Datasets',
+                        label: t('entity.dashboard.tabs.datasets'),
+                        component: DashboardDatasetsTab,
+                        icon: TableOutlined,
+                        display: {
+                            visible: (_, dashboard: GetDashboardQuery) =>
+                                (dashboard?.dashboard?.datasets?.total || 0) > 0,
+                            enabled: (_, dashboard: GetDashboardQuery) =>
+                                (dashboard?.dashboard?.datasets?.total || 0) > 0,
+                        },
                     },
-                },
-                {
-                    name: 'Lineage',
-                    label: t('entity.shared.tabs.lineage'),
-                    component: LineageTab,
-                    icon: PartitionOutlined,
-                    properties: {
-                        defaultDirection: LineageDirection.Upstream,
+                    {
+                        name: 'Documentation',
+                        label: t('entity.shared.tabs.documentation'),
+                        component: DocumentationTab,
+                        icon: FileOutlined,
                     },
-                    supportsFullsize: true,
-                },
-                {
-                    name: 'Properties',
-                    label: t('entity.shared.tabs.properties'),
-                    component: PropertiesTab,
-                    icon: UnorderedListOutlined,
-                },
-                {
-                    name: 'Incidents',
-                    label: t('entity.shared.tabs.incidents'),
-                    icon: WarningOutlined,
-                    component: IncidentTab,
-                    getCount: (_, dashboard) => {
-                        return dashboard?.dashboard?.activeIncidents?.total;
+                    {
+                        name: 'Preview',
+                        label: t('entity.shared.tabs.preview'),
+                        component: EmbedTab,
+                        icon: EyeOutlined,
+                        display: {
+                            visible: (_, dashboard: GetDashboardQuery) =>
+                                !!dashboard?.dashboard?.embed?.renderUrl &&
+                                PREVIEW_SUPPORTED_PLATFORMS.includes(dashboard?.dashboard?.platform.urn),
+                            enabled: (_, dashboard: GetDashboardQuery) =>
+                                !!dashboard?.dashboard?.embed?.renderUrl &&
+                                PREVIEW_SUPPORTED_PLATFORMS.includes(dashboard?.dashboard?.platform.urn),
+                        },
                     },
-                },
-            ]}
-            sidebarSections={this.getSidebarSections()}
-            sidebarTabs={this.getSidebarTabs()}
-        />
+                    {
+                        name: 'Lineage',
+                        label: t('entity.shared.tabs.lineage'),
+                        component: LineageTab,
+                        icon: PartitionOutlined,
+                        properties: {
+                            defaultDirection: LineageDirection.Upstream,
+                        },
+                        supportsFullsize: true,
+                    },
+                    {
+                        name: 'Properties',
+                        label: t('entity.shared.tabs.properties'),
+                        component: PropertiesTab,
+                        icon: UnorderedListOutlined,
+                    },
+                    {
+                        name: 'Incidents',
+                        label: t('entity.shared.tabs.incidents'),
+                        icon: WarningOutlined,
+                        component: IncidentTab,
+                        getCount: (_, dashboard) => {
+                            return dashboard?.dashboard?.activeIncidents?.total;
+                        },
+                    },
+                ]}
+                sidebarSections={this.getSidebarSections()}
+                sidebarTabs={this.getSidebarTabs()}
+            />
         );
     };
 
@@ -237,25 +240,25 @@ export class DashboardEntity implements Entity<Dashboard> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Lineage',
-            label: t('entity.shared.tabs.lineage'),
-            component: LineageTab,
-            description: t('entity.shared.sidebarTabs.lineageDesc'),
-            icon: TreeStructure,
-            properties: {
-                defaultDirection: LineageDirection.Upstream,
-                actionType: SidebarTitleActionType.LineageExplore,
+            {
+                name: 'Lineage',
+                label: t('entity.shared.tabs.lineage'),
+                component: LineageTab,
+                description: t('entity.shared.sidebarTabs.lineageDesc'),
+                icon: TreeStructure,
+                properties: {
+                    defaultDirection: LineageDirection.Upstream,
+                    actionType: SidebarTitleActionType.LineageExplore,
+                },
             },
-        },
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: ListBullets,
+            },
+        ];
     };
 
     getOverridePropertiesFromEntity = (dashboard?: Dashboard | null): GenericEntityProperties => {

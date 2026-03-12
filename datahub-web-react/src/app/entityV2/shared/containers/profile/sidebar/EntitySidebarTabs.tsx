@@ -347,20 +347,24 @@ export const EntitySidebarTabs = <T,>({ tabs, selectedTab, onSelectTab, hideColl
                                         )}
                                     </IconWrapper>
                                     <TabTextWithTooltip
-                                        text={tab.label !== undefined ? tab.label : (() => {
-                                            switch (name) {
-                                                case 'Summary':
-                                                    return 'Summary';
-                                                case 'Properties':
-                                                    return 'Props';
-                                                case 'Columns':
-                                                    return 'Columns';
-                                                case 'Lineage':
-                                                    return 'Lineage';
-                                                default:
-                                                    return name;
-                                            }
-                                        })()}
+                                        text={
+                                            tab.label !== undefined
+                                                ? tab.label
+                                                : (() => {
+                                                      switch (name) {
+                                                          case 'Summary':
+                                                              return 'Summary';
+                                                          case 'Properties':
+                                                              return 'Props';
+                                                          case 'Columns':
+                                                              return 'Columns';
+                                                          case 'Lineage':
+                                                              return 'Lineage';
+                                                          default:
+                                                              return name;
+                                                      }
+                                                  })()
+                                        }
                                         isSelected={isSelected}
                                     />
                                 </TabIconContainer>

@@ -98,62 +98,62 @@ export class DataJobEntity implements Entity<DataJob> {
     renderProfile = (urn: string) => {
         const { t } = useTranslation();
         return (
-        <EntityProfile
-            urn={urn}
-            entityType={EntityType.DataJob}
-            useEntityQuery={useGetDataJobQuery}
-            useUpdateQuery={useUpdateDataJobMutation}
-            getOverrideProperties={this.getOverridePropertiesFromEntity}
-            headerDropdownItems={headerDropdownItems}
-            tabs={[
-                {
-                    name: 'Documentation',
-                    label: t('entity.shared.tabs.documentation'),
-                    component: DocumentationTab,
-                    icon: FileText,
-                },
-                {
-                    name: 'Pipeline',
-                    label: t('entity.dataJob.tabs.pipeline'),
-                    component: DataJobFlowTab,
-                    icon: Share,
-                },
-                {
-                    name: 'Lineage',
-                    label: t('entity.shared.tabs.lineage'),
-                    component: LineageTab,
-                    icon: TreeStructure,
-                    supportsFullsize: true,
-                },
-                {
-                    name: 'Properties',
-                    label: t('entity.shared.tabs.properties'),
-                    component: PropertiesTab,
-                    icon: ListBullets,
-                },
-                {
-                    name: 'Runs',
-                    label: t('entity.shared.tabs.runs'),
-                    component: RunsTab,
-                    icon: ArrowsClockwise,
-                    display: {
-                        visible: (_, _1) => true,
-                        enabled: (_, dataJob: GetDataJobQuery) => (dataJob?.dataJob?.runs?.total || 0) !== 0,
+            <EntityProfile
+                urn={urn}
+                entityType={EntityType.DataJob}
+                useEntityQuery={useGetDataJobQuery}
+                useUpdateQuery={useUpdateDataJobMutation}
+                getOverrideProperties={this.getOverridePropertiesFromEntity}
+                headerDropdownItems={headerDropdownItems}
+                tabs={[
+                    {
+                        name: 'Documentation',
+                        label: t('entity.shared.tabs.documentation'),
+                        component: DocumentationTab,
+                        icon: FileText,
                     },
-                },
-                {
-                    name: 'Incidents',
-                    label: t('entity.shared.tabs.incidents'),
-                    icon: WarningCircle,
-                    component: IncidentTab,
-                    getCount: (_, dataJob) => {
-                        return dataJob?.dataJob?.activeIncidents?.total;
+                    {
+                        name: 'Pipeline',
+                        label: t('entity.dataJob.tabs.pipeline'),
+                        component: DataJobFlowTab,
+                        icon: Share,
                     },
-                },
-            ]}
-            sidebarSections={this.getSidebarSections()}
-            sidebarTabs={this.getSidebarTabs()}
-        />
+                    {
+                        name: 'Lineage',
+                        label: t('entity.shared.tabs.lineage'),
+                        component: LineageTab,
+                        icon: TreeStructure,
+                        supportsFullsize: true,
+                    },
+                    {
+                        name: 'Properties',
+                        label: t('entity.shared.tabs.properties'),
+                        component: PropertiesTab,
+                        icon: ListBullets,
+                    },
+                    {
+                        name: 'Runs',
+                        label: t('entity.shared.tabs.runs'),
+                        component: RunsTab,
+                        icon: ArrowsClockwise,
+                        display: {
+                            visible: (_, _1) => true,
+                            enabled: (_, dataJob: GetDataJobQuery) => (dataJob?.dataJob?.runs?.total || 0) !== 0,
+                        },
+                    },
+                    {
+                        name: 'Incidents',
+                        label: t('entity.shared.tabs.incidents'),
+                        icon: WarningCircle,
+                        component: IncidentTab,
+                        getCount: (_, dataJob) => {
+                            return dataJob?.dataJob?.activeIncidents?.total;
+                        },
+                    },
+                ]}
+                sidebarSections={this.getSidebarSections()}
+                sidebarTabs={this.getSidebarTabs()}
+            />
         );
     };
 
@@ -179,24 +179,24 @@ export class DataJobEntity implements Entity<DataJob> {
     getSidebarTabs = () => {
         const { t } = useTranslation();
         return [
-        {
-            name: 'Lineage',
-            label: t('entity.shared.tabs.lineage'),
-            component: LineageTab,
-            description: t('entity.shared.sidebarTabs.lineageDesc'),
-            icon: TreeStructure,
-            properties: {
-                actionType: SidebarTitleActionType.LineageExplore,
+            {
+                name: 'Lineage',
+                label: t('entity.shared.tabs.lineage'),
+                component: LineageTab,
+                description: t('entity.shared.sidebarTabs.lineageDesc'),
+                icon: TreeStructure,
+                properties: {
+                    actionType: SidebarTitleActionType.LineageExplore,
+                },
             },
-        },
-        {
-            name: 'Properties',
-            label: t('entity.shared.tabs.properties'),
-            component: PropertiesTab,
-            description: t('entity.shared.sidebarTabs.propertiesDesc'),
-            icon: ListBullets,
-        },
-    ];
+            {
+                name: 'Properties',
+                label: t('entity.shared.tabs.properties'),
+                component: PropertiesTab,
+                description: t('entity.shared.sidebarTabs.propertiesDesc'),
+                icon: ListBullets,
+            },
+        ];
     };
 
     getOverridePropertiesFromEntity = (dataJob?: DataJob | null): GenericEntityProperties => {

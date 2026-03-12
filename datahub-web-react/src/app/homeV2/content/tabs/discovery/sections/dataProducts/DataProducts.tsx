@@ -1,7 +1,7 @@
 import { Skeleton } from 'antd';
 import React from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import analytics, { EventType, HomePageModule } from '@app/analytics';
@@ -48,7 +48,11 @@ export const DataProducts = () => {
         <div id={HOME_PAGE_DATA_PRODUCTS_ID}>
             {loading && <HorizontalListSkeletons Component={SkeletonCard} />}
             {!loading && dataProducts && !!dataProducts.length && (
-                <Section title={t('home.dataProducts')} actionText={t('home.viewAll')} onClickAction={navigateToDataProducts}>
+                <Section
+                    title={t('home.dataProducts')}
+                    actionText={t('home.viewAll')}
+                    onClickAction={navigateToDataProducts}
+                >
                     <Carousel>
                         {dataProducts.map((item) => {
                             const { dataProduct, domain } = item;

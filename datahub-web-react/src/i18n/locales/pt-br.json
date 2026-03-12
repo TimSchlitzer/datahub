@@ -984,6 +984,109 @@
                 "contents": "Conteúdo"
             }
         },
+        "glossaryTerm": {
+            "relatedTerms": {
+                "contains": "Contém",
+                "inherits": "Herda",
+                "containedBy": "Contido por",
+                "inheritedBy": "Herdado por",
+                "addTerms": "Adicionar termos",
+                "modal": {
+                    "title": "Adicionar termos relacionados",
+                    "placeholder": "Pesquisar termos do glossário...",
+                    "cancel": "Cancelar",
+                    "add": "Adicionar"
+                },
+                "messages": {
+                    "failed": "Falha ao mover: {{error}}",
+                    "adding": "Adicionando...",
+                    "success": "Termos relacionados adicionados!"
+                }
+            }
+        },
+        "domain": {
+            "summary": {
+                "contents": {
+                    "title": "Ativos",
+                    "viewAll": "Ver tudo"
+                },
+                "dataProducts": {
+                    "title": "Produtos de Dados",
+                    "createButton": "Criar Produto de Dados",
+                    "viewAll": "Ver tudo"
+                }
+            },
+            "dataProductsTab": {
+                "newDataProduct": "Novo Produto de Dados",
+                "searchPlaceholder": "Pesquisar produtos de dados...",
+                "noDataProducts": "Nenhum Produto de Dados",
+                "modal": {
+                    "title": "Criar Produto de Dados",
+                    "cancel": "Cancelar",
+                    "create": "Criar"
+                },
+                "messages": {
+                    "created": "Produto de Dados criado!",
+                    "error": "Falha ao criar Produto de Dados. Um erro inesperado ocorreu"
+                }
+            }
+        },
+        "chart": {
+            "summary": {
+                "measures": "Medidas",
+                "dimensions": "Dimensões",
+                "temporals": "Temporais"
+            },
+            "fieldTable": {
+                "name": "Nome",
+                "description": "Descrição",
+                "viewMore": "Ver {{count}} mais"
+            },
+            "statsSummary": {
+                "charts": "gráficos",
+                "viewsLastMonth": "visualizações no mês passado",
+                "views": "visualizações",
+                "users": "usuários",
+                "moreViewsThan": "Mais visualizações do que {{percentile}}% de ativos similares nos últimos 30 dias",
+                "moreUsersThan": "Mais usuários do que {{percentile}}% de ativos similares nos últimos 30 dias",
+                "createdOn": "Criado em {{date}}",
+                "changedOn": "Alterado em {{date}}",
+                "lastChangedTooltip": "A hora em que o gráfico foi alterado pela última vez na plataforma de origem",
+                "changed": "Alterado {{time}}"
+            }
+        },
+        "dashboard": {
+            "summary": {
+                "generalInfo": "Informações Gerais",
+                "relatedAssets": "Ativos Relacionados",
+                "dataSources": "Fontes de Dados",
+                "contents": "Conteúdo"
+            },
+            "statsSummary": {
+                "charts": "gráficos",
+                "viewsLastMonth": "visualizações no mês passado",
+                "views": "visualizações",
+                "users": "usuários",
+                "moreViewsOften": "Mais visualizações frequentemente do que {{percentile}}% de ativos similares nos últimos 30 dias",
+                "moreUsersThan": "Mais usuários do que {{percentile}}% de ativos similares nos últimos 30 dias",
+                "createdOn": "Criado em {{date}}",
+                "changedOn": "Alterado em {{date}}",
+                "lastChangedTooltip": "A hora em que o painel foi alterado pela última vez na plataforma de origem",
+                "changed": "Alterado {{time}}"
+            }
+        },
+        "dataJob": {
+            "runsTab": {
+                "time": "Hora",
+                "runId": "ID da Execução",
+                "status": "Status",
+                "inputs": "Entradas",
+                "outputs": "Saídas",
+                "viewTaskRunDetails": "Ver detalhes da execução da tarefa",
+                "notAvailable": "N/D",
+                "loading": "Buscando execuções..."
+            }
+        },
         "membershipThisGroupCannotEdit": "A associação a este grupo não pode ser editada no DataHub, pois é originária",
         "areSureDeleteThisDataProduct": "Tem certeza de que deseja excluir este produto de dados?",
         "manageView": "Gerenciar Views",

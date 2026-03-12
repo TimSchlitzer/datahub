@@ -1,6 +1,7 @@
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { IconStyleType } from '@app/entity/Entity';
@@ -39,6 +40,7 @@ const StyledCarousel = styled(Carousel)`
 `;
 
 export const DataProductsSection = () => {
+    const { t } = useTranslation();
     const { urn, entityType, entityData } = useEntityData();
     const history = useHistory();
     const domainUrn = entityData?.urn || '';
@@ -71,16 +73,16 @@ export const DataProductsSection = () => {
                 <SummaryHeaderButtonGroup>
                     <SummaryTabHeaderTitle
                         icon={entityRegistry.getIcon(EntityType.DataProduct, 16, IconStyleType.ACCENT, ANTD_GRAY[8])}
-                        title={`Data Products (${numDataProducts})`}
+                        title={`${t('entity.domain.summary.dataProducts.title')} (${numDataProducts})`}
                     />
                     <SectionActionButton
-                        tip="Create Data Product"
+                        tip={t('entity.domain.summary.dataProducts.createButton')}
                         button={<AddRoundedIcon />}
                         onClick={() => navigateToDomainDataProducts(urn, entityType, history, entityRegistry, true)}
                     />
                 </SummaryHeaderButtonGroup>
                 <ViewAllButton onClick={() => navigateToDomainDataProducts(urn, entityType, history, entityRegistry)}>
-                    View all
+                    {t('entity.domain.summary.dataProducts.viewAll')}
                 </ViewAllButton>
             </SummaryTabHeaderWrapper>
             {loading && <ContentSectionLoading />}
