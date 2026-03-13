@@ -17,6 +17,8 @@ const LANGUAGE_OPTIONS = [
     { value: 'en', label: 'English' },
     { value: 'de', label: 'Deutsch' },
     { value: 'pt-BR', label: 'Português (Brasil)' },
+    { value: 'es', label: 'Español' },
+    { value: 'fr', label: 'Français' },
 ];
 
 const Page = styled.div`
