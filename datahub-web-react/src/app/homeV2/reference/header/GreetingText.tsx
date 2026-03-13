@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -36,9 +37,11 @@ const Role = styled.div`
 `;
 
 export const GreetingText = ({ role }: { role?: string | null }) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const userContext = useUserContext();
-    const greetingText = getGreetingText();
+    const greetingKey = getGreetingText();
+    const translatedGreeting = t(greetingKey);
     const { user } = userContext;
 
     const showNavBarRedesign = useShowNavBarRedesign();
@@ -48,7 +51,7 @@ export const GreetingText = ({ role }: { role?: string | null }) => {
             <TitleWrapper>
                 {!!user && (
                     <PageTitle
-                        title={`${greetingText}, ${entityRegistry.getDisplayName(EntityType.CorpUser, user)}`}
+                        title={`${translatedGreeting}, ${entityRegistry.getDisplayName(EntityType.CorpUser, user)}`}
                         subTitle={role}
                     />
                 )}
@@ -60,7 +63,7 @@ export const GreetingText = ({ role }: { role?: string | null }) => {
         <Text>
             {!!user && (
                 <>
-                    {greetingText},<Name>{entityRegistry.getDisplayName(EntityType.CorpUser, user)}!</Name>
+                    {translatedGreeting},<Name>{entityRegistry.getDisplayName(EntityType.CorpUser, user)}!</Name>
                     {(role && <Role>{role}</Role>) || null}
                 </>
             )}{' '}

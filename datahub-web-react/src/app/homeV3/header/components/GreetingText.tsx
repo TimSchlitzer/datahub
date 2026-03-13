@@ -1,5 +1,6 @@
 import { PageTitle } from '@components';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -17,7 +18,9 @@ const Container = styled.div`
 `;
 
 export default function GreetingText() {
-    const greetingText = getGreetingText();
+    const { t } = useTranslation();
+    const greetingKey = getGreetingText();
+    const translatedGreeting = t(greetingKey);
     const { user } = useUserContext();
     const entityRegistry = useEntityRegistryV2();
     const maybeRole = useUserPersonaTitle();
@@ -28,9 +31,9 @@ export default function GreetingText() {
     } = useAppConfig();
 
     const finalText = useMemo(() => {
-        if (!user) return `${greetingText}!`;
-        return `${greetingText}, ${entityRegistry.getDisplayName(EntityType.CorpUser, user)}!`;
-    }, [greetingText, user, entityRegistry]);
+        if (!user) return `${translatedGreeting}!`;
+        return `${translatedGreeting}, ${entityRegistry.getDisplayName(EntityType.CorpUser, user)}!`;
+    }, [translatedGreeting, user, entityRegistry]);
 
     return (
         <Container>

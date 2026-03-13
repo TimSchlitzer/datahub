@@ -103,7 +103,14 @@
         "signInWithSso": "Sign in with SSO",
         "signOut": "Sign Out",
         "signUp": "Sign Up",
-        "userHasLoggedIn": "The user has logged in."
+        "userHasLoggedIn": "The user has logged in.",
+        "welcomeTitle": "Welcome to DataHub",
+        "username": "Username",
+        "password": "Password",
+        "usernamePlaceholder": "Enter username",
+        "usernameRequired": "Please fill in your username",
+        "passwordRequired": "Please fill in your password",
+        "login": "Login"
     },
     "chart": {
         "lastChangedTimeInSource": "The time at which the chart was last changed in the source platform",
@@ -1294,6 +1301,11 @@
     "home": {
         "changeLanguageTitle": "Change Langage",
         "exploreYourData": "Explore your data",
+        "greeting": {
+            "morning": "Good morning",
+            "afternoon": "Good afternoon",
+            "evening": "Good evening"
+        },
         "module": {
             "Domains": "Domains",
             "HighUsageEntities": "Most Popular",
@@ -2582,6 +2594,38 @@
         "graphiql": "GraphiQL",
         "graphiqlDescription": "Explore the GraphQL API",
         "openapi": "OpenAPI",
-        "openapiDescription": "Explore the OpenAPI endpoints"
+        "openapiDescription": "Explore the OpenAPI endpoints",
+        "sidebar": {
+            "home": "Home",
+            "groups": {
+                "context": "Context",
+                "govern": "Govern",
+                "admin": "Admin"
+            },
+            "items": {
+                "documents": "Documents",
+                "glossary": "Glossary",
+                "tags": "Tags",
+                "businessAttributes": "Business Attributes",
+                "applications": "Applications",
+                "domains": "Domains",
+                "structuredProperties": "Structured Properties",
+                "dataSources": "Data Sources",
+                "analytics": "Analytics",
+                "profile": "Profile",
+                "settings": "Settings",
+                "help": "Help",
+                "signOut": "Sign out",
+                "mfeApps": "MFE Apps"
+            },
+            "help": {
+                "productTour": "Product Tour",
+                "productTourDesc": "Take a quick tour of this page",
+                "graphql": "GraphQL",
+                "graphqlDesc": "Explore the GraphQL API",
+                "openapi": "OpenAPI",
+                "openapiDesc": "Explore the OpenAPI endpoints"
+            }
+        }
     }
 }

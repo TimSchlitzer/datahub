@@ -103,7 +103,14 @@
         "signInWithSso": "Mit SSO anmelden",
         "signOut": "Abmelden",
         "signUp": "Registrieren",
-        "userHasLoggedIn": "Der Benutzer hat sich angemeldet."
+        "userHasLoggedIn": "Der Benutzer hat sich angemeldet.",
+        "welcomeTitle": "Willkommen bei DataHub",
+        "username": "Benutzername",
+        "password": "Passwort",
+        "usernamePlaceholder": "Benutzername eingeben",
+        "usernameRequired": "Bitte geben Sie Ihren Benutzernamen ein",
+        "passwordRequired": "Bitte geben Sie Ihr Passwort ein",
+        "login": "Anmelden"
     },
     "chart": {
         "lastChangedTimeInSource": "Der Zeitpunkt, zu dem das Diagramm zuletzt in der Quellplattform geändert wurde",
@@ -1294,6 +1301,11 @@
     "home": {
         "changeLanguageTitle": "Change Langage",
         "exploreYourData": "Explore your data",
+        "greeting": {
+            "morning": "Guten Morgen",
+            "afternoon": "Guten Nachmittag",
+            "evening": "Guten Abend"
+        },
         "module": {
             "Domains": "Domains",
             "HighUsageEntities": "Most Popular",
@@ -2582,6 +2594,38 @@
         "graphiql": "GraphiQL",
         "graphiqlDescription": "Die GraphQL-API erkunden",
         "openapi": "OpenAPI",
-        "openapiDescription": "Die OpenAPI-Endpunkte erkunden"
+        "openapiDescription": "Die OpenAPI-Endpunkte erkunden",
+        "sidebar": {
+            "home": "Startseite",
+            "groups": {
+                "context": "Kontext",
+                "govern": "Verwaltung",
+                "admin": "Admin"
+            },
+            "items": {
+                "documents": "Dokumente",
+                "glossary": "Glossar",
+                "tags": "Tags",
+                "businessAttributes": "Business-Attribute",
+                "applications": "Anwendungen",
+                "domains": "Domänen",
+                "structuredProperties": "Strukturierte Eigenschaften",
+                "dataSources": "Datenquellen",
+                "analytics": "Analytik",
+                "profile": "Profil",
+                "settings": "Einstellungen",
+                "help": "Hilfe",
+                "signOut": "Abmelden",
+                "mfeApps": "MFE-Apps"
+            },
+            "help": {
+                "productTour": "Produktführung",
+                "productTourDesc": "Kurze Führung durch diese Seite",
+                "graphql": "GraphQL",
+                "graphqlDesc": "Die GraphQL-API erkunden",
+                "openapi": "OpenAPI",
+                "openapiDesc": "Die OpenAPI-Endpunkte erkunden"
+            }
+        }
     }
 }

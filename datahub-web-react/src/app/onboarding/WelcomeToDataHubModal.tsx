@@ -1,5 +1,5 @@
 import { Button, Carousel, Heading, LoadedImage, Modal } from '@components';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { Component, ReactNode, useEffect, useRef, useState } from 'react';
 
 import analytics, { EventType } from '@app/analytics';
 import { useOnboardingTour } from '@app/onboarding/OnboardingTourContext.hooks';
@@ -24,6 +24,38 @@ interface VideoSources {
     lineage: string;
     impact: string;
     aiDocs?: string;
+}
+
+interface CarouselErrorBoundaryProps {
+    children: ReactNode;
+    onError: () => void;
+}
+
+interface CarouselErrorBoundaryState {
+    hasError: boolean;
+}
+
+class CarouselErrorBoundary extends Component<CarouselErrorBoundaryProps, CarouselErrorBoundaryState> {
+    constructor(props: CarouselErrorBoundaryProps) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(): CarouselErrorBoundaryState {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error: Error) {
+        console.error('Carousel error:', error);
+        this.props.onError();
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return null;
+        }
+        return this.props.children;
+    }
 }
 
 function checkShouldSkipWelcomeModal() {
@@ -193,7 +225,8 @@ export const WelcomeToDataHubModal = () => {
             buttons={[]}
             zIndex={ANT_NOTIFICATION_Z_INDEX + 2} // 2 higher because home settings button is 1 higher
         >
-            <Carousel
+            <CarouselErrorBoundary onError={() => closeTour('close_button')}>
+                <Carousel
                 ref={carouselRef}
                 autoplay
                 autoplaySpeed={SLIDE_DURATION_MS}
@@ -306,7 +339,8 @@ export const WelcomeToDataHubModal = () => {
                         width={MODAL_IMAGE_WIDTH}
                     />
                 </SlideContainer>
-            </Carousel>
+                </Carousel>
+            </CarouselErrorBoundary>
         </Modal>
     );
 };
