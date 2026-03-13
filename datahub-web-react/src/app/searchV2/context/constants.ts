@@ -6,21 +6,21 @@ export const LAST_MODIFIED_TIME_FIELD = 'lastModifiedAt';
 
 export const DEFAULT_SORT_OPTION = RELEVANCE;
 
-export const SORT_OPTIONS = {
-    [RELEVANCE]: { label: 'Relevance (Default)', field: RELEVANCE, sortOrder: SortOrder.Descending },
+export const getSortOptions = (t: (key: string) => string) => ({
+    [RELEVANCE]: { label: t('search.filters.sort.relevance'), field: RELEVANCE, sortOrder: SortOrder.Descending },
     [`${ENTITY_NAME_FIELD}_${SortOrder.Ascending}`]: {
-        label: 'Name A to Z',
+        label: t('search.filters.sort.nameAZ'),
         field: ENTITY_NAME_FIELD,
         sortOrder: SortOrder.Ascending,
     },
     [`${ENTITY_NAME_FIELD}_${SortOrder.Descending}`]: {
-        label: 'Name Z to A',
+        label: t('search.filters.sort.nameZA'),
         field: ENTITY_NAME_FIELD,
         sortOrder: SortOrder.Descending,
     },
     [`${LAST_MODIFIED_TIME_FIELD}_${SortOrder.Descending}`]: {
-        label: 'Last Modified Time (In Source)',
+        label: t('search.filters.sort.lastModified'),
         field: LAST_MODIFIED_TIME_FIELD,
         sortOrder: SortOrder.Descending,
     },
-};
+});

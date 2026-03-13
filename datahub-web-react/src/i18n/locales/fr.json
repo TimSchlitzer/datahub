@@ -2349,7 +2349,107 @@
             "title": "Filter",
             "basic": "Basic Filters",
             "advanced": "Advanced Filters",
-            "clearAll": "clear all"
+            "clearAll": "Clear all",
+            "addFilter": "Add filter",
+            "more": "More",
+            "fullCardView": "Full Card View",
+            "compactCardView": "Compact Card View",
+            "update": "Update",
+            "filterBy": "Filter by {{field}}",
+            "searchFor": "Search for {{field}}",
+            "saveAsView": "Save as a View",
+            "saveAsViewDescription": "Views allow you to easily save or share search filters.",
+            "saveFiltersAsView": "Save these filters as a new View.",
+            "saveViewError": "This combination of filters cannot be saved as a View at this time.",
+            "allFilters": "all filters",
+            "anyFilter": "any filter",
+            "operator": {
+                "equals": "equals",
+                "isAnyOf": "is any of",
+                "isAllOf": "is all of",
+                "exists": "exists",
+                "doesNotEqual": "does not equal",
+                "isNotAnyOf": "is not any of",
+                "doesNotExist": "does not exist",
+                "contains": "contains",
+                "containsAnyOf": "contains any of",
+                "doesNotContain": "does not contain",
+                "doesNotContainAnyOf": "does not contain any of",
+                "isGreaterThan": "is greater than",
+                "isGreaterThanOrEqualTo": "is greater than or equal to",
+                "isLessThan": "is less than",
+                "isLessThanOrEqualTo": "is less than or equal to"
+            },
+            "deprecation": {
+                "title": "Deprecation",
+                "isDeprecated": "Is Deprecated",
+                "isNotDeprecated": "Is Not Deprecated"
+            },
+            "assertions": {
+                "title": "Assertions",
+                "hasFailing": "Has failing assertions",
+                "hasFailingLabel": "Has Failing Assertions",
+                "hasPassingLabel": "Has Passing Assertions"
+            },
+            "incidents": {
+                "title": "Incidents",
+                "hasActive": "Has active incidents",
+                "hasActiveLabel": "Has Active Incidents",
+                "hasResolvedLabel": "Has Resolved Incidents"
+            },
+            "siblings": {
+                "hasSiblings": "Has Siblings",
+                "hasNoSiblings": "Has No Siblings"
+            },
+            "fieldLabels": {
+                "owners": "Owner",
+                "tags": "Tag",
+                "domains": "Domain",
+                "dataProduct": "Data Product",
+                "platform": "Platform",
+                "fieldTags": "Column Tag",
+                "glossaryTerms": "Glossary Term",
+                "fieldGlossaryTerms": "Column Term",
+                "fieldPaths": "Column Name",
+                "description": "Description",
+                "fieldDescriptions": "Column Description",
+                "removed": "Soft Deleted",
+                "entity": "Entity Type",
+                "container": "Container",
+                "typeNames": "Sub Type",
+                "origin": "Environment",
+                "degree": "Degree",
+                "entityType": "Type",
+                "platformInstance": "Platform Instance",
+                "hasActiveIncidents": "Has Active Incidents",
+                "hasFailingAssertions": "Has Failing Assertions",
+                "hasSiblings": "Has Siblings",
+                "path": "Path",
+                "lastModified": "Last Modified (In Source)",
+                "structuredProperty": "Structured Property"
+            },
+            "timeRange": {
+                "last1Day": "Last 1 day",
+                "last3Days": "Last 3 days",
+                "lastWeek": "Last week",
+                "lastTwoWeeks": "Last two weeks",
+                "lastMonth": "Last month",
+                "last3Months": "Last 3 months",
+                "last6Months": "Last 6 months",
+                "lastYear": "Last year"
+            },
+            "sort": {
+                "relevance": "Relevance (Default)",
+                "nameAZ": "Name A to Z",
+                "nameZA": "Name Z to A",
+                "lastModified": "Last Modified Time (In Source)"
+            }
+        },
+        "results": {
+            "showing": "Showing",
+            "of": "of",
+            "results": "results",
+            "didYouMean": "Did you mean"
         },
         "sort": {
             "tooltip": "Sort search results",

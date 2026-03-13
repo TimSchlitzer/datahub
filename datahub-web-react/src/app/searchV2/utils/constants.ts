@@ -92,34 +92,35 @@ export const ORDERED_FIELDS = [
     DEGREE_FILTER_NAME,
 ];
 
+// Maps filter field names to translation keys
 export const FIELD_TO_LABEL = {
-    owners: 'Owner',
-    tags: 'Tag',
-    domains: 'Domain',
-    dataProduct: 'Data Product',
-    platform: 'Platform',
-    fieldTags: 'Column Tag',
-    glossaryTerms: 'Glossary Term',
-    fieldGlossaryTerms: 'Column Term',
-    fieldPaths: 'Column Name',
-    description: 'Description',
-    fieldDescriptions: 'Column Description',
-    removed: 'Soft Deleted',
-    entity: 'Entity Type',
-    entityType: 'Entity Type',
-    _entityType: 'Entity Type',
-    container: 'Container',
-    typeNames: 'Sub Type',
-    origin: 'Environment',
-    degree: 'Degree',
-    '_entityType␞typeNames': 'Type',
-    platformInstance: 'Platform Instance',
-    hasActiveIncidents: 'Has Active Incidents',
-    hasFailingAssertions: 'Has Failing Assertions',
-    hasSiblings: 'Has Siblings',
-    [BROWSE_PATH_V2_FILTER_NAME]: 'Path',
-    [LAST_MODIFIED_FILTER_NAME]: 'Last Modified (In Source)',
-    [STRUCTURED_PROPERTIES_FILTER_NAME]: 'Structured Property',
+    owners: 'search.filters.fieldLabels.owners',
+    tags: 'search.filters.fieldLabels.tags',
+    domains: 'search.filters.fieldLabels.domains',
+    dataProduct: 'search.filters.fieldLabels.dataProduct',
+    platform: 'search.filters.fieldLabels.platform',
+    fieldTags: 'search.filters.fieldLabels.fieldTags',
+    glossaryTerms: 'search.filters.fieldLabels.glossaryTerms',
+    fieldGlossaryTerms: 'search.filters.fieldLabels.fieldGlossaryTerms',
+    fieldPaths: 'search.filters.fieldLabels.fieldPaths',
+    description: 'search.filters.fieldLabels.description',
+    fieldDescriptions: 'search.filters.fieldLabels.fieldDescriptions',
+    removed: 'search.filters.fieldLabels.removed',
+    entity: 'search.filters.fieldLabels.entity',
+    entityType: 'search.filters.fieldLabels.entityType',
+    _entityType: 'search.filters.fieldLabels.entity',
+    container: 'search.filters.fieldLabels.container',
+    typeNames: 'search.filters.fieldLabels.typeNames',
+    origin: 'search.filters.fieldLabels.origin',
+    degree: 'search.filters.fieldLabels.degree',
+    '_entityType␞typeNames': 'search.filters.fieldLabels.entityType',
+    platformInstance: 'search.filters.fieldLabels.platformInstance',
+    hasActiveIncidents: 'search.filters.fieldLabels.hasActiveIncidents',
+    hasFailingAssertions: 'search.filters.fieldLabels.hasFailingAssertions',
+    hasSiblings: 'search.filters.fieldLabels.hasSiblings',
+    [BROWSE_PATH_V2_FILTER_NAME]: 'search.filters.fieldLabels.path',
+    [LAST_MODIFIED_FILTER_NAME]: 'search.filters.fieldLabels.lastModified',
+    [STRUCTURED_PROPERTIES_FILTER_NAME]: 'search.filters.fieldLabels.structuredProperty',
 };
 
 export const ADVANCED_SEARCH_ONLY_FILTERS = [
@@ -192,3 +193,9 @@ export const ASSET_ENTITY_TYPES = [
 export const MIN_CHARACTER_COUNT_FOR_SEARCH = 3;
 
 export const SEARCH_BAR_CLASS_NAME = 'search-bar';
+
+// Helper function to get translated field label
+export const getTranslatedFieldLabel = (fieldName: string, t: (key: string) => string): string => {
+    const translationKey = FIELD_TO_LABEL[fieldName as keyof typeof FIELD_TO_LABEL];
+    return translationKey ? t(translationKey) : fieldName;
+};
