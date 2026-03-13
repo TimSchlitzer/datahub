@@ -1,5 +1,6 @@
 import { Icon, Tooltip, colors } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { SEARCH_RESULTS_FILTERS_ID } from '@app/onboarding/config/SearchOnboardingConfig';
@@ -144,6 +145,7 @@ export default function SearchFilters({
     setShowSelectMode,
     downloadSearchResults,
 }: Props) {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
     const { isFullViewCard, setIsFullViewCard, selectedSortOption, setSelectedSortOption } = useSearchContext();
     // Filter out the available filters if `basicFilters` is true
@@ -176,12 +178,12 @@ export default function SearchFilters({
                     />
                     <CustomSwitch>
                         <IconContainer isActive={isFullViewCard} onClick={() => setIsFullViewCard(true)}>
-                            <Tooltip showArrow={false} title="Full Card View">
+                            <Tooltip showArrow={false} title={t('search.filters.fullCardView')}>
                                 <Icon icon="Rows" source="phosphor" size="md" />
                             </Tooltip>
                         </IconContainer>
                         <IconContainer isActive={!isFullViewCard} onClick={() => setIsFullViewCard(false)}>
-                            <Tooltip showArrow={false} title="Compact Card View">
+                            <Tooltip showArrow={false} title={t('search.filters.compactCardView')}>
                                 <Icon icon="List" source="phosphor" size="md" />
                             </Tooltip>
                         </IconContainer>
