@@ -1,6 +1,7 @@
 import { InfiniteScrollList } from '@components';
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -21,6 +22,7 @@ const ContentWrapper = styled.div`
 const DEFAULT_PAGE_SIZE = 10;
 
 export default function YourAssetsModule(props: ModuleProps) {
+    const { t } = useTranslation();
     const { user } = useUserContext();
     const { loading, fetchEntities, total } = useGetAssetsYouOwn(user, DEFAULT_PAGE_SIZE);
 
@@ -43,9 +45,9 @@ export default function YourAssetsModule(props: ModuleProps) {
                     emptyState={
                         <EmptyContent
                             icon="User"
-                            title="No Owned Assets"
-                            description="Select an asset and add yourself as an owner to see the assets in this list"
-                            linkText="Discover the assets you want to own"
+                            title={t('home.yourAssets.empty.title')}
+                            description={t('home.yourAssets.empty.description')}
+                            linkText={t('home.yourAssets.empty.linkText')}
                             onLinkClick={navigateToSearch}
                         />
                     }

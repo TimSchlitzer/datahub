@@ -1438,6 +1438,28 @@
             "journeyTitle": "Comece sua jornada com dados",
             "journeySubtitle": "Milhares de profissionais de dados usam o DataHub para descobrir dados confiáveis, garantir a qualidade dos dados e colaborar com seus colegas",
             "selectPersona": "Selecionar persona"
+        },
+        "yourAssets": {
+            "empty": {
+                "title": "Sem Ativos Próprios",
+                "description": "Selecione um ativo e adicione-se como proprietário para ver os ativos nesta lista",
+                "linkText": "Descubra os ativos que você deseja possuir"
+            }
+        },
+        "topDomains": {
+            "empty": {
+                "title": "Nenhum Domínio Criado",
+                "description": "Comece criando um domínio para vê-lo em sua lista",
+                "linkText": "Configure seus domínios de dados"
+            }
+        },
+        "platforms": {
+            "empty": {
+                "title": "Sem Plataformas Ainda",
+                "description": "Você ainda não ingeriu dados.",
+                "linkText": "Adicionar fontes de dados"
+            },
+            "viewAssets": "Ver {{count}} ativos do {{platform}}"
         }
     },
     "ingest": {
@@ -2072,6 +2094,34 @@
             "usersInviteLinkTitle": "Convidar Novos Usuários",
             "usersSSO_component": "A maneira preferida de integrar novos Usuários é usar Single Sign-On. Atualmente, o DataHub suporta SSO OIDC.",
             "usersSSOTitle": "Configuração do Single Sign-On (SSO)"
+        }
+    },
+    "onboarding": {
+        "welcomeModal": {
+            "title": "Bem-vindo ao DataHub",
+            "loading": "Carregando...",
+            "getStarted": "Começar",
+            "docs": "Documentação do DataHub",
+            "slide1": {
+                "title": "Encontre Qualquer Ativo, Em Qualquer Lugar",
+                "subtitle": "Pesquise conjuntos de dados, modelos, painéis e muito mais em toda a sua stack"
+            },
+            "slide2": {
+                "title": "Entenda a Origem dos Seus Dados",
+                "subtitle": "Veja a história completa de como seus dados foram criados e transformados"
+            },
+            "slide3": {
+                "title": "Gerencie Mudanças Cruciais com Confiança",
+                "subtitle": "Visualize o impacto completo das alterações de esquema e coluna"
+            },
+            "slide4": {
+                "title": "Documentação Sem o Trabalho",
+                "subtitle": "Economize horas de trabalho manual melhorando a descoberta"
+            },
+            "slideLast": {
+                "title": "Pronto para Começar?",
+                "subtitle": "Explore nossa documentação abrangente ou comece a descobrir seus dados"
+            }
         }
     },
     "operation": {

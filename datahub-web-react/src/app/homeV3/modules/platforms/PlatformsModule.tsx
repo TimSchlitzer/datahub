@@ -1,5 +1,6 @@
 import { Text, Tooltip } from '@components';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useUserContext } from '@app/context/useUserContext';
 import { useGetPlatforms } from '@app/homeV2/content/tabs/discovery/sections/platform/useGetPlatforms';
@@ -16,6 +17,7 @@ import { DataHubPageModuleType, Entity } from '@types';
 const NUMBER_OF_PLATFORMS = 15;
 
 const PlatformsModule = (props: ModuleProps) => {
+    const { t } = useTranslation();
     const { user, platformPrivileges } = useUserContext();
 
     const { config } = useAppConfig();
@@ -47,7 +49,10 @@ const PlatformsModule = (props: ModuleProps) => {
         const platformEntity = platforms.find((platform) => platform.platform.urn === entity.urn);
         return (
             <Tooltip
-                title={`View ${formatNumberWithoutAbbreviation(platformEntity?.count)} ${platformEntity?.platform.name} assets`}
+                title={t('home.platforms.viewAssets', {
+                    count: formatNumberWithoutAbbreviation(platformEntity?.count),
+                    platform: platformEntity?.platform.name
+                })}
                 placement="bottom"
             >
                 {children}
@@ -60,9 +65,9 @@ const PlatformsModule = (props: ModuleProps) => {
             {platforms.length === 0 ? (
                 <EmptyContent
                     icon="Database"
-                    title="No Platforms Yet"
-                    description="You have not ingested any data."
-                    linkText={hasPermissionsToManageIngestion ? 'Add data sources' : undefined}
+                    title={t('home.platforms.empty.title')}
+                    description={t('home.platforms.empty.description')}
+                    linkText={hasPermissionsToManageIngestion ? t('home.platforms.empty.linkText') : undefined}
                     onLinkClick={navigateToDataSources}
                 />
             ) : (

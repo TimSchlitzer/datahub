@@ -1414,6 +1414,28 @@
             "journeyTitle": "Start your data journey",
             "journeySubtitle": "Thousands of data professionals use DataHub to discover trusted data, ensure data quality and collaborate with their colleagues",
             "selectPersona": "Select a Persona"
+        },
+        "yourAssets": {
+            "empty": {
+                "title": "No Owned Assets",
+                "description": "Select an asset and add yourself as an owner to see the assets in this list",
+                "linkText": "Discover the assets you want to own"
+            }
+        },
+        "topDomains": {
+            "empty": {
+                "title": "No Domains Created",
+                "description": "Start by creating a domain in order to see it on your list",
+                "linkText": "Configure your data domains"
+            }
+        },
+        "platforms": {
+            "empty": {
+                "title": "No Platforms Yet",
+                "description": "You have not ingested any data.",
+                "linkText": "Add data sources"
+            },
+            "viewAssets": "View {{count}} {{platform}} assets"
         }
     },
     "ingest": {
@@ -2048,6 +2070,34 @@
             "usersInviteLinkTitle": "Invite New Users",
             "usersSSO_component": "The preferred way to onboard new Users is to use Single Sign-On.Currently, DataHub supports OIDC SSO. Learn more about how to configure Single Sign-On  here. ",
             "usersSSOTitle": "Configuring Single Sign-On (SSO)"
+        }
+    },
+    "onboarding": {
+        "welcomeModal": {
+            "title": "Welcome to DataHub",
+            "loading": "Loading...",
+            "getStarted": "Get Started",
+            "docs": "DataHub Docs",
+            "slide1": {
+                "title": "Find Any Asset, Anywhere",
+                "subtitle": "Search datasets, models, dashboards, and more across your entire stack"
+            },
+            "slide2": {
+                "title": "Understand Your Data's Origin",
+                "subtitle": "See the full story of how your data was created and transformed"
+            },
+            "slide3": {
+                "title": "Manage Breaking Changes Confidently",
+                "subtitle": "Preview the full impact of schema and column changes"
+            },
+            "slide4": {
+                "title": "Documentation Without the Work",
+                "subtitle": "Save hours of manual work while improving discoverability"
+            },
+            "slideLast": {
+                "title": "Ready to Get Started?",
+                "subtitle": "Explore our comprehensive documentation or jump right in and start discovering your data"
+            }
         }
     },
     "operation": {

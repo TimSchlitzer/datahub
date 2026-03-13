@@ -1,6 +1,7 @@
 import { Button, Loader, borders, colors, radius, spacing } from '@components';
 import { useDraggable } from '@dnd-kit/core';
 import React, { memo, useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -80,6 +81,7 @@ function LargeModule({
     viewAllText,
     dataTestId,
 }: React.PropsWithChildren<Props>) {
+    const { t } = useTranslation();
     const { name } = module.properties;
 
     const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
@@ -150,7 +152,7 @@ function LargeModule({
                     onClick={onClickViewAllHandler}
                     data-testid="view-all"
                 >
-                    {viewAllText || 'View all'}
+                    {viewAllText || t('common.viewAll')}
                 </ViewAllButton>
             )}
         </ModuleContainer>

@@ -1,5 +1,6 @@
 import { Button, Carousel, Heading, LoadedImage, Modal } from '@components';
 import React, { Component, ReactNode, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import analytics, { EventType } from '@app/analytics';
 import { useOnboardingTour } from '@app/onboarding/OnboardingTourContext.hooks';
@@ -16,7 +17,6 @@ import welcomeModalHomeScreenshot from '@images/welcome-modal-home-screenshot.pn
 
 const SLIDE_DURATION_MS = 10000;
 const DATAHUB_DOCS_URL = 'https://docs.datahub.com/docs/category/features';
-const WELCOME_TO_DATAHUB_MODAL_TITLE = 'Welcome to DataHub';
 const SKIP_WELCOME_MODAL_KEY = 'skipWelcomeModal';
 
 interface VideoSources {
@@ -63,6 +63,7 @@ function checkShouldSkipWelcomeModal() {
 }
 
 export const WelcomeToDataHubModal = () => {
+    const { t } = useTranslation();
     const [shouldShow, setShouldShow] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [videoSources, setVideoSources] = useState<VideoSources | null>(null);
@@ -189,12 +190,12 @@ export const WelcomeToDataHubModal = () => {
     if (videoLoading || !videoSources) {
         return (
             <Modal
-                title={WELCOME_TO_DATAHUB_MODAL_TITLE}
+                title={t('onboarding.welcomeModal.title')}
                 width={MODAL_WIDTH}
                 onCancel={() => closeTour('close_button')}
                 buttons={[
                     {
-                        text: 'Get Started',
+                        text: t('onboarding.welcomeModal.getStarted'),
                         variant: 'filled',
                         onClick: () => closeTour('get_started_button'),
                     },
@@ -203,7 +204,7 @@ export const WelcomeToDataHubModal = () => {
                 <SlideContainer>
                     <Heading type="h2">&nbsp;</Heading>
                     <VideoContainer>
-                        <LoadingContainer width={MODAL_IMAGE_WIDTH}>Loading...</LoadingContainer>
+                        <LoadingContainer width={MODAL_IMAGE_WIDTH}>{t('onboarding.welcomeModal.loading')}</LoadingContainer>
                     </VideoContainer>
                 </SlideContainer>
             </Modal>
@@ -219,7 +220,7 @@ export const WelcomeToDataHubModal = () => {
 
     return (
         <Modal
-            title={WELCOME_TO_DATAHUB_MODAL_TITLE}
+            title={t('onboarding.welcomeModal.title')}
             width={MODAL_WIDTH}
             onCancel={() => closeTour('close_button')}
             buttons={[]}
@@ -243,7 +244,7 @@ export const WelcomeToDataHubModal = () => {
                                 trackExternalLinkClick(DATAHUB_DOCS_URL);
                             }}
                         >
-                            DataHub Docs
+                            {t('onboarding.welcomeModal.docs')}
                         </StyledDocsLink>
                     ) : undefined
                 }
@@ -254,7 +255,7 @@ export const WelcomeToDataHubModal = () => {
                             variant="filled"
                             onClick={() => closeTour('get_started_button')}
                         >
-                            Get started
+                            {t('onboarding.welcomeModal.getStarted')}
                         </Button>
                     ) : undefined
                 }
@@ -262,10 +263,10 @@ export const WelcomeToDataHubModal = () => {
             >
                 <SlideContainer>
                     <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        Find Any Asset, Anywhere
+                        {t('onboarding.welcomeModal.slide1.title')}
                     </Heading>
                     <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        Search datasets, models, dashboards, and more across your entire stack
+                        {t('onboarding.welcomeModal.slide1.subtitle')}
                     </Heading>
                     <VideoContainer>
                         <VideoSlide
@@ -278,10 +279,10 @@ export const WelcomeToDataHubModal = () => {
                 </SlideContainer>
                 <SlideContainer>
                     <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        Understand Your Data&apos;s Origin
+                        {t('onboarding.welcomeModal.slide2.title')}
                     </Heading>
                     <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        See the full story of how your data was created and transformed
+                        {t('onboarding.welcomeModal.slide2.subtitle')}
                     </Heading>
                     <VideoContainer>
                         <VideoSlide
@@ -294,10 +295,10 @@ export const WelcomeToDataHubModal = () => {
                 </SlideContainer>
                 <SlideContainer>
                     <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        Manage Breaking Changes Confidently
+                        {t('onboarding.welcomeModal.slide3.title')}
                     </Heading>
                     <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        Preview the full impact of schema and column changes
+                        {t('onboarding.welcomeModal.slide3.subtitle')}
                     </Heading>
                     <VideoContainer>
                         <VideoSlide
@@ -311,10 +312,10 @@ export const WelcomeToDataHubModal = () => {
                 {videoSources.aiDocs && (
                     <SlideContainer>
                         <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                            Documentation Without the Work
+                            {t('onboarding.welcomeModal.slide4.title')}
                         </Heading>
                         <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                            Save hours of manual work while improving discoverability
+                            {t('onboarding.welcomeModal.slide4.subtitle')}
                         </Heading>
                         <VideoContainer>
                             <VideoSlide
@@ -328,14 +329,14 @@ export const WelcomeToDataHubModal = () => {
                 )}
                 <SlideContainer>
                     <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        Ready to Get Started?
+                        {t('onboarding.welcomeModal.slideLast.title')}
                     </Heading>
                     <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        Explore our comprehensive documentation or jump right in and start discovering your data
+                        {t('onboarding.welcomeModal.slideLast.subtitle')}
                     </Heading>
                     <LoadedImage
                         src={welcomeModalHomeScreenshot}
-                        alt={WELCOME_TO_DATAHUB_MODAL_TITLE}
+                        alt={t('onboarding.welcomeModal.title')}
                         width={MODAL_IMAGE_WIDTH}
                     />
                 </SlideContainer>

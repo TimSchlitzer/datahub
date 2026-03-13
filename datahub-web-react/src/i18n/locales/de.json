@@ -1414,6 +1414,28 @@
             "journeyTitle": "Beginnen Sie Ihre Datenreise",
             "journeySubtitle": "Tausende von Datenprofis nutzen DataHub, um vertrauenswürdige Daten zu entdecken, Datenqualität sicherzustellen und mit ihren Kollegen zusammenzuarbeiten",
             "selectPersona": "Persona auswählen"
+        },
+        "yourAssets": {
+            "empty": {
+                "title": "Keine eigenen Assets",
+                "description": "Wählen Sie ein Asset aus und fügen Sie sich als Eigentümer hinzu, um die Assets in dieser Liste zu sehen",
+                "linkText": "Entdecken Sie die Assets, die Sie besitzen möchten"
+            }
+        },
+        "topDomains": {
+            "empty": {
+                "title": "Keine Domänen erstellt",
+                "description": "Erstellen Sie zunächst eine Domäne, um sie in Ihrer Liste zu sehen",
+                "linkText": "Konfigurieren Sie Ihre Datendomänen"
+            }
+        },
+        "platforms": {
+            "empty": {
+                "title": "Noch keine Plattformen",
+                "description": "Sie haben noch keine Daten aufgenommen.",
+                "linkText": "Datenquellen hinzufügen"
+            },
+            "viewAssets": "Zeige {{count}} {{platform}} Assets"
         }
     },
     "ingest": {
@@ -2048,6 +2070,34 @@
             "usersInviteLinkTitle": "Neue Benutzer einladen",
             "usersSSO_component": "Die bevorzugte Methode zur Aufnahme neuer Benutzer ist die Verwendung von Single Sign-On. Derzeit unterstützt DataHub OIDC SSO. Erfahren Sie hier mehr über die Konfiguration von Single Sign-On. ",
             "usersSSOTitle": "Single Sign-On (SSO) konfigurieren"
+        }
+    },
+    "onboarding": {
+        "welcomeModal": {
+            "title": "Willkommen bei DataHub",
+            "loading": "Wird geladen...",
+            "getStarted": "Erste Schritte",
+            "docs": "DataHub Dokumentation",
+            "slide1": {
+                "title": "Finden Sie beliebige Assets, überall",
+                "subtitle": "Suchen Sie nach Datensätzen, Modellen, Dashboards und mehr in Ihrem gesamten Tech-Stack"
+            },
+            "slide2": {
+                "title": "Verstehen Sie den Ursprung Ihrer Daten",
+                "subtitle": "Sehen Sie die vollständige Geschichte, wie Ihre Daten erstellt und transformiert wurden"
+            },
+            "slide3": {
+                "title": "Verwalten Sie Breaking Changes selbstbewusst",
+                "subtitle": "Vorschau der vollständigen Auswirkungen von Schema- und Spaltenänderungen"
+            },
+            "slide4": {
+                "title": "Dokumentation ohne die Arbeit",
+                "subtitle": "Sparen Sie Stunden manuelle Arbeit, während Sie die Auffindbarkeit verbessern"
+            },
+            "slideLast": {
+                "title": "Bereit anzufangen?",
+                "subtitle": "Erkunden Sie unsere umfangreiche Dokumentation oder springen Sie direkt ein und beginnen Sie, Ihre Daten zu entdecken"
+            }
         }
     },
     "operation": {
