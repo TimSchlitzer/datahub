@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEntityContext, useEntityData } from '@app/entity/shared/EntityContext';
@@ -40,6 +41,7 @@ const ViewAllButton = styled.div`
 `;
 
 const SidebarEntitiesSection = () => {
+    const { t } = useTranslation();
     const { urn, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const { entityState } = useEntityContext();
@@ -64,7 +66,7 @@ const SidebarEntitiesSection = () => {
 
     return (
         <SidebarSection
-            title="Contents"
+            title={t('entity.shared.sidebar.contents')}
             key="Contents"
             content={
                 <>
@@ -81,12 +83,12 @@ const SidebarEntitiesSection = () => {
                                             navigateToDomainEntities(urn, entityType, history, entityRegistry)
                                         }
                                     >
-                                        View all
+                                        {t('entity.shared.sidebar.viewAll')}
                                     </ViewAllButton>
                                 </Section>
                             </>
                         ) : (
-                            <EmptySectionText message="No contents yet" />
+                            <EmptySectionText message={t('entity.shared.sidebar.noContents')} />
                         ))}
                 </>
             }

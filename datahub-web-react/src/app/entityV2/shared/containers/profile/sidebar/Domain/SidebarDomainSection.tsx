@@ -2,6 +2,7 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData, useMutationUrn, useRefetch } from '@app/entity/shared/EntityContext';
@@ -44,6 +45,7 @@ interface Props {
 }
 
 export const SidebarDomainSection = ({ readOnly, properties }: Props) => {
+    const { t } = useTranslation();
     const updateOnly = properties?.updateOnly;
     const { entityData, entityType } = useEntityData();
     const refetch = useRefetch();
@@ -60,7 +62,7 @@ export const SidebarDomainSection = ({ readOnly, properties }: Props) => {
     const removeDomain = (urnToRemoveFrom) => {
         unsetDomainMutation({ variables: { entityUrn: urnToRemoveFrom } })
             .then(() => {
-                message.success({ content: 'Removed Domain.', duration: 2 });
+                message.success({ content: t('entity.shared.sidebar.removedDomain'), duration: 2 });
                 refetch?.();
                 // Reload modules
                 // Assets - as assets module in domain summary tab could be updated
@@ -79,7 +81,7 @@ export const SidebarDomainSection = ({ readOnly, properties }: Props) => {
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `Failed to remove domain: \n ${e.message || ''}`, duration: 3 });
+                    message.error({ content: `${t('entity.shared.sidebar.failedRemoveDomain')}\n ${e.message || ''}`, duration: 3 });
                 }
             });
     };
@@ -87,7 +89,7 @@ export const SidebarDomainSection = ({ readOnly, properties }: Props) => {
     return (
         <div id={ENTITY_PROFILE_DOMAINS_ID} className="sidebar-domain-section">
             <SidebarSection
-                title="Domain"
+                title={t('entity.shared.sidebar.domain')}
                 content={
                     <Content>
                         {domain && (
