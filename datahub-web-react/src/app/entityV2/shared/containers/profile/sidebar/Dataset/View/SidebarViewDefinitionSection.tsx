@@ -1,5 +1,6 @@
 import { Button, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity, useRouteToTab } from '@app/entity/shared/EntityContext';
@@ -29,6 +30,7 @@ const InfoRow = styled.div`
 const INFO_ITEM_WIDTH_PX = '150px';
 
 export const SidebarViewDefinitionSection = () => {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
 
     const materialized = baseEntity?.dataset?.viewProperties?.materialized;
@@ -38,19 +40,19 @@ export const SidebarViewDefinitionSection = () => {
 
     return (
         <SidebarSection
-            title="Definition"
+            title={t('entity.shared.sidebar.viewDefinition')}
             content={
                 <>
                     <InfoRow>
-                        <InfoItem title="Materialized" width={INFO_ITEM_WIDTH_PX}>
+                        <InfoItem title={t('entity.shared.sidebar.materialized')} width={INFO_ITEM_WIDTH_PX}>
                             <HeaderInfoBody>{materialized ? 'True' : 'False'}</HeaderInfoBody>
                         </InfoItem>
-                        <InfoItem title="Language" width={INFO_ITEM_WIDTH_PX}>
+                        <InfoItem title={t('entity.shared.sidebar.language')} width={INFO_ITEM_WIDTH_PX}>
                             <HeaderInfoBody>{language.toUpperCase()}</HeaderInfoBody>
                         </InfoItem>
                     </InfoRow>
                     <StatsButton onClick={() => routeToTab({ tabName: 'View Definition' })} type="link">
-                        View full definition &gt;
+                        {t('entity.shared.sidebar.seeFullDefinition')}
                     </StatsButton>
                 </>
             }

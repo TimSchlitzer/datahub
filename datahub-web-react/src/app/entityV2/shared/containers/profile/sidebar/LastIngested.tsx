@@ -4,6 +4,7 @@ import { Popover } from '@components';
 import { Image } from 'antd';
 import moment from 'moment-timezone';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -120,6 +121,7 @@ interface Props {
 }
 
 function LastIngested({ lastIngested }: Props) {
+    const { t } = useTranslation();
     const { entityData, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const displayedEntityType = getDisplayedEntityType(entityData, entityRegistry, entityType);
@@ -135,19 +137,19 @@ function LastIngested({ lastIngested }: Props) {
                     <PopoverContentWrapper>
                         <Title>
                             <StyledDot color={lastIngestedColor} />
-                            Last Synchronized
+                            {t('entity.shared.sidebar.lastSynchronized')}
                         </Title>
                         <RelativeDescription>
                             This {displayedEntityType.toLocaleLowerCase()} was last synchronized&nbsp;
                             <b>{toRelativeTimeString(lastIngested)}</b>
                         </RelativeDescription>
-                        <SubText>Synchronized on {toLocalDateTimeString(lastIngested)}</SubText>
+                        <SubText>{t('entity.shared.sidebar.synchronized', { date: toLocalDateTimeString(lastIngested) })}</SubText>
                     </PopoverContentWrapper>
                 }
             >
                 <MainContent>
                     <StyledDot color={lastIngestedColor} />
-                    Last synchronized&nbsp;
+                    {t('entity.shared.sidebar.lastSynchronized')}&nbsp;
                     <b>{toRelativeTimeString(lastIngested)}</b>
                 </MainContent>
             </Popover>

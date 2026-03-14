@@ -869,6 +869,8 @@
                 "status": "Status",
                 "applications": "Aplicações",
                 "viewDefinition": "Definição de Visão",
+                "materialized": "Materializado",
+                "language": "Idioma",
                 "logic": "Lógica",
                 "partOf": "Parte de",
                 "composedOf": "Composto de",

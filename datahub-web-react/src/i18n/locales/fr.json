@@ -885,7 +885,9 @@
                 "confirmDataProductRemoval": "Confirm Data Product Removal",
                 "confirmDataProductRemovalText": "Are you sure you want to remove this asset from the data product?",
                 "downstreamTooltip": "Data assets that directly depend on this",
-                "upstreamTooltip": "Data assets that this is directly derived from"
+                "upstreamTooltip": "Data assets that this is directly derived from",
+                "materialized": "Materialized",
+                "language": "Language"
             },
             "documentation": {
                 "sectionTitle": "Documentation",

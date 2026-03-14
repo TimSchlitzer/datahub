@@ -1,6 +1,7 @@
 import { KeyboardArrowDown, KeyboardArrowRight } from '@mui/icons-material';
 import { Collapse, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -53,6 +54,7 @@ const EmptyText = styled(Typography.Text)`
 `;
 
 const StatusSection = () => {
+    const { t } = useTranslation();
     const { entityData } = useEntityData();
     const entityRegistry = useEntityRegistry();
 
@@ -96,19 +98,19 @@ const StatusSection = () => {
 
     return (
         <SidebarSection
-            title="Status"
+            title={t('entity.shared.sidebar.status')}
             content={
                 <SyncedAssetContainer>
-                    {!!created && <TimeProperty labelText="Created:" time={created} />}
+                    {!!created && <TimeProperty labelText={t('entity.shared.sidebar.created')} time={created} />}
                     {(entityType === EntityType.Dashboard || entityType === EntityType.Chart) && (
                         <>
-                            {!!lastModified && <TimeProperty labelText="Last Modified:" time={lastModified} />}
-                            {!!lastRefreshed && <TimeProperty labelText="Data Last Refreshed:" time={lastRefreshed} />}
+                            {!!lastModified && <TimeProperty labelText={t('entity.shared.sidebar.lastModified')} time={lastModified} />}
+                            {!!lastRefreshed && <TimeProperty labelText={t('entity.shared.sidebar.dataLastRefreshed')} time={lastRefreshed} />}
                         </>
                     )}
                     {!!lastUpdated && entityType === EntityType.Dataset && (
                         <TimeProperty
-                            labelText="Last Updated:"
+                            labelText={t('entity.shared.sidebar.lastUpdated')}
                             time={lastUpdated}
                             titleTip={`Time when the asset was last modified ${
                                 baseEntityPlatformName ? `in ${baseEntityPlatformName}` : null
