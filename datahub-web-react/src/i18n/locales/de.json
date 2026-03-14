@@ -887,7 +887,14 @@
                 "documented": "Dokumentiert",
                 "viewAndEdit": "Anzeigen & Bearbeiten",
                 "awaitingVerification": "Warte auf Verifizierung",
-                "awaitingDocumentation": "Warte auf Dokumentation"
+                "awaitingDocumentation": "Warte auf Dokumentation",
+                "confirmApplicationRemoval": "Anwendungsentfernung bestätigen",
+                "confirmApplicationRemovalText": "Möchten Sie diese Anwendung wirklich entfernen?",
+                "removedApplication": "Anwendung entfernt.",
+                "failedRemoveApplication": "Fehler beim Entfernen der Anwendung: {{error}}",
+                "completeVerification": "Verifizierung abschließen",
+                "completeDocumentation": "Dokumentation abschließen",
+                "completeRequirements": "Sie werden aufgefordert, eine Reihe von Anforderungen für diese Entität zu erfüllen."
             },
             "documentation": {
                 "sectionTitle": "Dokumentation",

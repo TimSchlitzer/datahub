@@ -2,6 +2,7 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { Modal, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData, useMutationUrn, useRefetch } from '@app/entity/shared/EntityContext';
@@ -40,6 +41,7 @@ interface Props {
 }
 
 export const SidebarApplicationSection = ({ readOnly, properties }: Props) => {
+    const { t } = useTranslation();
     const {
         config: { visualConfig },
     } = useAppConfig();
@@ -66,21 +68,21 @@ export const SidebarApplicationSection = ({ readOnly, properties }: Props) => {
             },
         })
             .then(() => {
-                message.success({ content: 'Removed Application.', duration: 2 });
+                message.success({ content: t('entity.shared.sidebar.removedApplication'), duration: 2 });
                 refetch?.();
             })
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `Failed to remove application: \n ${e.message || ''}`, duration: 3 });
+                    message.error({ content: t('entity.shared.sidebar.failedRemoveApplication', { error: e.message || '' }), duration: 3 });
                 }
             });
     };
 
     const onRemoveApplication = (applicationUrn: string) => {
         Modal.confirm({
-            title: `Confirm Application Removal`,
-            content: `Are you sure you want to remove this application?`,
+            title: t('entity.shared.sidebar.confirmApplicationRemoval'),
+            content: t('entity.shared.sidebar.confirmApplicationRemovalText'),
             onOk() {
                 removeApplication(applicationUrn);
             },
@@ -94,7 +96,7 @@ export const SidebarApplicationSection = ({ readOnly, properties }: Props) => {
     return (
         <div className="sidebar-application-section">
             <SidebarSection
-                title="Applications"
+                title={t('entity.shared.sidebar.applications')}
                 content={
                     <Content>
                         {applications.length > 0 &&

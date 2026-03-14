@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import OptionalPromptsRemaining from '@app/entity/shared/containers/profile/sidebar/FormInfo/OptionalPromptsRemaining';
 import VerificationAuditStamp from '@app/entity/shared/containers/profile/sidebar/FormInfo/VerificationAuditStamp';
@@ -32,6 +33,7 @@ export default function CompletedView({
     formUrn,
     openFormModal,
 }: Props) {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -49,7 +51,7 @@ export default function CompletedView({
                             ) : (
                                 <StyledReadOutlined color="#77B750" addLineHeight />
                             )}
-                            {showVerificationStyles ? 'Verified' : 'Documented'}
+                            {showVerificationStyles ? t('entity.shared.sidebar.verified') : t('entity.shared.sidebar.documented')}
                         </Title>
                         {isUserAssigned && <StyledArrow isOpen={isOpen} />}
                     </TitleWrapper>
@@ -60,7 +62,7 @@ export default function CompletedView({
                             {!!openFormModal && (
                                 <StyledButtonWrapper>
                                     <Button variant="outline" onClick={openFormModal}>
-                                        View & Edit
+                                        {t('entity.shared.sidebar.viewAndEdit')}
                                     </Button>
                                 </StyledButtonWrapper>
                             )}

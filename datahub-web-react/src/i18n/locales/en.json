@@ -887,7 +887,14 @@
                 "documented": "Documented",
                 "viewAndEdit": "View & Edit",
                 "awaitingVerification": "Awaiting Verification",
-                "awaitingDocumentation": "Awaiting Documentation"
+                "awaitingDocumentation": "Awaiting Documentation",
+                "confirmApplicationRemoval": "Confirm Application Removal",
+                "confirmApplicationRemovalText": "Are you sure you want to remove this application?",
+                "removedApplication": "Removed Application.",
+                "failedRemoveApplication": "Failed to remove application: {{error}}",
+                "completeVerification": "Complete Verification",
+                "completeDocumentation": "Complete Documentation",
+                "completeRequirements": "You are being asked to complete a set of requirements for this entity."
             },
             "documentation": {
                 "sectionTitle": "Documentation",

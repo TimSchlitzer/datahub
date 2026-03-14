@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import OptionalPromptsRemaining from '@app/entity/shared/containers/profile/sidebar/FormInfo/OptionalPromptsRemaining';
@@ -37,6 +38,7 @@ export default function IncompleteView({
     isUserAssigned,
     openFormModal,
 }: Props) {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -62,13 +64,13 @@ export default function IncompleteView({
                                 </>
                             )}
                             {!isUserAssigned && <StyledImgIcon src={ShieldExclamation} disable />}
-                            Awaiting {showVerificationStyles ? 'Verification' : 'Documentation'}
+                            {showVerificationStyles ? t('entity.shared.sidebar.awaitingVerification') : t('entity.shared.sidebar.awaitingDocumentation')}
                         </Title>
                         {isUserAssigned && <StyledArrow isOpen={isOpen} />}
                     </TitleWrapper>
                     {isUserAssigned && isOpen && (
                         <>
-                            <Text>You are being asked to complete a set of requirements for this entity.</Text>
+                            <Text>{t('entity.shared.sidebar.completeRequirements')}</Text>
                             <RequiredPromptsRemaining numRemaining={numRequiredPromptsRemaining} />
                             <OptionalPromptsRemaining numRemaining={numOptionalPromptsRemaining} />
                         </>
@@ -84,7 +86,7 @@ export default function IncompleteView({
                             showVerificationStyles ? 'complete-verification-button' : 'complete-documentation-button'
                         }
                     >
-                        {showVerificationStyles ? 'Complete Verification' : 'Complete Documentation'}
+                        {showVerificationStyles ? t('entity.shared.sidebar.completeVerification') : t('entity.shared.sidebar.completeDocumentation')}
                     </Button>
                 </StyledButtonWrapper>
             )}

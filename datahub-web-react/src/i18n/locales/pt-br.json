@@ -904,7 +904,14 @@
                 "documented": "Documentado",
                 "viewAndEdit": "Ver e Editar",
                 "awaitingVerification": "Aguardando verificação",
-                "awaitingDocumentation": "Aguardando documentação"
+                "awaitingDocumentation": "Aguardando documentação",
+                "confirmApplicationRemoval": "Confirmar remoção da aplicação",
+                "confirmApplicationRemovalText": "Tem certeza que deseja remover esta aplicação?",
+                "removedApplication": "Aplicação removida.",
+                "failedRemoveApplication": "Falha ao remover aplicação: {{error}}",
+                "completeVerification": "Concluir verificação",
+                "completeDocumentation": "Concluir documentação",
+                "completeRequirements": "Você está sendo solicitado a completar um conjunto de requisitos para esta entidade."
             },
             "documentation": {
                 "sectionTitle": "Documentação",
