@@ -880,7 +880,12 @@
                 "documented": "Documented",
                 "viewAndEdit": "View & Edit",
                 "awaitingVerification": "Awaiting Verification",
-                "awaitingDocumentation": "Awaiting Documentation"
+                "awaitingDocumentation": "Awaiting Documentation",
+                "dataProduct": "Data Product",
+                "confirmDataProductRemoval": "Confirm Data Product Removal",
+                "confirmDataProductRemovalText": "Are you sure you want to remove this asset from the data product?",
+                "downstreamTooltip": "Data assets that directly depend on this",
+                "upstreamTooltip": "Data assets that this is directly derived from"
             },
             "documentation": {
                 "sectionTitle": "Documentation",

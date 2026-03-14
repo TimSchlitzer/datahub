@@ -2,6 +2,7 @@ import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityContext, useEntityData } from '@app/entity/shared/EntityContext';
@@ -33,6 +34,7 @@ interface Props {
 }
 
 export default function DataProductSection({ readOnly }: Props) {
+    const { t } = useTranslation();
     const { reloadByKeyType } = useReloadableContext();
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [showRemoveModal, setShowRemoveModal] = useState(false);
@@ -124,7 +126,7 @@ export default function DataProductSection({ readOnly }: Props) {
     return (
         <>
             <SidebarSection
-                title={isMultipleDataProductsEnabled ? 'Data Products' : 'Data Product'}
+                title={isMultipleDataProductsEnabled ? t('entity.shared.sidebar.dataProducts') : t('entity.shared.sidebar.dataProduct')}
                 content={
                     <Content>
                         {dataProducts.length > 0 ? (
@@ -173,8 +175,8 @@ export default function DataProductSection({ readOnly }: Props) {
                     setDataProductToRemove(null);
                 }}
                 handleConfirm={removeDataProduct}
-                modalTitle="Confirm Data Product Removal"
-                modalText="Are you sure you want to remove this asset from the data product?"
+                modalTitle={t('entity.shared.sidebar.confirmDataProductRemoval')}
+                modalText={t('entity.shared.sidebar.confirmDataProductRemovalText')}
             />
         </>
     );

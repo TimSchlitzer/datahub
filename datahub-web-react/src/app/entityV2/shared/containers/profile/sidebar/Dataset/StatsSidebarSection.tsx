@@ -1,5 +1,6 @@
 import { Button, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity, useRouteToTab } from '@app/entity/shared/EntityContext';
@@ -35,6 +36,7 @@ const INFO_ITEM_WIDTH_PX = '150px';
 const LAST_UPDATED_WIDTH_PX = '220px';
 
 export const SidebarStatsSection = () => {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
 
     const toLocalDateTimeString = (time: number) => {
@@ -72,9 +74,9 @@ export const SidebarStatsSection = () => {
     return (
         <div>
             <HeaderContainer>
-                <SidebarHeader title="Stats" />
+                <SidebarHeader title={t('entity.shared.sidebar.stats')} />
                 <StatsButton onClick={() => routeToTab({ tabName: 'Stats' })} type="link">
-                    More stats &gt;
+                    {t('entity.shared.sidebar.moreStats')}
                 </StatsButton>
             </HeaderContainer>
             {/* Dataset Profile Entry */}
@@ -82,7 +84,7 @@ export const SidebarStatsSection = () => {
                 <StatsRow>
                     {latestProfile?.rowCount ? (
                         <InfoItem
-                            title="Rows"
+                            title={t('entity.shared.sidebar.rows')}
                             onClick={() => routeToTab({ tabName: 'Queries' })}
                             width={INFO_ITEM_WIDTH_PX}
                         >
@@ -90,7 +92,7 @@ export const SidebarStatsSection = () => {
                         </InfoItem>
                     ) : null}
                     {latestProfile?.columnCount ? (
-                        <InfoItem title="Columns" width={INFO_ITEM_WIDTH_PX}>
+                        <InfoItem title={t('entity.shared.sidebar.columns')} width={INFO_ITEM_WIDTH_PX}>
                             <HeaderInfoBody>{latestProfile?.columnCount}</HeaderInfoBody>
                         </InfoItem>
                     ) : null}
@@ -101,7 +103,7 @@ export const SidebarStatsSection = () => {
                 <StatsRow>
                     {usageStats?.aggregations?.totalSqlQueries ? (
                         <InfoItem
-                            title="Monthly Queries"
+                            title={t('entity.shared.sidebar.monthlyQueries')}
                             onClick={() => routeToTab({ tabName: 'Queries' })}
                             width={INFO_ITEM_WIDTH_PX}
                         >
@@ -113,7 +115,7 @@ export const SidebarStatsSection = () => {
                         </InfoItem>
                     ) : null}
                     {(usageStats?.aggregations?.users?.length || 0) > 0 ? (
-                        <InfoItem title="Top Users" width={INFO_ITEM_WIDTH_PX}>
+                        <InfoItem title={t('entity.shared.sidebar.topUsers')} width={INFO_ITEM_WIDTH_PX}>
                             <UsageFacepile users={usageStats?.aggregations?.users} maxNumberDisplayed={10} />
                         </InfoItem>
                     ) : null}
@@ -123,7 +125,7 @@ export const SidebarStatsSection = () => {
             {hasLatestOperation ? (
                 <StatsRow>
                     <InfoItem
-                        title="Last Updated"
+                        title={t('entity.shared.sidebar.lastUpdated')}
                         onClick={() => routeToTab({ tabName: 'Queries' })}
                         width={LAST_UPDATED_WIDTH_PX}
                     >

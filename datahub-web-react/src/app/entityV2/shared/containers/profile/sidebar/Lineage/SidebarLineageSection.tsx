@@ -1,6 +1,7 @@
 import { ArrowDownOutlined, ArrowUpOutlined, PartitionOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -74,6 +75,7 @@ const StyledPartitionOutlined = styled(PartitionOutlined)`
 `;
 
 const SidebarLineageSection = () => {
+    const { t } = useTranslation();
     const { urn, entityData, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const linkProps = useEmbeddedProfileLinkProps();
@@ -101,7 +103,7 @@ const SidebarLineageSection = () => {
 
     return (
         <SidebarSection
-            title="Lineage"
+            title={t('entity.shared.sidebar.lineage')}
             key="Lineage"
             content={
                 <>
@@ -110,34 +112,34 @@ const SidebarLineageSection = () => {
                     {!loading && directUpstreamCount > 0 && (
                         <Section key="upstream">
                             <Tooltip
-                                title="Data assets that this is directly derived from"
+                                title={t('entity.shared.sidebar.upstreamTooltip')}
                                 placement="left"
                                 showArrow={false}
                             >
                                 <DirectionHeader>
                                     <StyledUpOutlined />
-                                    <DirectionText>UPSTREAM</DirectionText>
+                                    <DirectionText>{t('entity.shared.sidebar.upstream')}</DirectionText>
                                 </DirectionHeader>
                             </Tooltip>
                             <SummaryText>
-                                Depends on {getRelatedEntitySummary(directUpstreamSummary as any, entityRegistry)}
+                                {t('entity.shared.sidebar.dependsOn', { count: getRelatedEntitySummary(directUpstreamSummary as any, entityRegistry) })}
                             </SummaryText>
                         </Section>
                     )}
                     {!loading && directDownstreamCount > 0 && (
                         <Section key="downstream">
                             <Tooltip
-                                title="Data assets that directly depend on this"
+                                title={t('entity.shared.sidebar.downstreamTooltip')}
                                 placement="left"
                                 showArrow={false}
                             >
                                 <DirectionHeader>
                                     <StyledDownOutlined />
-                                    <DirectionText>DOWNSTREAM</DirectionText>
+                                    <DirectionText>{t('entity.shared.sidebar.downstream')}</DirectionText>
                                 </DirectionHeader>
                             </Tooltip>
                             <SummaryText>
-                                Used by {getRelatedEntitySummary(directDownstreamSummary as any, entityRegistry)}
+                                {t('entity.shared.sidebar.usedBy', { count: getRelatedEntitySummary(directDownstreamSummary as any, entityRegistry) })}
                             </SummaryText>
                         </Section>
                     )}
@@ -147,7 +149,7 @@ const SidebarLineageSection = () => {
                 <SectionActionButton
                     button={
                         <Tooltip
-                            title="Explore related entities using the lineage graph"
+                            title={t('entity.shared.sidebar.exploreLineage')}
                             placement="left"
                             showArrow={false}
                         >

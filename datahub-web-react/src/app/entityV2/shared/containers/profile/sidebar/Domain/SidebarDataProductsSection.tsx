@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -33,6 +34,7 @@ const ViewAllButton = styled.div`
 `;
 
 const SidebarDataProductsSection = () => {
+    const { t } = useTranslation();
     const { urn, entityType, entityData } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const history = useHistory();
@@ -47,7 +49,7 @@ const SidebarDataProductsSection = () => {
 
     return (
         <SidebarSection
-            title="Data Products"
+            title={t('entity.shared.sidebar.dataProducts')}
             key="Data Products"
             content={
                 <>
@@ -63,11 +65,11 @@ const SidebarDataProductsSection = () => {
                                         navigateToDomainDataProducts(urn, entityType, history, entityRegistry)
                                     }
                                 >
-                                    View all
+                                    {t('entity.shared.sidebar.viewAll')}
                                 </ViewAllButton>
                             </Section>
                         </>
-                    )) || <EmptySectionText message="No products yet" />}
+                    )) || <EmptySectionText message={t('entity.shared.sidebar.noProducts')} />}
                 </>
             }
         />
