@@ -1,5 +1,6 @@
 import { Form, Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useDomainsContext } from '@app/domainV2/DomainsContext';
@@ -28,6 +29,7 @@ interface Props {
 }
 
 function MoveDomainModal(props: Props) {
+    const { t } = useTranslation();
     const { onClose } = props;
     const { entityData } = useDomainsContext();
     const domainUrn = entityData?.urn;
@@ -53,12 +55,12 @@ function MoveDomainModal(props: Props) {
             },
         })
             .then(() => {
-                message.loading({ content: 'Updating...', duration: 2 });
+                message.loading({ content: t('entityDropdown.updating'), duration: 2 });
                 const newParentToUpdate = selectedParentUrn || undefined;
                 handleMoveDomainComplete(newParentToUpdate);
                 setTimeout(() => {
                     message.success({
-                        content: `Moved ${entityRegistry.getEntityName(EntityType.Domain)}!`,
+                        content: t('entityDropdown.moved', { type: entityRegistry.getEntityName(EntityType.Domain) }),
                         duration: 2,
                     });
                     refetch();
@@ -71,25 +73,25 @@ function MoveDomainModal(props: Props) {
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to move: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: t('entityDropdown.failedMove', { error: e.message || '' }), duration: 3 });
             });
         onClose();
     }
 
     return (
         <Modal
-            title="Move Domain"
+            title={t('entityDropdown.moveDomain')}
             data-testid="move-domain-modal"
             open
             onCancel={onClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('common.cancel'),
                     variant: 'text',
                     onClick: onClose,
                 },
                 {
-                    text: 'Move',
+                    text: t('entityDropdown.move'),
                     variant: 'filled',
                     onClick: moveDomain,
                     buttonDataTestId: 'move-domain-modal-move-button',
@@ -100,7 +102,7 @@ function MoveDomainModal(props: Props) {
                 <Form.Item
                     label={
                         <Typography.Text strong>
-                            Move To <OptionalWrapper>(optional)</OptionalWrapper>
+                            {t('entityDropdown.moveTo')} <OptionalWrapper>({t('common.optional')})</OptionalWrapper>
                         </Typography.Text>
                     }
                 >

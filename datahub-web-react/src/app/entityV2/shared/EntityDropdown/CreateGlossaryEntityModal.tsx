@@ -2,6 +2,7 @@ import { EditOutlined } from '@ant-design/icons';
 import { Collapse, Form, Input, Typography, message } from 'antd';
 import DOMPurify from 'dompurify';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import analytics, { EventType } from '@app/analytics';
@@ -36,6 +37,7 @@ interface Props {
 }
 
 function CreateGlossaryEntityModal(props: Props) {
+    const { t } = useTranslation();
     const { entityType, onClose, refetchData, canCreateGlossaryEntity, canSelectParentUrn = true } = props;
     const entityData = useEntityData();
     const { isInGlossaryContext, urnsToUpdate, setUrnsToUpdate, setNodeToNewEntity } = useGlossaryEntityData();
@@ -83,7 +85,7 @@ function CreateGlossaryEntityModal(props: Props) {
             },
         })
             .then((result) => {
-                message.loading({ content: 'Updating...', duration: 2 });
+                message.loading({ content: t('entityDropdown.updating'), duration: 2 });
                 setTimeout(() => {
                     analytics.event({
                         type: EventType.CreateGlossaryEntityEvent,
@@ -91,7 +93,7 @@ function CreateGlossaryEntityModal(props: Props) {
                         parentNodeUrn: selectedParentUrn || undefined,
                     });
                     message.success({
-                        content: `Created ${entityRegistry.getEntityName(entityType)}!`,
+                        content: t('entityDropdown.created', { type: entityRegistry.getEntityName(entityType) }),
                         duration: 2,
                     });
                     refetch();
@@ -123,7 +125,7 @@ function CreateGlossaryEntityModal(props: Props) {
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to create: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: t('entityDropdown.failedCreate', { error: e.message || '' }), duration: 3 });
             });
         onClose();
     }
@@ -135,19 +137,22 @@ function CreateGlossaryEntityModal(props: Props) {
 
     return (
         <Modal
-            title={`Create ${
+            title={t(
                 !selectedParentUrn && entityType === EntityType.GlossaryNode
-                    ? 'Glossary'
-                    : entityRegistry.getEntityName(entityType)
-            }`}
+                    ? 'entityDropdown.createGlossary'
+                    : 'entityDropdown.createEntityName',
+                {
+                    name: entityRegistry.getEntityName(entityType),
+                },
+            )}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('common.cancel'),
                     variant: 'text',
                     onClick: onClose,
                 },
                 {
-                    text: 'Create',
+                    text: t('entityDropdown.create'),
                     onClick: createGlossaryEntity,
                     variant: 'filled',
                     disabled: createButtonDisabled || !canCreateGlossaryEntity,
@@ -166,14 +171,14 @@ function CreateGlossaryEntityModal(props: Props) {
                     setCreateButtonDisabled(form.getFieldsError().some((field) => field.errors.length > 0))
                 }
             >
-                <Form.Item label={<Typography.Text strong>Name</Typography.Text>}>
+                <Form.Item label={<Typography.Text strong>{t('entityDropdown.entityName')}</Typography.Text>}>
                     <StyledItem
                         data-testid="create-glossary-entity-modal-name"
                         name="name"
                         rules={[
                             {
                                 required: true,
-                                message: `Enter a ${entityRegistry.getEntityName(entityType)} name.`,
+                                message: t('entityDropdown.enterName', { type: entityRegistry.getEntityName(entityType) }),
                             },
                             { whitespace: true },
                             { min: 1, max: 100 },
@@ -182,7 +187,7 @@ function CreateGlossaryEntityModal(props: Props) {
                     >
                         <Input
                             autoFocus
-                            placeholder="Provide a name..."
+                            placeholder={t('entityDropdown.provideName')}
                             value={stagedName}
                             onChange={(event) => setStagedName(event.target.value)}
                         />
@@ -192,7 +197,7 @@ function CreateGlossaryEntityModal(props: Props) {
                     <Form.Item
                         label={
                             <Typography.Text strong>
-                                Parent <OptionalWrapper>(optional)</OptionalWrapper>
+                                {t('entityDropdown.parent')} <OptionalWrapper>({t('common.optional')})</OptionalWrapper>
                             </Typography.Text>
                         }
                     >
@@ -208,17 +213,17 @@ function CreateGlossaryEntityModal(props: Props) {
                 <StyledItem
                     label={
                         <Typography.Text strong>
-                            Documentation <OptionalWrapper>(optional)</OptionalWrapper>
+                            {t('entityDropdown.documentation')} <OptionalWrapper>({t('common.optional')})</OptionalWrapper>
                         </Typography.Text>
                     }
                 >
                     <Button variant="text" onClick={() => setIsDocumentationModalVisible(true)}>
                         <EditOutlined />
-                        {documentation ? 'Edit' : 'Add'} Documentation
+                        {documentation ? t('entityDropdown.editDocumentation') : t('entityDropdown.addDocumentation')}
                     </Button>
                     {isDocumentationModalVisible && (
                         <DescriptionModal
-                            title="Add Documentation"
+                            title={t('entityDropdown.addDocumentation')}
                             onClose={() => setIsDocumentationModalVisible(false)}
                             onSubmit={addDocumentation}
                             description={documentation}
@@ -226,7 +231,7 @@ function CreateGlossaryEntityModal(props: Props) {
                     )}
                 </StyledItem>
                 <Collapse ghost>
-                    <Collapse.Panel header={<Typography.Text type="secondary">Advanced</Typography.Text>} key="1">
+                    <Collapse.Panel header={<Typography.Text type="secondary">{t('entityDropdown.advanced')}</Typography.Text>} key="1">
                         <Form.Item
                             label={
                                 <Typography.Text strong>
@@ -248,7 +253,7 @@ function CreateGlossaryEntityModal(props: Props) {
                                             if (value && validateCustomUrnId(value)) {
                                                 return Promise.resolve();
                                             }
-                                            return Promise.reject(new Error('Please enter a valid entity id'));
+                                            return Promise.reject(new Error(t('entityDropdown.invalidEntityId')));
                                         },
                                     }),
                                 ]}

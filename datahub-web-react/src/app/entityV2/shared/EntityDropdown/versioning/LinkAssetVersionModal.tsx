@@ -1,6 +1,7 @@
 import { Input, Modal } from '@components';
 import { Form, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 
 import { Label } from '@components/components/Input/components';
@@ -30,6 +31,7 @@ interface Props {
 }
 
 export default function LinkAssetVersionModal({ urn, entityType, closeModal, refetch }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const [link] = useLinkAssetVersionMutation();
 
@@ -50,7 +52,7 @@ export default function LinkAssetVersionModal({ urn, entityType, closeModal, ref
 
             if (selectedEntity && (!versionProperties?.isLatest || !versionProperties?.versionSet?.urn)) {
                 message.error({
-                    content: 'Cannot link to a non-versioned or non-latest entity',
+                    content: t('entityDropdown.cannotLinkNonLatestEntity'),
                     duration: 3,
                 });
                 return;
@@ -80,32 +82,32 @@ export default function LinkAssetVersionModal({ urn, entityType, closeModal, ref
                         entityType,
                     });
                     message.loading({
-                        content: 'Linking...',
+                        content: t('entityDropdown.linking'),
                         duration: 2,
                     });
 
                     setTimeout(() => {
                         refetch?.();
                         message.success({
-                            content: `Linked ${entityRegistry.getEntityName(entityType)}!`,
+                            content: t('entityDropdown.linked', { type: entityRegistry.getEntityName(entityType) }),
                             duration: 2,
                         });
                     }, 2000);
                 })
                 .catch((e) => {
                     message.destroy();
-                    message.error({ content: `Failed to link: \n ${e.message || ''}`, duration: 3 });
+                    message.error({ content: t('entityDropdown.failedLink', { error: e.message || '' }), duration: 3 });
                 });
         });
     }
 
     return (
         <Modal
-            title="Link a Newer Version"
+            title={t('entityDropdown.linkNewerVersionTitle')}
             onCancel={close}
             buttons={[
-                { text: 'Cancel', variant: 'text', onClick: close, key: 'Cancel' },
-                { text: 'Create', variant: 'filled', onClick: handleLink, key: 'Create' },
+                { text: t('common.cancel'), variant: 'text', onClick: close, key: 'Cancel' },
+                { text: t('entityDropdown.create'), variant: 'filled', onClick: handleLink, key: 'Create' },
             ]}
         >
             <Form
@@ -120,28 +122,28 @@ export default function LinkAssetVersionModal({ urn, entityType, closeModal, ref
                 }}
             >
                 <Form.Item name={ENTITY_FIELD_NAME}>
-                    <Label>Previous Version</Label>
+                    <Label>{t('entityDropdown.previousVersion')}</Label>
                     <EntitySearchInputV2
                         entityTypes={[entityType]}
-                        placeholder={`Select a ${entityRegistry
-                            .getEntityName(entityType)
-                            ?.toLocaleLowerCase()} to link`}
-                        searchPlaceholder={`Search for a ${entityRegistry
-                            .getCollectionName(entityType)
-                            .toLocaleLowerCase()}`}
+                        placeholder={t('entityDropdown.selectVersionPlaceholder', {
+                            type: entityRegistry.getEntityName(entityType)?.toLocaleLowerCase(),
+                        })}
+                        searchPlaceholder={t('entityDropdown.searchVersionPlaceholder', {
+                            collection: entityRegistry.getCollectionName(entityType).toLocaleLowerCase(),
+                        })}
                         orFilters={[{ and: [{ field: 'isLatest', values: ['true'] }] }]}
                         onUpdate={setSelectedEntity}
                     />
                 </Form.Item>
                 <Form.Item
                     name={LABEL_FIELD_NAME}
-                    rules={[{ min: 1, max: 100, required: true, message: 'Version name is required' }]}
+                    rules={[{ min: 1, max: 100, required: true, message: t('entityDropdown.versionRequired') }]}
                     hasFeedback
                 >
-                    <Input label="Version Name" placeholder="v.2321" />
+                    <Input label={t('entityDropdown.versionName')} placeholder="v.2321" />
                 </Form.Item>
                 <Form.Item name={COMMENT_FIELD_NAME} rules={[{ min: 1, max: 500 }]} hasFeedback>
-                    <Input label="Version Note" placeholder="This version does..." />
+                    <Input label={t('entityDropdown.versionNote')} placeholder="This version does..." />
                 </Form.Item>
             </Form>
         </Modal>
