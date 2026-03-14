@@ -1216,7 +1216,16 @@
         "deprecationUpdated": "Obsolescência atualizada",
         "failedUpdateDeprecation": "Falha ao atualizar obsolescência: {{error}}",
         "checkOut": "Confira este {{type}} no DataHub: {{url}}",
-        "cantDeleteWithEntities": "Não é possível excluir {{type}} com {{count}} entidades."
+        "cantDeleteWithEntities": "Não é possível excluir {{type}} com {{count}} entidades.",
+        "deleteThis": "Excluir este {{type}}",
+        "setAsDeprecated": "Marcar como obsoleto",
+        "reason": "Motivo",
+        "addReason": "Adicionar motivo",
+        "decommissionDate": "Data de desativação",
+        "replacement": "Substituto",
+        "selectReplacement": "Selecionar substituto",
+        "selectReplacementText": "Selecione uma entidade para substituir a entidade obsoleta.",
+        "setReplacement": "Definir substituto"
     },
     "filter": {
         "basicFilters": "Filtros Básicos",

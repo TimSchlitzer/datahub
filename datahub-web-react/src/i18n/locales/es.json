@@ -2792,6 +2792,15 @@
         "deprecationUpdated": "Deprecation Updated",
         "failedUpdateDeprecation": "Failed to update Deprecation: {{error}}",
         "checkOut": "Check out this {{type}} on DataHub: {{url}}",
-        "cantDeleteWithEntities": "Can't delete {{type}} with {{count}} entities."
+        "cantDeleteWithEntities": "Can't delete {{type}} with {{count}} entities.",
+        "deleteThis": "Delete this {{type}}",
+        "setAsDeprecated": "Set as Deprecated",
+        "reason": "Reason",
+        "addReason": "Add Reason",
+        "decommissionDate": "Decommission Date",
+        "replacement": "Replacement",
+        "selectReplacement": "Select Replacement",
+        "selectReplacementText": "Select one entity to replace the deprecated entity with.",
+        "setReplacement": "Set Replacement"
     }
 }

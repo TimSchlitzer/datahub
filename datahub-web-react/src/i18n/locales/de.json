@@ -1195,7 +1195,16 @@
         "deprecationUpdated": "Veraltung aktualisiert",
         "failedUpdateDeprecation": "Fehler beim Aktualisieren der Veraltung: {{error}}",
         "checkOut": "Schauen Sie sich diesen {{type}} auf DataHub an: {{url}}",
-        "cantDeleteWithEntities": "Kann {{type}} mit {{count}} Entitäten nicht löschen."
+        "cantDeleteWithEntities": "Kann {{type}} mit {{count}} Entitäten nicht löschen.",
+        "deleteThis": "Diesen {{type}} löschen",
+        "setAsDeprecated": "Als veraltet kennzeichnen",
+        "reason": "Grund",
+        "addReason": "Grund hinzufügen",
+        "decommissionDate": "Außerbetriebnahmedatum",
+        "replacement": "Ersatz",
+        "selectReplacement": "Ersatz auswählen",
+        "selectReplacementText": "Wählen Sie eine Entität, um die veraltete Entität zu ersetzen.",
+        "setReplacement": "Ersatz setzen"
     },
     "filter": {
         "basicFilters": "Grundlegend Filters",
