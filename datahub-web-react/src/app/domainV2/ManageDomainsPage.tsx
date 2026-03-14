@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { DomainsContext, UpdatedDomain } from '@app/domainV2/DomainsContext';
@@ -25,6 +26,7 @@ const PageTitle = styled(Typography.Title)`
 const ListContainer = styled.div``;
 
 export const ManageDomainsPage = () => {
+    const { t } = useTranslation();
     const [entityData, setEntityData] = useState<GenericEntityProperties | null>(null);
     const [newDomain, setNewDomain] = useState<UpdatedDomain | null>(null);
     const [deletedDomain, setDeletedDomain] = useState<UpdatedDomain | null>(null);
@@ -45,9 +47,9 @@ export const ManageDomainsPage = () => {
         >
             <PageContainer>
                 <PageHeaderContainer>
-                    <PageTitle level={3}>Domains</PageTitle>
+                    <PageTitle level={3}>{t('domain.pageTitle')}</PageTitle>
                     <Typography.Paragraph type="secondary">
-                        View your DataHub Domains. Take administrative actions.
+                        {t('domain.pageDescription')}
                     </Typography.Paragraph>
                 </PageHeaderContainer>
                 <ListContainer>

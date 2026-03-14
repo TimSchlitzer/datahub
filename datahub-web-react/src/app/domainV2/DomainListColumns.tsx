@@ -1,6 +1,7 @@
 import { Tooltip } from '@components';
 import { Tag, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -36,6 +37,7 @@ export function DomainListMenuColumn(handleDelete: (urn: string) => void) {
 }
 
 export function DomainNameColumn(logoIcon: JSX.Element) {
+    const { t } = useTranslation();
     return (record: DomainEntry) => (
         <span data-testid={record.urn}>
             <Link to={record.url}>
@@ -43,7 +45,7 @@ export function DomainNameColumn(logoIcon: JSX.Element) {
                 <DomainNameContainer>
                     <Typography.Text>{record.name}</Typography.Text>
                 </DomainNameContainer>
-                <Tooltip title={`There are ${record.entities} entities in this domain.`}>
+                <Tooltip title={t('domain.entitiesCount', { count: record.entities })}>
                     <Tag>{record.entities} entities</Tag>
                 </Tooltip>
             </Link>

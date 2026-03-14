@@ -1,6 +1,7 @@
 import { LoadingOutlined, SearchOutlined } from '@ant-design/icons';
 import { SearchBar } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'react-use';
 import styled from 'styled-components/macro';
 
@@ -58,6 +59,7 @@ type Props = {
 };
 
 function DomainSearch({ isCollapsed, unhideSidebar }: Props) {
+    const { t } = useTranslation();
     const [searchInput, setSearchInput] = useState('');
     const [query, setQuery] = useState('');
     const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
@@ -84,7 +86,7 @@ function DomainSearch({ isCollapsed, unhideSidebar }: Props) {
                 <ClickOutside onClickOutside={() => setIsSearchBarFocused(false)}>
                     <InputWrapper>
                         <SearchBar
-                            placeholder="Search"
+                            placeholder={t('domain.search')}
                             value={searchInput}
                             onChange={setSearchInput}
                             onFocus={() => setIsSearchBarFocused(true)}

@@ -1,5 +1,6 @@
 import { Button, Tooltip } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import CreateDomainModal from '@app/domainV2/CreateDomainModal';
@@ -28,12 +29,13 @@ const StyledButton = styled(Button)`
 `;
 
 export default function DomainsSidebarHeader() {
+    const { t } = useTranslation();
     const [isCreatingDomain, setIsCreatingDomain] = useState(false);
 
     return (
         <Wrapper>
-            <DomainTitle>Domains</DomainTitle>
-            <Tooltip showArrow={false} title="Create new Domain" placement="right">
+            <DomainTitle>{t('domain.sidebarTitle')}</DomainTitle>
+            <Tooltip showArrow={false} title={t('domain.createNewTooltip')} placement="right">
                 <StyledButton
                     variant="filled"
                     color="violet"

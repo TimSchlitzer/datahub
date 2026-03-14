@@ -1,6 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Dropdown, Menu, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { MenuIcon } from '@app/entity/shared/EntityDropdown/EntityDropdown';
 import { ConfirmationModal } from '@app/sharedV2/modals/ConfirmationModal';
@@ -16,6 +17,7 @@ type Props = {
 };
 
 export default function DomainItemMenu({ name, urn, onDelete }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const [deleteDomainMutation] = useDeleteDomainMutation();
     const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -28,14 +30,14 @@ export default function DomainItemMenu({ name, urn, onDelete }: Props) {
         })
             .then(({ errors }) => {
                 if (!errors) {
-                    message.success('Deleted Domain!');
+                    message.success(t('domain.deletedMessage'));
                     onDelete?.();
                 }
             })
             .catch((e) => {
                 console.error('Issue deleting a domain:', e);
                 message.destroy();
-                message.error({ content: `Failed to delete Domain!: An unknown error occurred.`, duration: 3 });
+                message.error({ content: t('domain.deleteErrorMessage'), duration: 3 });
             });
     };
 
@@ -46,7 +48,7 @@ export default function DomainItemMenu({ name, urn, onDelete }: Props) {
                 overlay={
                     <Menu>
                         <Menu.Item onClick={() => setShowDeleteModal(true)} key="delete">
-                            <DeleteOutlined /> &nbsp;Delete
+                            <DeleteOutlined /> &nbsp;{t('domain.delete')}
                         </Menu.Item>
                     </Menu>
                 }

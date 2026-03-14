@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -12,26 +13,20 @@ const StyledParagraph = styled(Typography.Paragraph)`
 `;
 
 function EmptyDomainDescription() {
+    const { t } = useTranslation();
     return (
         <>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}>Welcome to your Data Domains!</strong> It looks like this space
-                is ready to be transformed into a well-organized data universe. Start by creating your first domain - a
-                high-level category for your data assets.
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.welcomeTitle')}</strong> {t('domain.welcomeDescription')}
             </StyledParagraph>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}> Create Nested Domains:</strong> Want to dive deeper? You can
-                also create nested domains to add granularity and structure. Just like nesting Russian dolls, its all
-                about refining your organization.
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.nestedDomainsTitle')}</strong> {t('domain.nestedDomainsDescription')}
             </StyledParagraph>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}>Build Data Products</strong>: Once your domains are set, go a
-                step further! Organize your data assets into data products to realize a data mesh architecture. Data
-                products empower you to treat data as a product, making it more accessible and manageable.
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.buildDataProductsTitle')}</strong>: {t('domain.buildDataProductsDescription')}
             </StyledParagraph>
             <StyledParagraph type="secondary">
-                Ready to embark on this data adventure? Click the Create Domain button to begin shaping your data
-                landscape!
+                {t('domain.readyToStart')}
             </StyledParagraph>
         </>
     );

@@ -1,5 +1,6 @@
 import { Collapse, Form, message } from 'antd';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { Label } from '@components/components/TextArea/components';
@@ -51,6 +52,7 @@ const NAME_FIELD_NAME = 'name';
 const DESCRIPTION_FIELD_NAME = 'description';
 
 export default function CreateDomainModal({ onClose, onCreate }: Props) {
+    const { t } = useTranslation();
     const isNestedDomainsEnabled = useIsNestedDomainsEnabled();
     const [createDomainMutation] = useCreateDomainMutation();
     const { entityData, setNewDomain } = useDomainsContextV2();
@@ -94,7 +96,7 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                         parentDomainUrn: selectedParentUrn || undefined,
                     });
                     message.success({
-                        content: `Created domain!`,
+                        content: t('domain.createModalSuccessMessage'),
                         duration: 3,
                     });
                     onCreate?.(
@@ -126,7 +128,7 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to create Domain!: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: t('domain.createModalErrorMessage', { error: e.message || '' }), duration: 3 });
             })
             .finally(() => {
                 onClose();
@@ -140,17 +142,17 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
 
     return (
         <Modal
-            title="Create New Domain"
+            title={t('domain.createModalTitle')}
             open
             onCancel={onClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('common.cancel'),
                     variant: 'text',
                     onClick: onClose,
                 },
                 {
-                    text: 'Save',
+                    text: t('common.save'),
                     id: 'createDomainButton',
                     buttonDataTestId: 'create-domain-button',
                     onClick: onCreateDomain,
@@ -171,14 +173,14 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                     rules={[
                         {
                             required: true,
-                            message: 'Enter a Domain name.',
+                            message: t('domain.createModalValidateNameError'),
                         },
                         { whitespace: true },
                         { min: 1, max: 150 },
                     ]}
                     hasFeedback
                 >
-                    <Input label="Name" data-testid="create-domain-name" placeholder="A name for your domain" />
+                    <Input label={t('domain.createModalNameLabel')} data-testid="create-domain-name" placeholder={t('domain.createModalNamePlaceholder')} />
                 </FormItemWithMargin>
                 <FormItemWithMargin
                     name={DESCRIPTION_FIELD_NAME}
@@ -186,18 +188,18 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                     hasFeedback
                 >
                     <TextArea
-                        label="Description"
-                        placeholder="A description for your domain"
+                        label={t('domain.createModalDescriptionLabel')}
+                        placeholder={t('domain.createModalDescriptionPlaceholder')}
                         data-testid="create-domain-description"
                     />
                 </FormItemWithMargin>
                 {isNestedDomainsEnabled && (
                     <FormItemWithMargin>
-                        <Label>Parent Domains</Label>
+                        <Label>{t('domain.createModalParentLabel')}</Label>
                         <DomainSelector
                             selectedDomains={selectedParentUrn ? [selectedParentUrn] : []}
                             onDomainsChange={(selectedDomainUrns) => setSelectedParentUrn(selectedDomainUrns[0] || '')}
-                            placeholder="Select parent domain"
+                            placeholder={t('domain.createModalParentLabel')}
                             label=""
                             isMultiSelect={false}
                         />
@@ -226,7 +228,7 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                                 }),
                             ]}
                         >
-                            <Input label="Custom Id" data-testid="create-domain-id" placeholder="engineering" />
+                            <Input label={t('domain.createModalCustomIdLabel')} data-testid="create-domain-id" placeholder={t('domain.createModalCustomIdPlaceholder')} />
                         </FormItemWithMargin>
                     </Collapse.Panel>
                 </Collapse>

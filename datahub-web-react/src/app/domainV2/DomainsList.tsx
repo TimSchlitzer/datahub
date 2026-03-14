@@ -3,6 +3,7 @@ import { Button, Empty, Pagination, Typography } from 'antd';
 import * as QueryString from 'query-string';
 import { AlignType } from 'rc-table/lib/interface';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
@@ -43,6 +44,7 @@ const PaginationInfo = styled(Typography.Text)`
 const DEFAULT_PAGE_SIZE = 25;
 
 export const DomainsList = () => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const location = useLocation();
     const params = QueryString.parse(location.search, { arrayFormat: 'comma' });
@@ -133,17 +135,17 @@ export const DomainsList = () => {
 
     return (
         <>
-            {!data && loading && <Message type="loading" content="Loading domains..." />}
-            {error && <Message type="error" content="Failed to load domains! An unexpected error occurred." />}
+            {!data && loading && <Message type="loading" content={t('domain.loadingDomains')} />}
+            {error && <Message type="error" content={t('domain.loadingFailed')} />}
             <OnboardingTour stepIds={[DOMAINS_INTRO_ID, DOMAINS_CREATE_DOMAIN_ID]} />
             <DomainsContainer>
                 <TabToolbar>
                     <Button id={DOMAINS_CREATE_DOMAIN_ID} type="text" onClick={() => setIsCreatingDomain(true)}>
-                        <PlusOutlined /> New Domain
+                        <PlusOutlined /> {t('domain.newDomain')}
                     </Button>
                     <SearchBar
                         initialQuery={query || ''}
-                        placeholderText="Search domains..."
+                        placeholderText={t('domain.searchPlaceholder')}
                         suggestions={[]}
                         style={{
                             maxWidth: 220,
@@ -164,7 +166,7 @@ export const DomainsList = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     pagination={false}
-                    locale={{ emptyText: <Empty description="No Domains!" image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
+                    locale={{ emptyText: <Empty description={t('domain.noDomains')} image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
                 />
                 <DomainsPaginationContainer>
                     <PaginationInfo>

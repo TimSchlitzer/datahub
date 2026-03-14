@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import CreateDomainModal from '@app/domainV2/CreateDomainModal';
@@ -31,6 +32,7 @@ const Header = styled.div`
 `;
 
 export default function ManageDomainsPageV2() {
+    const { t } = useTranslation();
     const { setEntityData } = useDomainsContextV2();
     const [isCreatingDomain, setIsCreatingDomain] = useState(false);
     const isShowNavBarRedesign = useShowNavBarRedesign();
@@ -55,14 +57,14 @@ export default function ManageDomainsPageV2() {
         <PageWrapper $isShowNavBarRedesign={isShowNavBarRedesign}>
             <OnboardingTour stepIds={[DOMAINS_INTRO_ID, DOMAINS_CREATE_DOMAIN_ID]} />
             <Header>
-                <PageTitle title="Domains" subTitle="Group data assets using hierarchical collections" />
+                <PageTitle title={t('domain.pageTitle')} subTitle={t('domain.subtitle')} />
                 <Button
                     id={DOMAINS_CREATE_DOMAIN_ID}
                     onClick={() => setIsCreatingDomain(true)}
                     data-testid="domains-new-domain-button"
                     icon={{ icon: 'Add', source: 'material' }}
                 >
-                    Create
+                    {t('domain.createButton')}
                 </Button>
             </Header>
             <RootDomains setIsCreatingDomain={setIsCreatingDomain} />

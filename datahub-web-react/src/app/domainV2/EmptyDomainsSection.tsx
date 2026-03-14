@@ -1,6 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Empty, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -47,6 +48,7 @@ interface Props {
 }
 
 function EmptyDomainsSection(props: Props) {
+    const { t } = useTranslation();
     const { title, description, setIsCreatingDomain, icon } = props;
     return (
         <EmptyDomainContainer>
@@ -60,7 +62,7 @@ function EmptyDomainsSection(props: Props) {
                 }
             >
                 <StyledButton onClick={() => setIsCreatingDomain(true)}>
-                    <PlusOutlined /> Create Domain
+                    <PlusOutlined /> {t('domain.create')}
                 </StyledButton>
             </StyledEmpty>
         </EmptyDomainContainer>
