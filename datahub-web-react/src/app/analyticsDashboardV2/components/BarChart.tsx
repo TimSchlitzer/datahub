@@ -3,6 +3,7 @@ import { Group } from '@visx/group';
 import { scaleBand, scaleLinear, scaleOrdinal } from '@visx/scale';
 import { BarStack } from '@visx/shape';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Legend from '@app/analyticsDashboard/components/Legend';
 import { useAnalyticsChartColors } from '@app/analyticsDashboardV2/hooks/useAnalyticsChartColors';
@@ -18,19 +19,19 @@ type Props = {
 const WIDTH_MARGIN_SIZE = 55;
 const HEIGHT_MARGIN_SIZE = 32;
 
-function transformName(label: string) {
+function transformName(label: string, t: (key: string) => string) {
     if (label === 'DATA_JOB') {
-        return 'TASK';
+        return t('analytics.entityTypeTask');
     }
     if (label === 'DATA_FLOW') {
-        return 'PIPELINE';
+        return t('analytics.entityTypePipeline');
     }
     return label;
 }
 
-function transformChartData(chartData: BarChartType) {
+function transformChartData(chartData: BarChartType, t: (key: string) => string) {
     return chartData.bars.map((bar, i) => {
-        const name = transformName(bar.name);
+        const name = transformName(bar.name, t);
         return {
             index: i,
             name,
@@ -47,6 +48,7 @@ function transformChartData(chartData: BarChartType) {
 }
 
 export const BarChart = ({ chartData, width, height }: Props) => {
+    const { t } = useTranslation();
     const keys = useMemo(
         () =>
             chartData.bars
@@ -67,7 +69,7 @@ export const BarChart = ({ chartData, width, height }: Props) => {
         range: keys.map((key) => getColorByKey(key)),
     });
 
-    const transformedChartData = useMemo(() => transformChartData(chartData), [chartData]);
+    const transformedChartData = useMemo(() => transformChartData(chartData, t), [chartData, t]);
 
     const yAxisScale = scaleLinear<number>({
         domain: [0, Math.max(...totals) * 1.1],

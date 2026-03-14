@@ -34,7 +34,12 @@
         "entitiesPerPlatform": "Entitäten pro Plattform",
         "entitiesPerTerm": "Entitäten pro Begriff",
         "searchesLastWeek": "Suchanfragen der letzten Woche",
-        "sectionViewsAcrossEntitytypes": "Bereichsaufrufe über alle Entitätstypen"
+        "sectionViewsAcrossEntitytypes": "Bereichsaufrufe über alle Entitätstypen",
+        "allDomains": "Alle Domänen",
+        "domainLandscapeSummary": "Zusammenfassung der Domänenlandschaft",
+        "noAnalyticsDataForDomain": "Keine Analysedaten für diese Domäne verfügbar",
+        "entityTypeTask": "AUFGABE",
+        "entityTypePipeline": "PIPELINE"
     },
     "assertion": {
         "confirmAssertionRemoval": "Entfernung der Assertion bestätigen",

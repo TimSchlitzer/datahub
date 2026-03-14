@@ -34,7 +34,12 @@
         "entitiesPerPlatform": "Entities per Platform",
         "entitiesPerTerm": "Entities per Term",
         "searchesLastWeek": "Searches Last Week",
-        "sectionViewsAcrossEntitytypes": "Section Views across Entity Types"
+        "sectionViewsAcrossEntitytypes": "Section Views across Entity Types",
+        "allDomains": "All Domains",
+        "domainLandscapeSummary": "Domain Landscape Summary",
+        "noAnalyticsDataForDomain": "No analytics data for this domain",
+        "entityTypeTask": "TASK",
+        "entityTypePipeline": "PIPELINE"
     },
     "assertion": {
         "confirmAssertionRemoval": "Confirm Assertion Removal",
