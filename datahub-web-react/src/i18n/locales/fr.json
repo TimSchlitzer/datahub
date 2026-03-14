@@ -839,7 +839,48 @@
             },
             "sidebar": {
                 "documentation": "Documentation",
-                "owners": "Owners"
+                "owners": "Owners",
+                "terms": "Terms",
+                "tags": "Tags",
+                "domain": "Domain",
+                "contents": "Contents",
+                "dataProducts": "Data Products",
+                "lineage": "Lineage",
+                "stats": "Stats",
+                "fields": "Fields",
+                "status": "Status",
+                "applications": "Applications",
+                "viewDefinition": "View Definition",
+                "logic": "Logic",
+                "partOf": "Part of",
+                "composedOf": "Composed of",
+                "viewAllSiblings": "View All Siblings",
+                "andNMore": "and {{n}} more",
+                "viewAll": "View all",
+                "noContents": "No contents yet",
+                "noProducts": "No products yet",
+                "rows": "Rows",
+                "columns": "Columns",
+                "monthlyQueries": "Monthly Queries",
+                "topUsers": "Top Users",
+                "lastUpdated": "Last Updated",
+                "moreStats": "More stats >",
+                "seeFullDefinition": "See Full",
+                "created": "Created:",
+                "lastModified": "Last Modified:",
+                "dataLastRefreshed": "Data Last Refreshed:",
+                "synchronized": "Synchronized on {{date}}",
+                "lastSynchronized": "Last Synchronized",
+                "upstream": "UPSTREAM",
+                "downstream": "DOWNSTREAM",
+                "dependsOn": "Depends on {{count}}",
+                "usedBy": "Used by {{count}}",
+                "exploreLineage": "Explore related entities using the lineage graph",
+                "verified": "Verified",
+                "documented": "Documented",
+                "viewAndEdit": "View & Edit",
+                "awaitingVerification": "Awaiting Verification",
+                "awaitingDocumentation": "Awaiting Documentation"
             },
             "documentation": {
                 "sectionTitle": "Documentation",
@@ -892,86 +933,59 @@
             }
         },
         "dashboard": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "contents": "Contents",
-                "datasets": "Datasets"
+            "summary": {
+                "generalInfo": "General Info",
+                "relatedAssets": "Related Assets",
+                "dataSources": "Data Sources",
+                "contents": "Contents"
+            },
+            "statsSummary": {
+                "charts": "charts",
+                "viewsLastMonth": "views last month",
+                "views": "views",
+                "users": "users",
+                "moreViewsOften": "More views often than {{percentile}}% of similar assets in the past 30 days",
+                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
+                "createdOn": "Created on {{date}}",
+                "changedOn": "Changed on {{date}}",
+                "lastChangedTooltip": "The time at which the dashboard was last changed in the source platform",
+                "changed": "Changed {{time}}"
             }
         },
         "chart": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "fields": "Fields",
-                "dashboards": "Dashboards"
+            "summary": {
+                "measures": "Measures",
+                "dimensions": "Dimensions",
+                "temporals": "Temporals"
+            },
+            "fieldTable": {
+                "name": "Name",
+                "description": "Description",
+                "viewMore": "View {{count}} More"
+            },
+            "statsSummary": {
+                "charts": "charts",
+                "viewsLastMonth": "views last month",
+                "views": "views",
+                "users": "users",
+                "moreViewsThan": "More views than {{percentile}}% of similar assets in the past 30 days",
+                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
+                "createdOn": "Created on {{date}}",
+                "changedOn": "Changed on {{date}}",
+                "lastChangedTooltip": "The time at which the chart was last changed in the source platform",
+                "changed": "Changed {{time}}"
             }
         },
         "dataJob": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "pipeline": "Pipeline"
-            }
-        },
-        "glossaryTerm": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "relatedAssets": "Related Assets",
-                "schema": "Schema",
-                "relatedTerms": "Related Terms"
-            }
-        },
-        "domain": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "assets": "Assets",
-                "dataProducts": "Data Products"
-            }
-        },
-        "container": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs",
-                "contents": "Contents"
+            "runsTab": {
+                "time": "Time",
+                "runId": "Run ID",
+                "status": "Status",
+                "inputs": "Inputs",
+                "outputs": "Outputs",
+                "viewTaskRunDetails": "View task run details",
+                "notAvailable": "N/A",
+                "loading": "Fetching runs..."
             }
         },
         "glossaryTerm": {
@@ -1021,60 +1035,17 @@
                 }
             }
         },
-        "chart": {
-            "summary": {
-                "measures": "Measures",
-                "dimensions": "Dimensions",
-                "temporals": "Temporals"
-            },
-            "fieldTable": {
-                "name": "Name",
-                "description": "Description",
-                "viewMore": "View {{count}} More"
-            },
-            "statsSummary": {
-                "charts": "charts",
-                "viewsLastMonth": "views last month",
-                "views": "views",
-                "users": "users",
-                "moreViewsThan": "More views than {{percentile}}% of similar assets in the past 30 days",
-                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
-                "createdOn": "Created on {{date}}",
-                "changedOn": "Changed on {{date}}",
-                "lastChangedTooltip": "The time at which the chart was last changed in the source platform",
-                "changed": "Changed {{time}}"
-            }
-        },
-        "dashboard": {
-            "summary": {
-                "generalInfo": "General Info",
-                "relatedAssets": "Related Assets",
-                "dataSources": "Data Sources",
+        "container": {
+            "tabs": {
+                "summary": "Summary",
+                "documentation": "Documentation",
+                "lineage": "Lineage",
+                "properties": "Properties",
+                "incidents": "Incidents",
+                "preview": "Preview",
+                "access": "Access",
+                "runs": "Runs",
                 "contents": "Contents"
-            },
-            "statsSummary": {
-                "charts": "charts",
-                "viewsLastMonth": "views last month",
-                "views": "views",
-                "users": "users",
-                "moreViewsOften": "More views often than {{percentile}}% of similar assets in the past 30 days",
-                "moreUsersThan": "More users than {{percentile}}% of similar assets in the past 30 days",
-                "createdOn": "Created on {{date}}",
-                "changedOn": "Changed on {{date}}",
-                "lastChangedTooltip": "The time at which the dashboard was last changed in the source platform",
-                "changed": "Changed {{time}}"
-            }
-        },
-        "dataJob": {
-            "runsTab": {
-                "time": "Time",
-                "runId": "Run ID",
-                "status": "Status",
-                "inputs": "Inputs",
-                "outputs": "Outputs",
-                "viewTaskRunDetails": "View task run details",
-                "notAvailable": "N/A",
-                "loading": "Fetching runs..."
             }
         },
         "membershipThisGroupCannotEddit": "Membership in this group cannot be edited in DataHub as it originates from",
@@ -1322,7 +1293,14 @@
         "trySearchingFor": "Try searching for",
         "welcomeBack": "Welcome back",
         "domains": "Domains",
-        "platforms": "Platforms",
+        "platforms": {
+            "empty": {
+                "title": "No Platforms Yet",
+                "description": "You have not ingested any data.",
+                "linkText": "Add data sources"
+            },
+            "viewAssets": "View {{count}} {{platform}} assets"
+        },
         "dataProducts": "Data Products",
         "forYou": "For You",
         "viewAll": "View All",
@@ -1428,14 +1406,6 @@
                 "description": "Start by creating a domain in order to see it on your list",
                 "linkText": "Configure your data domains"
             }
-        },
-        "platforms": {
-            "empty": {
-                "title": "No Platforms Yet",
-                "description": "You have not ingested any data.",
-                "linkText": "Add data sources"
-            },
-            "viewAssets": "View {{count}} {{platform}} assets"
         }
     },
     "ingest": {
@@ -1946,7 +1916,12 @@
         "manageLineageWithDirection": "Manage {{direction}} Lineage",
         "noEntitiesWithDirection": "No {{direction}}} entities",
         "noTimeRangeSelected": "No time range selected",
-        "ordinalSuffix": ["th", "st", "nd", "rd"],
+        "ordinalSuffix": [
+            "th",
+            "st",
+            "nd",
+            "rd"
+        ],
         "platformLogo": "Platform Logo",
         "seeColumnLineage": "See Column Lineage",
         "showColumnLevelLineage": "Show column level lineage",
