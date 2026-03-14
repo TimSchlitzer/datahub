@@ -1,6 +1,7 @@
 import { WarningOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 
 import { useEntityData, useRefetch } from '@app/entity/shared/EntityContext';
@@ -11,6 +12,7 @@ import { useIsSeparateSiblingsMode } from '@app/entityV2/shared/useIsSeparateSib
 import { useEntityRegistry } from '@app/useEntityRegistry';
 
 export default function RaiseIncidentMenuAction() {
+    const { t } = useTranslation();
     const { urn, entityType } = useEntityData();
     const refetchForEntity = useRefetch();
     const history = useHistory();
@@ -19,7 +21,7 @@ export default function RaiseIncidentMenuAction() {
     const [isRaiseIncidentModalVisible, setIsRaiseIncidentModalVisible] = useState(false);
 
     return (
-        <Tooltip placement="bottom" title="Raise an incident">
+        <Tooltip placement="bottom" title={t('entityDropdown.raiseIncident')}>
             <ActionMenuItem key="incident" disabled={false} onClick={() => setIsRaiseIncidentModalVisible(true)}>
                 <WarningOutlined style={{ display: 'flex' }} />
             </ActionMenuItem>

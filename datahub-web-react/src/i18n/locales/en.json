@@ -1274,7 +1274,10 @@
         "replacement": "Replacement",
         "selectReplacement": "Select Replacement",
         "selectReplacementText": "Select one entity to replace the deprecated entity with.",
-        "setReplacement": "Set Replacement"
+        "setReplacement": "Set Replacement",
+        "moveThis": "Move this {{type}}",
+        "markAsDeprecated": "Mark this {{type}} as deprecated",
+        "markAsUnDeprecated": "Mark this {{type}} as un-deprecated"
     },
     "filter": {
         "basicFilters": "Basic Filters",

@@ -1225,7 +1225,10 @@
         "replacement": "Substituto",
         "selectReplacement": "Selecionar substituto",
         "selectReplacementText": "Selecione uma entidade para substituir a entidade obsoleta.",
-        "setReplacement": "Definir substituto"
+        "setReplacement": "Definir substituto",
+        "moveThis": "Mover este {{type}}",
+        "markAsDeprecated": "Marcar este {{type}} como obsoleto",
+        "markAsUnDeprecated": "Marcar este {{type}} como não obsoleto"
     },
     "filter": {
         "basicFilters": "Filtros Básicos",

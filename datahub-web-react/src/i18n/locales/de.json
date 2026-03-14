@@ -1204,7 +1204,10 @@
         "replacement": "Ersatz",
         "selectReplacement": "Ersatz auswählen",
         "selectReplacementText": "Wählen Sie eine Entität, um die veraltete Entität zu ersetzen.",
-        "setReplacement": "Ersatz setzen"
+        "setReplacement": "Ersatz setzen",
+        "moveThis": "Diesen {{type}} verschieben",
+        "markAsDeprecated": "Diesen {{type}} als veraltet markieren",
+        "markAsUnDeprecated": "Diesen {{type}} als nicht veraltet markieren"
     },
     "filter": {
         "basicFilters": "Grundlegend Filters",
