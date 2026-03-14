@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useDataNotCombinedWithSiblings, useEntityData } from '@app/entity/shared/EntityContext';
@@ -34,6 +35,7 @@ const AndMoreWrapper = styled.div`
 `;
 
 export const SidebarSiblingsSection = () => {
+    const { t } = useTranslation();
     const { entityData, urn } = useEntityData();
 
     const dataNotCombinedWithSiblings = useDataNotCombinedWithSiblings<GetDatasetQuery>();
@@ -51,7 +53,7 @@ export const SidebarSiblingsSection = () => {
     if (!showSeparateSiblings && isHideSiblingMode) {
         return (
             <SidebarSection
-                title="Part of"
+                title={t('entity.shared.sidebar.partOf')}
                 content={
                     <EntityListContainer>
                         <CompactEntityNameList entities={[entityData as Entity]} showFullTooltips />
@@ -85,7 +87,7 @@ export const SidebarSiblingsSection = () => {
     return (
         <>
             <SidebarSection
-                title="Composed of"
+                title={t('entity.shared.sidebar.composedOf')}
                 content={
                     <EntityListContainer data-testid="siblings-list">
                         <CompactEntityNameList
@@ -95,7 +97,7 @@ export const SidebarSiblingsSection = () => {
                         />
                         {numSiblingsNotShown > 0 && (
                             <AndMoreWrapper onClick={() => setShowAllSiblings(true)}>
-                                and {numSiblingsNotShown} more
+                                {t('entity.shared.sidebar.andNMore', { n: numSiblingsNotShown })}
                             </AndMoreWrapper>
                         )}
                     </EntityListContainer>
@@ -103,7 +105,7 @@ export const SidebarSiblingsSection = () => {
             />
             {showAllSiblings && (
                 <EmbeddedListSearchModal
-                    title="View All Siblings"
+                    title={t('entity.shared.sidebar.viewAllSiblings')}
                     fixedFilters={{
                         unionType: UnionType.OR,
                         filters: [{ field: 'siblings', values: [urn] }],
