@@ -2766,5 +2766,32 @@
                 "openapiDesc": "Explore the OpenAPI endpoints"
             }
         }
+    },
+    "entityDropdown": {
+        "copyUrl": "Copy URL",
+        "markDeprecated": "Mark as Deprecated",
+        "unmarkDeprecated": "Mark as un-deprecated",
+        "addNote": "Add Note",
+        "addTerm": "Add Term",
+        "addTermGroup": "Add Term Group",
+        "move": "Move",
+        "edit": "Edit",
+        "clone": "Clone",
+        "raiseIncident": "Raise Incident",
+        "linkNewerVersion": "Link a Newer Version",
+        "unlinkVersion": "Unlink from Previous Version",
+        "showVersions": "Show Versions",
+        "share": "Share",
+        "copyLink": "Copy Link",
+        "copyUrn": "Copy URN",
+        "copyName": "Copy Name",
+        "email": "Email",
+        "delete": "Delete",
+        "copiedUrl": "Copied URL!",
+        "updating": "Updating...",
+        "deprecationUpdated": "Deprecation Updated",
+        "failedUpdateDeprecation": "Failed to update Deprecation: {{error}}",
+        "checkOut": "Check out this {{type}} on DataHub: {{url}}",
+        "cantDeleteWithEntities": "Can't delete {{type}} with {{count}} entities."
     }
 }
