@@ -3,6 +3,7 @@ import { MagnifyingGlass } from '@phosphor-icons/react';
 import { AutoComplete, Input } from 'antd';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import analytics, { Event, EventType } from '@app/analytics';
@@ -189,6 +190,7 @@ export const SearchBar = ({
     placeholderColor,
     isShowNavBarRedesign,
 }: SearchBarProps) => {
+    const { t } = useTranslation();
     const history = useHistory();
     const [searchQuery, setSearchQuery] = useState<string | undefined>(initialQuery);
     const [selected, setSelected] = useState<string>();

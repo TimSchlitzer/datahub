@@ -1,6 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { SimpleSelect, Text, Tooltip } from '@components';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { SelectOption } from '@components/components/Select/types';
@@ -42,6 +43,7 @@ export default function SimpleSelectRole({
     width = 'fit-content',
     disabled = false,
 }: Props) {
+    const { t } = useTranslation();
     const { roles, loading, hasMore, observerRef, setSearchQuery } = useRoleSelector();
 
     const roleSelectOptions = useMemo(() => {
@@ -73,7 +75,7 @@ export default function SimpleSelectRole({
 
         // Add sentinel option for infinite scroll trigger
         if (hasMore) {
-            options.push({ value: LOAD_MORE_VALUE, label: 'Loading more...', icon: <LoadingOutlined /> });
+            options.push({ value: LOAD_MORE_VALUE, label: t('identity.user.loadingMoreRoles'), icon: <LoadingOutlined /> });
         }
 
         return options;
@@ -98,7 +100,7 @@ export default function SimpleSelectRole({
                 <LoadMoreContainer ref={observerRef}>
                     <LoadingOutlined />
                     <Text color="gray" size="sm" style={{ marginLeft: 8 }}>
-                        Loading more roles...
+                        {t('identity.user.loadingMoreRoles')}
                     </Text>
                 </LoadMoreContainer>
             );
@@ -118,7 +120,7 @@ export default function SimpleSelectRole({
     };
 
     return (
-        <Tooltip title="Set user role" placement="top">
+        <Tooltip title={t('identity.user.setUserRole')} placement="top">
             <span>
                 <SimpleSelect
                     onUpdate={(values) => handleRoleSelect(values[0] || '')}

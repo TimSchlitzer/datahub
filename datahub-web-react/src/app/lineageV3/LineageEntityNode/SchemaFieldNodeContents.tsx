@@ -2,6 +2,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import { Skeleton, Spin } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Handle, Position } from 'reactflow';
 import styled from 'styled-components';
@@ -236,6 +237,7 @@ export default function SchemaFieldNodeContents({
     setHoveredNode,
     ignoreSchemaFieldStatus,
 }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistryV2();
 
     const isExpandedDownstream = isExpanded?.[LineageDirection.Downstream];
@@ -345,7 +347,7 @@ export default function SchemaFieldNodeContents({
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <Tooltip title="Explore parent lineage" mouseEnterDelay={0.5}>
+                                        <Tooltip title={t('lineage.exploreParentLineage')} mouseEnterDelay={0.5}>
                                             <LinkOut />
                                         </Tooltip>
                                     </ColumnLinkWrapper>
@@ -364,7 +366,7 @@ export default function SchemaFieldNodeContents({
                                     />
                                 </InvalidSchemaFieldLine>
                             ) : (
-                                <Tooltip title="Change home node" mouseEnterDelay={0.3}>
+                                <Tooltip title={t('lineage.changeHomeNode')} mouseEnterDelay={0.3}>
                                     <SchemaFieldLine to={lineageUrl}>
                                         <OverflowTitle
                                             title={downgradeV2FieldPath(entity.name)}
@@ -385,10 +387,10 @@ export default function SchemaFieldNodeContents({
     if (isGhost) {
         const message =
             entity?.status?.removed || entity?.parent?.status?.removed
-                ? 'has been deleted'
-                : 'does not exist in DataHub';
+                ? t('lineage.hasBeenDeleted')
+                : t('lineage.doesNotExistInDataHub');
         return (
-            <Tooltip title={`This entity ${message}`} mouseEnterDelay={0.3}>
+            <Tooltip title={t('lineage.entityDeletedOrNotExist', { message })} mouseEnterDelay={0.3}>
                 {contents}
             </Tooltip>
         );

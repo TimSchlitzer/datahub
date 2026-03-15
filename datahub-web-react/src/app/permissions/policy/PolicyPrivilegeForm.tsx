@@ -1,6 +1,7 @@
 import { Tooltip } from '@components';
 import { Tag as CustomTag, Form, Select, Tag, Typography } from 'antd';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 

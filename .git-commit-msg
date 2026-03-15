@@ -1,0 +1,12 @@
+feat(i18n): translate entityV2 user, domain, glossaryTerm components
+
+- Wire useTranslation hook to UserHeader, UserGroups, UserSidebar, UserEditProfileModal, UserProfile
+- Wire useTranslation hook to OwnersSection and DocumentationSection in domain
+- Wire useTranslation hook to GlossaryTermHeader
+- Add translation keys for all user profile fields and labels
+- Add translation keys for domain summary sections (owners, about, addDocumentation)
+- Add translation keys for glossary term source references
+- Translate all 5 locales: en, de, es, fr, pt-br
+- Keys added under entity.user.*, entity.domain.summary.*, entity.glossaryTerm.*
+
+Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>

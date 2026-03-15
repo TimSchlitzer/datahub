@@ -2,6 +2,7 @@ import { Column, Table } from '@components';
 import { SorterResult } from 'antd/lib/table/interface';
 import * as QueryString from 'query-string';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled from 'styled-components/macro';
 
@@ -64,6 +65,7 @@ function IngestionSourceTable({
 }: Props) {
     const history = useHistory();
     const entityRegistry = useEntityRegistryV2();
+    const { t } = useTranslation();
 
     const tableData: IngestionSourceTableData[] = sources.map((source) => ({
         urn: source.urn,
@@ -101,7 +103,7 @@ function IngestionSourceTable({
 
     const tableColumns: Column<IngestionSourceTableData>[] = [
         {
-            title: 'Name',
+            title: t('ingest.table.name'),
             key: 'name',
             render: (record) => {
                 return <NameColumn type={record.type} record={record} onNameClick={() => onEdit(record.urn)} />;
@@ -111,20 +113,20 @@ function IngestionSourceTable({
             onCellClick: (record) => onEdit(record.urn),
         },
         {
-            title: 'Schedule',
+            title: t('ingest.table.schedule'),
             key: 'schedule',
             render: (record) => <ScheduleColumn schedule={record.schedule || ''} timezone={record.timezone || ''} />,
             width: '20%',
         },
         {
-            title: 'Owner',
+            title: t('ingest.table.owner'),
             key: 'owner',
             render: (record) => <OwnerColumn owners={record.owners || []} entityRegistry={entityRegistry} />,
             width: '20%',
             cellWrapper: wrapOwnerColumnWithHover,
         },
         {
-            title: 'Last Run',
+            title: t('ingest.table.lastRun'),
             key: 'lastRun',
             render: (record) => <DateTimeColumn time={record.lastExecTime} showRelative />,
             width: '20%',
@@ -132,7 +134,7 @@ function IngestionSourceTable({
             cellWrapper: (content, record) => wrapDateTimeColumnWithHover(content, record.lastExecTime),
         },
         {
-            title: 'Status',
+            title: t('ingest.table.status'),
             key: 'status',
             render: (record) => (
                 <StatusColumn
@@ -182,7 +184,7 @@ function IngestionSourceTable({
             footer={
                 isLastPage ? (
                     <TableFooter
-                        hiddenItemsMessage="Some ingestion sources may be hidden"
+                        hiddenItemsMessage={t('ingest.table.someIngestSourcesMayBeHidden')}
                         colSpan={tableColumns.length}
                     />
                 ) : null

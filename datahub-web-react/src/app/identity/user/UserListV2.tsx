@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import SimpleSelectRole from '@app/identity/user/SimpleSelectRole';
 import {
@@ -30,6 +31,8 @@ import { Button, Modal, Pagination, SearchBar, SimpleSelect, Table, Text } from 
 import { DataHubRole } from '@types';
 
 export const UserList = () => {
+    const { t } = useTranslation();
+
     // State management
     const {
         query,
@@ -86,28 +89,28 @@ export const UserList = () => {
 
     const columns = [
         {
-            title: 'Name',
+            title: t('identity.user.name'),
             dataIndex: 'name',
             key: ENTITY_NAME_FIELD,
             minWidth: '30%',
             render: (user: UserListItem) => <UserNameCell user={user} />,
         },
         {
-            title: 'Status',
+            title: t('identity.user.status'),
             dataIndex: 'status',
             key: 'status',
             minWidth: '10%',
             render: (user: UserListItem) => <UserStatusCell user={user} />,
         },
         {
-            title: 'Assigned Groups',
+            title: t('identity.user.assignedGroups'),
             dataIndex: 'groups',
             key: 'groups',
             minWidth: '35%',
             render: (user: UserListItem) => <UserGroupsCell user={user} />,
         },
         {
-            title: 'Role',
+            title: t('identity.user.role'),
             key: 'roles',
             minWidth: '10%',
             render: (user: UserListItem) => {
@@ -158,14 +161,14 @@ export const UserList = () => {
 
     return (
         <>
-            {!data && loading && <Message type="loading" content="Loading users..." />}
-            {error && <Message type="error" content="Failed to load users! An unexpected error occurred." />}
+            {!data && loading && <Message type="loading" content={t('identity.user.loadingUsers')} />}
+            {error && <Message type="error" content={t('identity.user.failedToLoadUsers')} />}
 
             <UserContainer>
                 <FiltersHeader>
                     <SearchContainer>
                         <SearchBar
-                            placeholder="Search..."
+                            placeholder={t('identity.user.searchPlaceholder')}
                             value={query}
                             onChange={(value) => {
                                 setQuery(value);
@@ -176,13 +179,13 @@ export const UserList = () => {
                         />
                         {query.length > 0 && query.length < 3 && (
                             <Text size="xs" color="gray" style={{ marginTop: '4px' }}>
-                                Enter at least 3 characters to search
+                                {t('identity.user.searchMinLength')}
                             </Text>
                         )}
                     </SearchContainer>
                     <FilterContainer>
                         <SimpleSelect
-                            placeholder="Status"
+                            placeholder={t('identity.user.statusPlaceholder')}
                             position="end"
                             options={STATUS_FILTER_OPTIONS.filter((option) => option.value !== 'all').map((option) => ({
                                 value: option.value,
@@ -221,7 +224,7 @@ export const UserList = () => {
                     </>
                 ) : (
                     <div style={{ padding: '20px', textAlign: 'center' }}>
-                        {loading ? 'Loading users...' : 'No users found'}
+                        {loading ? t('identity.user.loadingUsers') : t('identity.user.noUsersFound')}
                     </div>
                 )}
             </TableContainer>
@@ -238,15 +241,15 @@ export const UserList = () => {
             {roleAssignmentState && (
                 <Modal
                     open={roleAssignmentState.isViewingAssignRole}
-                    title="Confirm Role Assignment"
+                    title={t('identity.user.confirmRoleAssignment')}
                     onCancel={onCancelRoleAssignment}
                     footer={
                         <ModalFooter>
                             <Button variant="outline" onClick={onCancelRoleAssignment}>
-                                Cancel
+                                {t('common.cancel')}
                             </Button>
                             <Button variant="filled" onClick={onConfirmRoleAssignment}>
-                                Confirm
+                                {t('common.confirm')}
                             </Button>
                         </ModalFooter>
                     }
@@ -257,14 +260,14 @@ export const UserList = () => {
                         );
                         return (
                             <Text>
-                                Are you sure you want to{' '}
+                                {t('identity.user.confirmRoleAssignmentPrefix')}{' '}
                                 {roleToAssign?.urn === NO_ROLE_URN ? (
                                     <>
-                                        remove the role from user <strong>{roleAssignmentState.username}</strong>?
+                                        {t('identity.user.removeRolePrefix')} <strong>{roleAssignmentState.username}</strong>?
                                     </>
                                 ) : (
                                     <>
-                                        assign role <strong>{roleToAssign?.name}</strong> to user{' '}
+                                        {t('identity.user.assignRolePrefix')} <strong>{roleToAssign?.name}</strong> {t('identity.user.assignRoleToUser')}{' '}
                                         <strong>{roleAssignmentState.username}</strong>?
                                     </>
                                 )}

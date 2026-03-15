@@ -2,6 +2,7 @@ import { useReactiveVar } from '@apollo/client';
 import { Modal } from '@components';
 import { Form, message } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 
 import analytics, { EventType } from '@app/analytics';
@@ -17,6 +18,7 @@ import { resolveRuntimePath } from '@utils/runtimeBasePath';
 import { useAcceptRoleMutation } from '@graphql/mutations.generated';
 
 export default function SignUpModal() {
+    const { t } = useTranslation();
     const history = useHistory();
 
     const [form] = Form.useForm();
@@ -42,7 +44,7 @@ export default function SignUpModal() {
             .then(({ errors }) => {
                 if (!errors) {
                     message.success({
-                        content: `Accepted invite!`,
+                        content: t('auth.signup.acceptedInvite'),
                         duration: 2,
                     });
                 }
@@ -50,7 +52,7 @@ export default function SignUpModal() {
             .catch((e) => {
                 message.destroy();
                 message.error({
-                    content: `Failed to accept invite: \n ${e.message || ''}`,
+                    content: t('auth.signup.acceptInviteError', { error: e.message || '' }),
                     duration: 3,
                 });
             });
@@ -97,7 +99,7 @@ export default function SignUpModal() {
                     return Promise.resolve();
                 })
                 .catch((_) => {
-                    message.error(`Failed to log in! An unexpected error occurred.`);
+                    message.error(t('auth.signup.loginError'));
                 })
                 .finally(() => setLoading(false));
         },

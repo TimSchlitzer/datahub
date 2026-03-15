@@ -1,6 +1,7 @@
 import { Icon, Text } from '@components';
 import { Collapse } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     CollapseHeader,
@@ -15,6 +16,8 @@ interface Props {
 }
 
 const ViewAdvancedOptions = ({ propEntity }: Props) => {
+    const { t } = useTranslation();
+
     return (
         <StyledCollapse
             ghost
@@ -29,7 +32,7 @@ const ViewAdvancedOptions = ({ propEntity }: Props) => {
                 header={
                     <CollapseHeader>
                         <Text weight="bold" color="gray" size="lg">
-                            Advanced Options
+                            {t('govern.structuredProperties.advancedOptions.label')}
                         </Text>
                     </CollapseHeader>
                 }
@@ -37,7 +40,7 @@ const ViewAdvancedOptions = ({ propEntity }: Props) => {
             >
                 {propEntity && (
                     <RowContainer>
-                        <StyledLabel>Qualified Name</StyledLabel>
+                        <StyledLabel>{t('govern.structuredProperties.advancedOptions.qualifiedName')}</StyledLabel>
                         <Text color="gray"> {propEntity?.definition?.qualifiedName}</Text>
                     </RowContainer>
                 )}

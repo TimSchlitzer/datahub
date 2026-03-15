@@ -1,5 +1,6 @@
 import { Collapse } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     CheckboxContainer,
@@ -18,6 +19,8 @@ interface Props {
 }
 
 const ViewDisplayPreferences = ({ propEntity }: Props) => {
+    const { t } = useTranslation();
+
     return (
         <>
             <StyledCollapse
@@ -33,7 +36,7 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                     header={
                         <CollapseHeader>
                             <Text weight="bold" color="gray">
-                                Display Preferences
+                                {t('govern.structuredProperties.displayPreferences.label')}
                             </Text>
                         </CollapseHeader>
                     }
@@ -42,7 +45,7 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                     <TogglesContainer>
                         <StyledFormItem name={['settings', 'isHidden']}>
                             <Switch
-                                label="Hide Property"
+                                label={t('govern.structuredProperties.displayPreferences.hideProperty')}
                                 size="sm"
                                 checked={propEntity?.settings?.isHidden}
                                 labelStyle={{ fontSize: 12, color: colors.gray[1700], fontWeight: 700 }}
@@ -51,7 +54,7 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                         </StyledFormItem>
                         <StyledFormItem name={['settings', 'showInSearchFilters']}>
                             <Switch
-                                label="Show in Search Filters"
+                                label={t('govern.structuredProperties.displayPreferences.showInSearchFilters')}
                                 size="sm"
                                 checked={propEntity?.settings?.showInSearchFilters}
                                 labelStyle={{ fontSize: 12, color: colors.gray[1700], fontWeight: 700 }}
@@ -61,7 +64,7 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                         <CompoundedItemWrapper>
                             <StyledFormItem name={['settings', 'showInAssetSummary']}>
                                 <Switch
-                                    label="Show in Asset Sidebar"
+                                    label={t('govern.structuredProperties.displayPreferences.showInAssetSidebar')}
                                     size="sm"
                                     checked={propEntity?.settings?.showInAssetSummary}
                                     labelStyle={{ fontSize: 12, color: colors.gray[1700], fontWeight: 700 }}
@@ -73,9 +76,9 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                                 <StyledFormSubItem name={['settings', 'hideInAssetSummaryWhenEmpty']}>
                                     <CheckboxContainer>
                                         <Checkbox
-                                            label="Hide when Empty"
+                                            label={t('govern.structuredProperties.displayPreferences.hideWhenEmpty')}
                                             isChecked={propEntity?.settings?.hideInAssetSummaryWhenEmpty}
-                                            labelTooltip="If enabled, this property will only show in the asset sidebar if it's assigned to the asset"
+                                            labelTooltip={t('govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip')}
                                             size="sm"
                                             gap="2px"
                                             justifyContent="flex-start"

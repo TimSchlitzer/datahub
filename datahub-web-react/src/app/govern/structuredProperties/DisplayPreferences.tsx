@@ -1,5 +1,6 @@
 import { Collapse } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     CheckboxContainer,
@@ -35,6 +36,7 @@ const DisplayPreferences = ({
     allowedValues,
     badgeProperty,
 }: Props) => {
+    const { t } = useTranslation();
     const [updateProperty] = useUpdateStructuredPropertyMutation();
     const [showReplaceBadge, setShowReplaceBadge] = useState<boolean>(false);
 
@@ -69,7 +71,7 @@ const DisplayPreferences = ({
                     header={
                         <CollapseHeader>
                             <Text weight="bold" color="gray">
-                                Display Preferences
+                                {t('govern.structuredProperties.displayPreferences.label')}
                             </Text>
                         </CollapseHeader>
                     }
@@ -78,33 +80,33 @@ const DisplayPreferences = ({
                     <TogglesContainer>
                         <StyledFormItem name={['settings', 'isHidden']}>
                             <Switch
-                                label="Hide Property"
+                                label={t('govern.structuredProperties.displayPreferences.hideProperty')}
                                 size="sm"
                                 checked={formValues?.settings?.isHidden}
                                 onChange={(e) => handleDisplaySettingChange('isHidden', e.target.checked)}
-                                labelHoverText="If enabled, this property will be hidden everywhere"
+                                labelHoverText={t('govern.structuredProperties.displayPreferences.hidePropertyTooltip')}
                                 data-testid="structured-props-hide-switch"
                             />
                         </StyledFormItem>
                         <StyledFormItem name={['settings', 'showInSearchFilters']}>
                             <Switch
-                                label="Show in Search Filters"
+                                label={t('govern.structuredProperties.displayPreferences.showInSearchFilters')}
                                 size="sm"
                                 checked={formValues?.settings?.showInSearchFilters}
                                 onChange={(e) => handleDisplaySettingChange('showInSearchFilters', e.target.checked)}
                                 isDisabled={formValues?.settings?.isHidden}
-                                labelHoverText="If enabled, this property will appear in search filters"
+                                labelHoverText={t('govern.structuredProperties.displayPreferences.showInSearchFiltersTooltip')}
                             />
                         </StyledFormItem>
                         <CompoundedItemWrapper>
                             <StyledFormItem name={['settings', 'showInAssetSummary']}>
                                 <Switch
-                                    label="Show in Asset Sidebar"
+                                    label={t('govern.structuredProperties.displayPreferences.showInAssetSidebar')}
                                     size="sm"
                                     checked={formValues?.settings?.showInAssetSummary}
                                     onChange={(e) => handleDisplaySettingChange('showInAssetSummary', e.target.checked)}
                                     isDisabled={formValues?.settings?.isHidden}
-                                    labelHoverText="If enabled, this property will appear in asset sidebar"
+                                    labelHoverText={t('govern.structuredProperties.displayPreferences.showInAssetSidebarTooltip')}
                                     data-testid="structured-props-show-in-asset-summary-switch"
                                 />
                             </StyledFormItem>
@@ -112,9 +114,9 @@ const DisplayPreferences = ({
                                 <StyledFormSubItem name={['settings', 'hideInAssetSummaryWhenEmpty']}>
                                     <CheckboxContainer>
                                         <Checkbox
-                                            label="Hide when Empty"
+                                            label={t('govern.structuredProperties.displayPreferences.hideWhenEmpty')}
                                             isChecked={formValues?.settings?.hideInAssetSummaryWhenEmpty}
-                                            labelTooltip="If enabled, this property will only show in the asset sidebar if it's assigned to the asset"
+                                            labelTooltip={t('govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip')}
                                             size="sm"
                                             gap="2px"
                                             onCheckboxChange={(isChecked) =>
@@ -130,7 +132,7 @@ const DisplayPreferences = ({
                         </CompoundedItemWrapper>
                         <StyledFormItem name={['settings', 'showAsAssetBadge']}>
                             <Switch
-                                label="Show as Asset Badge"
+                                label={t('govern.structuredProperties.displayPreferences.showAsAssetBadge')}
                                 size="sm"
                                 checked={formValues?.settings?.showAsAssetBadge === true}
                                 onChange={(e) => {
@@ -142,21 +144,21 @@ const DisplayPreferences = ({
                                     (formValues?.settings?.isHidden ||
                                         !canBeAssetBadge(selectedValueType, allowedValues))
                                 }
-                                labelHoverText="If enabled, this property will appear as asset badge"
-                                disabledHoverText="Only Text or Number property types with allowed values defined can appear as an asset badge."
+                                labelHoverText={t('govern.structuredProperties.displayPreferences.showAsAssetBadgeTooltip')}
+                                disabledHoverText={t('govern.structuredProperties.displayPreferences.showAsAssetBadgeDisabledTooltip')}
                             />
                         </StyledFormItem>
                         <StyledFormItem name={['settings', 'showInColumnsTable']}>
                             <Switch
-                                label="Show in Columns Table"
+                                label={t('govern.structuredProperties.displayPreferences.showInColumnsTable')}
                                 size="sm"
                                 checked={formValues?.settings?.showInColumnsTable}
                                 onChange={(e) => handleDisplaySettingChange('showInColumnsTable', e.target.checked)}
                                 isDisabled={
                                     !showInColumnsTable && (formValues?.settings?.isHidden || !hasColumnEntityType)
                                 }
-                                labelHoverText="If enabled, this property will appear as a column in the Columns table for Datasets"
-                                disabledHoverText="Property must apply to Columns in order to show in columns table."
+                                labelHoverText={t('govern.structuredProperties.displayPreferences.showInColumnsTableTooltip')}
+                                disabledHoverText={t('govern.structuredProperties.displayPreferences.showInColumnsTableDisabledTooltip')}
                                 data-testid="structured-props-show-in-columns-table-switch"
                             />
                         </StyledFormItem>
@@ -172,8 +174,8 @@ const DisplayPreferences = ({
                         setShowReplaceBadge(false);
                         updateBadgePropertyToOff();
                     }}
-                    confirmButtonText="Update"
-                    modalTitle="Update Property"
+                    confirmButtonText={t('govern.structuredProperties.displayPreferences.updatePropertyModal.confirmButtonText')}
+                    modalTitle={t('govern.structuredProperties.displayPreferences.updatePropertyModal.title')}
                     modalText={
                         <p>
                             <span>Another property </span>

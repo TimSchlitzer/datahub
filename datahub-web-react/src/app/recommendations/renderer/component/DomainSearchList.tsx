@@ -1,5 +1,6 @@
 import { ArrowRightOutlined } from '@ant-design/icons';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -36,6 +37,7 @@ type Props = {
 };
 
 export const DomainSearchList = ({ content, onClick }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
 
     const domainsWithCounts: Array<{ domain: Domain; count?: number }> = content
@@ -72,7 +74,7 @@ export const DomainSearchList = ({ content, onClick }: Props) => {
             <Link to={PageRoutes.DOMAINS}>
                 <HomePageButton type="link">
                     <AllDomainsWrapper>
-                        <AllDomainsText>View All Domains</AllDomainsText>
+                        <AllDomainsText>{t('recommendations.domainSearchList.viewAllDomains')}</AllDomainsText>
                         <ArrowRightOutlined />
                     </AllDomainsWrapper>
                 </HomePageButton>

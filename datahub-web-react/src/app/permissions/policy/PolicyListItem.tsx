@@ -1,5 +1,6 @@
 import { Button, List, Space, Tag, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -19,6 +20,7 @@ const PolicyItemContainer = styled.div`
 `;
 
 export default function PolicyListItem({ policy, onView }: Props) {
+    const { t } = useTranslation();
     const isActive = policy.state === PolicyState.Active;
     const isEditable = policy.editable;
     const titleColor = isEditable ? undefined : inactiveTextColor;
@@ -35,7 +37,7 @@ export default function PolicyListItem({ policy, onView }: Props) {
                     <Typography.Text type="secondary">{policy.description}</Typography.Text>
                 </Space>
                 <Space direction="vertical" align="end">
-                    <Typography.Title level={5}>State</Typography.Title>
+                    <Typography.Title level={5}>{t('permissions.state')}</Typography.Title>
                     <Tag style={{ margin: 0 }} color={isActive ? 'green' : 'red'}>
                         {policy.state}
                     </Tag>
