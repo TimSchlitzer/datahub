@@ -1,5 +1,6 @@
 import { Button, Icon, colors } from '@components';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ActionsBar } from '@components/components/ActionsBar/ActionsBar';
@@ -20,6 +21,7 @@ const Warning = styled.div`
 `;
 
 export default function EditDefaultTemplateBar() {
+    const { t } = useTranslation();
     const { setIsEditingGlobalTemplate, isEditingGlobalTemplate } = usePageTemplateContext();
 
     const onClick = useCallback(() => {
@@ -35,10 +37,10 @@ export default function EditDefaultTemplateBar() {
         <ActionsBar dataTestId="editing-default-template-bar">
             <Warning>
                 <Icon icon="ExclamationMark" color="red" weight="fill" source="phosphor" />
-                <span>Editing Organization Default Home</span>
+                <span>{t('homeV3.editDefaultTemplateBar.editingOrganizationDefault')}</span>
             </Warning>
             <Button onClick={onClick} data-testid="finish-editing-default-template">
-                Done
+                {t('homeV3.editDefaultTemplateBar.done')}
             </Button>
         </ActionsBar>
     );

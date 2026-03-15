@@ -109,7 +109,44 @@
         "titlePlaceholder": "Title",
         "usernamePlaceholder": "Username",
         "acceptedInvite": "Accepted invite!",
-        "other": "Other"
+        "other": "Other",
+        "signup": {
+            "pageHeading": "Before we get started we just have a few questions",
+            "emailLabel": "Email",
+            "emailPlaceholder": "name@company.com",
+            "emailError": "Please fill in your email",
+            "fullNameLabel": "Full Name",
+            "fullNamePlaceholder": "First name Last name",
+            "fullNameError": "Please fill in your name",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "********",
+            "passwordError": "Please fill in your password",
+            "passwordLengthError": "Must be 8 characters long; case sensitive",
+            "confirmPasswordLabel": "Confirm Password",
+            "confirmPasswordPlaceholder": "********",
+            "confirmPasswordError": "Please confirm your password",
+            "confirmPasswordMismatchError": "Your passwords do not match",
+            "getStartedButton": "Get Started",
+            "acceptedInvite": "Accepted invite!",
+            "acceptInviteError": "Failed to accept invite: {{error}}",
+            "loginError": "Failed to log in! An unexpected error occurred."
+        },
+        "resetCredentials": {
+            "emailLabel": "Email",
+            "emailPlaceholder": "abc@company.com",
+            "emailError": "Please fill in your email",
+            "passwordLabel": "Password",
+            "passwordPlaceholder": "********",
+            "passwordError": "Please fill in your password",
+            "passwordLengthError": "Must be 8 characters long; case sensitive",
+            "confirmPasswordLabel": "Confirm Password",
+            "confirmPasswordPlaceholder": "********",
+            "confirmPasswordError": "Please confirm your password",
+            "confirmPasswordMismatchError": "Your passwords do not match",
+            "resetButton": "Reset Credentials",
+            "resettingMessage": "Resetting credentials...",
+            "loginError": "Failed to log in!"
+        }
     },
     "authentification": {
         "acceptedInvite": "Accepted invite!",
@@ -1415,7 +1452,13 @@
         "failedToFindRendererCorrespondingToRenderType": "Failed to find renderer corresponding to renderType {{name}}",
         "pageNotFound": "The page your requested was not found",
         "sidebarFailedToLoad": "The sidebar failed to load.",
-        "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided."
+        "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided.",
+        "view": {
+            "onlyVisibleToYou": "Only visible to you",
+            "visibleToEveryone": "Visible to everyone",
+            "public": "Public",
+            "private": "Private"
+        }
     },
     "entityDropdown": {
         "copyUrl": "Copy URL",
@@ -1682,6 +1725,59 @@
                 "immutable": "Immutable",
                 "displayPreferences": "Display Preferences",
                 "advancedOptions": "Advanced Options"
+            },
+            "displayPreferences": {
+                "label": "Display Preferences",
+                "hideProperty": "Hide Property",
+                "hidePropertyTooltip": "If enabled, this property will be hidden everywhere",
+                "showInSearchFilters": "Show in Search Filters",
+                "showInSearchFiltersTooltip": "If enabled, this property will appear in search filters",
+                "showInAssetSidebar": "Show in Asset Sidebar",
+                "showInAssetSidebarTooltip": "If enabled, this property will appear in asset sidebar",
+                "hideWhenEmpty": "Hide when Empty",
+                "hideWhenEmptyTooltip": "If enabled, this property will only show in the asset sidebar if it's assigned to the asset",
+                "showAsAssetBadge": "Show as Asset Badge",
+                "showAsAssetBadgeTooltip": "If enabled, this property will appear as asset badge",
+                "showAsAssetBadgeDisabledTooltip": "Only Text or Number property types with allowed values defined can appear as an asset badge.",
+                "showInColumnsTable": "Show in Columns Table",
+                "showInColumnsTableTooltip": "If enabled, this property will appear as a column in the Columns table for Datasets",
+                "showInColumnsTableDisabledTooltip": "Property must apply to Columns in order to show in columns table.",
+                "updatePropertyModal": {
+                    "title": "Update Property",
+                    "confirmButtonText": "Update",
+                    "content": "Another property {{propertyName}} is already being shown on asset previews, but only one property is allowed at a time. Do you want to replace the current property? This will hide {{propertyName}} on all asset previews."
+                }
+            },
+            "advancedOptions": {
+                "label": "Advanced Options",
+                "qualifiedName": "Qualified Name",
+                "qualifiedNameTooltip": "Optionally provide a dot-separated fully qualified name for this property. This name serves as an ID, and must be unique across properties",
+                "qualifiedNameCannotChange": "Once a property is created, Qualified Name cannot be changed",
+                "qualifiedNamePlaceholder": "Optional - Qualified Name",
+                "qualifiedNameSpaceError": "Qualified name cannot contain spaces"
+            },
+            "allowedValuesField": {
+                "label": "Allowed Values",
+                "tooltip": "Define the set of valid values for this property. If none are provided, any value will be allowed",
+                "updateTooltip": "Update allowed values",
+                "anyValueText": "Any",
+                "textType": "text",
+                "numberType": "number",
+                "valueWillBeAllowed": "value will be allowed"
+            },
+            "formSection": {
+                "allowedEntityTypes": "Allowed Entity Types",
+                "allowedEntityTypesTooltip": "Choose the types of entities that are allowed as values for this property",
+                "allowedEntityTypesAddOnly": "(Add-only)",
+                "allowedEntityTypesAddOnlyTooltip": "Once a property is created, entity types cannot be removed",
+                "allowedEntityTypesAnyWarning": "Any entity type will be accepted as a value",
+                "appliesToLabel": "Applies to",
+                "appliesToTooltip": "Select the types of entities that this property can be added to",
+                "appliesToAddOnly": "(Add-only)",
+                "appliesToAddOnlyTooltip": "Once a property is created entity types cannot be removed",
+                "appliesToRequired": "Please select asset types this applies to",
+                "appliesToPlaceholder": "Select Entity Types",
+                "appliesToSelectAllLabel": "All Asset Types"
             }
         }
     },
@@ -2530,7 +2626,19 @@
         "visualizeLineage": "Visualize Lineage",
         "willBeClearedOnExit": "{{count}} change(s) will be cleared.",
         "yes": "Yes",
-        "youAreNOtAuthToEditLineage": "You aren't authorized to edit lineage for this entity."
+        "youAreNOtAuthToEditLineage": "You aren't authorized to edit lineage for this entity.",
+        "showMore": "Show More",
+        "showAll": "Show All",
+        "showLess": "Show Less",
+        "showPlus": "Show +{{count}}",
+        "exploreParentLineage": "Explore parent lineage",
+        "changeHomeNode": "Change home node",
+        "entityDeletedOrNotExist": "This entity {{message}}",
+        "hasBeenDeleted": "has been deleted",
+        "doesNotExistInDataHub": "does not exist in DataHub",
+        "columns": "Columns",
+        "running": "Running",
+        "lastRun": "Last run"
     },
     "navigation": {
         "backToHome": "Back to Home",
@@ -3225,6 +3333,11 @@
             "label": "Features",
             "pageTitle": "Features",
             "pageSubtitle": "Explore and configure specific features",
+            "feature": {
+                "new": "New!",
+                "learnMore": "Learn more",
+                "onlyAvailableOnCloud": "Only available on DataHub Cloud"
+            },
             "docPropagation": {
                 "title": "Documentation Propagation",
                 "description": "Automatically propagate documentation from upstream to downstream columns and assets.",
@@ -3319,6 +3432,11 @@
             "expiresIn": "Expires in"
         }
     },
+    "recommendations": {
+        "domainSearchList": {
+            "viewAllDomains": "View All Domains"
+        }
+    },
     "preview": {
         "viewSummary": "View summary",
         "downstream": "Downstream",
@@ -3369,7 +3487,40 @@
         "descriptionUpdated": "Description Updated",
         "failedToSaveTagColor": "Failed to save tag color",
         "failedToUpdateDescription": "Failed to update description",
-        "noEntities": "No entities"
+        "noEntities": "No entities",
+        "share": {
+            "button": "Share",
+            "copyLink": "Copy Link",
+            "copyLinkDescription": "Copy a shareable link to this entity.",
+            "copyUrn": "Copy URN",
+            "copyUrnDescription": "Copy the URN for this {{type}}. An URN uniquely identifies an entity on DataHub.",
+            "copyName": "Copy Name",
+            "email": "Email",
+            "emailDescription": "Share this {{type}} via email",
+            "checkoutThisEntity": "Check out this {{type}} on DataHub: "
+        },
+        "tags": {
+            "createTag": "Create {{tagName}}",
+            "addDescription": "Add a description for your new tag...",
+            "back": "Back",
+            "failedToAddTag": "Failed to add tag:",
+            "failedToCreateTag": "Failed to create tag:",
+            "failedToRemoveTags": "Failed to remove tags",
+            "failedToAddTerms": "Failed to add terms",
+            "failedToRemoveTerms": "Failed to remove terms",
+            "selectTagsTerms": "Select Tags or Terms",
+            "tags": "Tags",
+            "terms": "Terms",
+            "selectAll": "Select All",
+            "deselectAll": "Deselect All",
+            "newTag": "New Tag"
+        },
+        "businessAttribute": {
+            "selectAttribute": "Select Business Attribute",
+            "selectAttributes": "Select Business Attributes",
+            "add": "Add",
+            "edit": "Edit"
+        }
     },
     "term": {
         "termGroups": "Terms Group",
@@ -3594,6 +3745,70 @@
                 "resetToOrganizationDefault": "Reset to Organization Default",
                 "confirmResetTitle": "Confirm reset to default template",
                 "confirmResetMessage": "Are you sure you want to reset your homepage to the organization's default template? You will lose all your personal modules."
+            },
+            "editDefaultTemplateBar": {
+                "editingOrganizationDefault": "Editing Organization Default Home",
+                "done": "Done"
+            },
+            "addModuleMenu": {
+                "createYourOwn": "Create Your Own",
+                "default": "Default",
+                "shared": "Shared",
+                "homeDefaults": "Home Defaults",
+                "quickLink": {
+                    "title": "Quick Link",
+                    "description": "Choose links that are important"
+                },
+                "documentation": {
+                    "title": "Documentation",
+                    "description": "Pin docs for your DataHub users"
+                },
+                "collection": {
+                    "title": "Collection",
+                    "description": "A curated list of assets of your choosing"
+                },
+                "hierarchy": {
+                    "title": "Hierarchy",
+                    "description": "Top down view of assets"
+                },
+                "yourAssets": {
+                    "title": "Your Assets",
+                    "description": "Assets the current user owns"
+                },
+                "domains": {
+                    "title": "Domains",
+                    "description": "Most used domains in your organization"
+                },
+                "platforms": {
+                    "title": "Platforms",
+                    "description": "Most used platforms in your organization"
+                },
+                "assets": {
+                    "title": "Assets",
+                    "description": "Related Assets tagged with the parent entity"
+                },
+                "childHierarchy": {
+                    "title": "Contents",
+                    "titleDomain": "Domains",
+                    "description": "View the hierarchy of this asset's children"
+                },
+                "dataProducts": {
+                    "title": "Data Products",
+                    "description": "View the data products inside of this domain"
+                },
+                "relatedTerms": {
+                    "title": "Related Terms",
+                    "description": "View the related terms inside of this glossary term"
+                },
+                "lineage": {
+                    "title": "Lineage",
+                    "description": "View the lineage of an asset"
+                },
+                "columns": {
+                    "title": "Columns",
+                    "description": "View the columns of this dataset"
+                },
+                "moduleDescriptions": "Modules created for your organization"
             }
         }
     },
@@ -3751,6 +3966,63 @@
                         "syncedWithPlatform": "This represents the time that the entity was last synchronized with {{platformName}}"
                     }
                 }
+            }
+        }
+    },
+    "identity": {
+        "manageUsersAndGroups": {
+            "pageTitle": "Manage Users &amp; Groups",
+            "pageSubtitle": "View your DataHub users &amp; groups. Take administrative actions.",
+            "inviteUsersButton": "Invite Users",
+            "createServiceAccountButton": "Create Service Account",
+            "usersTab": "Users",
+            "groupsTab": "Groups",
+            "serviceAccountsTab": "Service Accounts"
+        },
+        "group": {
+            "list": {
+                "loading": "Loading groups...",
+                "error": "Failed to load groups! An unexpected error occurred.",
+                "createButton": "Create group",
+                "searchPlaceholder": "Search groups...",
+                "empty": "No Groups!"
+            },
+            "modal": {
+                "title": "Create new group",
+                "nameLabel": "Name",
+                "nameDescription": "Give your new group a name.",
+                "nameError": "Enter a Group name.",
+                "namePlaceholder": "A name for your group",
+                "descriptionLabel": "Description",
+                "descriptionDescription": "An optional description for your new group.",
+                "advancedSection": "Advanced",
+                "groupIdLabel": "Group Id",
+                "groupIdDescription": "By default, a random UUID will be generated to uniquely identify this group. If you'd like to provide a custom id instead to more easily keep track of this group, you may provide it here. Be careful, you cannot easily change the group id after creation.",
+                "groupIdPlaceholder": "product_engineering",
+                "groupIdError": "Please enter correct Group name",
+                "cancelButton": "Cancel",
+                "createButton": "Create",
+                "createSuccess": "Created group!",
+                "createError": "Failed to create group!: {{error}}",
+                "addOwnerError": "Failed to automatically add you as an owner of the group. Please add yourself as an owner manually.",
+                "addMemberError": "Failed to automatically add you as a member of the group. Please add yourself as a member manually."
+            },
+            "roleAssignment": {
+                "confirmTitle": "Assign Role",
+                "assignQuestion": "Would you like to assign the role {{roleName}} to group {{groupName}}?",
+                "removeQuestion": "Would you like to remove group {{groupName}}'s existing role?",
+                "assignSuccess": "Assigned role {{roleName}} to group {{groupName}}!",
+                "removeSuccess": "Removed role from user {{groupName}}!",
+                "assignError": "Failed to assign role {{roleName}} to group {{groupName}}: {{error}}",
+                "removeError": "Failed to remove role from group {{groupName}}: {{error}}"
+            },
+            "listItem": {
+                "memberCountSuffix": "members",
+                "externalGroupTooltip": "Membership for this group cannot be edited as it is synced from {{externalType}}."
+            },
+            "roleSelect": {
+                "noRole": "No Role",
+                "notFoundContent": "No roles found"
             }
         }
     }

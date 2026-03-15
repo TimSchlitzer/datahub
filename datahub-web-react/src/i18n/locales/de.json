@@ -3541,6 +3541,70 @@
                 "resetToOrganizationDefault": "Auf Organisationsstandard zurücksetzen",
                 "confirmResetTitle": "Zurücksetzen auf Standardvorlage bestätigen",
                 "confirmResetMessage": "Sind Sie sicher, dass Sie Ihre Homepage auf die Standardvorlage der Organisation zurücksetzen möchten? Sie verlieren alle Ihre persönlichen Module."
+            },
+            "editDefaultTemplateBar": {
+                "editingOrganizationDefault": "Organisationsstandard-Homepage bearbeiten",
+                "done": "Fertig"
+            },
+            "addModuleMenu": {
+                "createYourOwn": "Erstellen Sie Ihre Eigenen",
+                "default": "Standard",
+                "shared": "Geteilt",
+                "homeDefaults": "Home-Standardeinstellungen",
+                "quickLink": {
+                    "title": "Schneller Link",
+                    "description": "Wählen Sie Links, die wichtig sind"
+                },
+                "documentation": {
+                    "title": "Dokumentation",
+                    "description": "Dokumentation für Ihre DataHub-Benutzer anheften"
+                },
+                "collection": {
+                    "title": "Sammlung",
+                    "description": "Eine kuratierte Liste von Assets Ihrer Wahl"
+                },
+                "hierarchy": {
+                    "title": "Hierarchie",
+                    "description": "Von oben nach unten Sicht auf Assets"
+                },
+                "yourAssets": {
+                    "title": "Ihre Assets",
+                    "description": "Assets, deren Eigentümer Sie sind"
+                },
+                "domains": {
+                    "title": "Domains",
+                    "description": "Am häufigsten verwendete Domains in Ihrer Organisation"
+                },
+                "platforms": {
+                    "title": "Plattformen",
+                    "description": "Am häufigsten verwendete Plattformen in Ihrer Organisation"
+                },
+                "assets": {
+                    "title": "Assets",
+                    "description": "Mit der übergeordneten Entität gekennzeichnete verbundene Assets"
+                },
+                "childHierarchy": {
+                    "title": "Inhalte",
+                    "titleDomain": "Domains",
+                    "description": "Sehen Sie die Hierarchie der untergeordneten Elemente dieses Assets"
+                },
+                "dataProducts": {
+                    "title": "Datenprodukte",
+                    "description": "Zeigen Sie die Datenprodukte in dieser Domain an"
+                },
+                "relatedTerms": {
+                    "title": "Verwandte Begriffe",
+                    "description": "Zeigen Sie die verwandten Begriffe in diesem Glossarbegriff an"
+                },
+                "lineage": {
+                    "title": "Herkunft",
+                    "description": "Zeigen Sie die Herkunft eines Assets an"
+                },
+                "columns": {
+                    "title": "Spalten",
+                    "description": "Zeigen Sie die Spalten dieses Datensatzes an"
+                },
+                "moduleDescriptions": "Module, die für Ihre Organisation erstellt wurden"
             }
         }
     },
@@ -3698,6 +3762,63 @@
                         "syncedWithPlatform": "Dies ist der Zeitpunkt, zu dem die Entität zuletzt mit {{platformName}} synchronisiert wurde"
                     }
                 }
+            }
+        }
+    },
+    "identity": {
+        "manageUsersAndGroups": {
+            "pageTitle": "Benutzer und Gruppen verwalten",
+            "pageSubtitle": "Sehen Sie sich Ihre DataHub-Benutzer und -Gruppen an. Ergreifen Sie administrative Maßnahmen.",
+            "inviteUsersButton": "Benutzer einladen",
+            "createServiceAccountButton": "Dienstkonto erstellen",
+            "usersTab": "Benutzer",
+            "groupsTab": "Gruppen",
+            "serviceAccountsTab": "Dienstkonten"
+        },
+        "group": {
+            "list": {
+                "loading": "Gruppen werden geladen...",
+                "error": "Fehler beim Laden von Gruppen! Ein unerwarteter Fehler ist aufgetreten.",
+                "createButton": "Gruppe erstellen",
+                "searchPlaceholder": "Gruppen durchsuchen...",
+                "empty": "Keine Gruppen!"
+            },
+            "modal": {
+                "title": "Neue Gruppe erstellen",
+                "nameLabel": "Name",
+                "nameDescription": "Geben Sie Ihrer neuen Gruppe einen Namen.",
+                "nameError": "Geben Sie einen Gruppennamen ein.",
+                "namePlaceholder": "Ein Name für Ihre Gruppe",
+                "descriptionLabel": "Beschreibung",
+                "descriptionDescription": "Eine optionale Beschreibung für Ihre neue Gruppe.",
+                "advancedSection": "Erweitert",
+                "groupIdLabel": "Gruppen-ID",
+                "groupIdDescription": "Standardmäßig wird eine zufällige UUID generiert, um diese Gruppe eindeutig zu identifizieren. Wenn Sie stattdessen eine benutzerdefinierte ID bereitstellen möchten, um diese Gruppe leichter nachzuverfolgen, können Sie sie hier angeben. Seien Sie vorsichtig, denn Sie können die Gruppen-ID nach der Erstellung nicht einfach ändern.",
+                "groupIdPlaceholder": "product_engineering",
+                "groupIdError": "Bitte geben Sie einen korrekten Gruppennamen ein",
+                "cancelButton": "Abbrechen",
+                "createButton": "Erstellen",
+                "createSuccess": "Gruppe erstellt!",
+                "createError": "Fehler beim Erstellen der Gruppe!: {{error}}",
+                "addOwnerError": "Fehler beim automatischen Hinzufügen als Besitzer der Gruppe. Bitte fügen Sie sich selbst als Besitzer hinzu.",
+                "addMemberError": "Fehler beim automatischen Hinzufügen als Gruppenmitglied. Bitte fügen Sie sich selbst als Mitglied hinzu."
+            },
+            "roleAssignment": {
+                "confirmTitle": "Rolle zuweisen",
+                "assignQuestion": "Möchten Sie die Rolle {{roleName}} der Gruppe {{groupName}} zuweisen?",
+                "removeQuestion": "Möchten Sie die vorhandene Rolle der Gruppe {{groupName}} entfernen?",
+                "assignSuccess": "Rolle {{roleName}} der Gruppe {{groupName}} zugewiesen!",
+                "removeSuccess": "Rolle vom Benutzer {{groupName}} entfernt!",
+                "assignError": "Fehler beim Zuweisen der Rolle {{roleName}} zur Gruppe {{groupName}}: {{error}}",
+                "removeError": "Fehler beim Entfernen der Rolle aus der Gruppe {{groupName}}: {{error}}"
+            },
+            "listItem": {
+                "memberCountSuffix": "Mitglieder",
+                "externalGroupTooltip": "Die Mitgliedschaft für diese Gruppe kann nicht bearbeitet werden, da sie von {{externalType}} synchronisiert wird."
+            },
+            "roleSelect": {
+                "noRole": "Keine Rolle",
+                "notFoundContent": "Keine Rollen gefunden"
             }
         }
     }
