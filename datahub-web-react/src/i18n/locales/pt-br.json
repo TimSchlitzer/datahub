@@ -891,7 +891,7 @@
             "queries": {
                 "section": {
                     "highlighted": "Destacado",
-                    "downstream": "Downstream",
+                    "downstream": "Descendente",
                     "recentQueries": "Consultas recentes",
                     "viewAll": "Ver tudo",
                     "noQueries": "Nenhuma consulta ainda",
@@ -917,7 +917,7 @@
                     "descriptionLabel": "Descrição da consulta",
                     "createdByLabel": "Criado por",
                     "dateCreatedLabel": "Data de criação",
-                    "powersLabel": "Powers",
+                    "powersLabel": "Poderes",
                     "topUsersLabel": "Principais usuários",
                     "columnsLabel": "Colunas"
                 },
@@ -928,6 +928,41 @@
                     "deleteConfirmTitle": "Excluir consulta",
                     "deleteConfirmContent": "Tem certeza de que deseja excluir esta consulta?"
                 }
+            },
+            "lineage": {
+                "viewGraph": "Ver Gráfico",
+                "upstream": "Ascendente",
+                "downstream": "Descendente"
+            },
+            "schemaHeader": {
+                "viewChangeHistory": "Ver histórico de alterações",
+                "closeChangeHistory": "Fechar histórico de alterações",
+                "tabular": "Tabular",
+                "raw": "Bruto",
+                "key": "Chave",
+                "value": "Valor"
+            },
+            "schemaSearch": {
+                "search": "Pesquisar",
+                "matched": "Correspondência",
+                "of": "de",
+                "column": "coluna",
+                "columns": "colunas"
+            },
+            "versionSelector": {
+                "comparing": "Comparando",
+                "to": "para",
+                "latest": "mais recente",
+                "version": "versão"
+            },
+            "stats": {
+                "latest": "Mais Recente",
+                "historical": "Histórico",
+                "rows": "linhas",
+                "columns": "colunas",
+                "queries": "consultas",
+                "monthlyQueries": "consultas mensais",
+                "users": "usuários"
             }
         },
         "shared": {

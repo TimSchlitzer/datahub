@@ -2,6 +2,7 @@ import { FileTextOutlined, TableOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from '@components';
 import { Button as AntButton, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'react-use';
 import styled from 'styled-components/macro';
 
@@ -116,9 +117,12 @@ export default function SchemaHeader({
     highlightedMatchIndex,
     setHighlightedMatchIndex,
 }: Props) {
+    const { t } = useTranslation();
     const [schemaFilterSelectOpen, setSchemaFilterSelectOpen] = useState(false);
 
-    const schemaAuditToggleText = showSchemaTimeline ? 'Close change history' : 'View change history';
+    const schemaAuditToggleText = showSchemaTimeline
+        ? t('entity.dataset.schemaHeader.closeChangeHistory')
+        : t('entity.dataset.schemaHeader.viewChangeHistory');
 
     const [searchInput, setSearchInput] = useState(filterText);
     useDebounce(() => setFilterText(searchInput), 100, [searchInput]);
@@ -132,12 +136,12 @@ export default function SchemaHeader({
                             {showRaw ? (
                                 <RawButtonTitleContainer>
                                     <TableOutlined style={{ padding: 0, margin: 0 }} />
-                                    <RawButtonTitle>Tabular</RawButtonTitle>
+                                    <RawButtonTitle>{t('entity.dataset.schemaHeader.tabular')}</RawButtonTitle>
                                 </RawButtonTitleContainer>
                             ) : (
                                 <RawButtonTitleContainer>
                                     <FileTextOutlined style={{ padding: 0, margin: 0 }} />
-                                    <RawButtonTitle>Raw</RawButtonTitle>
+                                    <RawButtonTitle>{t('entity.dataset.schemaHeader.raw')}</RawButtonTitle>
                                 </RawButtonTitleContainer>
                             )}
                         </RawButton>
@@ -145,10 +149,10 @@ export default function SchemaHeader({
                     {hasKeySchema && (
                         <KeyValueButtonGroup>
                             <KeyButton $highlighted={showKeySchema} onClick={() => setShowKeySchema(true)}>
-                                Key
+                                {t('entity.dataset.schemaHeader.key')}
                             </KeyButton>
                             <ValueButton $highlighted={!showKeySchema} onClick={() => setShowKeySchema(false)}>
-                                Value
+                                {t('entity.dataset.schemaHeader.value')}
                             </ValueButton>
                         </KeyValueButtonGroup>
                     )}

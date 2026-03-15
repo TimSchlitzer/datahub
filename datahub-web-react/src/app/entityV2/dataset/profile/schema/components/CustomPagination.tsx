@@ -1,6 +1,7 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Menu, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const CustomPaginationContainer = styled.div`
@@ -32,6 +33,7 @@ type Props = {
 };
 
 export default function CustomPagination({ onChange, maxVersion }: Props) {
+    const { t } = useTranslation();
     const [version1, setVersion1] = useState(maxVersion || 1); // current version - first dropdown selected
     const [version2, setVersion2] = useState(maxVersion ? maxVersion - 1 : 0); // past version comparing with current - second dropdown
 
@@ -65,7 +67,9 @@ export default function CustomPagination({ onChange, maxVersion }: Props) {
             {[...Array(maxVersion)].map((_, i) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <Menu.Item key={maxVersion - i}>
-                    <Typography.Text>{i === 0 ? 'latest' : `version ${maxVersion + 1 - i}`}</Typography.Text>
+                    <Typography.Text>
+                        {i === 0 ? t('entity.dataset.versionSelector.latest') : `${t('entity.dataset.versionSelector.version')} ${maxVersion + 1 - i}`}
+                    </Typography.Text>
                 </Menu.Item>
             ))}
         </Menu>
@@ -76,7 +80,7 @@ export default function CustomPagination({ onChange, maxVersion }: Props) {
             {[...Array(version1)].map((_, i) => (
                 // eslint-disable-next-line react/no-array-index-key
                 <Menu.Item key={version1 - i - 1}>
-                    <Typography.Text>{`version ${version1 - i}`}</Typography.Text>
+                    <Typography.Text>{`${t('entity.dataset.versionSelector.version')} ${version1 - i}`}</Typography.Text>
                 </Menu.Item>
             ))}
         </Menu>
@@ -91,15 +95,15 @@ export default function CustomPagination({ onChange, maxVersion }: Props) {
                 onClick={onPrevClick}
                 disabled={version1 >= maxVersion}
             />
-            <DescriptionText>Comparing</DescriptionText>
+            <DescriptionText>{t('entity.dataset.versionSelector.comparing')}</DescriptionText>
             <Dropdown overlay={menu1} trigger={['click']}>
                 <VersionText strong type="success">
-                    {version1 === maxVersion ? 'latest' : `version ${version1 + 1}`}
+                    {version1 === maxVersion ? t('entity.dataset.versionSelector.latest') : `${t('entity.dataset.versionSelector.version')} ${version1 + 1}`}
                 </VersionText>
             </Dropdown>
-            <DescriptionText>to</DescriptionText>
+            <DescriptionText>{t('entity.dataset.versionSelector.to')}</DescriptionText>
             <Dropdown overlay={menu2} trigger={['click']}>
-                <VersionRightText strong type="success">{`version ${version2 + 1}`}</VersionRightText>
+                <VersionRightText strong type="success">{`${t('entity.dataset.versionSelector.version')} ${version2 + 1}`}</VersionRightText>
             </Dropdown>
             <NavButton
                 size="small"

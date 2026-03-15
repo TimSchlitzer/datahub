@@ -1,5 +1,6 @@
 import { Radio } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import HistoricalStatsView from '@app/entityV2/dataset/profile/stats/historical/HistoricalStatsView';
 import LatestStatsView from '@app/entityV2/dataset/profile/stats/snapshot/LatestStatsView';
@@ -17,6 +18,7 @@ enum ViewType {
 }
 
 export default function Stats({ urn, profile }: Props) {
+    const { t } = useTranslation();
     /**
      * Determines which view should be visible: latest or historical.
      */
@@ -28,8 +30,8 @@ export default function Stats({ urn, profile }: Props) {
 
     const toggleView = (
         <Radio.Group value={view} onChange={onChangeView}>
-            <Radio.Button value={ViewType.LATEST}>Latest</Radio.Button>
-            <Radio.Button value={ViewType.HISTORICAL}>Historical</Radio.Button>
+            <Radio.Button value={ViewType.LATEST}>{t('entity.dataset.stats.latest')}</Radio.Button>
+            <Radio.Button value={ViewType.HISTORICAL}>{t('entity.dataset.stats.historical')}</Radio.Button>
         </Radio.Group>
     );
 

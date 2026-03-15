@@ -873,44 +873,79 @@
             },
             "queries": {
                 "section": {
-                    "highlighted": "Highlighted",
-                    "downstream": "Downstream",
-                    "recentQueries": "Recent Queries",
-                    "viewAll": "View All",
-                    "noQueries": "No queries yet",
-                    "noQueriesDescription": "Create, view, and share commonly used queries for this dataset."
+                    "highlighted": "Destacado",
+                    "downstream": "Descendente",
+                    "recentQueries": "Consultas Recientes",
+                    "viewAll": "Ver Todo",
+                    "noQueries": "Sin consultas aún",
+                    "noQueriesDescription": "Crea, visualiza y comparte consultas comúnmente utilizadas para este conjunto de datos."
                 },
                 "button": {
-                    "addQuery": "Add Query"
+                    "addQuery": "Agregar Consulta"
                 },
                 "modal": {
-                    "newQueryTitle": "New Query",
-                    "editQueryTitle": "Edit Query",
-                    "createQueryButton": "Create",
-                    "updateQueryButton": "Update",
-                    "cancel": "Cancel",
-                    "save": "Save"
+                    "newQueryTitle": "Nueva Consulta",
+                    "editQueryTitle": "Editar Consulta",
+                    "createQueryButton": "Crear",
+                    "updateQueryButton": "Actualizar",
+                    "cancel": "Cancelar",
+                    "save": "Guardar"
                 },
                 "form": {
-                    "query": "Query",
-                    "title": "Title",
-                    "description": "Description",
-                    "queryLabel": "Query text",
-                    "titleLabel": "Query title",
-                    "descriptionLabel": "Query description",
-                    "createdByLabel": "Created By",
-                    "dateCreatedLabel": "Date Created",
-                    "powersLabel": "Powers",
-                    "topUsersLabel": "Top Users",
-                    "columnsLabel": "Columns"
+                    "query": "Consulta",
+                    "title": "Título",
+                    "description": "Descripción",
+                    "queryLabel": "Texto de consulta",
+                    "titleLabel": "Título de consulta",
+                    "descriptionLabel": "Descripción de consulta",
+                    "createdByLabel": "Creado Por",
+                    "dateCreatedLabel": "Fecha de Creación",
+                    "powersLabel": "Potencias",
+                    "topUsersLabel": "Usuarios Principales",
+                    "columnsLabel": "Columnas"
                 },
                 "message": {
-                    "queryCreated": "Query created successfully",
-                    "queryUpdated": "Query updated successfully",
-                    "queryDeleted": "Query deleted successfully",
-                    "deleteConfirmTitle": "Delete Query",
-                    "deleteConfirmContent": "Are you sure you want to delete this query?"
+                    "queryCreated": "Consulta creada exitosamente",
+                    "queryUpdated": "Consulta actualizada exitosamente",
+                    "queryDeleted": "Consulta eliminada exitosamente",
+                    "deleteConfirmTitle": "Eliminar Consulta",
+                    "deleteConfirmContent": "¿Está seguro de que desea eliminar esta consulta?"
                 }
+            },
+            "lineage": {
+                "viewGraph": "Ver Gráfico",
+                "upstream": "Ascendente",
+                "downstream": "Descendente"
+            },
+            "schemaHeader": {
+                "viewChangeHistory": "Ver historial de cambios",
+                "closeChangeHistory": "Cerrar historial de cambios",
+                "tabular": "Tabular",
+                "raw": "Crudo",
+                "key": "Clave",
+                "value": "Valor"
+            },
+            "schemaSearch": {
+                "search": "Buscar",
+                "matched": "Coincidencia",
+                "of": "de",
+                "column": "columna",
+                "columns": "columnas"
+            },
+            "versionSelector": {
+                "comparing": "Comparando",
+                "to": "a",
+                "latest": "última",
+                "version": "versión"
+            },
+            "stats": {
+                "latest": "Más Reciente",
+                "historical": "Histórico",
+                "rows": "filas",
+                "columns": "columnas",
+                "queries": "consultas",
+                "monthlyQueries": "consultas mensuales",
+                "users": "usuarios"
             }
         },
         "shared": {

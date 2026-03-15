@@ -911,6 +911,41 @@
                     "deleteConfirmTitle": "Abfrage löschen",
                     "deleteConfirmContent": "Sind Sie sicher, dass Sie diese Abfrage löschen möchten?"
                 }
+            },
+            "lineage": {
+                "viewGraph": "Grafik anzeigen",
+                "upstream": "Vorgelagert",
+                "downstream": "Nachgelagert"
+            },
+            "schemaHeader": {
+                "viewChangeHistory": "Änderungsverlauf anzeigen",
+                "closeChangeHistory": "Änderungsverlauf schließen",
+                "tabular": "Tabellarisch",
+                "raw": "Roh",
+                "key": "Schlüssel",
+                "value": "Wert"
+            },
+            "schemaSearch": {
+                "search": "Suche",
+                "matched": "Übereinstimmung",
+                "of": "von",
+                "column": "Spalte",
+                "columns": "Spalten"
+            },
+            "versionSelector": {
+                "comparing": "Vergleich",
+                "to": "zu",
+                "latest": "neueste",
+                "version": "Version"
+            },
+            "stats": {
+                "latest": "Neueste",
+                "historical": "Historisch",
+                "rows": "Zeilen",
+                "columns": "Spalten",
+                "queries": "Abfragen",
+                "monthlyQueries": "monatliche Abfragen",
+                "users": "Benutzer"
             }
         },
         "shared": {

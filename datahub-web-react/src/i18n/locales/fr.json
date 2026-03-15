@@ -873,44 +873,79 @@
             },
             "queries": {
                 "section": {
-                    "highlighted": "Highlighted",
-                    "downstream": "Downstream",
-                    "recentQueries": "Recent Queries",
-                    "viewAll": "View All",
-                    "noQueries": "No queries yet",
-                    "noQueriesDescription": "Create, view, and share commonly used queries for this dataset."
+                    "highlighted": "En évidence",
+                    "downstream": "Aval",
+                    "recentQueries": "Requêtes Récentes",
+                    "viewAll": "Voir Tout",
+                    "noQueries": "Aucune requête pour le moment",
+                    "noQueriesDescription": "Créez, consultez et partagez les requêtes couramment utilisées pour cet ensemble de données."
                 },
                 "button": {
-                    "addQuery": "Add Query"
+                    "addQuery": "Ajouter une Requête"
                 },
                 "modal": {
-                    "newQueryTitle": "New Query",
-                    "editQueryTitle": "Edit Query",
-                    "createQueryButton": "Create",
-                    "updateQueryButton": "Update",
-                    "cancel": "Cancel",
-                    "save": "Save"
+                    "newQueryTitle": "Nouvelle Requête",
+                    "editQueryTitle": "Modifier la Requête",
+                    "createQueryButton": "Créer",
+                    "updateQueryButton": "Mettre à Jour",
+                    "cancel": "Annuler",
+                    "save": "Enregistrer"
                 },
                 "form": {
-                    "query": "Query",
-                    "title": "Title",
+                    "query": "Requête",
+                    "title": "Titre",
                     "description": "Description",
-                    "queryLabel": "Query text",
-                    "titleLabel": "Query title",
-                    "descriptionLabel": "Query description",
-                    "createdByLabel": "Created By",
-                    "dateCreatedLabel": "Date Created",
-                    "powersLabel": "Powers",
-                    "topUsersLabel": "Top Users",
-                    "columnsLabel": "Columns"
+                    "queryLabel": "Texte de requête",
+                    "titleLabel": "Titre de la requête",
+                    "descriptionLabel": "Description de la requête",
+                    "createdByLabel": "Créé Par",
+                    "dateCreatedLabel": "Date de Création",
+                    "powersLabel": "Puissances",
+                    "topUsersLabel": "Utilisateurs Principaux",
+                    "columnsLabel": "Colonnes"
                 },
                 "message": {
-                    "queryCreated": "Query created successfully",
-                    "queryUpdated": "Query updated successfully",
-                    "queryDeleted": "Query deleted successfully",
-                    "deleteConfirmTitle": "Delete Query",
-                    "deleteConfirmContent": "Are you sure you want to delete this query?"
+                    "queryCreated": "Requête créée avec succès",
+                    "queryUpdated": "Requête mise à jour avec succès",
+                    "queryDeleted": "Requête supprimée avec succès",
+                    "deleteConfirmTitle": "Supprimer la Requête",
+                    "deleteConfirmContent": "Êtes-vous sûr de vouloir supprimer cette requête?"
                 }
+            },
+            "lineage": {
+                "viewGraph": "Afficher le Graphique",
+                "upstream": "Amont",
+                "downstream": "Aval"
+            },
+            "schemaHeader": {
+                "viewChangeHistory": "Afficher l'historique des modifications",
+                "closeChangeHistory": "Fermer l'historique des modifications",
+                "tabular": "Tabulaire",
+                "raw": "Brut",
+                "key": "Clé",
+                "value": "Valeur"
+            },
+            "schemaSearch": {
+                "search": "Recherche",
+                "matched": "Correspondance",
+                "of": "de",
+                "column": "colonne",
+                "columns": "colonnes"
+            },
+            "versionSelector": {
+                "comparing": "Comparaison",
+                "to": "à",
+                "latest": "dernière",
+                "version": "version"
+            },
+            "stats": {
+                "latest": "Dernier",
+                "historical": "Historique",
+                "rows": "lignes",
+                "columns": "colonnes",
+                "queries": "requêtes",
+                "monthlyQueries": "requêtes mensuelles",
+                "users": "utilisateurs"
             }
         },
         "shared": {

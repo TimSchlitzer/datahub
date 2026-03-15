@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import ExpandingStat from '@app/entityV2/dataset/shared/ExpandingStat';
@@ -54,6 +55,7 @@ export const DatasetStatsSummary = ({
     subTypes,
     mode = 'normal',
 }: Props) => {
+    const { t } = useTranslation();
     const isTooltipMode = mode === 'tooltip-content';
     const displayedColor = isTooltipMode ? '' : (color ?? ANTD_GRAY[7]);
 
@@ -64,14 +66,14 @@ export const DatasetStatsSummary = ({
                 render={(isExpanded) => (
                     <StatText color={displayedColor}>
                         {/* <TableOutlined style={{ marginRight: 8, color: displayedColor }} /> */}
-                        {isExpanded ? formatNumberWithoutAbbreviation(rowCount) : countFormatter(rowCount)} rows
+                        {isExpanded ? formatNumberWithoutAbbreviation(rowCount) : countFormatter(rowCount)} {t('entity.dataset.stats.rows')}
                         {!!columnCount && (
                             <>
                                 ,{' '}
                                 {isExpanded
                                     ? formatNumberWithoutAbbreviation(columnCount)
                                     : countFormatter(columnCount)}{' '}
-                                columns
+                                {t('entity.dataset.stats.columns')}
                             </>
                         )}
                     </StatText>
@@ -82,7 +84,7 @@ export const DatasetStatsSummary = ({
             <StatText color={displayedColor}>
                 {/* <ConsoleSqlOutlined style={{ marginRight: 8, color: displayedColor }} /> */}
                 {formatNumber(queryCountLast30Days || totalSqlQueries)}{' '}
-                {queryCountLast30Days ? <>queries</> : <>monthly queries</>}
+                {queryCountLast30Days ? <>{t('entity.dataset.stats.queries')}</> : <>{t('entity.dataset.stats.monthlyQueries')}</>}
                 {!!queryCountPercentileLast30Days && (
                     <Typography.Text type="secondary">
                         <PercentileLabel
@@ -96,7 +98,7 @@ export const DatasetStatsSummary = ({
         !!uniqueUserCountLast30Days && (
             <StatText color={displayedColor}>
                 {/* <TeamOutlined style={{ marginRight: 8, color: displayedColor }} /> */}
-                {formatNumber(uniqueUserCountLast30Days)} users
+                {formatNumber(uniqueUserCountLast30Days)} {t('entity.dataset.stats.users')}
                 {!!uniqueUserPercentileLast30Days && (
                     <Typography.Text type="secondary">
                         <PercentileLabel

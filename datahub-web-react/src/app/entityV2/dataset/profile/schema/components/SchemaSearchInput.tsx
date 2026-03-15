@@ -1,5 +1,6 @@
 import { Button, Popover, SearchBar } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import SchemaFilterSelectContent from '@app/entityV2/dataset/profile/schema/components/SchemaFilterSelectContent';
@@ -48,12 +49,13 @@ const SchemaSearchInput: React.FC<SchemaSearchProps> = ({
     setSchemaFilterSelectOpen,
     numRows,
 }: SchemaSearchProps) => {
+    const { t } = useTranslation();
     return (
         <SearchContainer>
             <SearchBar
                 value={searchInput}
                 disabled={schemaFilterTypes.length === 0}
-                placeholder="Search"
+                placeholder={t('entity.dataset.schemaSearch.search')}
                 onChange={setSearchInput}
                 allowClear
                 onKeyDown={(e) => {
@@ -85,7 +87,11 @@ const SchemaSearchInput: React.FC<SchemaSearchProps> = ({
             </Popover>
             {searchInput.length > 0 && (
                 <MatchLabelText>
-                    Matched {matches.length} {pluralize(matches.length, 'column')} of {numRows}
+                    {t('entity.dataset.schemaSearch.matched')} {matches.length} {pluralize(
+                        matches.length,
+                        t('entity.dataset.schemaSearch.column'),
+                    )}{' '}
+                    {t('entity.dataset.schemaSearch.of')} {numRows}
                 </MatchLabelText>
             )}
         </SearchContainer>

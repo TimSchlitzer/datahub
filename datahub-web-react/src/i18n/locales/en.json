@@ -911,6 +911,41 @@
                     "deleteConfirmTitle": "Delete Query",
                     "deleteConfirmContent": "Are you sure you want to delete this query?"
                 }
+            },
+            "lineage": {
+                "viewGraph": "View Graph",
+                "upstream": "Upstream",
+                "downstream": "Downstream"
+            },
+            "schemaHeader": {
+                "viewChangeHistory": "View change history",
+                "closeChangeHistory": "Close change history",
+                "tabular": "Tabular",
+                "raw": "Raw",
+                "key": "Key",
+                "value": "Value"
+            },
+            "schemaSearch": {
+                "search": "Search",
+                "matched": "Matched",
+                "of": "of",
+                "column": "column",
+                "columns": "columns"
+            },
+            "versionSelector": {
+                "comparing": "Comparing",
+                "to": "to",
+                "latest": "latest",
+                "version": "version"
+            },
+            "stats": {
+                "latest": "Latest",
+                "historical": "Historical",
+                "rows": "rows",
+                "columns": "columns",
+                "queries": "queries",
+                "monthlyQueries": "monthly queries",
+                "users": "users"
             }
         },
         "shared": {
