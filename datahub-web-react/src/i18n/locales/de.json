@@ -3271,5 +3271,42 @@
                 "confirmResetMessage": "Sind Sie sicher, dass Sie Ihre Homepage auf die Standardvorlage der Organisation zurücksetzen möchten? Sie verlieren alle Ihre persönlichen Module."
             }
         }
+    },
+    "sharedV2": {
+        "errorFallback": {
+            "whoops": "Hoppla!",
+            "somethingWentWrong": "Etwas ist schiefgelaufen.",
+            "refresh": "Aktualisieren",
+            "home": "Startseite"
+        },
+        "backButton": {
+            "goBack": "Zurück"
+        },
+        "confirmationModal": {
+            "cancel": "Abbrechen",
+            "yes": "Ja",
+            "confirm": "Bestätigen",
+            "areYouSure": "Sind Sie sicher?"
+        },
+        "discardChanges": {
+            "unsavedChanges": "Sie haben ungespeicherte Änderungen",
+            "confirmText": "Wenn Sie jetzt beenden, werden Ihre Änderungen verworfen. Sie können fortfahren oder beenden und später von vorne beginnen.",
+            "continue": "Weiter",
+            "exit": "Beenden"
+        },
+        "multiStepForm": {
+            "back": "Zurück",
+            "cancel": "Abbrechen",
+            "next": "Weiter",
+            "submit": "Senden",
+            "completeRequiredFields": "Bitte füllen Sie alle erforderlichen Felder aus, bevor Sie zum nächsten Schritt übergehen"
+        },
+        "downloadButton": {
+            "downloadResults": "Ergebnisse herunterladen...",
+            "downloading": "Wird heruntergeladen..."
+        },
+        "editButton": {
+            "edit": "Bearbeiten..."
+        }
     }
 }

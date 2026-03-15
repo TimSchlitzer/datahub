@@ -3323,5 +3323,42 @@
             "confirmResetTitle": "Confirmar restablecimiento a plantilla predeterminada",
             "confirmResetMessage": "¿Está seguro de que desea restablecer su página de inicio a la plantilla predeterminada de la organización? Perderá todos sus módulos personales."
         }
+    },
+    "sharedV2": {
+        "errorFallback": {
+            "whoops": "¡Vaya!",
+            "somethingWentWrong": "Algo no salió como se esperaba.",
+            "refresh": "Actualizar",
+            "home": "Inicio"
+        },
+        "backButton": {
+            "goBack": "Atrás"
+        },
+        "confirmationModal": {
+            "cancel": "Cancelar",
+            "yes": "Sí",
+            "confirm": "Confirmar",
+            "areYouSure": "¿Está seguro?"
+        },
+        "discardChanges": {
+            "unsavedChanges": "Tiene cambios sin guardar",
+            "confirmText": "Si sale ahora, se descartarán sus cambios. Puede continuar o salir e intentarlo de nuevo más tarde.",
+            "continue": "Continuar",
+            "exit": "Salir"
+        },
+        "multiStepForm": {
+            "back": "Atrás",
+            "cancel": "Cancelar",
+            "next": "Siguiente",
+            "submit": "Enviar",
+            "completeRequiredFields": "Por favor, complete todos los campos obligatorios antes de pasar al siguiente paso"
+        },
+        "downloadButton": {
+            "downloadResults": "Descargar resultados...",
+            "downloading": "Descargando..."
+        },
+        "editButton": {
+            "edit": "Editar..."
+        }
     }
 }

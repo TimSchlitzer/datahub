@@ -1,5 +1,6 @@
 import { Button, Tooltip, colors } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const StyledButton = styled(Button)`
@@ -13,8 +14,9 @@ type Props = {
 };
 
 export default function DownloadButton({ setShowDownloadAsCsvModal, isDownloadingCsv, disabled }: Props) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Download results..." showArrow={false} placement="top">
+        <Tooltip title={t('sharedV2.downloadButton.downloadResults')} showArrow={false} placement="top">
             <StyledButton
                 onClick={() => setShowDownloadAsCsvModal(true)}
                 disabled={isDownloadingCsv || disabled}
@@ -25,7 +27,7 @@ export default function DownloadButton({ setShowDownloadAsCsvModal, isDownloadin
                 size="sm"
                 data-testid="download-csv-button"
             >
-                {isDownloadingCsv ? 'Downloading...' : null}
+                {isDownloadingCsv ? t('sharedV2.downloadButton.downloading') : null}
             </StyledButton>
         </Tooltip>
     );

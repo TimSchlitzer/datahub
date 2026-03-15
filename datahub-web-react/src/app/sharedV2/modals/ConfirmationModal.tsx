@@ -1,5 +1,6 @@
 import { Modal, Text, typography } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ModalButton } from '@components/components/Modal/Modal';
@@ -48,6 +49,7 @@ export const ConfirmationModal = ({
     isDeleteModal,
     closeOnPrimaryAction,
 }: Props) => {
+    const { t } = useTranslation();
     return (
         <StyledModal
             open={isOpen}
@@ -58,21 +60,21 @@ export const ConfirmationModal = ({
                     variant: 'text',
                     onClick: handleClose,
                     buttonDataTestId: 'modal-cancel-button',
-                    text: closeButtonText || 'Cancel',
+                    text: closeButtonText || t('sharedV2.confirmationModal.cancel'),
                     color: closeButtonColor,
                 },
                 {
                     variant: 'filled',
                     onClick: handleConfirm,
                     buttonDataTestId: 'modal-confirm-button',
-                    text: confirmButtonText || 'Yes',
+                    text: confirmButtonText || t('sharedV2.confirmationModal.yes'),
                     color: isDeleteModal ? 'red' : 'primary',
                 },
             ]}
-            title={modalTitle || 'Confirm'}
+            title={modalTitle || t('sharedV2.confirmationModal.confirm')}
         >
             <Text color="gray" size="lg">
-                {modalText || 'Are you sure?'}
+                {modalText || t('sharedV2.confirmationModal.areYouSure')}
             </Text>
         </StyledModal>
     );

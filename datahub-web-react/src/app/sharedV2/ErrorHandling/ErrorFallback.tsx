@@ -1,5 +1,6 @@
 import { Button, Text } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled, { css } from 'styled-components';
 
@@ -54,6 +55,7 @@ const TextContainer = styled.div`
 `;
 
 const ErrorFallback: React.FC<ErrorFallbackProps> = ({ variant, actionMessage = DEFAULT_MESSAGE }) => {
+    const { t } = useTranslation();
     const history = useHistory();
     return (
         <Container variant={variant}>
@@ -66,11 +68,11 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ variant, actionMessage = 
             </svg>
             <TextContainer>
                 <Text color="gray" weight="bold" size="xl">
-                    Whoops!
+                    {t('sharedV2.errorFallback.whoops')}
                 </Text>
                 <TextContainer>
                     <Text color="gray" size="lg">
-                        Something didn&apos;t go as planned.
+                        {t('sharedV2.errorFallback.somethingWentWrong')}
                     </Text>
                     <Text color="gray" size="lg">
                         {actionMessage}
@@ -80,10 +82,10 @@ const ErrorFallback: React.FC<ErrorFallbackProps> = ({ variant, actionMessage = 
             {variant !== 'sidebar' && (
                 <ButtonContainer>
                     <Button size="sm" variant="outline" onClick={() => history.go(0)}>
-                        Refresh
+                        {t('sharedV2.errorFallback.refresh')}
                     </Button>
                     <Button size="sm" variant="filled" onClick={() => history.push('/')}>
-                        Home
+                        {t('sharedV2.errorFallback.home')}
                     </Button>
                 </ButtonContainer>
             )}

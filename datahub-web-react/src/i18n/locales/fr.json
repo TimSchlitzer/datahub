@@ -3323,5 +3323,42 @@
             "confirmResetTitle": "Confirmer la réinitialisation au modèle par défaut",
             "confirmResetMessage": "Êtes-vous sûr de vouloir réinitialiser votre page d'accueil au modèle par défaut de l'organisation? Vous perdrez tous vos modules personnels."
         }
+    },
+    "sharedV2": {
+        "errorFallback": {
+            "whoops": "Oups !",
+            "somethingWentWrong": "Quelque chose ne s'est pas déroulé comme prévu.",
+            "refresh": "Actualiser",
+            "home": "Accueil"
+        },
+        "backButton": {
+            "goBack": "Retour"
+        },
+        "confirmationModal": {
+            "cancel": "Annuler",
+            "yes": "Oui",
+            "confirm": "Confirmer",
+            "areYouSure": "Êtes-vous sûr ?"
+        },
+        "discardChanges": {
+            "unsavedChanges": "Vous avez des modifications non enregistrées",
+            "confirmText": "Si vous quittez maintenant, vos modifications seront perdues. Vous pouvez continuer ou quitter et recommencer plus tard.",
+            "continue": "Continuer",
+            "exit": "Quitter"
+        },
+        "multiStepForm": {
+            "back": "Retour",
+            "cancel": "Annuler",
+            "next": "Suivant",
+            "submit": "Soumettre",
+            "completeRequiredFields": "Veuillez compléter tous les champs obligatoires avant de passer à l'étape suivante"
+        },
+        "downloadButton": {
+            "downloadResults": "Télécharger les résultats...",
+            "downloading": "Téléchargement..."
+        },
+        "editButton": {
+            "edit": "Modifier..."
+        }
     }
 }

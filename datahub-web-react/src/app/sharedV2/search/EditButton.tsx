@@ -1,5 +1,6 @@
 import { Button, Tooltip, colors } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const StyledButton = styled(Button)`
@@ -12,8 +13,9 @@ type Props = {
 };
 
 export default function EditButton({ setShowSelectMode, disabled }: Props) {
+    const { t } = useTranslation();
     return (
-        <Tooltip title="Edit..." showArrow={false} placement="top">
+        <Tooltip title={t('sharedV2.editButton.edit')} showArrow={false} placement="top">
             <StyledButton
                 onClick={() => setShowSelectMode(true)}
                 disabled={disabled}

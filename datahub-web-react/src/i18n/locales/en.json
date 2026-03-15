@@ -3324,5 +3324,42 @@
                 "confirmResetMessage": "Are you sure you want to reset your homepage to the organization's default template? You will lose all your personal modules."
             }
         }
+    },
+    "sharedV2": {
+        "errorFallback": {
+            "whoops": "Whoops!",
+            "somethingWentWrong": "Something didn't go as planned.",
+            "refresh": "Refresh",
+            "home": "Home"
+        },
+        "backButton": {
+            "goBack": "Go back"
+        },
+        "confirmationModal": {
+            "cancel": "Cancel",
+            "yes": "Yes",
+            "confirm": "Confirm",
+            "areYouSure": "Are you sure?"
+        },
+        "discardChanges": {
+            "unsavedChanges": "You have unsaved changes",
+            "confirmText": "Exiting now will discard your changes. You can continue or exit and start over later",
+            "continue": "Continue",
+            "exit": "Exit"
+        },
+        "multiStepForm": {
+            "back": "Back",
+            "cancel": "Cancel",
+            "next": "Next",
+            "submit": "Submit",
+            "completeRequiredFields": "Please complete all required fields before moving to the next step"
+        },
+        "downloadButton": {
+            "downloadResults": "Download results...",
+            "downloading": "Downloading..."
+        },
+        "editButton": {
+            "edit": "Edit..."
+        }
     }
 }

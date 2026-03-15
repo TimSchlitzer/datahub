@@ -1,5 +1,6 @@
 import { Button, Text, Tooltip } from '@components';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useMultiStepContext } from '@app/sharedV2/forms/multiStepForm/MultiStepFormContext';
@@ -44,6 +45,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
     renderRightButtons,
     disabledNextTooltip,
 }: Props) {
+    const { t } = useTranslation();
     const {
         goToNext,
         canGoToNext,
@@ -74,20 +76,20 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
         if (canGoToPrevious()) {
             buttons.push(
                 <Button key="back" size="sm" variant="secondary" onClick={goToPrevious} data-testid="back-button">
-                    Back
+                    {t('sharedV2.multiStepForm.back')}
                 </Button>,
             );
         }
 
         return buttons;
-    }, [canGoToPrevious, goToPrevious]);
+    }, [canGoToPrevious, goToPrevious, t]);
 
     const rightButtons = useMemo(() => {
         const buttons: React.ReactNode[] = [];
 
         buttons.push(
             <Button key="cancel" size="sm" variant="text" color="gray" onClick={cancel} data-testid="cancel-button">
-                Cancel
+                {t('sharedV2.multiStepForm.cancel')}
             </Button>,
         );
 
@@ -95,7 +97,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
             const isDisabled = !isCurrentStepCompleted();
             const nextButton = (
                 <Button key="next" size="sm" disabled={isDisabled} onClick={goToNext} data-testid="next-button">
-                    Next
+                    {t('sharedV2.multiStepForm.next')}
                 </Button>
             );
 
@@ -104,7 +106,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
                     <Tooltip
                         key="next"
                         title={
-                            disabledNextTooltip || 'Please complete all required fields before moving to the next step'
+                            disabledNextTooltip || t('sharedV2.multiStepForm.completeRequiredFields')
                         }
                     >
                         <span>{nextButton}</span>
@@ -124,7 +126,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
                     onClick={onSubmit}
                     data-testid="submit-button"
                 >
-                    Submit
+                    {t('sharedV2.multiStepForm.submit')}
                 </Button>,
             );
         }
@@ -140,6 +142,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
         onSubmit,
         showSubmitButton,
         isSubmitInProgress,
+        t,
     ]);
 
     return (
