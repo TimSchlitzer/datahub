@@ -1,6 +1,7 @@
 import { Modal } from '@components';
 import { Button } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import styled from 'styled-components/macro';
 
@@ -46,16 +47,17 @@ interface Props {
 }
 
 const SummaryQuerySection = ({ query }: Props) => {
+    const { t } = useTranslation();
     const [showFullContentModal, setShowFullContentModal] = useState(false);
 
     return (
         <Container>
             <Modal
-                title="Query"
+                title={t('entity.chart.summary.query')}
                 width="800px"
                 buttons={[
                     {
-                        text: 'Dismiss',
+                        text: t('common.dismiss'),
                         onClick: () => setShowFullContentModal(false),
                         variant: 'filled',
                     },
@@ -74,7 +76,7 @@ const SummaryQuerySection = ({ query }: Props) => {
                 {query}
             </PreviewSyntax>
             <StyledButton type="text" onClick={() => setShowFullContentModal(true)}>
-                Read More
+                {t('entity.chart.summary.readMore')}
             </StyledButton>
         </Container>
     );

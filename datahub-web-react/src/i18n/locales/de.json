@@ -260,6 +260,7 @@
         "description": "Beschreibung",
         "details": "Details",
         "developer": "Entwickler",
+        "dismiss": "Verwerfen",
         "documentation": "Dokumentation",
         "domain": "Domain",
         "domains": "Domains",
@@ -1074,6 +1075,10 @@
             }
         },
         "dashboard": {
+            "tabs": {
+                "contents": "Inhalte",
+                "datasets": "Datensätze"
+            },
             "summary": {
                 "generalInfo": "Allgemeine Informationen",
                 "relatedAssets": "Zugehörige Vermögenswerte",
@@ -1094,10 +1099,18 @@
             }
         },
         "chart": {
+            "tabs": {
+                "fields": "Felder",
+                "dashboards": "Dashboards"
+            },
             "summary": {
                 "measures": "Maßnahmen",
                 "dimensions": "Dimensionen",
-                "temporals": "Zeitliche"
+                "temporals": "Zeitliche",
+                "generalInfo": "Allgemeine Informationen",
+                "dataSources": "Datenquellen",
+                "query": "Abfrage",
+                "readMore": "Mehr lesen"
             },
             "fieldTable": {
                 "name": "Name",
@@ -1187,6 +1200,20 @@
                 "access": "Zugriff",
                 "runs": "Läufe",
                 "contents": "Inhalte"
+            }
+        },
+        "shared": {
+            "tabs": {
+                "summary": "Zusammenfassung",
+                "documentation": "Dokumentation",
+                "preview": "Vorschau",
+                "lineage": "Herkunft",
+                "properties": "Eigenschaften",
+                "incidents": "Vorfälle"
+            },
+            "sidebarTabs": {
+                "lineageDesc": "Herkunft erkunden",
+                "propertiesDesc": "Eigenschaften anzeigen"
             }
         },
         "membershipThisGroupCannotEddit": "Die Mitgliedschaft in dieser Gruppe kann in DataHub nicht bearbeitet werden, da sie stammt aus",

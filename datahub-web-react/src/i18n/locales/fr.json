@@ -260,6 +260,7 @@
         "description": "Description",
         "details": "Details",
         "developer": "Developer",
+        "dismiss": "Dismiss",
         "documentation": "Documentation",
         "domain": "Domain",
         "domains": "Domains",
@@ -1074,6 +1075,10 @@
             }
         },
         "dashboard": {
+            "tabs": {
+                "contents": "Contents",
+                "datasets": "Datasets"
+            },
             "summary": {
                 "generalInfo": "General Info",
                 "relatedAssets": "Related Assets",
@@ -1094,10 +1099,18 @@
             }
         },
         "chart": {
+            "tabs": {
+                "fields": "Fields",
+                "dashboards": "Dashboards"
+            },
             "summary": {
                 "measures": "Measures",
                 "dimensions": "Dimensions",
-                "temporals": "Temporals"
+                "temporals": "Temporals",
+                "generalInfo": "General Info",
+                "dataSources": "Data Sources",
+                "query": "Query",
+                "readMore": "Read More"
             },
             "fieldTable": {
                 "name": "Name",
@@ -1187,6 +1200,20 @@
                 "access": "Access",
                 "runs": "Runs",
                 "contents": "Contents"
+            }
+        },
+        "shared": {
+            "tabs": {
+                "summary": "Summary",
+                "documentation": "Documentation",
+                "preview": "Preview",
+                "lineage": "Lineage",
+                "properties": "Properties",
+                "incidents": "Incidents"
+            },
+            "sidebarTabs": {
+                "lineageDesc": "Explore lineage",
+                "propertiesDesc": "View properties"
             }
         },
         "membershipThisGroupCannotEddit": "Membership in this group cannot be edited in DataHub as it originates from",

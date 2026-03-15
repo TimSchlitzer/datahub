@@ -270,6 +270,7 @@
         "description": "Descrição",
         "details": "Detalhes",
         "developer": "Desenvolvedor",
+        "dismiss": "Descartar",
         "documentation": "Documentação",
         "domain": "Domínio",
         "domains": "Domínios",
@@ -1091,6 +1092,10 @@
             }
         },
         "dashboard": {
+            "tabs": {
+                "contents": "Conteúdo",
+                "datasets": "Conjuntos de Dados"
+            },
             "summary": {
                 "generalInfo": "Informações Gerais",
                 "relatedAssets": "Ativos Relacionados",
@@ -1111,10 +1116,18 @@
             }
         },
         "chart": {
+            "tabs": {
+                "fields": "Campos",
+                "dashboards": "Painéis"
+            },
             "summary": {
                 "measures": "Medidas",
                 "dimensions": "Dimensões",
-                "temporals": "Temporais"
+                "temporals": "Temporais",
+                "generalInfo": "Informações Gerais",
+                "dataSources": "Fontes de Dados",
+                "query": "Consulta",
+                "readMore": "Ler Mais"
             },
             "fieldTable": {
                 "name": "Nome",
@@ -1204,6 +1217,20 @@
                 "access": "Acesso",
                 "runs": "Execuções",
                 "contents": "Conteúdo"
+            }
+        },
+        "shared": {
+            "tabs": {
+                "summary": "Resumo",
+                "documentation": "Documentação",
+                "preview": "Visualizar",
+                "lineage": "Linhagem",
+                "properties": "Propriedades",
+                "incidents": "Incidentes"
+            },
+            "sidebarTabs": {
+                "lineageDesc": "Explorar linhagem",
+                "propertiesDesc": "Ver propriedades"
             }
         },
         "membershipThisGroupCannotEdit": "A associação a este grupo não pode ser editada no DataHub, pois é originária",

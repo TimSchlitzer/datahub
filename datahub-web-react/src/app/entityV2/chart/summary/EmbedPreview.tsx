@@ -1,5 +1,6 @@
 import HeaderIcon from '@mui/icons-material/VisibilityOutlined';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { SummaryTabHeaderTitle, SummaryTabHeaderWrapper } from '@app/entityV2/shared/summary/HeaderComponents';
@@ -18,10 +19,11 @@ interface Props {
 }
 
 export default function EmbedPreview({ embedUrl }: Props) {
+    const { t } = useTranslation();
     return (
         <Wrapper>
             <SummaryTabHeaderWrapper>
-                <SummaryTabHeaderTitle icon={<HeaderIcon />} title="Preview" />
+                <SummaryTabHeaderTitle icon={<HeaderIcon />} title={t('entity.shared.tabs.preview')} />
             </SummaryTabHeaderWrapper>
             <StyledIframe src={embedUrl} frameBorder={0} />
         </Wrapper>
