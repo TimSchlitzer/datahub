@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
 import { SubType, getSubTypeIcon } from '@app/entityV2/shared/components/subtypes';
@@ -12,6 +13,7 @@ import { EntityType, FilterOperator } from '@types';
 
 export default function TableauDataSourcesSection() {
     const { urn } = useEntityData();
+    const { t } = useTranslation();
 
     const { data: searchData } = useGetSearchResultsForMultipleQuery({
         skip: !urn,
@@ -46,7 +48,7 @@ export default function TableauDataSourcesSection() {
         <>
             <HeaderTitle>
                 {getSubTypeIcon(SubType.TableauPublishedDataSource)}
-                Data Sources ({searchData?.searchAcrossEntities?.total})
+                {t('entity.container.tableau.dataSources')} ({searchData?.searchAcrossEntities?.total})
             </HeaderTitle>
             <HorizontalList>
                 {dataSources.map((dataSource) => (

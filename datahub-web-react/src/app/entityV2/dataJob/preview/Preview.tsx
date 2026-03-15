@@ -1,6 +1,7 @@
 import { Clock } from '@phosphor-icons/react';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
@@ -79,6 +80,7 @@ export const Preview = ({
     parentContainers?: ParentContainersResult | null;
 }): JSX.Element => {
     const entityRegistry = useEntityRegistry();
+    const { t } = useTranslation();
     return (
         <DefaultPreviewCard
             url={entityRegistry.getEntityUrl(EntityType.DataJob, urn)}
@@ -105,7 +107,7 @@ export const Preview = ({
                 (lastRunTimeMs && [
                     <StatText>
                         <Clock size={14} color="currentColor" style={{ paddingRight: 8 }} />
-                        Last run {toRelativeTimeString(lastRunTimeMs)}
+                        {t('entity.dataJob.preview.lastRun')} {toRelativeTimeString(lastRunTimeMs)}
                     </StatText>,
                 ]) ||
                 undefined

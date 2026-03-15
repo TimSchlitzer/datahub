@@ -1148,6 +1148,12 @@
             }
         },
         "dataJob": {
+            "tabs": {
+                "pipeline": "Pipeline"
+            },
+            "preview": {
+                "lastRun": "Última execução"
+            },
             "runsTab": {
                 "time": "Hora",
                 "runId": "ID da Execução",
@@ -1217,6 +1223,13 @@
                 "access": "Acesso",
                 "runs": "Execuções",
                 "contents": "Conteúdo"
+            },
+            "placeholders": {
+                "filterEntities": "Filtrar entidades de container..."
+            },
+            "tableau": {
+                "dataSources": "Fontes de Dados",
+                "views": "Exibições"
             }
         },
         "shared": {
