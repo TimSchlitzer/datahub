@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -41,23 +42,25 @@ interface Props {
 }
 
 export default function ColumnPathsText({ paths, resultEntityUrn, openModal }: Props) {
+    const { t } = useTranslation();
     const { lineageDirection } = useContext(LineageTabContext);
 
     const displayedColumns = getDisplayedColumns(paths, resultEntityUrn);
 
     if (!displayedColumns.length) return null;
 
+    const directionLabel = lineageDirection === LineageDirection.Downstream ? t('preview.downstream') : t('preview.upstream');
+
     return (
         <>
             <DescriptionWrapper>
-                {lineageDirection === LineageDirection.Downstream ? 'Downstream' : 'Upstream'} column
-                {displayedColumns.length > 1 && 's'}:&nbsp;
+                {directionLabel} {t('preview.entityPaths.column', { count: displayedColumns.length })}:&nbsp;
             </DescriptionWrapper>
             <ResultText onClick={openModal}>
                 <Tooltip
                     title={
                         <span>
-                            Click to see column path{paths.length > 1 && 's'} from{' '}
+                            {t('preview.entityPaths.clickToSeeColumnPath', { count: paths.length })}{' '}
                             <ColumnsRelationshipText displayedColumns={displayedColumns} />
                         </span>
                     }

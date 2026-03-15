@@ -3,6 +3,7 @@ import { Button, Empty, Pagination, Typography } from 'antd';
 import * as QueryString from 'query-string';
 import { AlignType } from 'rc-table/lib/interface';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
@@ -45,6 +46,7 @@ const PaginationInfo = styled(Typography.Text)`
 const DEFAULT_PAGE_SIZE = 10;
 
 export const PostList = () => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const location = useLocation();
     const params = QueryString.parse(location.search, { arrayFormat: 'comma' });
@@ -99,7 +101,7 @@ export const PostList = () => {
 
     const allColumns = [
         {
-            title: 'Title',
+            title: t('common.title'),
             dataIndex: '',
             key: 'title',
             sorter: (sourceA, sourceB) => {
@@ -109,13 +111,13 @@ export const PostList = () => {
             width: '20%',
         },
         {
-            title: 'Description',
+            title: t('common.description'),
             dataIndex: '',
             key: 'description',
             render: (record: PostEntry) => PostColumn(record.description || ''),
         },
         {
-            title: 'Type',
+            title: t('common.type'),
             dataIndex: '',
             key: 'type',
             render: (record: PostEntry) => PostColumn(POST_TYPE_TO_DISPLAY_TEXT[record.contentType]),
@@ -145,16 +147,16 @@ export const PostList = () => {
 
     return (
         <>
-            {!data && loading && <Message type="loading" content="Loading posts..." />}
-            {error && <Message type="error" content="Failed to load Posts! An unexpected error occurred." />}
+            {!data && loading && <Message type="loading" content={t('settings.posts.loadingPosts')} />}
+            {error && <Message type="error" content={t('settings.posts.failedToLoadPosts')} />}
             <PostsContainer>
                 <TabToolbar>
                     <Button data-testid="posts-create-post-v2" type="text" onClick={() => setIsCreatingPost(true)}>
-                        <PlusOutlined /> New
+                        <PlusOutlined /> {t('common.new')}
                     </Button>
                     <SearchBar
                         initialQuery={query || ''}
-                        placeholderText="Search..."
+                        placeholderText={t('common.search')}
                         suggestions={[]}
                         style={{
                             maxWidth: 220,
@@ -175,7 +177,7 @@ export const PostList = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     pagination={false}
-                    locale={{ emptyText: <Empty description="No posts!" image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
+                    locale={{ emptyText: <Empty description={t('settings.posts.noPosts')} image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
                 />
                 {totalPosts > pageSize && (
                     <PostsPaginationContainer>

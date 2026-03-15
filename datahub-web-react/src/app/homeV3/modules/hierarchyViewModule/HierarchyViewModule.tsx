@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { useHistory } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import { v4 as uuidv4 } from 'uuid';
 
 import EmptyContent from '@app/homeV3/module/components/EmptyContent';
@@ -17,6 +18,7 @@ import { PageRoutes } from '@conf/Global';
 import { AndFilterInput } from '@types';
 
 export default function HierarchyViewModule(props: ModuleProps) {
+    const { t } = useTranslation();
     const history = useHistory();
     const { showViewAll = true } = props;
     const { isReloading } = useModuleContext();
@@ -74,8 +76,8 @@ export default function HierarchyViewModule(props: ModuleProps) {
             {assetUrns.length === 0 ? (
                 <EmptyContent
                     icon="Stack"
-                    title="No Assets"
-                    description="Edit the module and add assets to see them in this list"
+                    title={t('homeV3.common.noAssets')}
+                    description={t('homeV3.common.editModuleToAddAssets')}
                 />
             ) : (
                 <AssetsTreeView

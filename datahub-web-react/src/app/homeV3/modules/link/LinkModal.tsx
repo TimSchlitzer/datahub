@@ -1,5 +1,6 @@
 import { Form } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { usePageTemplateContext } from '@app/homeV3/context/PageTemplateContext';
@@ -16,6 +17,7 @@ const ModalContent = styled.div`
 `;
 
 export default function LinkModal() {
+    const { t } = useTranslation();
     const {
         upsertModule,
         moduleModalState: { position, close, isEditing, initialState },
@@ -51,8 +53,8 @@ export default function LinkModal() {
 
     return (
         <BaseModuleModal
-            title={`${isEditing ? 'Edit' : 'Add'} Quick Link`}
-            subtitle="Add links to your home page"
+            title={`${isEditing ? t('homeV3.common.edit') : t('homeV3.common.add')} ${t('homeV3.linkModal.quickLink')}`}
+            subtitle={t('homeV3.linkModal.subtitle')}
             onUpsert={handleUpsertDocumentationModule}
             width="40%"
             submitButtonProps={{ disabled: isDisabled }}

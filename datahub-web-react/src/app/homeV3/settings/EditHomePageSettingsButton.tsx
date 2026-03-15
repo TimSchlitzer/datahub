@@ -1,6 +1,7 @@
 import { Dropdown, colors } from '@components';
 import React, { useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -37,6 +38,7 @@ const DropdownContainer = styled.div`
 `;
 
 export default function EditHomePageSettingsButton() {
+    const { t } = useTranslation();
     const user = useUserContext();
     const canEditDefaultTemplate = user.platformPrivileges?.manageHomePageTemplates;
 
@@ -69,7 +71,7 @@ export default function EditHomePageSettingsButton() {
             ...(canEditDefaultTemplate
                 ? [
                       {
-                          label: 'Edit Organization Default',
+                          label: t('homeV3.editHomePageSettingsButton.editOrganizationDefault'),
                           key: 'edit-organization-default',
                           style: {
                               color: colors.gray[600],
@@ -83,7 +85,7 @@ export default function EditHomePageSettingsButton() {
             ...(isOnPersonalTemplate
                 ? [
                       {
-                          label: 'Reset to Organization Default',
+                          label: t('homeV3.editHomePageSettingsButton.resetToOrganizationDefault'),
                           key: 'reset-to-organization-default',
                           style: {
                               color: colors.red[1000],
@@ -121,10 +123,10 @@ export default function EditHomePageSettingsButton() {
                 isOpen={!!showConfirmResetModal}
                 handleConfirm={handleResetToDefault}
                 handleClose={() => setShowConfirmResetModal(false)}
-                modalTitle="Confirm reset to default template"
-                modalText="Are you sure you want to reset your homepage to the organization's default template? You will lose all your personal modules."
-                closeButtonText="Cancel"
-                confirmButtonText="Confirm"
+                modalTitle={t('homeV3.editHomePageSettingsButton.confirmResetTitle')}
+                modalText={t('homeV3.editHomePageSettingsButton.confirmResetMessage')}
+                closeButtonText={t('homeV3.common.cancel')}
+                confirmButtonText={t('homeV3.common.confirm')}
             />
         </>
     );

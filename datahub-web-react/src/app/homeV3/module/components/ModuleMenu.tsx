@@ -1,6 +1,7 @@
 import { Icon, Text, Tooltip, colors } from '@components';
 import { Dropdown } from 'antd';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { usePageTemplateContext } from '@app/homeV3/context/PageTemplateContext';
@@ -34,6 +35,7 @@ interface Props {
 }
 
 export default function ModuleMenu({ module, position }: Props) {
+    const { t } = useTranslation();
     const [showRemoveModuleConfirmation, setShowRemoveModuleConfirmation] = useState<boolean>(false);
     const { type } = module.properties;
     const canEdit = !DEFAULT_MODULE_URNS.includes(module.urn);
@@ -70,19 +72,19 @@ export default function ModuleMenu({ module, position }: Props) {
     const menu = {
         items: [
             {
-                title: 'Edit',
+                title: t('homeV3.common.edit'),
                 key: 'edit',
                 label: (
                     <>
                         {!canEdit ? (
-                            <Tooltip title="Default modules are not editable">
+                            <Tooltip title={t('homeV3.moduleMenu.defaultModulesNotEditable')}>
                                 <Text color="gray" colorLevel={300}>
-                                    Edit
+                                    {t('homeV3.common.edit')}
                                 </Text>
                             </Tooltip>
                         ) : (
                             <Text color="gray" colorLevel={600}>
-                                Edit
+                                {t('homeV3.common.edit')}
                             </Text>
                         )}
                     </>
@@ -96,8 +98,8 @@ export default function ModuleMenu({ module, position }: Props) {
             },
 
             {
-                title: 'Remove',
-                label: 'Remove',
+                title: t('homeV3.common.remove'),
+                label: t('homeV3.common.remove'),
                 key: 'remove',
                 style: {
                     ...menuItemStyle,
@@ -125,14 +127,14 @@ export default function ModuleMenu({ module, position }: Props) {
                 isOpen={!!showRemoveModuleConfirmation}
                 handleConfirm={handleRemove}
                 handleClose={() => setShowRemoveModuleConfirmation(false)}
-                modalTitle="Remove Module?"
+                modalTitle={t('homeV3.moduleMenu.removeModuleTitle')}
                 modalText={
                     isAdminCreatedModule
-                        ? 'Are you sure you want to remove this module? You can re-add it later from the Home Defaults section when adding a new module.'
-                        : 'Are you sure you want to remove this module? You can always create a new one later if needed.'
+                        ? t('homeV3.moduleMenu.removeModuleConfirmAdmin')
+                        : t('homeV3.moduleMenu.removeModuleConfirmUser')
                 }
-                closeButtonText="Cancel"
-                confirmButtonText="Remove"
+                closeButtonText={t('homeV3.common.cancel')}
+                confirmButtonText={t('homeV3.common.remove')}
                 isDeleteModal
             />
         </>

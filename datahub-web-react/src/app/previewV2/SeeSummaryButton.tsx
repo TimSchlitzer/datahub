@@ -1,5 +1,6 @@
 import { FileTextOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const SummaryButton = styled.div<{ maxWidth: number }>`
@@ -28,6 +29,7 @@ const SummaryButtonText = styled.span`
 `;
 
 export default function SeeSummaryButton() {
+    const { t } = useTranslation();
     const [summaryButtonExpanded, setSummaryButtonExpanded] = useState(false);
     return (
         <SummaryButton
@@ -36,7 +38,7 @@ export default function SeeSummaryButton() {
             maxWidth={summaryButtonExpanded ? 102 : 26}
         >
             <FileTextOutlined />
-            <SummaryButtonText>View summary</SummaryButtonText>
+            <SummaryButtonText>{t('preview.viewSummary')}</SummaryButtonText>
         </SummaryButton>
     );
 }

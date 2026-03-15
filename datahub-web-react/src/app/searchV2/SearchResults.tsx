@@ -1,6 +1,7 @@
 import { colors } from '@components';
 import { Pagination } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { PreviewType } from '@app/entity/Entity';
@@ -169,6 +170,7 @@ export const SearchResults = ({
     previewType,
     onCardClick,
 }: Props) => {
+    const { t } = useTranslation();
     const showSearchFiltersV2 = useIsSearchV2();
     const showBrowseV2 = useIsBrowseV2();
     const pageStart = searchResponse?.start || 0;
@@ -250,18 +252,18 @@ export const SearchResults = ({
                                             )}
                                             <PaginationInfoContainer v2Styles={showSearchFiltersV2}>
                                                 <LeftControlsContainer>
-                                                    Showing{' '}
+                                                    {t('search.results.showing')}{' '}
                                                     <b>
                                                         {lastResultIndex > 0 ? (page - 1) * numResultsPerPage + 1 : 0} -{' '}
                                                         {lastResultIndex}
                                                     </b>{' '}
-                                                    of{' '}
+                                                    {t('search.results.of')}{' '}
                                                     <b>
                                                         {totalResults >= 10000
                                                             ? `${formatNumberWithoutAbbreviation(10000)}+`
                                                             : formatNumberWithoutAbbreviation(totalResults)}
                                                     </b>{' '}
-                                                    results
+                                                    {t('search.results.results')}
                                                 </LeftControlsContainer>
                                             </PaginationInfoContainer>
                                             <SearchResultList

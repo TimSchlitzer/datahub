@@ -2,6 +2,7 @@ import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -64,13 +65,14 @@ interface Props {
 }
 
 export default function HealthPopover({ health, baseUrl }: Props) {
+    const { t } = useTranslation();
     const linkProps = useEmbeddedProfileLinkProps();
     return (
         <Content data-testid="assertions-details">
             {health.map((item) => (
                 <StyledLink key={item.type} to={`${baseUrl}${healthUrlSuffix(item)}`} {...linkProps}>
                     <Icon>{healthIcon(item)}</Icon>
-                    <Message>{healthMessage(item)}</Message>
+                    <Message>{healthMessage(item, t)}</Message>
                 </StyledLink>
             ))}
         </Content>
@@ -99,14 +101,14 @@ function healthUrlSuffix({ type }: Health) {
     }
 }
 
-function healthMessage({ message, status, type }: Health) {
+function healthMessage({ message, status, type }: Health, t: any) {
     if (message) return message;
     if (status === HealthStatus.Pass) {
         switch (type) {
             case HealthStatusType.Assertions:
-                return 'All assertions are passing';
+                return t('preview.allAssertionsPassing');
             case HealthStatusType.Incidents:
-                return 'No active incidents';
+                return t('preview.noActiveIncidents');
             default:
                 return null;
         }

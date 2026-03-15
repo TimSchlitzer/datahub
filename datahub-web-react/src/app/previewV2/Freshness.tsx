@@ -34,16 +34,16 @@ type Props = {
 
 const descriptors = {
     lastModified: {
-        sectionTitle: 'Last Modified',
-        tooltip: 'Last modified',
+        sectionTitle: 'preview.freshness.lastModified',
+        tooltip: 'preview.freshness.lastModifiedTooltip',
     },
     lastRefreshed: {
-        sectionTitle: 'Data Last Refreshed',
-        tooltip: 'Data last refreshed',
+        sectionTitle: 'preview.freshness.dataLastRefreshed',
+        tooltip: 'preview.freshness.dataLastRefreshedTooltip',
     },
     lastUpdated: {
-        sectionTitle: 'Last Updated',
-        tooltip: 'Last updated',
+        sectionTitle: 'preview.freshness.lastUpdated',
+        tooltip: 'preview.freshness.lastUpdatedTooltip',
     },
 };
 

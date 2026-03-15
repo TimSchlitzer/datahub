@@ -496,7 +496,23 @@
         "invite": "Invite",
         "noResults": "No results",
         "neverExpires": "Never",
-        "no": "No"
+        "no": "No",
+        "close": "Close",
+        "copy": "Copy",
+        "copiedToClipboard": "{{label}} copied to clipboard",
+        "cancel": "Cancel",
+        "create": "Create",
+        "update": "Update",
+        "edit": "Edit",
+        "save": "Save",
+        "description": "Description",
+        "continue": "Continue",
+        "name": "Name",
+        "title": "Title",
+        "type": "Type",
+        "learnMore": "Learn More",
+        "new": "New",
+        "search": "Search"
     },
     "copy": {
         "copyURN": "Copy URN",
@@ -2891,6 +2907,85 @@
             "noAppearanceSettings": "No appearance settings found.",
             "language": "Interface Language",
             "languageDescription": "Choose your preferred display language."
+        },
+        "selectServiceAccount": "Select Service Account",
+        "selectServiceAccountDescription": "Select a service account to create an API token for. The token will be associated with this service account and can be used for programmatic access to DataHub APIs.",
+        "searchServiceAccounts": "Search service accounts...",
+        "noServiceAccountsFound": "No service accounts found. Create a service account first.",
+        "noServiceAccountsMatch": "No service accounts match \"{{query}}\"",
+        "homePage": "Home Page",
+        "posts": {
+            "pageSubtitle": "View and manage pinned announcements and links that appear to all users on the landing page.",
+            "contentType": "Content Type",
+            "announcement": "Announcement",
+            "pinnedLink": "Pinned Link",
+            "titleDescription": "The title for your announcement or link.",
+            "yourTitle": "Your title",
+            "announcementDescription": "The main content for your announcement.",
+            "linkUrl": "Link URL",
+            "linkUrlDescription": "Where users will be redirected when they click the link.",
+            "yourLinkUrl": "Your link URL",
+            "imageUrlOptional": "Image URL (Optional)",
+            "imageUrlDescription": "An optional URL to an image you want to display on your link.",
+            "yourImageUrl": "Your image URL",
+            "linkDescription": "A description for your link.",
+            "createdPost": "Created Post!",
+            "updatedPost": "Updated Post!",
+            "failedToCreatePost": "Failed to create Post! An unexpected error occurred",
+            "unauthorizedToCreatePost": "Unauthorized to create Post. Please contact your DataHub administrator.",
+            "failedToUpdatePost": "Failed to update Post! An unknown error occurred.",
+            "failedToDeletePost": "Failed to delete Post! An unexpected error occurred",
+            "unauthorizedToDeletePost": "Unauthorized to delete Post. Please contact your DataHub administrator.",
+            "deletedPost": "Deleted Post!",
+            "deletePostTitle": "Delete Post '{{title}}'",
+            "deletePostConfirm": "Are you sure you want to remove this Post?",
+            "noPosts": "No posts!",
+            "loadingPosts": "Loading posts...",
+            "failedToLoadPosts": "Failed to load Posts! An unexpected error occurred."
+        },
+        "accessTokens": {
+            "newAccessToken": "New Access Token",
+            "token": "Token",
+            "usage": "Usage",
+            "usageDescription": "To use the token, provide it as a Bearer token in the Authorization header when making API requests:",
+            "curlCommand": "cURL command",
+            "makeSureTokenCopy": "Make sure to copy your access token now. You won't be able to see it again.",
+            "learnMoreText": "To learn more about the DataHub APIs, check out the",
+            "datahubDocs": "DataHub Docs",
+            "tokenNameRequired": "Token name is required",
+            "tokenNameTooLong": "Token name must be 50 characters or less",
+            "failedToCreateToken": "Failed to create token: {{error}}",
+            "createRemoteExecutorToken": "Create Token for Remote Executor",
+            "createAccessTokenFor": "Create Access Token for {{actor}}",
+            "createServiceAccountToken": "Create Service Account Token",
+            "createAccessToken": "Create Access Token",
+            "tokenName": "Token Name",
+            "tokenNameDescription": "Give this token a name to identify it.",
+            "tokenNamePlaceholder": "A name for the token",
+            "optionalDescription": "An optional description for this token.",
+            "descriptionPlaceholder": "A description for the token",
+            "expiresIn": "Expires in"
+        }
+    },
+    "preview": {
+        "viewSummary": "View summary",
+        "downstream": "Downstream",
+        "upstream": "Upstream",
+        "allAssertionsPassing": "All assertions are passing",
+        "noActiveIncidents": "No active incidents",
+        "freshness": {
+            "lastModified": "Last Modified",
+            "lastModifiedTooltip": "Last modified",
+            "dataLastRefreshed": "Data Last Refreshed",
+            "dataLastRefreshedTooltip": "Data last refreshed",
+            "lastUpdated": "Last Updated",
+            "lastUpdatedTooltip": "Last updated"
+        },
+        "entityPaths": {
+            "errorFetching": "Encountered an error while trying to fetch paths. Please try again later.",
+            "columnPath": "Column path{{#count}} from{{/count}}",
+            "column": "{{count}} column{{#count}}s{{/count}}",
+            "clickToSeeColumnPath": "Click to see column path{{#count}} from{{/count}}"
         }
     },
     "share": {
@@ -3167,5 +3262,66 @@
         "failedUnlink": "Error al desvincular: {{error}}",
         "confirmUnlink": "¿Estás seguro?",
         "confirmUnlinkText": "¿Desea desvincular esta versión?"
+    },
+    "homeV3": {
+        "common": {
+            "add": "Agregar",
+            "edit": "Editar",
+            "remove": "Eliminar",
+            "cancel": "Cancelar",
+            "create": "Crear",
+            "update": "Actualizar",
+            "confirm": "Confirmar",
+            "name": "Nombre",
+            "chooseName": "Elija un nombre para su módulo",
+            "nameRequired": "Por favor ingrese el nombre",
+            "noAssets": "Sin Activos",
+            "editModuleToAddAssets": "Edite el módulo y agregue activos para verlos en esta lista"
+        },
+        "announcements": {
+            "showLess": "Mostrar menos",
+            "viewAll": "Ver todo ({{count}})"
+        },
+        "linkForm": {
+            "urlRequired": "Por favor ingrese la URL del enlace",
+            "invalidUrl": "Por favor ingrese una URL válida",
+            "linkLabel": "Enlace",
+            "imageUrlLabel": "URL de Imagen (Opcional)",
+            "imageUrlPlaceholder": "Su URL de imagen",
+            "descriptionLabel": "Descripción (Opcional)",
+            "descriptionPlaceholder": "Agregar descripción..."
+        },
+        "linkModal": {
+            "quickLink": "Enlace Rápido",
+            "subtitle": "Agregue enlaces a su página de inicio"
+        },
+        "hierarchyViewModal": {
+            "hierarchyView": "Vista de Jerarquía",
+            "subtitle": "Cree un módulo seleccionando activos e información que se mostrarán a sus usuarios"
+        },
+        "assetCollectionModal": {
+            "assetCollection": "Colección de Activos",
+            "subtitle": "Cree un módulo seleccionando activos e información que se mostrarán a sus usuarios"
+        },
+        "selectAssetsSection": {
+            "selectAssets": "Seleccionar Activos",
+            "dynamicFilter": "Filtro Dinámico"
+        },
+        "documentationModal": {
+            "documentation": "Documentación",
+            "subtitle": "Documente información importante para sus usuarios"
+        },
+        "moduleMenu": {
+            "defaultModulesNotEditable": "Los módulos predeterminados no se pueden editar",
+            "removeModuleTitle": "¿Eliminar Módulo?",
+            "removeModuleConfirmAdmin": "¿Está seguro de que desea eliminar este módulo? Puede volver a agregarlo más tarde desde la sección Valores por Defecto del Hogar al agregar un nuevo módulo.",
+            "removeModuleConfirmUser": "¿Está seguro de que desea eliminar este módulo? Siempre puede crear uno nuevo más tarde si lo necesita."
+        },
+        "editHomePageSettingsButton": {
+            "editOrganizationDefault": "Editar Valor Predeterminado de la Organización",
+            "resetToOrganizationDefault": "Restablecer al Valor Predeterminado de la Organización",
+            "confirmResetTitle": "Confirmar restablecimiento a plantilla predeterminada",
+            "confirmResetMessage": "¿Está seguro de que desea restablecer su página de inicio a la plantilla predeterminada de la organización? Perderá todos sus módulos personales."
+        }
     }
 }

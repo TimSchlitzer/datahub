@@ -1,5 +1,6 @@
 import { InfiniteScrollList } from '@components';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import EmptyContent from '@app/homeV3/module/components/EmptyContent';
@@ -21,6 +22,7 @@ const ContentWrapper = styled.div`
 const DEFAULT_PAGE_SIZE = 10;
 
 const AssetCollectionModule = (props: ModuleProps) => {
+    const { t } = useTranslation();
     const [isFirstFetch, setIsFirstFetch] = useState(true);
     const assetUrns = useMemo(
         () =>
@@ -172,8 +174,8 @@ const AssetCollectionModule = (props: ModuleProps) => {
                     emptyState={
                         <EmptyContent
                             icon="Stack"
-                            title="No Assets"
-                            description="Edit the module and add assets to see them in this list"
+                            title={t('homeV3.common.noAssets')}
+                            description={t('homeV3.common.editModuleToAddAssets')}
                         />
                     }
                     totalItemCount={totalForInfiniteScroll}

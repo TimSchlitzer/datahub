@@ -505,7 +505,23 @@
         "invite": "Convidar",
         "noResults": "Sem resultados",
         "neverExpires": "Nunca expira",
-        "no": "Não"
+        "no": "Não",
+        "close": "Fechar",
+        "copy": "Copiar",
+        "copiedToClipboard": "{{label}} copiado para a área de transferência",
+        "cancel": "Cancelar",
+        "create": "Criar",
+        "update": "Atualizar",
+        "edit": "Editar",
+        "save": "Salvar",
+        "description": "Descrição",
+        "continue": "Continuar",
+        "name": "Nome",
+        "title": "Título",
+        "type": "Tipo",
+        "learnMore": "Saiba mais",
+        "new": "Novo",
+        "search": "Pesquisar"
     },
     "copy": {
         "copyURN": "Copiar URN",
@@ -2994,6 +3010,85 @@
             "noAppearanceSettings": "Nenhuma configuração de aparência disponível.",
             "language": "Idioma",
             "languageDescription": "Selecione o idioma preferido para a interface."
+        },
+        "selectServiceAccount": "Selecionar Conta de Serviço",
+        "selectServiceAccountDescription": "Selecione uma conta de serviço para criar um token de API. O token será associado a esta conta de serviço e poderá ser usado para acesso programático às APIs do DataHub.",
+        "searchServiceAccounts": "Pesquisar contas de serviço...",
+        "noServiceAccountsFound": "Nenhuma conta de serviço encontrada. Crie uma conta de serviço primeiro.",
+        "noServiceAccountsMatch": "Nenhuma conta de serviço coincide com \"{{query}}\"",
+        "homePage": "Página Inicial",
+        "posts": {
+            "pageSubtitle": "Veja e gerencie anúncios e links fixados que aparecem para todos os usuários na página de destino.",
+            "contentType": "Tipo de Conteúdo",
+            "announcement": "Anúncio",
+            "pinnedLink": "Link Fixado",
+            "titleDescription": "O título do seu anúncio ou link.",
+            "yourTitle": "Seu título",
+            "announcementDescription": "O conteúdo principal do seu anúncio.",
+            "linkUrl": "URL do Link",
+            "linkUrlDescription": "Para onde os usuários serão redirecionados quando clicarem no link.",
+            "yourLinkUrl": "Sua URL de link",
+            "imageUrlOptional": "URL da Imagem (Opcional)",
+            "imageUrlDescription": "Uma URL opcional para uma imagem que você deseja exibir no seu link.",
+            "yourImageUrl": "Sua URL de imagem",
+            "linkDescription": "Uma descrição para seu link.",
+            "createdPost": "Postagem Criada!",
+            "updatedPost": "Postagem Atualizada!",
+            "failedToCreatePost": "Falha ao criar postagem! Ocorreu um erro inesperado",
+            "unauthorizedToCreatePost": "Não autorizado a criar postagem. Contacte seu administrador do DataHub.",
+            "failedToUpdatePost": "Falha ao atualizar postagem! Ocorreu um erro desconhecido.",
+            "failedToDeletePost": "Falha ao excluir postagem! Ocorreu um erro inesperado",
+            "unauthorizedToDeletePost": "Não autorizado a excluir postagem. Contacte seu administrador do DataHub.",
+            "deletedPost": "Postagem Excluída!",
+            "deletePostTitle": "Excluir Postagem '{{title}}'",
+            "deletePostConfirm": "Tem certeza de que deseja remover esta postagem?",
+            "noPosts": "Nenhuma postagem!",
+            "loadingPosts": "Carregando postagens...",
+            "failedToLoadPosts": "Falha ao carregar postagens! Ocorreu um erro inesperado."
+        },
+        "accessTokens": {
+            "newAccessToken": "Novo Token de Acesso",
+            "token": "Token",
+            "usage": "Uso",
+            "usageDescription": "Para usar o token, fornça-o como token Bearer no cabeçalho de Autorização ao fazer solicitações de API:",
+            "curlCommand": "comando cURL",
+            "makeSureTokenCopy": "Certifique-se de copiar seu token de acesso agora. Você não poderá vê-lo novamente.",
+            "learnMoreText": "Para saber mais sobre as APIs do DataHub, confira",
+            "datahubDocs": "Documentação do DataHub",
+            "tokenNameRequired": "Nome do token é obrigatório",
+            "tokenNameTooLong": "O nome do token deve ter no máximo 50 caracteres",
+            "failedToCreateToken": "Falha ao criar token: {{error}}",
+            "createRemoteExecutorToken": "Criar Token para Executor Remoto",
+            "createAccessTokenFor": "Criar Token de Acesso para {{actor}}",
+            "createServiceAccountToken": "Criar Token de Conta de Serviço",
+            "createAccessToken": "Criar Token de Acesso",
+            "tokenName": "Nome do Token",
+            "tokenNameDescription": "Dê um nome ao seu token para identificá-lo.",
+            "tokenNamePlaceholder": "Um nome para o token",
+            "optionalDescription": "Uma descrição opcional para este token.",
+            "descriptionPlaceholder": "Uma descrição para o token",
+            "expiresIn": "Expira em"
+        }
+    },
+    "preview": {
+        "viewSummary": "Ver resumo",
+        "downstream": "Downstream",
+        "upstream": "Upstream",
+        "allAssertionsPassing": "Todas as afirmações passando",
+        "noActiveIncidents": "Sem incidentes ativos",
+        "freshness": {
+            "lastModified": "Última Modificação",
+            "lastModifiedTooltip": "Última modificação",
+            "dataLastRefreshed": "Dados Atualizados pela Última Vez",
+            "dataLastRefreshedTooltip": "Dados atualizados pela última vez",
+            "lastUpdated": "Última Atualização",
+            "lastUpdatedTooltip": "Última atualização"
+        },
+        "entityPaths": {
+            "errorFetching": "Ocorreu um erro ao tentar buscar caminhos. Tente novamente mais tarde.",
+            "columnPath": "Caminho da coluna{{#count}} de{{/count}}",
+            "column": "{{count}} coluna{{#count}}s{{/count}}",
+            "clickToSeeColumnPath": "Clique para ver o caminho da coluna{{#count}} de{{/count}}"
         }
     },
     "share": {
@@ -3236,6 +3331,67 @@
                 "graphqlDesc": "Explore a API GraphQL",
                 "openapi": "OpenAPI",
                 "openapiDesc": "Explore os endpoints OpenAPI"
+            }
+        },
+        "homeV3": {
+            "common": {
+                "add": "Adicionar",
+                "edit": "Editar",
+                "remove": "Remover",
+                "cancel": "Cancelar",
+                "create": "Criar",
+                "update": "Atualizar",
+                "confirm": "Confirmar",
+                "name": "Nome",
+                "chooseName": "Escolha um nome para seu módulo",
+                "nameRequired": "Por favor, insira o nome",
+                "noAssets": "Nenhum Ativo",
+                "editModuleToAddAssets": "Edite o módulo e adicione ativos para vê-los nesta lista"
+            },
+            "announcements": {
+                "showLess": "Mostrar menos",
+                "viewAll": "Ver tudo ({{count}})"
+            },
+            "linkForm": {
+                "urlRequired": "Por favor, insira a URL do link",
+                "invalidUrl": "Por favor, insira uma URL válida",
+                "linkLabel": "Link",
+                "imageUrlLabel": "URL da Imagem (Opcional)",
+                "imageUrlPlaceholder": "Sua URL de imagem",
+                "descriptionLabel": "Descrição (Opcional)",
+                "descriptionPlaceholder": "Adicionar descrição..."
+            },
+            "linkModal": {
+                "quickLink": "Link Rápido",
+                "subtitle": "Adicione links à sua página inicial"
+            },
+            "hierarchyViewModal": {
+                "hierarchyView": "Visualização de Hierarquia",
+                "subtitle": "Crie um módulo selecionando ativos e informações que serão mostrados aos seus usuários"
+            },
+            "assetCollectionModal": {
+                "assetCollection": "Coleção de Ativos",
+                "subtitle": "Crie um módulo selecionando ativos e informações que serão mostrados aos seus usuários"
+            },
+            "selectAssetsSection": {
+                "selectAssets": "Selecionar Ativos",
+                "dynamicFilter": "Filtro Dinâmico"
+            },
+            "documentationModal": {
+                "documentation": "Documentação",
+                "subtitle": "Documente informações importantes para seus usuários"
+            },
+            "moduleMenu": {
+                "defaultModulesNotEditable": "Os módulos padrão não são editáveis",
+                "removeModuleTitle": "Remover Módulo?",
+                "removeModuleConfirmAdmin": "Tem certeza de que deseja remover este módulo? Você pode adicioná-lo novamente mais tarde na seção Padrões de Página Inicial ao adicionar um novo módulo.",
+                "removeModuleConfirmUser": "Tem certeza de que deseja remover este módulo? Você sempre pode criar um novo mais tarde, se necessário."
+            },
+            "editHomePageSettingsButton": {
+                "editOrganizationDefault": "Editar Padrão da Organização",
+                "resetToOrganizationDefault": "Redefinir para Padrão da Organização",
+                "confirmResetTitle": "Confirmar redefinição para modelo padrão",
+                "confirmResetMessage": "Tem certeza de que deseja redefinir sua página inicial para o modelo padrão da organização? Você perderá todos os seus módulos pessoais."
             }
         }
     }

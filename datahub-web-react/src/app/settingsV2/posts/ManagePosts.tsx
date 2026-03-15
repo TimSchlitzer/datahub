@@ -1,5 +1,6 @@
 import { PageTitle } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { PostList } from '@app/settingsV2/posts/PostsList';
@@ -20,11 +21,12 @@ const ListContainer = styled.div`
 `;
 
 export default function ManagePosts() {
+    const { t } = useTranslation();
     return (
         <PageContainer data-testid="managePostsV2">
             <PageTitle
-                title="Home Page"
-                subTitle="View and manage pinned announcements and links that appear to all users on the landing page."
+                title={t('settings.homePage')}
+                subTitle={t('settings.posts.pageSubtitle')}
             />
             <ListContainer>
                 <PostList />

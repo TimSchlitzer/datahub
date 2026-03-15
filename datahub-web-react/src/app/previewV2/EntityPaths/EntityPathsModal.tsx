@@ -1,5 +1,6 @@
 import { Modal, Skeleton } from 'antd';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -39,6 +40,7 @@ interface Props {
 }
 
 export default function EntityPathsModal({ paths, resultEntityUrn, hideModal }: Props) {
+    const { t } = useTranslation();
     const { lineageDirection } = useContext(LineageTabContext);
     const displayedColumns = getDisplayedColumns(paths, resultEntityUrn);
 
@@ -57,7 +59,7 @@ export default function EntityPathsModal({ paths, resultEntityUrn, hideModal }: 
     const fetchedEntities = result?.entities;
 
     const loadedState = error ? (
-        <ErrorContainer>Encountered an error while trying to fetch paths. Please try again later.</ErrorContainer>
+        <ErrorContainer>{t('preview.entityPaths.errorFetching')}</ErrorContainer>
     ) : (
         paths.map((path, i) => {
             const entities: Entity[] = (
@@ -83,7 +85,7 @@ export default function EntityPathsModal({ paths, resultEntityUrn, hideModal }: 
             data-testid="entity-paths-modal"
             title={
                 <Header>
-                    Column path{paths.length > 1 && 's'} from{' '}
+                    {t('preview.entityPaths.columnPath', { count: paths.length })}{' '}
                     <ColumnsRelationshipText displayedColumns={displayedColumns} />
                 </Header>
             }
