@@ -1415,7 +1415,18 @@
         "failedToFindRendererCorrespondingToRenderType": "Failed to find renderer corresponding to renderType {{name}}",
         "pageNotFound": "The page your requested was not found",
         "sidebarFailedToLoad": "The sidebar failed to load.",
-        "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided."
+        "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided.",
+        "view": {
+            "onlyVisibleToYou": "Only visible to you",
+            "visibleToEveryone": "Visible to everyone",
+            "public": "Public",
+            "private": "Private",
+            "myViews": "My Views",
+            "publicViews": "Public Views",
+            "title": "Views",
+            "subTitle": "Create, edit, and remove your Views. Views allow you to save and share sets of filters for reuse when browsing DataHub.",
+            "createView": "Create View"
+        }
     },
     "filter": {
         "basicFilters": "Basic Filters",

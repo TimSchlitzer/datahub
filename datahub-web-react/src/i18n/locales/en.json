@@ -1457,7 +1457,12 @@
             "onlyVisibleToYou": "Only visible to you",
             "visibleToEveryone": "Visible to everyone",
             "public": "Public",
-            "private": "Private"
+            "private": "Private",
+            "myViews": "My Views",
+            "publicViews": "Public Views",
+            "title": "Views",
+            "subTitle": "Create, edit, and remove your Views. Views allow you to save and share sets of filters for reuse when browsing DataHub.",
+            "createView": "Create View"
         }
     },
     "entityDropdown": {

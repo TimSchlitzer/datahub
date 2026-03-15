@@ -1436,7 +1436,18 @@
         "failedToFindRendererCorrespondingToRenderType": "Falha ao encontrar o renderizador correspondente ao tipo de renderização {{name}}",
         "pageNotFound": "A página que você solicitou não foi encontrada",
         "sidebarFailedToLoad": "A barra lateral falhou ao carregar.",
-        "unsupportedTestResultType": "Tipo de Resultado de Teste {{result}} fornecido não suportado."
+        "unsupportedTestResultType": "Tipo de Resultado de Teste {{result}} fornecido não suportado.",
+        "view": {
+            "onlyVisibleToYou": "Visível apenas para você",
+            "visibleToEveryone": "Visível para todos",
+            "public": "Público",
+            "private": "Privado",
+            "myViews": "Minhas Visualizações",
+            "publicViews": "Visualizações Públicas",
+            "title": "Visualizações",
+            "subTitle": "Criar, editar e remover suas Visualizações. As Visualizações permitem que você salve e compartilhe conjuntos de filtros para reutilização ao navegar no DataHub.",
+            "createView": "Criar Visualização"
+        }
     },
     "entityDropdown": {
         "copyUrl": "Copiar URL",

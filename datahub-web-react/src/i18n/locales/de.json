@@ -1420,7 +1420,12 @@
             "onlyVisibleToYou": "Nur für Sie sichtbar",
             "visibleToEveryone": "Für alle sichtbar",
             "public": "Öffentlich",
-            "private": "Privat"
+            "private": "Privat",
+            "myViews": "Meine Ansichten",
+            "publicViews": "Öffentliche Ansichten",
+            "title": "Ansichten",
+            "subTitle": "Erstellen, bearbeiten und entfernen Sie Ihre Ansichten. Mit Ansichten können Sie Sätze von Filtern speichern und für die Wiederverwendung beim Durchsuchen von DataHub freigeben.",
+            "createView": "Ansicht erstellen"
         }
     },
     "entityDropdown": {
