@@ -1,5 +1,6 @@
 import { Icon, colors } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -25,10 +26,11 @@ interface Props {
 }
 
 export default function HomePill({ showText }: Props) {
+    const { t } = useTranslation();
     return (
         <Wrapper>
             <StyledIcon icon="House" source="phosphor" weight="fill" size="lg" />
-            {showText && 'Home'}
+            {showText && t('lineage.home')}
         </Wrapper>
     );
 }

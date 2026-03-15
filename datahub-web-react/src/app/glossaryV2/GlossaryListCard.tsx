@@ -1,6 +1,7 @@
 import { BookmarkSimple, BookmarksSimple } from '@phosphor-icons/react';
 import { Tooltip } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { GenericEntityProperties } from '@app/entity/shared/types';
@@ -157,6 +158,7 @@ interface Props {
 }
 
 const GlossaryListCard = (props: Props) => {
+    const { t } = useTranslation();
     const { name, description, type, entityData } = props;
     const isDescriptionTruncated = description && description.length > MAX_DESCRIPTION_LENGTH;
     const truncatedDescription = description?.slice(0, MAX_DESCRIPTION_LENGTH);
@@ -205,7 +207,10 @@ const GlossaryListCard = (props: Props) => {
             {type === EntityType.GlossaryNode ? (
                 <Icons>
                     <Tooltip
-                        title={`Contains ${props.nodeCount} ${props.nodeCount === 1 ? 'term group' : 'term groups'}`}
+                        title={`${t('glossary.contains', {
+                            count: props.nodeCount,
+                            label: props.nodeCount === 1 ? 'term group' : 'term groups'
+                        })}`}
                         placement="top"
                         showArrow={false}
                     >
@@ -219,7 +224,10 @@ const GlossaryListCard = (props: Props) => {
                         </GlossaryItemCount>
                     </Tooltip>
                     <Tooltip
-                        title={`Contains ${props.termCount} ${props.termCount === 1 ? 'term' : 'terms'}`}
+                        title={`${t('glossary.contains', {
+                            count: props.termCount,
+                            label: props.termCount === 1 ? 'term' : 'terms'
+                        })}`}
                         placement="top"
                         showArrow={false}
                     >

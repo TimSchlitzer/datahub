@@ -2,6 +2,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import { Form } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import AllowedValuesDrawer from '@app/govern/structuredProperties/AllowedValuesDrawer';
 import StructuredPropsForm from '@app/govern/structuredProperties/StructuredPropsForm';
@@ -64,6 +65,7 @@ const StructuredPropsDrawer = ({
     handleAddProperty,
     handleUpdateProperty,
 }: Props) => {
+    const { t } = useTranslation();
     const [form] = Form.useForm();
     const [valuesForm] = Form.useForm();
     const me = useUserContext();
@@ -108,11 +110,13 @@ const StructuredPropsDrawer = ({
     };
 
     const showErrorMessage = () => {
-        showToastMessage(ToastType.ERROR, `Failed to ${isEditMode ? 'update' : 'create'} structured property.`, 3);
+        const message = isEditMode ? t('govern.structuredProperties.failedUpdate') : t('govern.structuredProperties.failedCreate');
+        showToastMessage(ToastType.ERROR, message, 3);
     };
 
     const showSuccessMessage = () => {
-        showToastMessage(ToastType.SUCCESS, `Structured property ${isEditMode ? 'updated' : 'created'}!`, 3);
+        const message = isEditMode ? t('govern.structuredProperties.successUpdate') : t('govern.structuredProperties.successCreate');
+        showToastMessage(ToastType.SUCCESS, message, 3);
     };
 
     const { reloadByKeyType } = useReloadableContext();

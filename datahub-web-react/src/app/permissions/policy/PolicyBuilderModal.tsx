@@ -1,5 +1,6 @@
 import { Steps } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import PolicyActorForm from '@app/permissions/policy/PolicyActorForm';
@@ -56,6 +57,7 @@ const NextButtonContainer = styled.div`
  * object through a sequence of steps.
  */
 export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, onSave, focusPolicyUrn }: Props) {
+    const { t } = useTranslation();
     // Step control-flow.
     const [activeStepIndex, setActiveStepIndex] = useState(0);
     const [selectedTags, setSelectedTags] = useState<any[]>([]);
@@ -90,7 +92,7 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
     // Step 1: Choose Policy Type
     const typeStep = () => {
         return {
-            title: 'Choose Policy Type',
+            title: t('permissions.policyBuilderSteps.choosePolicyType'),
             content: (
                 <PolicyTypeForm
                     policyType={policy.type}
@@ -107,7 +109,7 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
 
     // Step 2: Select privileges step.
     const privilegeStep = () => ({
-        title: 'Configure Privileges',
+        title: t('permissions.policyBuilderSteps.configurePrivileges'),
         content: (
             <PolicyPrivilegeForm
                 focusPolicyUrn={focusPolicyUrn}
@@ -131,7 +133,7 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
     // Step 3: Assign Actors Step
     const actorStep = () => {
         return {
-            title: 'Assign Users & Groups',
+            title: t('permissions.policyBuilderSteps.assignUserAndGroups'),
             content: (
                 <PolicyActorForm
                     policyType={policy.type}
@@ -169,7 +171,7 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
         <ClickOutside onClickOutside={() => setShowConfirmationModal(true)} wrapperClassName="PolicyBuilderModal">
             <Modal
                 wrapClassName="PolicyBuilderModal"
-                title={isEditing ? 'Edit a Policy' : 'Create a new Policy'}
+                title={isEditing ? t('permissions.editAPolicy') : t('permissions.createANewPolicy')}
                 open={open}
                 onCancel={onClose}
                 closable
@@ -192,19 +194,19 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
                     <PrevButtonContainer>
                         {activeStepIndex > 0 && (
                             <Button variant="outline" color="gray" onClick={() => prev()}>
-                                Previous
+                                {t('permissions.previous')}
                             </Button>
                         )}
                     </PrevButtonContainer>
                     <NextButtonContainer>
                         {activeStepIndex < policySteps.length - 1 && activeStep.complete && (
                             <Button id="nextButton" onClick={() => next()}>
-                                Next
+                                {t('permissions.next')}
                             </Button>
                         )}
                         {activeStepIndex === policySteps.length - 1 && activeStep.complete && (
                             <Button id="saveButton" onClick={onSavePolicy}>
-                                Save
+                                {t('permissions.save')}
                             </Button>
                         )}
                     </NextButtonContainer>
@@ -219,9 +221,9 @@ export default function PolicyBuilderModal({ policy, setPolicy, open, onClose, o
                     setShowConfirmationModal(false);
                     onClose();
                 }}
-                modalTitle="Exit Policy Editor"
-                modalText="Are you sure you want to exit policy editor? All changes will be lost"
-                confirmButtonText="Yes"
+                modalTitle={t('permissions.exitPolicyEditorTitle')}
+                modalText={t('permissions.exitPolicyEditorContent')}
+                confirmButtonText={t('permissions.yes')}
             />
         </ClickOutside>
     );

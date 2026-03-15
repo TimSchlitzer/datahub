@@ -3,6 +3,7 @@ import { Button } from '@components';
 import { Input, InputRef } from 'antd';
 import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useDebounce } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import { Panel } from 'reactflow';
 import styled from 'styled-components';
 
@@ -47,6 +48,7 @@ const VerticalDivider = styled.hr<{ margin: number }>`
 `;
 
 export default function SearchControl() {
+    const { t } = useTranslation();
     const { searchQuery, setSearchQuery, setSearchedEntity } = useContext(LineageVisualizationContext);
     const [isFocused, setIsFocused] = useState(false);
 
@@ -83,7 +85,7 @@ export default function SearchControl() {
                     if (e.shiftKey) prev();
                     else next();
                 }}
-                placeholder={isOpen ? 'Search Graph' : undefined}
+                placeholder={isOpen ? t('lineage.searchGraph') : undefined}
                 width={isOpen ? 330 : 40}
                 prefix={isOpen ? <OpenSearchIcon /> : <ClosedSearchIcon />}
                 suffix={

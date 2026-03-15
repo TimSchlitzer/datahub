@@ -1,5 +1,6 @@
 import { Button, PageTitle, SearchBar, Tooltip } from '@components';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'react-use';
 
 import StructuredPropsDrawer from '@app/govern/structuredProperties/StructuredPropsDrawer';
@@ -24,6 +25,7 @@ import { Entity, EntityType, SortOrder, StructuredPropertyEntity } from '@src/ty
 const MAX_PROPERTIES_TO_FETCH = 20;
 
 const StructuredProperties = () => {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [debouncedQuery, setDebouncedQuery] = useState<string>('');
@@ -127,16 +129,16 @@ const StructuredProperties = () => {
             <HeaderContainer>
                 <HeaderContent>
                     <PageTitle
-                        title="Structured Properties"
+                        title={t('govern.structuredProperties.title')}
                         pillLabel={totalCount ? totalCount.toString() : undefined}
-                        subTitle="Create and manage custom properties for your data assets"
+                        subTitle={t('govern.structuredProperties.subtitle')}
                     />
                 </HeaderContent>
                 <Tooltip
                     showArrow={false}
                     title={
                         !canEditProps
-                            ? 'Must have permission to manage structured properties. Ask your DataHub administrator.'
+                            ? t('govern.structuredProperties.createPermissionError')
                             : null
                     }
                 >
@@ -150,13 +152,13 @@ const StructuredProperties = () => {
                                 analytics.event({ type: EventType.CreateStructuredPropertyClickEvent });
                             }}
                         >
-                            Create
+                            {t('govern.structuredProperties.createButton')}
                         </Button>
                     </ButtonContainer>
                 </Tooltip>
             </HeaderContainer>
             <SearchBar
-                placeholder="Search"
+                placeholder={t('govern.structuredProperties.searchPlaceholder')}
                 value={searchQuery}
                 onChange={(value) => handleSearch(value)}
                 width="272px"

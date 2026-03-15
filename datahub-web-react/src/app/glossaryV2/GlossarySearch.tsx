@@ -1,6 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { SearchBar } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useDebounce } from 'react-use';
 import styled from 'styled-components/macro';
@@ -64,6 +65,7 @@ const IconWrapper = styled.span`
 `;
 
 function GlossarySearch() {
+    const { t } = useTranslation();
     const [searchInput, setSearchInput] = useState('');
     const [query, setQuery] = useState('');
     const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
@@ -88,7 +90,7 @@ function GlossarySearch() {
             <ClickOutside onClickOutside={() => setIsSearchBarFocused(false)}>
                 <InputWrapper>
                     <SearchBar
-                        placeholder="Search"
+                        placeholder={t('glossary.search')}
                         value={searchInput}
                         onChange={setSearchInput}
                         onFocus={() => setIsSearchBarFocused(true)}

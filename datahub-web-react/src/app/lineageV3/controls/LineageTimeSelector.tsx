@@ -3,6 +3,7 @@ import { Tooltip } from '@components';
 import { Button, DatePicker, Space, Typography } from 'antd';
 import moment from 'moment';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -40,6 +41,7 @@ export type Props = {
 };
 
 export default function LineageTimeSelector({ onChange, startTimeMillis, endTimeMillis }: Props) {
+    const { t } = useTranslation();
     const [startDate, setStartDate] = useState<Datetime>(startTimeMillis ? moment(startTimeMillis) : null);
     const [endDate, setEndDate] = useState<Datetime>(endTimeMillis ? moment(endTimeMillis) : null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -86,11 +88,11 @@ export default function LineageTimeSelector({ onChange, startTimeMillis, endTime
     return (
         <>
             {showText ? ( // Conditionally render All Time selection
-                <Tooltip title="Filter lineage edges by observed date" placement="topLeft" showArrow={false}>
+                <Tooltip title={t('lineage.filterLineageByObservedDate')} placement="topLeft" showArrow={false}>
                     <Button type="text" onClick={() => handleOpenChange(true)}>
                         <CalendarOutlined style={{ marginRight: '4px' }} />
                         <Typography.Text>
-                            <b>{getTimeRangeDescription(startDate, endDate)}</b>
+                            <b>{getTimeRangeDescription(startDate, endDate, t)}</b>
                         </Typography.Text>
                         <CaretDownOutlined style={{ fontSize: '10px' }} />
                     </Button>
@@ -110,13 +112,13 @@ export default function LineageTimeSelector({ onChange, startTimeMillis, endTime
                         renderExtraFooter={() => (
                             <ConfirmButtonWrapper>
                                 <ConfirmButton type="text" onClick={() => handleOpenChange(false)}>
-                                    <b>Confirm</b>
+                                    <b>{t('lineage.confirm')}</b>
                                 </ConfirmButton>
                             </ConfirmButtonWrapper>
                         )}
                         format="ll"
                         ranges={Object.fromEntries(
-                            ranges.map(([start, end]) => [getTimeRangeDescription(start, end), [start, end]]),
+                            ranges.map(([start, end]) => [getTimeRangeDescription(start, end, t), [start, end]]),
                         )}
                         onChange={handleRangeChange}
                         onOpenChange={handleOpenChange}
@@ -128,22 +130,23 @@ export default function LineageTimeSelector({ onChange, startTimeMillis, endTime
     );
 }
 
-function getTimeRangeDescription(startDate: moment.Moment | null, endDate: moment.Moment | null): string {
+function getTimeRangeDescription(startDate: moment.Moment | null, endDate: moment.Moment | null, t?: any): string {
+    const i18n = t || ((key: string) => key);
     if (!startDate && !endDate) {
-        return 'All Time';
+        return i18n('lineage.allTime');
     }
 
     if (!startDate && endDate) {
-        return `Until ${endDate.format('ll')}`;
+        return i18n('lineage.until', { date: endDate.format('ll') });
     }
 
     if (startDate && !endDate) {
         const dayDiff = moment().diff(startDate, 'days');
         if (dayDiff <= 30) {
-            return `Last ${dayDiff} days`;
+            return i18n('lineage.last', { count: dayDiff });
         }
-        return `From ${startDate.format('ll')}`;
+        return i18n('lineage.from', { date: startDate.format('ll') });
     }
 
-    return 'Unknown time range';
+    return i18n('lineage.unknownTimeRange');
 }

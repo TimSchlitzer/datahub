@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Button, Divider } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Panel, useReactFlow } from 'reactflow';
 import styled from 'styled-components';
 
@@ -56,6 +57,7 @@ const ControlsColumn = styled.div``;
 type PanelType = 'filters' | 'timeRange';
 
 export default function LineageControls() {
+    const { t } = useTranslation();
     const { rootUrn, hideTransformations, showDataProcessInstances, showGhostEntities } =
         useContext(LineageNodesContext);
     const { isTabFullsize, setTabFullsize } = useContext(TabFullsizedContext);
@@ -84,7 +86,7 @@ export default function LineageControls() {
                 <StyledControlsPanel isExpanded={isExpanded}>
                     <StyledPanelButton type="text" onClick={() => setIsExpanded(!isExpanded)}>
                         <VerticalLeftOutlined rotate={isExpanded ? 180 : 0} />
-                        {showExpandedText ? 'Hide Menu' : null}
+                        {showExpandedText ? t('lineage.hideMenu') : null}
                     </StyledPanelButton>
                     <StyledDivider />
                     <StyledPanelButton
@@ -94,7 +96,7 @@ export default function LineageControls() {
                         }}
                     >
                         <HomeOutlined />
-                        {showExpandedText ? 'Focus on Home' : null}
+                        {showExpandedText ? t('lineage.focusOnHome') : null}
                     </StyledPanelButton>
                     <StyledDivider />
                     <StyledPanelButton
@@ -111,7 +113,7 @@ export default function LineageControls() {
                                         : undefined,
                             }}
                         />
-                        {showExpandedText ? 'Filter' : null}
+                        {showExpandedText ? t('lineage.filter') : null}
                     </StyledPanelButton>
                     <StyledPanelButton
                         type="text"
@@ -122,7 +124,7 @@ export default function LineageControls() {
                         <CalendarOutlined
                             style={{ color: isLineageTimeUnchanged ? undefined : REDESIGN_COLORS.BLUE }}
                         />
-                        {showExpandedText ? 'Time Range' : null}
+                        {showExpandedText ? t('lineage.timeRange') : null}
                     </StyledPanelButton>
                     <StyledDivider />
                     <DownloadLineageScreenshotButton showExpandedText={showExpandedText} />

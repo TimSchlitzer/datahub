@@ -2,6 +2,7 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { useReactiveVar } from '@apollo/client';
 import { Button, Form, Image, Input, Select, message } from 'antd';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router-dom';
 import styled, { useTheme } from 'styled-components/macro';
 
@@ -68,6 +69,7 @@ const StyledFormItem = styled(Form.Item)`
 export type SignUpProps = Record<string, never>;
 
 export const SignUp: React.VFC<SignUpProps> = () => {
+    const { t } = useTranslation();
     const history = useHistory();
     const isLoggedIn = useReactiveVar(isLoggedInVar);
     const inviteToken = useGetInviteTokenFromUrlParams();
@@ -89,7 +91,7 @@ export const SignUp: React.VFC<SignUpProps> = () => {
             .then(({ errors }) => {
                 if (!errors) {
                     message.success({
-                        content: `Accepted invite!`,
+                        content: t('auth.acceptedInvite'),
                         duration: 2,
                     });
                 }
@@ -97,7 +99,7 @@ export const SignUp: React.VFC<SignUpProps> = () => {
             .catch((e) => {
                 message.destroy();
                 message.error({
-                    content: `Failed to accept invite: \n ${e.message || ''}`,
+                    content: t('auth.failedAcceptInvite', { error: e.message || '' }),
                     duration: 3,
                 });
             });
@@ -130,7 +132,7 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                     return Promise.resolve();
                 })
                 .catch((_) => {
-                    message.error(`Failed to log in! An unexpected error occurred.`);
+                    message.error(t('auth.failedToLogInUnexpected'));
                 })
                 .finally(() => setLoading(false));
         },
@@ -151,32 +153,32 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                     <Image wrapperClassName={styles.logo_image} src={themeConfig.assets?.logoUrl} preview={false} />
                 </div>
                 <div className={styles.login_form_box}>
-                    {loading && <Message type="loading" content="Signing up..." />}
+                    {loading && <Message type="loading" content={t('auth.signingUp')} />}
                     <Form onFinish={handleSignUp} layout="vertical">
                         <StyledFormItem
-                            rules={[{ required: true, message: 'Please fill in your email' }]}
+                            rules={[{ required: true, message: t('auth.emailError') }]}
                             name="email"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Email</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.email')}</label>}
                         >
                             <FormInput prefix={<UserOutlined />} data-testid="email" />
                         </StyledFormItem>
                         <StyledFormItem
-                            rules={[{ required: true, message: 'Please fill in your name' }]}
+                            rules={[{ required: true, message: t('auth.fullNameError') }]}
                             name="fullName"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Full Name</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.fullName')}</label>}
                         >
                             <FormInput prefix={<UserOutlined />} data-testid="name" />
                         </StyledFormItem>
                         <StyledFormItem
                             rules={[
-                                { required: true, message: 'Please fill in your password' },
+                                { required: true, message: t('auth.passwordError') },
                                 ({ getFieldValue }) => ({
                                     validator() {
                                         if (getFieldValue('password').length < 8) {
                                             return Promise.reject(
-                                                new Error('Your password is fewer than 8 characters'),
+                                                new Error(t('auth.passwordLengthError')),
                                             );
                                         }
                                         return Promise.resolve();
@@ -185,17 +187,17 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                             ]}
                             name="password"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Password</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.password')}</label>}
                         >
                             <FormInput prefix={<LockOutlined />} type="password" data-testid="password" />
                         </StyledFormItem>
                         <StyledFormItem
                             rules={[
-                                { required: true, message: 'Please confirm your password' },
+                                { required: true, message: t('auth.confirmPasswordError') },
                                 ({ getFieldValue }) => ({
                                     validator() {
                                         if (getFieldValue('confirmPassword') !== getFieldValue('password')) {
-                                            return Promise.reject(new Error('Your passwords do not match'));
+                                            return Promise.reject(new Error(t('auth.confirmPasswordError')));
                                         }
                                         return Promise.resolve();
                                     },
@@ -203,24 +205,24 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                             ]}
                             name="confirmPassword"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Confirm Password</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.confirmPassword')}</label>}
                         >
                             <FormInput prefix={<LockOutlined />} type="password" data-testid="confirmPassword" />
                         </StyledFormItem>
                         <StyledFormItem
-                            rules={[{ required: true, message: 'Please fill in your title!' }]}
+                            rules={[{ required: true, message: t('auth.titleError') }]}
                             name="title"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Title</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.title')}</label>}
                         >
-                            <TitleSelector placeholder="Title">
-                                <Select.Option value="Data Analyst">Data Analyst</Select.Option>
-                                <Select.Option value="Data Engineer">Data Engineer</Select.Option>
-                                <Select.Option value="Data Scientist">Data Scientist</Select.Option>
-                                <Select.Option value="Software Engineer">Software Engineer</Select.Option>
-                                <Select.Option value="Manager">Manager</Select.Option>
-                                <Select.Option value="Product Manager">Product Manager</Select.Option>
-                                <Select.Option value="Other">Other</Select.Option>
+                            <TitleSelector placeholder={t('auth.titlePlaceholder')}>
+                                <Select.Option value="Data Analyst">{t('auth.dataAnalyst')}</Select.Option>
+                                <Select.Option value="Data Engineer">{t('auth.dataEngineer')}</Select.Option>
+                                <Select.Option value="Data Scientist">{t('auth.dataScientist')}</Select.Option>
+                                <Select.Option value="Software Engineer">{t('auth.softwareEngineer')}</Select.Option>
+                                <Select.Option value="Manager">{t('auth.manager')}</Select.Option>
+                                <Select.Option value="Product Manager">{t('auth.productManager')}</Select.Option>
+                                <Select.Option value="Other">{t('auth.other')}</Select.Option>
                             </TitleSelector>
                         </StyledFormItem>
                         <StyledFormItem style={{ marginBottom: '0px' }} shouldUpdate>
@@ -245,7 +247,7 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                                         disabled={!formIsComplete}
                                         data-testid="sign-up"
                                     >
-                                        Sign Up!
+                                        {t('auth.signUp')}
                                     </Button>
                                 );
                             }}

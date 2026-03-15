@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -36,6 +37,7 @@ const MainWrapper = styled.div<{ $isShowNavBarRedesign?: boolean }>`
 `;
 
 const BusinessGlossaryPage = () => {
+    const { t } = useTranslation();
     const {
         data: termsData,
         refetch: refetchForTerms,
@@ -92,10 +94,10 @@ const BusinessGlossaryPage = () => {
                 )} */}
                 <GlossaryWrapper $isShowNavBarRedesign={isShowNavBarRedesign}>
                     {(termsLoading || nodesLoading) && (
-                        <Message type="loading" content="Loading Glossary..." style={{ marginTop: '10%' }} />
+                        <Message type="loading" content={t('glossary.loading')} style={{ marginTop: '10%' }} />
                     )}
                     {(termsError || nodesError) && (
-                        <Message type="error" content="Failed to load glossary! An unexpected error occurred." />
+                        <Message type="error" content={t('glossary.loadingFailed')} />
                     )}
                     <GlossaryContentProvider
                         setIsCreateNodeModalVisible={setIsCreateNodeModalVisible}

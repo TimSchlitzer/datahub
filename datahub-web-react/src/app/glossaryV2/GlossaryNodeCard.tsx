@@ -2,6 +2,7 @@ import { BookmarkSimple, BookmarksSimple } from '@phosphor-icons/react';
 import { Tooltip, Typography } from 'antd';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY, ANTD_GRAY_V2, REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -155,6 +156,7 @@ const Icons = styled.div`
 const MAX_DEPTH_QUERIED = 4;
 
 const GlossaryNodeCard = (props: Props) => {
+    const { t } = useTranslation();
     const { name, description, termCount, nodeCount, displayProperties, urn, maxDepth } = props;
     const generateColor = useGenerateGlossaryColorFromPalette();
     const glossaryColor = displayProperties?.colorHex || generateColor(urn);
@@ -173,7 +175,10 @@ const GlossaryNodeCard = (props: Props) => {
                     <GlossaryItemCardDescription>{description || '--'}</GlossaryItemCardDescription>
                     <Icons>
                         <Tooltip
-                            title={`Contains ${nodeCount} ${props.nodeCount === 1 ? 'term group' : 'term groups'}`}
+                            title={t('glossary.contains', {
+                                count: nodeCount,
+                                label: nodeCount === 1 ? 'term group' : 'term groups'
+                            })}
                             placement="top"
                             showArrow={false}
                         >
@@ -187,7 +192,10 @@ const GlossaryNodeCard = (props: Props) => {
                             </GlossaryItemCount>
                         </Tooltip>
                         <Tooltip
-                            title={`Contains ${termCount} ${props.termCount === 1 ? 'term' : 'terms'}`}
+                            title={t('glossary.contains', {
+                                count: termCount,
+                                label: termCount === 1 ? 'term' : 'terms'
+                            })}
                             placement="top"
                             showArrow={false}
                         >

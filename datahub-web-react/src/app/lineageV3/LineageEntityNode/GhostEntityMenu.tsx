@@ -1,6 +1,7 @@
 import { MoreOutlined } from '@ant-design/icons';
 import { Button, Dropdown } from 'antd';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { LineageDisplayContext, onClickPreventSelect } from '@app/lineageV3/common';
@@ -45,6 +46,7 @@ interface Props {
 }
 
 export default function GhostEntityMenu({ urn }: Props) {
+    const { t } = useTranslation();
     const { displayedMenuNode, setDisplayedMenuNode } = useContext(LineageDisplayContext);
     const isMenuVisible = displayedMenuNode === urn;
 
@@ -68,7 +70,7 @@ export default function GhostEntityMenu({ urn }: Props) {
                         items: [
                             {
                                 key: 'copyUrn',
-                                label: 'Copy URN',
+                                label: t('lineage.copyUrn'),
                                 onClick: () => navigator.clipboard.writeText(urn),
                             },
                         ],

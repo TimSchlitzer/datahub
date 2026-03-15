@@ -1,5 +1,6 @@
 import { Button, Tooltip } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -52,6 +53,7 @@ type Props = {
 };
 
 export default function GlossarySidebar({ isEntityProfile }: Props) {
+    const { t } = useTranslation();
     const [isCreateNodeModalVisible, setIsCreateNodeModalVisible] = useState(false);
 
     const { refetch: refetchForNodes } = useGetRootGlossaryNodesQuery();
@@ -71,8 +73,8 @@ export default function GlossarySidebar({ isEntityProfile }: Props) {
                 $isEntityProfile={isEntityProfile}
             >
                 <SidebarTitleWrapper>
-                    <GlossaryTitle>Business Glossary</GlossaryTitle>
-                    <Tooltip title="Create Glossary" placement="left" showArrow={false}>
+                    <GlossaryTitle>{t('glossary.businessGlossary')}</GlossaryTitle>
+                    <Tooltip title={t('glossary.createGlossary')} placement="left" showArrow={false}>
                         <StyledButton
                             variant="filled"
                             color="violet"

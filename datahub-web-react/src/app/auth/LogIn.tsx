@@ -3,6 +3,7 @@ import { useReactiveVar } from '@apollo/client';
 import { Button, Divider, Form, Image, Input, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Redirect, useLocation } from 'react-router';
 import styled, { useTheme } from 'styled-components/macro';
 
@@ -66,6 +67,7 @@ const SsoTextSpan = styled.span`
 export type LogInProps = Record<string, never>;
 
 export const LogIn: React.VFC<LogInProps> = () => {
+    const { t } = useTranslation();
     const isLoggedIn = useReactiveVar(isLoggedInVar);
     const location = useLocation();
     const params = QueryString.parse(location.search, { decode: true });
@@ -97,11 +99,11 @@ export const LogIn: React.VFC<LogInProps> = () => {
                     return Promise.resolve();
                 })
                 .catch((e) => {
-                    message.error(`Failed to log in! ${e}`);
+                    message.error(`${t('auth.failedToLogIn')} ${e}`);
                 })
                 .finally(() => setLoading(false));
         },
-        [refreshContext],
+        [refreshContext, t],
     );
 
     if (isLoggedIn) {
@@ -120,19 +122,19 @@ export const LogIn: React.VFC<LogInProps> = () => {
                     <Image wrapperClassName={styles.logo_image} src={themeConfig.assets?.logoUrl} preview={false} />
                 </div>
                 <div className={styles.login_form_box}>
-                    {loading && <Message type="loading" content="Logging in..." />}
+                    {loading && <Message type="loading" content={t('auth.loggingIn')} />}
                     <Form onFinish={handleLogin} layout="vertical">
                         <Form.Item
                             name="username"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Username</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.usernamePlaceholder')}</label>}
                         >
                             <FormInput prefix={<UserOutlined />} data-testid="username" />
                         </Form.Item>
                         <Form.Item
                             name="password"
                             // eslint-disable-next-line jsx-a11y/label-has-associated-control
-                            label={<label style={{ color: 'white' }}>Password</label>}
+                            label={<label style={{ color: 'white' }}>{t('auth.password')}</label>}
                         >
                             <FormInput prefix={<LockOutlined />} type="password" data-testid="password" />
                         </Form.Item>
@@ -149,7 +151,7 @@ export const LogIn: React.VFC<LogInProps> = () => {
                                         disabled={!formIsComplete}
                                         data-testid="sign-in"
                                     >
-                                        Sign In
+                                        {t('auth.signIn')}
                                     </Button>
                                 );
                             }}
@@ -164,7 +166,7 @@ export const LogIn: React.VFC<LogInProps> = () => {
                         className={styles.sso_button}
                     >
                         <LoginLogo />
-                        <SsoTextSpan>Sign in with SSO</SsoTextSpan>
+                        <SsoTextSpan>{t('auth.signInWithSSO')}</SsoTextSpan>
                         <span />
                     </SsoButton>
                 </div>

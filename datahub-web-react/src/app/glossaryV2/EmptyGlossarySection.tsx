@@ -1,6 +1,7 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Empty, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 const StyledEmpty = styled(Empty)`
@@ -24,6 +25,7 @@ interface Props {
 }
 
 function EmptyGlossarySection(props: Props) {
+    const { t } = useTranslation();
     const { title, description, onAddTerm, onAddtermGroup } = props;
 
     return (
@@ -38,10 +40,10 @@ function EmptyGlossarySection(props: Props) {
             >
                 {/* not disabled on acryl-main due to ability to propose */}
                 <StyledButton data-testid="add-term-button" onClick={onAddTerm}>
-                    <PlusOutlined /> Add Term
+                    <PlusOutlined /> {t('glossary.addTerm')}
                 </StyledButton>
                 <StyledButton data-testid="add-term-group-button" onClick={onAddtermGroup}>
-                    <PlusOutlined /> Add Term Group
+                    <PlusOutlined /> {t('glossary.addTermGroup')}
                 </StyledButton>
             </StyledEmpty>
         </>

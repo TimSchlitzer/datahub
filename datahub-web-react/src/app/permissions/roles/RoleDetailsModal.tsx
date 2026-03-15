@@ -1,14 +1,12 @@
-import { Avatar, Heading, Modal, Pill, Text } from '@components';
+import { Button, Divider, Modal, Typography } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
-import { mapAvatarTypeToEntityType } from '@components/components/Avatar/utils';
-import { AvatarItemProps, AvatarType } from '@components/components/AvatarStack/types';
-
+import AvatarsGroup from '@app/permissions/AvatarsGroup';
 import { useEntityRegistry } from '@app/useEntityRegistry';
 
-import { CorpUser, DataHubPolicy, DataHubRole, EntityType } from '@types';
+import { CorpUser, DataHubPolicy, DataHubRole } from '@types';
 
 type Props = {
     role: DataHubRole;
@@ -17,117 +15,61 @@ type Props = {
 };
 
 const PolicyContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    > div {
+        margin-bottom: 32px;
+    }
 `;
 
-const Section = styled.div`
+const ButtonsContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
 `;
 
-const PillsContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+const ThinDivider = styled(Divider)`
+    margin-top: 8px;
+    margin-bottom: 8px;
 `;
 
+/**
+ * Component used for displaying the details about an existing Role.
+ */
 export default function RoleDetailsModal({ role, open, onClose }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
+
+    const actionButtons = (
+        <ButtonsContainer>
+            <Button onClick={onClose}>{t('permissions.close')}</Button>
+        </ButtonsContainer>
+    );
 
     const castedRole = role as any;
 
-    const users: CorpUser[] = castedRole?.users?.relationships?.map((r) => r.entity as CorpUser) || [];
-    const policies: DataHubPolicy[] = castedRole?.policies?.relationships?.map((r) => r.entity as DataHubPolicy) || [];
-
-    const allAvatars: AvatarItemProps[] = users.map((user) => {
-        const isGroup = user?.urn?.startsWith('urn:li:corpGroup');
-        return {
-            name: entityRegistry.getDisplayName(isGroup ? EntityType.CorpGroup : EntityType.CorpUser, user),
-            imageUrl: user?.editableProperties?.pictureLink || user?.editableInfo?.pictureLink || undefined,
-            urn: user?.urn,
-            type: isGroup ? AvatarType.group : AvatarType.user,
-        };
-    });
-
-    const userAvatars = allAvatars.filter((a) => a.type === AvatarType.user);
-    const groupAvatars = allAvatars.filter((a) => a.type === AvatarType.group);
-
-    const renderAvatarPills = (avatars: AvatarItemProps[]) => (
-        <PillsContainer>
-            {avatars.map((avatar) => {
-                const pill = (
-                    <Avatar
-                        key={avatar.urn}
-                        name={avatar.name}
-                        imageUrl={avatar.imageUrl}
-                        type={avatar.type}
-                        size="sm"
-                        showInPill
-                    />
-                );
-                return avatar.urn && avatar.type != null ? (
-                    <Link
-                        key={avatar.urn}
-                        to={entityRegistry.getEntityUrl(mapAvatarTypeToEntityType(avatar.type), avatar.urn)}
-                    >
-                        {pill}
-                    </Link>
-                ) : (
-                    pill
-                );
-            })}
-        </PillsContainer>
-    );
-
-    if (!open) return null;
+    const users = castedRole?.users?.relationships?.map((relationship) => relationship.entity as CorpUser);
+    const policies = castedRole?.policies?.relationships?.map((relationship) => relationship.entity as DataHubPolicy);
 
     return (
-        <Modal title={role?.name || ''} onCancel={onClose}>
+        <Modal title={role?.name} open={open} onCancel={onClose} closable width={800} footer={actionButtons}>
             <PolicyContainer>
-                <Section>
-                    <Heading type="h5" size="sm" weight="bold">
-                        Description
-                    </Heading>
-                    <Text color="gray" size="md">
-                        {role?.description}
-                    </Text>
-                </Section>
-                {userAvatars.length > 0 && (
-                    <Section>
-                        <Heading type="h5" size="sm" weight="bold">
-                            Users
-                        </Heading>
-                        {renderAvatarPills(userAvatars)}
-                    </Section>
-                )}
-                {groupAvatars.length > 0 && (
-                    <Section>
-                        <Heading type="h5" size="sm" weight="bold">
-                            Groups
-                        </Heading>
-                        {renderAvatarPills(groupAvatars)}
-                    </Section>
-                )}
-                <Section>
-                    <Heading type="h5" size="sm" weight="bold">
-                        Associated Policies
-                    </Heading>
-                    <PillsContainer>
-                        {policies.map((policy) => (
-                            <Pill
-                                key={policy.urn}
-                                label={policy?.name || ''}
-                                variant="outline"
-                                color="gray"
-                                size="sm"
-                                clickable={false}
-                            />
-                        ))}
-                    </PillsContainer>
-                </Section>
+                <div>
+                    <Typography.Title level={5}>{t('permissions.description')}</Typography.Title>
+                    <ThinDivider />
+                    <Typography.Text type="secondary">{role?.description}</Typography.Text>
+                </div>
+                <div>
+                    <Typography.Title level={5}>{t('permissions.tableColumns.users')}</Typography.Title>
+                    <ThinDivider />
+                    <AvatarsGroup users={users} entityRegistry={entityRegistry} maxCount={50} size={28} />
+                </div>
+                <div>
+                    <Typography.Title level={5}>{t('permissions.associatedPolicies')}</Typography.Title>
+                    <ThinDivider />
+                    <AvatarsGroup policies={policies} entityRegistry={entityRegistry} maxCount={50} size={28} />
+                </div>
             </PolicyContainer>
         </Modal>
     );

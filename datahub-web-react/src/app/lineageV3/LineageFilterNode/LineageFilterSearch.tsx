@@ -4,6 +4,7 @@ import { Spin } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
 import { usePrevious } from 'react-js-cron/dist/cjs/utils';
 import { useDebounce } from 'react-use';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { DBT_URN } from '@app/ingest/source/builder/constants';
@@ -40,6 +41,7 @@ interface Props {
 }
 
 export default function LineageFilterSearch({ data, numMatches, setNumMatches }: Props) {
+    const { t } = useTranslation();
     const { id, direction, parent, limit } = data;
 
     const { startTimeMillis, endTimeMillis } = useGetLineageTimeParams();
@@ -104,8 +106,8 @@ export default function LineageFilterSearch({ data, numMatches, setNumMatches }:
             <SearchLine>
                 <SearchInput
                     label=""
-                    placeholder="Search children"
-                    error={!!inputValue && inputValue.length < 3 ? 'Minimum 3 characters required' : undefined}
+                    placeholder={t('lineage.searchChildren')}
+                    error={!!inputValue && inputValue.length < 3 ? t('lineage.minimumCharactersRequired') : undefined}
                     errorOnHover
                     value={inputValue}
                     setValue={setInputValue}
@@ -113,7 +115,7 @@ export default function LineageFilterSearch({ data, numMatches, setNumMatches }:
                 <LoadingWrapper>{loading && <Spin indicator={<LoadingOutlined />} />}</LoadingWrapper>
             </SearchLine>
             <SearchMatchesText type="div" size="xs" color="gray">
-                {searchQuery.length >= 3 && (!loading || !!numMatches) && `${numMatches} matches`}
+                {searchQuery.length >= 3 && (!loading || !!numMatches) && t('lineage.searchMatches', { count: numMatches })}
             </SearchMatchesText>
         </>
     );

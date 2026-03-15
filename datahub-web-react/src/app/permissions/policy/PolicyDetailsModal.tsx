@@ -1,6 +1,7 @@
 import { Button, Divider, Modal, Tag, Typography } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import AvatarsGroup from '@app/permissions/AvatarsGroup';
@@ -69,6 +70,7 @@ const Privileges = styled.div`
  * Component used for displaying the details about an existing Policy.
  */
 export default function PolicyDetailsModal({ policy, open, onClose, privileges }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
 
     const isActive = policy?.state === PolicyState.Active;
@@ -89,7 +91,7 @@ export default function PolicyDetailsModal({ policy, open, onClose, privileges }
 
     const actionButtons = (
         <ButtonsContainer>
-            <Button onClick={onClose}>Close</Button>
+            <Button onClick={onClose}>{t('permissions.close')}</Button>
         </ButtonsContainer>
     );
 

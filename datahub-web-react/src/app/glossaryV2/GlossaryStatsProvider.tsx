@@ -2,6 +2,7 @@ import Icon from '@ant-design/icons';
 import { BookmarksSimple } from '@phosphor-icons/react';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { ANTD_GRAY, REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -54,6 +55,7 @@ interface Props {
 }
 
 const GlossaryStatsProvider = (props: Props) => {
+    const { t } = useTranslation();
     const { totalGlossaryTerms, activeGlossaryTerms, owners, approvedGlossaryTerms } = props;
 
     return (
@@ -63,28 +65,28 @@ const GlossaryStatsProvider = (props: Props) => {
                     <BookmarksSimple style={{ fontSize: 26 }} />
                     <CountTerms>{totalGlossaryTerms} +</CountTerms>
                 </IconWrapper>
-                <HeaderTitle>Total Glossary Terms</HeaderTitle>
+                <HeaderTitle>{t('glossary.totalTerms')}</HeaderTitle>
             </div>
             <div>
                 <IconWrapper>
                     <Icon style={{ fontSize: 26 }} component={ActiveGlossaryTermIcon} />
                     <CountTerms>{activeGlossaryTerms} +</CountTerms>
                 </IconWrapper>
-                <HeaderTitle>Active Glossary Terms</HeaderTitle>
+                <HeaderTitle>{t('glossary.activeTerms')}</HeaderTitle>
             </div>
             <div>
                 <IconWrapper>
                     <Icon style={{ fontSize: 26 }} component={OwnersIcon} />
                     <CountTerms>{owners}</CountTerms>
                 </IconWrapper>
-                <HeaderTitle>Owners?</HeaderTitle>
+                <HeaderTitle>{t('glossary.owners')}</HeaderTitle>
             </div>
             <div>
                 <IconWrapper>
                     <Icon style={{ fontSize: 26 }} component={ApprovedGlossaryTermIcon} />
                     <CountTerms>{approvedGlossaryTerms}</CountTerms>
                 </IconWrapper>
-                <HeaderTitle>Approved Glossary</HeaderTitle>
+                <HeaderTitle>{t('glossary.approvedGlossary')}</HeaderTitle>
             </div>
         </StatusWrapper>
     );

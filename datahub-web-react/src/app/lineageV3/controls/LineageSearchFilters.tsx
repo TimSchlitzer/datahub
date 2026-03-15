@@ -1,6 +1,7 @@
 import { Tooltip } from '@components';
 import { Switch } from 'antd';
 import React, { useContext, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entityV2/shared/constants';
@@ -38,6 +39,7 @@ const PopoverWrapper = styled.div`
 const StyledSwitch = styled(Switch)``;
 
 export default function LineageSearchFilters() {
+    const { t } = useTranslation();
     const {
         nodes,
         rootUrn,
@@ -61,22 +63,22 @@ export default function LineageSearchFilters() {
     );
     return (
         <ControlPanel>
-            <ControlPanelTitle>Filters</ControlPanelTitle>
-            <ControlPanelSubtext>Hide or show assets on the graph.</ControlPanelSubtext>
+            <ControlPanelTitle>{t('lineage.filters')}</ControlPanelTitle>
+            <ControlPanelSubtext>{t('lineage.hideOrShowAssetsOnTheGraph')}</ControlPanelSubtext>
             <ToggleWrapper>
                 <span>
                     <ToggleLabel>
-                        Hide Transformations
+                        {t('lineage.hideTransformations')}
                         <StyledInfoPopover
                             content={
                                 <PopoverWrapper>
-                                    Hide queries and transforms (circular nodes). Will not hide home node.
+                                    {t('lineage.hideTransformationsTooltip')}
                                 </PopoverWrapper>
                             }
                         />
                     </ToggleLabel>
                 </span>
-                <Tooltip title={hasTransformations ? undefined : 'No transformations to hide'}>
+                <Tooltip title={hasTransformations ? undefined : t('lineage.noTransformationsToHide')}>
                     <StyledSwitch
                         disabled={!hasTransformations}
                         size="small"
@@ -88,9 +90,9 @@ export default function LineageSearchFilters() {
             <ToggleWrapper>
                 <span>
                     <ToggleLabel>
-                        Hide Process Instances
+                        {t('lineage.hideProcessInstances')}
                         <StyledInfoPopover
-                            content={<PopoverWrapper>Hide task runs. Will not hide home node.</PopoverWrapper>}
+                            content={<PopoverWrapper>{t('lineage.hideProcessInstancesTooltip')}</PopoverWrapper>}
                         />
                     </ToggleLabel>
                 </span>
@@ -103,17 +105,17 @@ export default function LineageSearchFilters() {
             <ToggleWrapper>
                 <span>
                     <ToggleLabel>
-                        Show Hidden Edges
+                        {t('lineage.showHiddenEdges')}
                         <StyledInfoPopover
                             content={
                                 <PopoverWrapper>
-                                    Show assets that have been deleted or do not exist in DataHub
+                                    {t('lineage.hiddenEdgesTooltip')}
                                 </PopoverWrapper>
                             }
                         />
                     </ToggleLabel>
                 </span>
-                <Tooltip title={mustShowGhostEntities ? 'Required when viewing column lineage' : undefined}>
+                <Tooltip title={mustShowGhostEntities ? t('lineage.requiredWhenViewingColumnLineage') : undefined}>
                     <StyledSwitch
                         disabled={mustShowGhostEntities}
                         size="small"

@@ -1,6 +1,7 @@
 import { Tooltip } from '@components';
 import { Form, FormInstance } from 'antd';
 import React, { useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     AddButtonContainer,
@@ -32,6 +33,7 @@ const AllowedValuesDrawer = ({
     noOfExistingValues,
     form,
 }: Props) => {
+    const { t } = useTranslation();
     useEffect(() => {
         form.setFieldsValue({ allowedValues: allowedValues || [{}] });
     }, [form, showAllowedValuesDrawer, allowedValues]);
@@ -58,13 +60,13 @@ const AllowedValuesDrawer = ({
                                     return (
                                         <FieldGroupContainer key={field.name}>
                                             <InputLabel>
-                                                Value
+                                                {t('govern.structuredProperties.form.allowedValues')}
                                                 <Text color="red" weight="bold">
                                                     *
                                                 </Text>
                                             </InputLabel>
                                             <Tooltip
-                                                title={isExisting && 'Editing existing allowed values is not permitted'}
+                                                title={isExisting && t('govern.structuredProperties.form.allowedValueCannotEdit')}
                                                 showArrow={false}
                                             >
                                                 <Form.Item
@@ -73,7 +75,7 @@ const AllowedValuesDrawer = ({
                                                     rules={[
                                                         {
                                                             required: true,
-                                                            message: 'Please enter the value!',
+                                                            message: t('govern.structuredProperties.form.allowedValueRequired'),
                                                         },
                                                     ]}
                                                     key={`${field.name}.value`}
@@ -81,7 +83,7 @@ const AllowedValuesDrawer = ({
                                                 >
                                                     <Input
                                                         label=""
-                                                        placeholder="Provide a value"
+                                                        placeholder={t('govern.structuredProperties.form.allowedValuePlaceholder')}
                                                         type={propType === 'numberValue' ? 'number' : 'text'}
                                                         isDisabled={isExisting}
                                                     />
@@ -93,8 +95,8 @@ const AllowedValuesDrawer = ({
                                                 key={`${field.name}.desc`}
                                             >
                                                 <TextArea
-                                                    label="Description"
-                                                    placeholder="Provide a description"
+                                                    label={t('govern.structuredProperties.form.allowedValueDescription')}
+                                                    placeholder={t('govern.structuredProperties.form.allowedValueDescriptionPlaceholder')}
                                                     isDisabled={isExisting}
                                                 />
                                             </Form.Item>

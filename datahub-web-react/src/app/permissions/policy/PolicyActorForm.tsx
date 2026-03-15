@@ -2,6 +2,7 @@ import { Text } from '@components';
 import { Form, Select, Switch, Tag, Typography } from 'antd';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { CustomAvatar } from '@app/shared/avatar';
@@ -64,6 +65,7 @@ const StyledTag = styled(Tag)`
  * access Policy by populating an ActorFilter object.
  */
 export default function PolicyActorForm({ policyType, actors, setActors }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
 
     // Search for actors while building policy.
@@ -246,22 +248,19 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
     return (
         <ActorForm layout="vertical">
             <ActorFormHeader>
-                <Typography.Title level={4}>Applies to</Typography.Title>
-                <Typography.Paragraph>Select the users & groups that this policy should apply to.</Typography.Paragraph>
+                <Typography.Title level={4}>{t('permissions.appliesToLabel')}</Typography.Title>
+                <Typography.Paragraph>{t('permissions.policyAppliesToLabel')}</Typography.Paragraph>
             </ActorFormHeader>
             {showAppliesToOwners && (
-                <Form.Item label={<Typography.Text strong>Owners</Typography.Text>} labelAlign="right">
+                <Form.Item label={<Typography.Text strong>{t('permissions.owners')}</Typography.Text>} labelAlign="right">
                     <Typography.Paragraph>
-                        Whether this policy should be apply to owners of the Metadata asset. If true, those who are
-                        marked as owners of a Metadata Asset, either directly or indirectly via a Group, will have the
-                        selected privileges.
+                        {t('permissions.policyAppliesToDescription')}
                     </Typography.Paragraph>
                     <Switch size="small" checked={actors.resourceOwners} onChange={onToggleAppliesToOwners} />
                     {actors.resourceOwners && (
                         <OwnershipWrapper>
                             <Typography.Paragraph>
-                                List of types of ownership which will be used to match owners. If empty, the policies
-                                will applied to any type of ownership.
+                                {t('permissions.ownershipTypesListDescription')}
                             </Typography.Paragraph>
                             <Select
                                 value={ownershipTypesSelectValue}
@@ -289,17 +288,16 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                     )}
                 </Form.Item>
             )}
-            <Form.Item label={<Typography.Text strong>Users & Service Accounts</Typography.Text>}>
+            <Form.Item label={<Typography.Text strong>{t('permissions.usersServiceAccounts')}</Typography.Text>}>
                 <Typography.Paragraph>
-                    Search for specific users or service accounts that this policy should apply to, or select `All
-                    Users` to apply it to all users.
+                    {t('permissions.policyAppliesToUserDescription')}
                 </Typography.Paragraph>
                 <Select
                     data-testid="users"
                     value={usersSelectUrns}
                     mode="multiple"
                     filterOption={false}
-                    placeholder="Search for users..."
+                    placeholder={t('permissions.searchForUsers')}
                     onSelect={(asset: any) => onSelectUserActor(asset)}
                     onDeselect={(asset: any) => onDeselectUserActor(asset)}
                     onSearch={handleUserSearch}
@@ -314,7 +312,7 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                         if (value === 'All') {
                             return (
                                 <StyledTag closable={closable} onClose={handleClose} onMouseDown={onPreventMouseDown}>
-                                    All Users
+                                    {t('permissions.allUsers')}
                                 </StyledTag>
                             );
                         }
@@ -330,19 +328,18 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                     {userSearchResults?.map((result) => (
                         <Select.Option value={result.entity.urn}>{renderSearchResult(result)}</Select.Option>
                     ))}
-                    <Select.Option value="All">All Users</Select.Option>
+                    <Select.Option value="All">{t('permissions.allUsers')}</Select.Option>
                 </Select>
             </Form.Item>
-            <Form.Item label={<Typography.Text strong>Groups</Typography.Text>}>
+            <Form.Item label={<Typography.Text strong>{t('permissions.groups')}</Typography.Text>}>
                 <Typography.Paragraph>
-                    Search for specific groups that this policy should apply to, or select `All Groups` to apply it to
-                    all groups.
+                    {t('permissions.policyAppliesToGroupsDescription')}
                 </Typography.Paragraph>
                 <Select
                     data-testid="groups"
                     value={groupsSelectUrns}
                     mode="multiple"
-                    placeholder="Search for groups..."
+                    placeholder={t('permissions.searchForGroups')}
                     onSelect={(asset: any) => onSelectGroupActor(asset)}
                     onDeselect={(asset: any) => onDeselectGroupActor(asset)}
                     onSearch={handleGroupSearch}
@@ -358,7 +355,7 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                         if (value === 'All') {
                             return (
                                 <StyledTag closable={closable} onClose={handleClose} onMouseDown={onPreventMouseDown}>
-                                    All Groups
+                                    {t('permissions.allGroups')}
                                 </StyledTag>
                             );
                         }
@@ -374,7 +371,7 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                     {groupSearchResults?.map((result) => (
                         <Select.Option value={result.entity.urn}>{renderSearchResult(result)}</Select.Option>
                     ))}
-                    <Select.Option value="All">All Groups</Select.Option>
+                    <Select.Option value="All">{t('permissions.allGroups')}</Select.Option>
                 </Select>
             </Form.Item>
         </ActorForm>

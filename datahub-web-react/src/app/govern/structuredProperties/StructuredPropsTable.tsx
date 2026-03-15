@@ -1,5 +1,6 @@
 import { Icon, Menu, Pill, Table, Text, Tooltip } from '@components';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Highlight from 'react-highlighter';
 
 import { TableWithInfiniteScroll } from '@components/components/Table/TableWithInfiniteScroll';
@@ -61,6 +62,7 @@ const StructuredPropsTable = ({
     updatedProperty,
     isSearchLoading,
 }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const me = useUserContext();
     const canEditProps = me.platformPrivileges?.manageStructuredProperties;
@@ -86,7 +88,7 @@ const StructuredPropsTable = ({
 
     const handleDeleteProperty = (property) => {
         const deleteEntity = property as StructuredPropertyEntity;
-        showToastMessage(ToastType.LOADING, 'Deleting structured property', 1);
+        showToastMessage(ToastType.LOADING, t('govern.structuredProperties.deleting'), 1);
         deleteStructuredProperty({
             variables: {
                 input: {
@@ -114,12 +116,12 @@ const StructuredPropsTable = ({
                     hideInAssetSummaryWhenEmpty: deleteEntity.settings?.hideInAssetSummaryWhenEmpty ?? false,
                     showInColumnsTable: deleteEntity.settings?.showInColumnsTable ?? false,
                 });
-                showToastMessage(ToastType.SUCCESS, 'Structured property deleted successfully!', 3);
+                showToastMessage(ToastType.SUCCESS, t('govern.structuredProperties.deleteSuccess'), 3);
                 setPropertyToDelete(property.urn);
                 setTotalCount?.((prev) => Math.max(0, prev - 1));
             })
             .catch(() => {
-                showToastMessage(ToastType.ERROR, 'Failed to delete structured property', 3);
+                showToastMessage(ToastType.ERROR, t('govern.structuredProperties.deleteFailed'), 3);
             });
 
         setShowConfirmDelete(false);
@@ -137,7 +139,7 @@ const StructuredPropsTable = ({
 
     const columns = [
         {
-            title: 'Name',
+            title: t('govern.structuredProperties.tableColumnName'),
             key: 'name',
             render: (record) => {
                 return (
@@ -293,11 +295,11 @@ const StructuredPropsTable = ({
                     {
                         type: 'item' as const,
                         key: '3',
-                        title: 'Delete',
+                        title: t('common.delete'),
                         disabled: !canEditProps,
                         danger: true,
                         tooltip: !canEditProps
-                            ? 'Must have permission to manage structured properties. Ask your DataHub administrator.'
+                            ? t('govern.structuredProperties.createPermissionError')
                             : undefined,
                         onClick: () => {
                             if (canEditProps) {
@@ -355,8 +357,8 @@ const StructuredPropsTable = ({
                 isOpen={showConfirmDelete}
                 handleClose={handleDeleteClose}
                 handleConfirm={() => handleDeleteProperty(selectedProperty)}
-                modalTitle="Confirm Delete"
-                modalText="Are you sure you want to delete? Deleting will remove this structured property from all assets it's currently on."
+                modalTitle={t('govern.structuredProperties.deleteConfirmTitle')}
+                modalText={t('govern.structuredProperties.deleteConfirmContent')}
             />
         </>
     );

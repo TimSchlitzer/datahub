@@ -3,6 +3,7 @@ import { Button, Empty, Pagination, Select, Tag, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import analytics, { EventType } from '@app/analytics';
@@ -89,6 +90,7 @@ export enum StatusType {
 
 // TODO: Cleanup the styling.
 export const ManagePolicies = () => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const location = useLocation();
     const params = QueryString.parse(location.search, { arrayFormat: 'comma' });
@@ -216,7 +218,7 @@ export const ManagePolicies = () => {
 
     const tableColumns = [
         {
-            title: 'Name',
+            title: t('permissions.tableColumns.name'),
             dataIndex: 'name',
             key: 'name',
             render: (_, record: any) => {
@@ -231,7 +233,7 @@ export const ManagePolicies = () => {
             },
         },
         {
-            title: 'Type',
+            title: t('permissions.tableColumns.type'),
             dataIndex: 'type',
             key: 'type',
             render: (type: string) => {
@@ -240,13 +242,13 @@ export const ManagePolicies = () => {
             },
         },
         {
-            title: 'Description',
+            title: t('permissions.tableColumns.description'),
             dataIndex: 'description',
             key: 'description',
             render: (description: string) => description || '',
         },
         {
-            title: 'Actors',
+            title: t('permissions.tableColumns.actors'),
             dataIndex: 'actors',
             key: 'actors',
             render: (_, record: any) => {
@@ -259,15 +261,15 @@ export const ManagePolicies = () => {
                             maxCount={3}
                             size={28}
                         />
-                        {record?.allUsers ? <ActorTag>All Users</ActorTag> : null}
-                        {record?.allGroups ? <ActorTag>All Groups</ActorTag> : null}
-                        {record?.resourceOwners ? <ActorTag>All Owners</ActorTag> : null}
+                        {record?.allUsers ? <ActorTag>{t('permissions.allUsers')}</ActorTag> : null}
+                        {record?.allGroups ? <ActorTag>{t('permissions.allGroups')}</ActorTag> : null}
+                        {record?.resourceOwners ? <ActorTag>{t('permissions.allOwners')}</ActorTag> : null}
                     </>
                 );
             },
         },
         {
-            title: 'State',
+            title: t('permissions.tableColumns.state'),
             dataIndex: 'state',
             key: 'state',
             render: (state: string) => {
@@ -282,7 +284,7 @@ export const ManagePolicies = () => {
             render: (_, record: any) => (
                 <ActionButtonContainer>
                     <EditPolicyButton disabled={!record?.editable} onClick={() => onEditPolicy(record?.policy)}>
-                        EDIT
+                        {t('permissions.edit')}
                     </EditPolicyButton>
                     {record?.state === PolicyState.Active ? (
                         <Button
@@ -296,7 +298,7 @@ export const ManagePolicies = () => {
                             }}
                             style={{ color: record?.editable ? 'red' : ANTD_GRAY[6], width: 100 }}
                         >
-                            DEACTIVATE
+                            {t('permissions.deactivate')}
                         </Button>
                     ) : (
                         <Button
@@ -310,7 +312,7 @@ export const ManagePolicies = () => {
                             }}
                             style={{ color: record?.editable ? 'green' : ANTD_GRAY[6], width: 100 }}
                         >
-                            ACTIVATE
+                            {t('permissions.activate')}
                         </Button>
                     )}
                     <Button
@@ -348,10 +350,10 @@ export const ManagePolicies = () => {
         <PageContainer>
             <OnboardingTour stepIds={[POLICIES_INTRO_ID, POLICIES_CREATE_POLICY_ID]} />
             {policiesLoading && !policiesData && (
-                <Message type="loading" content="Loading policies..." style={{ marginTop: '10%' }} />
+                <Message type="loading" content={t('permissions.loadingPolicies')} style={{ marginTop: '10%' }} />
             )}
-            {policiesError && <Message type="error" content="Failed to load policies! An unexpected error occurred." />}
-            {updateError && message.error('Failed to update policies. An unexpected error occurred.')}
+            {policiesError && <Message type="error" content={t('permissions.failedToLoadPolicies')} />}
+            {updateError && message.error(t('permissions.failedToUpdatePolicies'))}
             <SourceContainer>
                 <TabToolbar>
                     <div>
@@ -361,13 +363,13 @@ export const ManagePolicies = () => {
                             onClick={onClickNewPolicy}
                             data-testid="add-policy-button"
                         >
-                            <PlusOutlined /> Create new policy
+                            <PlusOutlined /> {t('permissions.createNewPolicy')}
                         </Button>
                     </div>
                     <SelectContainer>
                         <SearchBar
                             initialQuery={query || ''}
-                            placeholderText="Search policies..."
+                            placeholderText={t('permissions.searchPolicies')}
                             suggestions={[]}
                             style={{
                                 maxWidth: 220,
@@ -392,13 +394,13 @@ export const ManagePolicies = () => {
                             data-testid="policy-filter"
                         >
                             <Select.Option value={StatusType.ALL} key="ALL" data-testid="all-policies-option">
-                                All
+                                {t('permissions.statusAll')}
                             </Select.Option>
                             <Select.Option value={StatusType.ACTIVE} key="ACTIVE">
-                                Active
+                                {t('permissions.statusActive')}
                             </Select.Option>
                             <Select.Option value={StatusType.INACTIVE} key="INACTIVE">
-                                Inactive
+                                {t('permissions.statusInactive')}
                             </Select.Option>
                         </StyledSelect>
                     </SelectContainer>
@@ -408,7 +410,7 @@ export const ManagePolicies = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     locale={{
-                        emptyText: <Empty description="No Policies!" image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                        emptyText: <Empty description={t('permissions.noPolicies')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
                     }}
                     pagination={false}
                 />

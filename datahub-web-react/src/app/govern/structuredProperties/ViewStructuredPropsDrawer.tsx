@@ -1,5 +1,6 @@
 import { Text } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import ViewAdvancedOptions from '@app/govern/structuredProperties/ViewAdvancedOptions';
 import ViewDisplayPreferences from '@app/govern/structuredProperties/ViewDisplayPreferences';
@@ -32,6 +33,7 @@ const ViewStructuredPropsDrawer = ({
     selectedProperty,
     setSelectedProperty,
 }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
 
     const handleClose = () => {
@@ -75,19 +77,19 @@ const ViewStructuredPropsDrawer = ({
                 {selectedPropEntity.definition.description && (
                     <DescriptionContainer>
                         <Text weight="bold" color="gray" size="lg">
-                            Description
+                            {t('govern.structuredProperties.viewDrawer.description')}
                         </Text>
                         <Text color="gray"> {selectedPropEntity.definition.description}</Text>
                         <ViewDivider />
                     </DescriptionContainer>
                 )}
                 <RowContainer>
-                    <StyledLabel>Property Type</StyledLabel>
+                    <StyledLabel>{t('govern.structuredProperties.viewDrawer.propertyType')}</StyledLabel>
                     <Text color="gray"> {propType}</Text>
                 </RowContainer>
                 {allowedTypes && allowedTypes.length > 0 && (
                     <RowContainer>
-                        <StyledLabel>Allowed Entity Types</StyledLabel>
+                        <StyledLabel>{t('govern.structuredProperties.viewDrawer.allowedEntityTypes')}</StyledLabel>
                         <ItemsList>
                             {allowedTypes.map((type, index) => {
                                 return (
@@ -102,7 +104,7 @@ const ViewStructuredPropsDrawer = ({
                 )}
                 {allowedValues && allowedValues.length > 0 && (
                     <RowContainer>
-                        <StyledLabel>Allowed Values</StyledLabel>
+                        <StyledLabel>{t('govern.structuredProperties.viewDrawer.allowedValues')}</StyledLabel>
                         <ItemsList>
                             {allowedValues?.map((val, index) => {
                                 return (
@@ -119,7 +121,7 @@ const ViewStructuredPropsDrawer = ({
                 )}
 
                 <RowContainer>
-                    <StyledLabel>Applies To</StyledLabel>
+                    <StyledLabel>{t('govern.structuredProperties.form.entityTypes')}</StyledLabel>
                     <ItemsList>
                         {selectedPropEntity.definition.entityTypes?.map((type, index) => {
                             return (

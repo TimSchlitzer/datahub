@@ -1,5 +1,6 @@
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -49,6 +50,7 @@ interface Props {
 }
 
 function GlossaryEntitiesList(props: Props) {
+    const { t } = useTranslation();
     const { nodes, terms } = props;
     const entityRegistry = useEntityRegistry();
     const { entityData } = useEntityData();
@@ -56,7 +58,7 @@ function GlossaryEntitiesList(props: Props) {
 
     return (
         <>
-            {nodes.length > 0 && isGlossaryEntityPage ? <SectionTitle>Term Groups</SectionTitle> : null}
+            {nodes.length > 0 && isGlossaryEntityPage ? <SectionTitle>{t('glossary.termGroups')}</SectionTitle> : null}
             {nodes.length ? (
                 <GlossaryNodes isGrid={!isGlossaryEntityPage}>
                     {nodes.map((node) => (
@@ -73,7 +75,7 @@ function GlossaryEntitiesList(props: Props) {
                     ))}
                 </GlossaryNodes>
             ) : null}
-            {terms.length > 0 && isGlossaryEntityPage ? <SectionTitle>Glossary Terms</SectionTitle> : null}
+            {terms.length > 0 && isGlossaryEntityPage ? <SectionTitle>{t('glossary.glossaryTerms')}</SectionTitle> : null}
             {terms.length ? (
                 <GlossaryTerms>
                     {terms.map((term) => (

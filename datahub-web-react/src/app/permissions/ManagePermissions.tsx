@@ -1,35 +1,43 @@
-import { PageTitle } from '@components';
+import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ManagePolicies } from '@app/permissions/policy/ManagePolicies';
 import { ManageRoles } from '@app/permissions/roles/ManageRoles';
-import { AlchemyRoutedTabs } from '@app/shared/AlchemyRoutedTabs';
+import { RoutedTabs } from '@app/shared/RoutedTabs';
 
 const PageContainer = styled.div`
-    padding: 16px 20px;
+    padding-top: 20px;
     width: 100%;
-    flex: 1;
     display: flex;
-    gap: 16px;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 `;
 
 const PageHeaderContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+    && {
+        padding-left: 24px;
+    }
+`;
+
+const PageTitle = styled(Typography.Title)`
+    && {
+        margin-bottom: 12px;
+    }
 `;
 
 const Content = styled.div`
-    flex: 1;
-    min-height: 0;
+    &&& .ant-tabs-nav {
+        margin: 0;
+    }
+    color: #262626;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 
-    &&& .ant-tabs-nav {
-        margin-bottom: 0;
+    &&& .ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap {
+        padding-left: 28px;
     }
 `;
 
@@ -40,6 +48,11 @@ enum TabType {
 const ENABLED_TAB_TYPES = [TabType.Roles, TabType.Policies];
 
 export const ManagePermissions = () => {
+    const { t } = useTranslation();
+    /**
+     * Determines which view should be visible: roles or policies.
+     */
+
     const getTabs = () => {
         return [
             {
@@ -62,17 +75,18 @@ export const ManagePermissions = () => {
     };
 
     const defaultTabPath = getTabs() && getTabs()?.length > 0 ? getTabs()[0].path : '';
+    const onTabChange = () => null;
 
     return (
         <PageContainer>
             <PageHeaderContainer>
-                <PageTitle
-                    title="Manage Permissions"
-                    subTitle="View your DataHub permissions. Take administrative actions."
-                />
+                <PageTitle level={3}>{t('permissions.managePermissions')}</PageTitle>
+                <Typography.Paragraph type="secondary">
+                    {t('permissions.managePermissionsDescription')}
+                </Typography.Paragraph>
             </PageHeaderContainer>
             <Content>
-                <AlchemyRoutedTabs defaultPath={defaultTabPath} tabs={getTabs()} />
+                <RoutedTabs defaultPath={defaultTabPath} tabs={getTabs()} onTabChange={onTabChange} />
             </Content>
         </PageContainer>
     );

@@ -1,6 +1,7 @@
 import { SearchBar } from '@components';
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import { useDebounce } from 'react-use';
+import { useTranslation } from 'react-i18next';
 
 import { onClickPreventSelect } from '@app/lineageV3/common';
 
@@ -10,6 +11,7 @@ interface Props {
 }
 
 export default function ColumnSearch({ searchText, setSearchText }: Props) {
+    const { t } = useTranslation();
     // Prevent lag with local value
     const [value, setValue] = useState(searchText);
 
@@ -19,7 +21,7 @@ export default function ColumnSearch({ searchText, setSearchText }: Props) {
         <SearchBar
             value={value}
             defaultValue={searchText}
-            placeholder="Find column"
+            placeholder={t('lineage.findColumn')}
             onChange={(v) => setValue(v.trim())}
             onClick={onClickPreventSelect}
             height="32px"

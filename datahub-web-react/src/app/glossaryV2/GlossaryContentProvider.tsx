@@ -1,5 +1,6 @@
 import { Button } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import EmptyGlossarySection from '@app/glossaryV2/EmptyGlossarySection';
@@ -45,6 +46,7 @@ interface Props {
 }
 
 const GlossaryContentProvider = (props: Props) => {
+    const { t } = useTranslation();
     const {
         setIsCreateNodeModalVisible,
         setIsCreateTermModalVisible,
@@ -59,8 +61,8 @@ const GlossaryContentProvider = (props: Props) => {
         <MainContentWrapper data-testid="glossary-entities-list">
             <HeaderWrapper data-testid="glossaryPageV2">
                 <PageTitle
-                    title="Business Glossary"
-                    subTitle="Classify your data assets and columns using data dictionaries"
+                    title={t('glossary.businessGlossary')}
+                    subTitle={t('glossary.businessGlossarySubtitle')}
                 />
                 <ButtonContainer>
                     <Button
@@ -71,7 +73,7 @@ const GlossaryContentProvider = (props: Props) => {
                         // can not be disabled on acryl-main due to ability to propose
                         onClick={() => setIsCreateNodeModalVisible(true)}
                     >
-                        Create Glossary
+                        {t('glossary.createGlossary')}
                     </Button>
                 </ButtonContainer>
             </HeaderWrapper>
@@ -80,8 +82,8 @@ const GlossaryContentProvider = (props: Props) => {
             </ListWrapper>
             {!(termsLoading || nodesLoading) && !hasTermsOrNodes && (
                 <EmptyGlossarySection
-                    title="Empty Glossary"
-                    description="Create Terms and Term Groups to organize data assets using a shared vocabulary."
+                    title={t('glossary.emptyGlossary')}
+                    description={t('glossary.emptyGlossaryDescription')}
                     onAddTerm={() => setIsCreateTermModalVisible(true)}
                     onAddtermGroup={() => setIsCreateNodeModalVisible(true)}
                 />
