@@ -1462,7 +1462,11 @@
             "publicViews": "Public Views",
             "title": "Views",
             "subTitle": "Create, edit, and remove your Views. Views allow you to save and share sets of filters for reuse when browsing DataHub.",
-            "createView": "Create View"
+            "createView": "Create View",
+            "noViewsYet": "No Views yet!",
+            "loadingViews": "Loading Views...",
+            "failedToLoadViews": "Failed to load Views! An unexpected error occurred.",
+            "searchViews": "Search Views..."
         }
     },
     "entityDropdown": {

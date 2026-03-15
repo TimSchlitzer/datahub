@@ -1446,7 +1446,11 @@
             "publicViews": "Visualizações Públicas",
             "title": "Visualizações",
             "subTitle": "Criar, editar e remover suas Visualizações. As Visualizações permitem que você salve e compartilhe conjuntos de filtros para reutilização ao navegar no DataHub.",
-            "createView": "Criar Visualização"
+            "createView": "Criar Visualização",
+            "noViewsYet": "Nenhuma visualização ainda!",
+            "loadingViews": "Carregando Visualizações...",
+            "failedToLoadViews": "Falha ao carregar as Visualizações! Um erro inesperado ocorreu.",
+            "searchViews": "Procurar Visualizações..."
         }
     },
     "entityDropdown": {
