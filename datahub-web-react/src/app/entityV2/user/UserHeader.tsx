@@ -1,6 +1,7 @@
 // import { UserOutlined } from '@ant-design/icons';
 import { Badge, Divider, Space, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import CustomAvatar from '@app/shared/avatar/CustomAvatar';
@@ -51,6 +52,8 @@ const NameContainer = styled.div`
 `;
 
 export default function UserHeader({ profileSrc, name, title, skills, teams, email }: Props) {
+    const { t } = useTranslation();
+
     return (
         <Row>
             <div>
@@ -78,7 +81,7 @@ export default function UserHeader({ profileSrc, name, title, skills, teams, ema
                 <div>
                     <Traits>
                         <Skills>
-                            <Typography.Title level={5}>Ask me about</Typography.Title>
+                            <Typography.Title level={5}>{t('entity.user.skills')}</Typography.Title>
                             <Space>
                                 {skills?.map((skill) => (
                                     <Badge style={{ backgroundColor: '#108ee9' }} count={skill} key={skill} />
@@ -86,7 +89,7 @@ export default function UserHeader({ profileSrc, name, title, skills, teams, ema
                             </Space>
                         </Skills>
                         <div>
-                            <Typography.Title level={5}>Teams</Typography.Title>
+                            <Typography.Title level={5}>{t('entity.user.teams')}</Typography.Title>
                             <Space>
                                 {teams?.map((team) => (
                                     <Badge style={{ backgroundColor: '#87d068' }} count={team} key={team} />

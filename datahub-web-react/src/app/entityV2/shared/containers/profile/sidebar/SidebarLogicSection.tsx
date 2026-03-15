@@ -1,4 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import styled from 'styled-components/macro';
 
@@ -36,26 +37,41 @@ export const ViewHeader = styled.div`
 `;
 
 export function SidebarDatasetViewDefinitionSection() {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
     const statement = baseEntity?.dataset?.viewProperties?.logic;
     const entityRegistry = useEntityRegistry();
     const externalUrl = entityRegistry.getEntityUrl(EntityType.Dataset, baseEntity?.dataset?.urn || '');
     if (!statement) return null;
 
-    return <SidebarLogicSection title="View Definition" statement={statement} externalUrl={externalUrl} />;
+    return (
+        <SidebarLogicSection
+            title={t('entityV2.containers.profile.sidebar.sidebarLogicSection.viewDefinition')}
+            statement={statement}
+            externalUrl={externalUrl}
+        />
+    );
 }
 
 export function SidebarDataJobTransformationLogicSection() {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDataJobQuery>();
     const statement = baseEntity?.dataJob?.dataTransformLogic?.transforms?.[0]?.queryStatement?.value;
     const entityRegistry = useEntityRegistry();
     const externalUrl = entityRegistry.getEntityUrl(EntityType.DataJob, baseEntity?.dataJob?.urn || '');
     if (!statement) return null;
 
-    return <SidebarLogicSection title="Logic" statement={statement} externalUrl={externalUrl} />;
+    return (
+        <SidebarLogicSection
+            title={t('entityV2.containers.profile.sidebar.sidebarLogicSection.logic')}
+            statement={statement}
+            externalUrl={externalUrl}
+        />
+    );
 }
 
 export function SidebarQueryLogicSection() {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<{ entity: QueryEntity }>();
     const statement = baseEntity?.entity?.properties?.statement?.value;
     const entityRegistry = useEntityRegistry();
@@ -70,7 +86,7 @@ export function SidebarQueryLogicSection() {
 
     return (
         <SidebarLogicSection
-            title="Logic"
+            title={t('entityV2.containers.profile.sidebar.sidebarLogicSection.logic')}
             statement={statement}
             highlightedStrings={highlightedStrings}
             externalUrl={externalUrl}
@@ -87,6 +103,7 @@ interface HelperProps {
 
 // exported for testing only
 export function SidebarLogicSection({ title, statement, highlightedStrings, externalUrl }: HelperProps) {
+    const { t } = useTranslation();
     const [showFullContentModal, setShowFullContentModal] = useState(false);
     const isEmbeddedProfile = useIsEmbeddedProfile();
 
@@ -105,7 +122,9 @@ export function SidebarLogicSection({ title, statement, highlightedStrings, exte
     const canShowFormatted = !!formattedLogic;
 
     const isDbt = baseEntity?.dataset?.platform?.urn === DBT_URN;
-    const formatOptions = isDbt ? ['Source', 'Compiled'] : ['Raw', 'Formatted'];
+    const formatOptions = isDbt
+        ? [t('entityV2.containers.profile.sidebar.sidebarLogicSection.source'), t('entityV2.containers.profile.sidebar.sidebarLogicSection.compiled')]
+        : [t('entityV2.containers.profile.sidebar.sidebarLogicSection.raw'), t('entityV2.containers.profile.sidebar.sidebarLogicSection.formatted')];
     const [showFormatted, setShowFormatted] = useState(false);
 
     return (
@@ -118,7 +137,7 @@ export function SidebarLogicSection({ title, statement, highlightedStrings, exte
                         width="1000px"
                         buttons={[
                             {
-                                text: 'Close',
+                                text: t('entityV2.containers.profile.sidebar.sidebarLogicSection.close'),
                                 variant: 'filled',
                                 onClick: () => setShowFullContentModal(false),
                             },
@@ -163,13 +182,13 @@ export function SidebarLogicSection({ title, statement, highlightedStrings, exte
                         variant="text"
                         onClick={() => {
                             if (isEmbeddedProfile) {
-                                window.open(`${externalUrl}/View Definition`, '_blank');
+                                window.open(`${externalUrl}/${t('entityV2.containers.profile.sidebar.sidebarLogicSection.viewDefinition')}`, '_blank');
                             } else {
                                 setShowFullContentModal(true);
                             }
                         }}
                     >
-                        See Full
+                        {t('entityV2.containers.profile.sidebar.sidebarLogicSection.seeFull')}
                     </Button>
                 </>
             }

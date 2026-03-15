@@ -930,6 +930,46 @@
                     "deleteConfirmContent": "Tem certeza de que deseja excluir esta consulta?"
                 }
             },
+            "access": {
+                "table": {
+                    "roleName": "Nome da Função",
+                    "description": "Descrição",
+                    "accessType": "Tipo de Acesso",
+                    "access": "Acesso"
+                },
+                "button": {
+                    "granted": "Concedido",
+                    "request": "Solicitar"
+                },
+                "tooltip": {
+                    "accessGranted": "Você já tem acesso a esta função",
+                    "accessAlreadyGranted": "Acesso já concedido"
+                },
+                "description": {
+                    "readMore": "...Leia Mais",
+                    "readLess": " Leia Menos"
+                }
+            },
+            "governance": {
+                "testResults": {
+                    "title": "Resultados dos Testes",
+                    "noTests": "Nenhum Teste Encontrado :(",
+                    "noDescription": "Sem descrição",
+                    "tooltip": "Copiar URN. Um URN identifica exclusivamente uma entidade no DataHub.",
+                    "summary": {
+                        "noTestsHaveRun": "Nenhum teste foi executado",
+                        "allTestsPassing": "Todos os testes estão passando",
+                        "allTestsFailing": "Todos os testes estão falhando",
+                        "someTestsFailing": "Alguns testes estão falhando",
+                        "passingTests": "{{passing}} testes aprovados, {{failing}} testes falhados",
+                        "tooltip": "Este status é baseado na execução mais recente de cada teste."
+                    },
+                    "status": {
+                        "passing": "Aprovado",
+                        "failing": "Falhado"
+                    }
+                }
+            },
             "lineage": {
                 "viewGraph": "Ver Gráfico",
                 "upstream": "Ascendente",
@@ -1195,7 +1235,10 @@
                     "title": "Produtos de Dados",
                     "createButton": "Criar Produto de Dados",
                     "viewAll": "Ver tudo"
-                }
+                },
+                "owners": "Proprietários",
+                "about": "Sobre",
+                "addDocumentation": "Adicionar Documentação"
             },
             "dataProductsTab": {
                 "newDataProduct": "Novo Produto de Dados",
@@ -1211,6 +1254,43 @@
                     "error": "Falha ao criar Produto de Dados. Um erro inesperado ocorreu"
                 }
             }
+        },
+        "user": {
+            "skills": "Pergunte-me sobre",
+            "teams": "Equipes",
+            "memberSingular": " membro",
+            "memberPlural": " membros",
+            "changesSaved": "Alterações salvas.",
+            "failedSaveChanges": "Falha ao salvar as alterações!",
+            "editProfileTitle": "Editar Perfil",
+            "cancel": "Cancelar",
+            "saveChanges": "Salvar Alterações",
+            "name": "Nome",
+            "nameRequired": "Digite um nome de exibição.",
+            "namePlaceholder": "John Smith",
+            "titleRole": "Título/Cargo",
+            "titlePlaceholder": "Analista de Dados",
+            "imageUrl": "URL da Imagem",
+            "imageUrlDisabled": "A edição do URL da imagem foi desativada.",
+            "invalidUrl": "URL inválida",
+            "team": "Equipe",
+            "teamPlaceholder": "Engenharia de Produtos",
+            "email": "E-mail",
+            "emailRequired": "Digite seu e-mail",
+            "emailInvalid": "Por favor, digite um e-mail válido",
+            "slackMemberId": "ID do Membro do Slack",
+            "slackHelpText": "Encontre seu ID de membro no",
+            "slackMenu": "menu do seu perfil Slack. Mais informações",
+            "here": "aqui.",
+            "phone": "Telefone",
+            "phoneInvalid": "número de telefone inválido",
+            "ownerOf": "Proprietário de",
+            "groups": "Grupos",
+            "aboutTab": "Sobre"
+        },
+        "glossaryTerm": {
+            "source": "Fonte",
+            "viewSource": "ver fonte"
         },
         "container": {
             "tabs": {
@@ -3697,5 +3777,51 @@
         "updating": "Atualizando...",
         "createSuccess": "Atributo de Negócio Criado!",
         "createFailed": "Falha ao criar"
+    },
+    "entityV2": {
+        "containers": {
+            "profile": {
+                "header": {
+                    "entityCount": {
+                        "asset": "ativo",
+                        "assets": "ativos",
+                        "entity": "entidade",
+                        "entities": "entidades"
+                    },
+                    "entityHealth": {
+                        "details": "detalhes"
+                    },
+                    "exploreLineage": {
+                        "visuallyExplore": "Explore visualmente as dependências ascendentes e descendentes de {{name}}"
+                    }
+                },
+                "sidebar": {
+                    "entityName": {
+                        "nameUpdated": "Nome Atualizado",
+                        "failedUpdateName": "Falha ao atualizar nome:"
+                    },
+                    "sectionActionButton": {
+                        "noPermission": "Você não tem permissão para alterar isto."
+                    },
+                    "sidebarLogicSection": {
+                        "viewDefinition": "Ver Definição",
+                        "logic": "Lógica",
+                        "close": "Fechar",
+                        "seeFull": "Ver Completo",
+                        "source": "Fonte",
+                        "compiled": "Compilado",
+                        "raw": "Bruto",
+                        "formatted": "Formatado"
+                    },
+                    "lastIngested": {
+                        "lastSynchronized": "Última Sincronização",
+                        "pastWeek": "semana passada",
+                        "pastMonth": "mês passado",
+                        "moreThanMonth": "há mais de um mês",
+                        "syncedWithPlatform": "Isto representa a hora em que a entidade foi sincronizada pela última vez com {{platformName}}"
+                    }
+                }
+            }
+        }
     }
 }

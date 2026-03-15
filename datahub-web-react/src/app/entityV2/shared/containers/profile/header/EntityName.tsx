@@ -1,5 +1,6 @@
 import { Typography, message } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
@@ -56,6 +57,7 @@ interface Props {
 }
 
 function EntityName(props: Props) {
+    const { t } = useTranslation();
     const { isNameEditable } = props;
     const { isClosed: isSidebarClosed } = useContext(EntitySidebarContext);
     const refetch = useRefetch();
@@ -90,7 +92,7 @@ function EntityName(props: Props) {
         updateName({ variables: { input: { name, urn } } })
             .then(() => {
                 setIsEditing(false);
-                message.success({ content: 'Name Updated', duration: 2 });
+                message.success({ content: t('entityV2.containers.profile.sidebar.entityName.nameUpdated'), duration: 2 });
                 refetch();
                 if (isInGlossaryContext) {
                     const parentNodeToUpdate = getParentNodeToUpdate(entityData, entityType);
@@ -134,7 +136,10 @@ function EntityName(props: Props) {
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `Failed to update name: \n ${e.message || ''}`, duration: 3 });
+                    message.error({
+                        content: `${t('entityV2.containers.profile.sidebar.entityName.failedUpdateName')} \n ${e.message || ''}`,
+                        duration: 3,
+                    });
                 }
             });
     };

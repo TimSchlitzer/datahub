@@ -913,6 +913,46 @@
                     "deleteConfirmContent": "Are you sure you want to delete this query?"
                 }
             },
+            "access": {
+                "table": {
+                    "roleName": "Role Name",
+                    "description": "Description",
+                    "accessType": "Access Type",
+                    "access": "Access"
+                },
+                "button": {
+                    "granted": "Granted",
+                    "request": "Request"
+                },
+                "tooltip": {
+                    "accessGranted": "You already have access to this role",
+                    "accessAlreadyGranted": "Access already granted"
+                },
+                "description": {
+                    "readMore": "...Read More",
+                    "readLess": " Read Less"
+                }
+            },
+            "governance": {
+                "testResults": {
+                    "title": "Test Results",
+                    "noTests": "No Tests Found :(",
+                    "noDescription": "No description",
+                    "tooltip": "Copy URN. An URN uniquely identifies an entity on DataHub.",
+                    "summary": {
+                        "noTestsHaveRun": "No tests have run",
+                        "allTestsPassing": "All tests are passing",
+                        "allTestsFailing": "All tests are failing",
+                        "someTestsFailing": "Some tests are failing",
+                        "passingTests": "{{passing}} passing tests, {{failing}} failing tests",
+                        "tooltip": "This status is based on the most recent run of each test."
+                    },
+                    "status": {
+                        "passing": "Passing",
+                        "failing": "Failing"
+                    }
+                }
+            },
             "lineage": {
                 "viewGraph": "View Graph",
                 "upstream": "Upstream",
@@ -1178,7 +1218,10 @@
                     "title": "Data Products",
                     "createButton": "Create Data Product",
                     "viewAll": "View all"
-                }
+                },
+                "owners": "Owners",
+                "about": "About",
+                "addDocumentation": "Add Documentation"
             },
             "dataProductsTab": {
                 "newDataProduct": "New Data Product",
@@ -1194,6 +1237,43 @@
                     "error": "Failed to create Data Product. An unexpected error occurred"
                 }
             }
+        },
+        "user": {
+            "skills": "Ask me about",
+            "teams": "Teams",
+            "memberSingular": " member",
+            "memberPlural": " members",
+            "changesSaved": "Changes saved.",
+            "failedSaveChanges": "Failed to save changes!",
+            "editProfileTitle": "Edit Profile",
+            "cancel": "Cancel",
+            "saveChanges": "Save Changes",
+            "name": "Name",
+            "nameRequired": "Enter a display name.",
+            "namePlaceholder": "John Smith",
+            "titleRole": "Title/Role",
+            "titlePlaceholder": "Data Analyst",
+            "imageUrl": "Image URL",
+            "imageUrlDisabled": "Editing image URL has been disabled.",
+            "invalidUrl": "not valid url",
+            "team": "Team",
+            "teamPlaceholder": "Product Engineering",
+            "email": "Email",
+            "emailRequired": "Enter your email",
+            "emailInvalid": "Please enter valid email",
+            "slackMemberId": "Slack Member ID",
+            "slackHelpText": "Find your member ID from the",
+            "slackMenu": "menu in your Slack profile. More info",
+            "here": "here.",
+            "phone": "Phone",
+            "phoneInvalid": "not valid phone number",
+            "ownerOf": "Owner Of",
+            "groups": "Groups",
+            "aboutTab": "About"
+        },
+        "glossaryTerm": {
+            "source": "Source",
+            "viewSource": "view source"
         },
         "container": {
             "tabs": {
@@ -3627,5 +3707,51 @@
         "updating": "Updating...",
         "createSuccess": "Created Business Attribute!",
         "createFailed": "Failed to create"
+    },
+    "entityV2": {
+        "containers": {
+            "profile": {
+                "header": {
+                    "entityCount": {
+                        "asset": "asset",
+                        "assets": "assets",
+                        "entity": "entity",
+                        "entities": "entities"
+                    },
+                    "entityHealth": {
+                        "details": "details"
+                    },
+                    "exploreLineage": {
+                        "visuallyExplore": "Visually explore the upstreams and downstreams of {{name}}"
+                    }
+                },
+                "sidebar": {
+                    "entityName": {
+                        "nameUpdated": "Name Updated",
+                        "failedUpdateName": "Failed to update name:"
+                    },
+                    "sectionActionButton": {
+                        "noPermission": "You do not have permission to change this."
+                    },
+                    "sidebarLogicSection": {
+                        "viewDefinition": "View Definition",
+                        "logic": "Logic",
+                        "close": "Close",
+                        "seeFull": "See Full",
+                        "source": "Source",
+                        "compiled": "Compiled",
+                        "raw": "Raw",
+                        "formatted": "Formatted"
+                    },
+                    "lastIngested": {
+                        "lastSynchronized": "Last Synchronized",
+                        "pastWeek": "past week",
+                        "pastMonth": "past month",
+                        "moreThanMonth": "more than a month ago",
+                        "syncedWithPlatform": "This represents the time that the entity was last synchronized with {{platformName}}"
+                    }
+                }
+            }
+        }
     }
 }

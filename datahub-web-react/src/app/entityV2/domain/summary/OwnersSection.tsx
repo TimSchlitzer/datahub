@@ -1,6 +1,7 @@
 import { UserOutlined } from '@ant-design/icons';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -45,6 +46,7 @@ const Details = styled.div`
 `;
 
 const OwnersSection = () => {
+    const { t } = useTranslation();
     const { entityData } = useEntityData();
     const ownersEmpty = !entityData?.ownership?.owners?.length;
     const ownershipTypesMap: Map<string, OwnershipTypeEntity> = new Map();
@@ -68,7 +70,7 @@ const OwnersSection = () => {
 
     return (
         <SectionContainer>
-            <SummaryTabHeaderTitle title="Owners" icon={<UserOutlined />} />
+            <SummaryTabHeaderTitle title={t('entity.domain.summary.owners')} icon={<UserOutlined />} />
             <Details>
                 {ownershipTypeNames.map((ownershipTypeName) => {
                     const owners = ownersByTypeMap.get(ownershipTypeName) as Owner[];

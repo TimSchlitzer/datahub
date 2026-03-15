@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -40,10 +41,11 @@ type Props = {
 };
 
 const SectionActionButton = ({ tip, button, onClick, actionPrivilege = true, dataTestId }: Props) => {
+    const { t } = useTranslation();
     return (
         <Tooltip
             placement="top"
-            title={!actionPrivilege ? 'You do not have permission to change this.' : tip}
+            title={!actionPrivilege ? t('entityV2.containers.profile.sidebar.sectionActionButton.noPermission') : tip}
             showArrow={false}
         >
             <>

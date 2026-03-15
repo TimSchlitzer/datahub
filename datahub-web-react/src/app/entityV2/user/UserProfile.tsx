@@ -1,6 +1,7 @@
 import { BookOpen } from '@phosphor-icons/react';
 import { Col } from 'antd';
 import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { matchPath } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -36,8 +37,8 @@ export interface Props {
 }
 
 export enum TabType {
-    Assets = 'Owner Of',
-    Groups = 'Groups',
+    Assets = 'ownerOf',
+    Groups = 'groups',
 }
 
 const ENABLED_TAB_TYPES = [TabType.Assets, TabType.Groups];
@@ -76,7 +77,7 @@ const UserProfileWrapper = styled.div<{ $isShowNavBarRedesign?: boolean }>`
 
 export const EmptyValue = styled.div`
     &:after {
-        content: 'None';
+        content: attr(data-content);
         color: #b7b7b7;
         font-style: italic;
         font-weight: 100;
@@ -97,6 +98,7 @@ const Tabs = styled.div``;
  * Responsible for reading & writing users.
  */
 export default function UserProfile({ urn }: Props) {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
     const entityRegistry = useEntityRegistry();
     const location = useLocation();
@@ -167,7 +169,7 @@ export default function UserProfile({ urn }: Props) {
 
     const finalTabs = [
         {
-            name: 'About',
+            name: t('entity.user.aboutTab'),
             icon: BookOpen,
             component: EntitySidebarSectionsTab,
             display: {

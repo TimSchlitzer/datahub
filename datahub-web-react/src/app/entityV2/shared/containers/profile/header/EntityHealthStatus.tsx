@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -35,6 +36,7 @@ type Props = {
 };
 
 export const EntityHealthStatus = ({ type, message, baseUrl }: Props) => {
+    const { t } = useTranslation();
     const title = getHealthTypeName(type);
     const redirectPath = getHealthRedirectPath(type);
     const fullPath = `${baseUrl}/${redirectPath}`;
@@ -43,7 +45,7 @@ export const EntityHealthStatus = ({ type, message, baseUrl }: Props) => {
             <Title>{title}</Title> {message}
             {redirectPath && (
                 <RedirectLink to={fullPath} data-testid={`${title.toLowerCase()}-details`}>
-                    details
+                    {t('entityV2.containers.profile.header.entityHealth.details')}
                 </RedirectLink>
             )}
         </StatusContainer>

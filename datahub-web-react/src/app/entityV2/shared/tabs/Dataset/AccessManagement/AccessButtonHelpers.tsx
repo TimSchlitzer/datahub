@@ -1,13 +1,9 @@
 import { Button, Tooltip } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY, REDESIGN_COLORS } from '@app/entityV2/shared/constants';
-
-/**
- * Tooltip message for when user already has access
- */
-export const ACCESS_GRANTED_TOOLTIP = 'You already have access to this role';
 
 /**
  * Styled button component for access management actions.
@@ -67,7 +63,7 @@ export const handleAccessButtonClick = (hasAccess: boolean, url?: string) => (e:
  * Renders an access button with appropriate state and tooltip.
  * Shows "Granted" (disabled) if user has access, "Request" (enabled) if they don't.
  */
-export const renderAccessButton = (roleData: RoleAccessData): React.ReactElement | null => {
+export const renderAccessButton = (roleData: RoleAccessData, t: any): React.ReactElement | null => {
     const { hasAccess, url } = roleData;
 
     // Only show button if there's a URL to request access or user already has access
@@ -79,15 +75,15 @@ export const renderAccessButton = (roleData: RoleAccessData): React.ReactElement
         <AccessButton
             disabled={hasAccess}
             onClick={handleAccessButtonClick(hasAccess, url)}
-            aria-label={hasAccess ? 'Access already granted' : 'Request access'}
+            aria-label={hasAccess ? t('entity.access.tooltip.accessAlreadyGranted') : 'Request access'}
         >
-            {hasAccess ? 'Granted' : 'Request'}
+            {hasAccess ? t('entity.access.button.granted') : t('entity.access.button.request')}
         </AccessButton>
     );
 
     // Wrap with tooltip if user already has access
     return hasAccess ? (
-        <Tooltip title={ACCESS_GRANTED_TOOLTIP} placement="top">
+        <Tooltip title={t('entity.access.tooltip.accessGranted')} placement="top">
             {button}
         </Tooltip>
     ) : (
@@ -98,7 +94,7 @@ export const renderAccessButton = (roleData: RoleAccessData): React.ReactElement
 /**
  * Determines the button text based on access status
  */
-export const getAccessButtonText = (hasAccess: boolean): string => (hasAccess ? 'Granted' : 'Request');
+export const getAccessButtonText = (hasAccess: boolean, t: any): string => (hasAccess ? t('entity.access.button.granted') : t('entity.access.button.request'));
 
 /**
  * Determines if the button should be disabled

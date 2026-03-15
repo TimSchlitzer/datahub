@@ -913,6 +913,46 @@
                     "deleteConfirmContent": "Sind Sie sicher, dass Sie diese Abfrage löschen möchten?"
                 }
             },
+            "access": {
+                "table": {
+                    "roleName": "Rollenname",
+                    "description": "Beschreibung",
+                    "accessType": "Zugriffstyp",
+                    "access": "Zugriff"
+                },
+                "button": {
+                    "granted": "Gewährt",
+                    "request": "Anfrage"
+                },
+                "tooltip": {
+                    "accessGranted": "Sie haben bereits Zugriff auf diese Rolle",
+                    "accessAlreadyGranted": "Zugriff bereits gewährt"
+                },
+                "description": {
+                    "readMore": "...Mehr lesen",
+                    "readLess": " Weniger lesen"
+                }
+            },
+            "governance": {
+                "testResults": {
+                    "title": "Testergebnisse",
+                    "noTests": "Keine Tests gefunden :(",
+                    "noDescription": "Keine Beschreibung",
+                    "tooltip": "URN kopieren. Ein URN identifiziert eindeutig eine Entität auf DataHub.",
+                    "summary": {
+                        "noTestsHaveRun": "Keine Tests sind gelaufen",
+                        "allTestsPassing": "Alle Tests bestehen",
+                        "allTestsFailing": "Alle Tests schlagen fehl",
+                        "someTestsFailing": "Einige Tests schlagen fehl",
+                        "passingTests": "{{passing}} erfolgreich, {{failing}} fehlgeschlagen",
+                        "tooltip": "Dieser Status basiert auf der letzten Ausführung jedes Tests."
+                    },
+                    "status": {
+                        "passing": "Erfolgreich",
+                        "failing": "Fehlgeschlagen"
+                    }
+                }
+            },
             "lineage": {
                 "viewGraph": "Grafik anzeigen",
                 "upstream": "Vorgelagert",
@@ -1178,7 +1218,10 @@
                     "title": "Datenprodukte",
                     "createButton": "Datenprodukt erstellen",
                     "viewAll": "Alle anzeigen"
-                }
+                },
+                "owners": "Besitzer",
+                "about": "Über",
+                "addDocumentation": "Dokumentation hinzufügen"
             },
             "dataProductsTab": {
                 "newDataProduct": "Neues Datenprodukt",
@@ -1194,6 +1237,43 @@
                     "error": "Fehler beim Erstellen des Datenprodukts. Ein unerwarteter Fehler ist aufgetreten"
                 }
             }
+        },
+        "user": {
+            "skills": "Fragen Sie mich zu",
+            "teams": "Teams",
+            "memberSingular": " Mitglied",
+            "memberPlural": " Mitglieder",
+            "changesSaved": "Änderungen gespeichert.",
+            "failedSaveChanges": "Fehler beim Speichern der Änderungen!",
+            "editProfileTitle": "Profil bearbeiten",
+            "cancel": "Abbrechen",
+            "saveChanges": "Änderungen speichern",
+            "name": "Name",
+            "nameRequired": "Geben Sie einen Anzeigenamen ein.",
+            "namePlaceholder": "John Smith",
+            "titleRole": "Titel/Rolle",
+            "titlePlaceholder": "Datenanalyst",
+            "imageUrl": "Bild-URL",
+            "imageUrlDisabled": "Das Bearbeiten der Bild-URL wurde deaktiviert.",
+            "invalidUrl": "keine gültige URL",
+            "team": "Team",
+            "teamPlaceholder": "Produktingenieurwesen",
+            "email": "E-Mail",
+            "emailRequired": "Geben Sie Ihre E-Mail ein",
+            "emailInvalid": "Bitte geben Sie eine gültige E-Mail ein",
+            "slackMemberId": "Slack-Mitglied-ID",
+            "slackHelpText": "Finden Sie Ihre Mitglied-ID im",
+            "slackMenu": "Menü in Ihrem Slack-Profil. Mehr Informationen",
+            "here": "hier.",
+            "phone": "Telefon",
+            "phoneInvalid": "keine gültige Telefonnummer",
+            "ownerOf": "Besitzer von",
+            "groups": "Gruppen",
+            "aboutTab": "Über"
+        },
+        "glossaryTerm": {
+            "source": "Quelle",
+            "viewSource": "Quelle anzeigen"
         },
         "container": {
             "tabs": {
@@ -3574,5 +3654,51 @@
         "updating": "Wird aktualisiert...",
         "createSuccess": "Geschäftsattribut erstellt!",
         "createFailed": "Fehler beim Erstellen"
+    },
+    "entityV2": {
+        "containers": {
+            "profile": {
+                "header": {
+                    "entityCount": {
+                        "asset": "Vermögenswert",
+                        "assets": "Vermögenswerte",
+                        "entity": "Entität",
+                        "entities": "Entitäten"
+                    },
+                    "entityHealth": {
+                        "details": "Details"
+                    },
+                    "exploreLineage": {
+                        "visuallyExplore": "Erkunden Sie visuell die Upstream- und Downstream-Abhängigkeiten von {{name}}"
+                    }
+                },
+                "sidebar": {
+                    "entityName": {
+                        "nameUpdated": "Name aktualisiert",
+                        "failedUpdateName": "Fehler beim Aktualisieren des Namens:"
+                    },
+                    "sectionActionButton": {
+                        "noPermission": "Sie haben keine Berechtigung, dies zu ändern."
+                    },
+                    "sidebarLogicSection": {
+                        "viewDefinition": "Definition anzeigen",
+                        "logic": "Logik",
+                        "close": "Schließen",
+                        "seeFull": "Vollständig ansehen",
+                        "source": "Quelle",
+                        "compiled": "Kompiliert",
+                        "raw": "Roh",
+                        "formatted": "Formatiert"
+                    },
+                    "lastIngested": {
+                        "lastSynchronized": "Zuletzt synchronisiert",
+                        "pastWeek": "vergangene Woche",
+                        "pastMonth": "vergangener Monat",
+                        "moreThanMonth": "vor mehr als einem Monat",
+                        "syncedWithPlatform": "Dies ist der Zeitpunkt, zu dem die Entität zuletzt mit {{platformName}} synchronisiert wurde"
+                    }
+                }
+            }
+        }
     }
 }

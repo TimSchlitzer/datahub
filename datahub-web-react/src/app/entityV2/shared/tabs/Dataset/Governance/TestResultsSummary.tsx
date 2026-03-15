@@ -2,6 +2,7 @@ import { CheckCircleFilled, CloseCircleFilled, StopOutlined } from '@ant-design/
 import { Tooltip } from '@components';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { FAILURE_COLOR_HEX, SUCCESS_COLOR_HEX } from '@components/theme/foundations/colors';
@@ -52,27 +53,31 @@ const getSummaryIcon = (summary: TestsSummary) => {
     return <CloseCircleFilled style={{ color: FAILURE_COLOR_HEX, fontSize: 28 }} />;
 };
 
-const getSummaryMessage = (summary: TestsSummary) => {
+const getSummaryMessage = (summary: TestsSummary, t: any) => {
     if (summary.total === 0) {
-        return 'No tests have run';
+        return t('entity.governance.testResults.summary.noTestsHaveRun');
     }
     if (summary.passing === summary.total) {
-        return 'All tests are passing';
+        return t('entity.governance.testResults.summary.allTestsPassing');
     }
     if (summary.failing === summary.total) {
-        return 'All tests are failing';
+        return t('entity.governance.testResults.summary.allTestsFailing');
     }
-    return 'Some tests are failing';
+    return t('entity.governance.testResults.summary.someTestsFailing');
 };
 
 export const TestResultsSummary = ({ summary }: Props) => {
+    const { t } = useTranslation();
     const summaryIcon = getSummaryIcon(summary);
-    const summaryMessage = getSummaryMessage(summary);
-    const subtitleMessage = `${summary.passing} passing tests, ${summary.failing} failing tests`;
+    const summaryMessage = getSummaryMessage(summary, t);
+    const subtitleMessage = t('entity.governance.testResults.summary.passingTests', {
+        passing: summary.passing,
+        failing: summary.failing,
+    });
     return (
         <SummaryHeader>
             <SummaryContainer>
-                <Tooltip title="This status is based on the most recent run of each test.">
+                <Tooltip title={t('entity.governance.testResults.summary.tooltip')}>
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         {summaryIcon}
                         <SummaryMessage>

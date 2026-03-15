@@ -2,6 +2,7 @@ import { CopyOutlined, StopOutlined } from '@ant-design/icons';
 import { Button, Tooltip } from '@components';
 import { Divider, Empty, Tag, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { StyledTable } from '@app/entityV2/shared/components/styled/StyledTable';
@@ -49,6 +50,7 @@ type Props = {
 };
 
 export const TestResultsList = ({ title, results }: Props) => {
+    const { t } = useTranslation();
     const resultsTableData = results.map((result) => ({
         urn: result.test?.urn,
         name: result?.test?.name,
@@ -64,7 +66,7 @@ export const TestResultsList = ({ title, results }: Props) => {
             key: '',
             render: (_, record: any) => {
                 const resultColor = (record.resultType && getResultColor(record.resultType)) || 'default';
-                const resultText = (record.resultType && getResultText(record.resultType)) || 'No Evaluations';
+                const resultText = (record.resultType && getResultText(record.resultType, t)) || 'No Evaluations';
                 const resultIcon = (record.resultType && getResultIcon(record.resultType)) || <StopOutlined />;
                 return (
                     <ResultContainer>
@@ -81,12 +83,12 @@ export const TestResultsList = ({ title, results }: Props) => {
                                     <TestCategory type="secondary">{record.category}</TestCategory>
                                     <Divider type="vertical" />
                                     <Typography.Text type={record.description ? undefined : 'secondary'}>
-                                        {record.description || 'No description'}
+                                        {record.description || t('entity.governance.testResults.noDescription')}
                                     </Typography.Text>
                                 </div>
                             </div>
                             {navigator.clipboard && (
-                                <Tooltip title="Copy URN. An URN uniquely identifies an entity on DataHub.">
+                                <Tooltip title={t('entity.governance.testResults.tooltip')}>
                                     <CopyButton
                                         variant="outline"
                                         size="sm"
@@ -114,7 +116,7 @@ export const TestResultsList = ({ title, results }: Props) => {
                 dataSource={resultsTableData}
                 rowKey="urn"
                 locale={{
-                    emptyText: <Empty description="No Tests Found :(" image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: <Empty description={t('entity.governance.testResults.noTests')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
                 }}
                 showHeader={false}
                 pagination={false}

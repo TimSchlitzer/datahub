@@ -90,16 +90,17 @@ const PreviewImage = styled(Image)`
 `;
 
 function TooltipContent() {
+    const { t } = useTranslation();
     return (
         <div>
             <TooltipSection>
-                <StyledDot color={green[5]} /> Synchronized in the&nbsp;<b>past week</b>
+                <StyledDot color={green[5]} /> Synchronized in the&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.pastWeek')}</b>
             </TooltipSection>
             <TooltipSection>
-                <StyledDot color={orange[5]} /> Synchronized in the&nbsp;<b>past month</b>
+                <StyledDot color={orange[5]} /> Synchronized in the&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.pastMonth')}</b>
             </TooltipSection>
             <TooltipSection>
-                <StyledDot color={red[5]} /> Synchronized&nbsp;<b>more than a month ago</b>
+                <StyledDot color={red[5]} /> Synchronized&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.moreThanMonth')}</b>
             </TooltipSection>
         </div>
     );

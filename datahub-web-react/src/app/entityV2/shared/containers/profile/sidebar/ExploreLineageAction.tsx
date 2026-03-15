@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -35,6 +36,7 @@ interface Props {
 }
 
 export const ExploreLineageAction = ({ icon }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const isCompact = useContext(CompactContext);
     const { urn, entityType, entityData } = useEntityData();
@@ -48,7 +50,7 @@ export const ExploreLineageAction = ({ icon }: Props) => {
                 <Tooltip
                     placement="left"
                     showArrow={false}
-                    title={`Visually explore the upstreams and downstreams of ${entityName}`}
+                    title={t('entityV2.containers.profile.header.exploreLineage.visuallyExplore', { name: entityName })}
                 >
                     <ActionButton
                         target={isCompact ? '_blank' : '_self'}

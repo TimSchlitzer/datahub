@@ -913,6 +913,46 @@
                     "deleteConfirmContent": "¿Está seguro de que desea eliminar esta consulta?"
                 }
             },
+            "access": {
+                "table": {
+                    "roleName": "Nombre de Rol",
+                    "description": "Descripción",
+                    "accessType": "Tipo de Acceso",
+                    "access": "Acceso"
+                },
+                "button": {
+                    "granted": "Otorgado",
+                    "request": "Solicitar"
+                },
+                "tooltip": {
+                    "accessGranted": "Ya tiene acceso a este rol",
+                    "accessAlreadyGranted": "Acceso ya otorgado"
+                },
+                "description": {
+                    "readMore": "...Leer Más",
+                    "readLess": " Leer Menos"
+                }
+            },
+            "governance": {
+                "testResults": {
+                    "title": "Resultados de Pruebas",
+                    "noTests": "No se encontraron pruebas :(",
+                    "noDescription": "Sin descripción",
+                    "tooltip": "Copiar URN. Un URN identifica únicamente una entidad en DataHub.",
+                    "summary": {
+                        "noTestsHaveRun": "No se han ejecutado pruebas",
+                        "allTestsPassing": "Todas las pruebas están pasando",
+                        "allTestsFailing": "Todas las pruebas están fallando",
+                        "someTestsFailing": "Algunas pruebas están fallando",
+                        "passingTests": "{{passing}} pruebas exitosas, {{failing}} pruebas fallidas",
+                        "tooltip": "Este estado se basa en la ejecución más reciente de cada prueba."
+                    },
+                    "status": {
+                        "passing": "Exitoso",
+                        "failing": "Fallido"
+                    }
+                }
+            },
             "lineage": {
                 "viewGraph": "Ver Gráfico",
                 "upstream": "Ascendente",
@@ -1178,7 +1218,10 @@
                     "title": "Data Products",
                     "createButton": "Create Data Product",
                     "viewAll": "View all"
-                }
+                },
+                "owners": "Propietarios",
+                "about": "Acerca de",
+                "addDocumentation": "Agregar Documentación"
             },
             "dataProductsTab": {
                 "newDataProduct": "New Data Product",
@@ -1194,6 +1237,43 @@
                     "error": "Failed to create Data Product. An unexpected error occurred"
                 }
             }
+        },
+        "user": {
+            "skills": "Pregúntame acerca de",
+            "teams": "Equipos",
+            "memberSingular": " miembro",
+            "memberPlural": " miembros",
+            "changesSaved": "Cambios guardados.",
+            "failedSaveChanges": "¡Error al guardar los cambios!",
+            "editProfileTitle": "Editar Perfil",
+            "cancel": "Cancelar",
+            "saveChanges": "Guardar Cambios",
+            "name": "Nombre",
+            "nameRequired": "Ingrese un nombre para mostrar.",
+            "namePlaceholder": "John Smith",
+            "titleRole": "Título/Rol",
+            "titlePlaceholder": "Analista de Datos",
+            "imageUrl": "URL de la Imagen",
+            "imageUrlDisabled": "La edición de la URL de la imagen ha sido deshabilitada.",
+            "invalidUrl": "URL no válida",
+            "team": "Equipo",
+            "teamPlaceholder": "Ingeniería de Productos",
+            "email": "Correo Electrónico",
+            "emailRequired": "Ingrese su correo electrónico",
+            "emailInvalid": "Por favor ingrese un correo electrónico válido",
+            "slackMemberId": "ID de Miembro de Slack",
+            "slackHelpText": "Encuentre su ID de miembro en el",
+            "slackMenu": "menú en su perfil de Slack. Más información",
+            "here": "aquí.",
+            "phone": "Teléfono",
+            "phoneInvalid": "número de teléfono no válido",
+            "ownerOf": "Propietario de",
+            "groups": "Grupos",
+            "aboutTab": "Acerca de"
+        },
+        "glossaryTerm": {
+            "source": "Fuente",
+            "viewSource": "ver fuente"
         },
         "container": {
             "tabs": {
@@ -3626,5 +3706,51 @@
         "updating": "Actualizando...",
         "createSuccess": "¡Atributo de Negocio Creado!",
         "createFailed": "Error al crear"
+    },
+    "entityV2": {
+        "containers": {
+            "profile": {
+                "header": {
+                    "entityCount": {
+                        "asset": "activo",
+                        "assets": "activos",
+                        "entity": "entidad",
+                        "entities": "entidades"
+                    },
+                    "entityHealth": {
+                        "details": "detalles"
+                    },
+                    "exploreLineage": {
+                        "visuallyExplore": "Explore visualmente las dependencias ascendentes y descendentes de {{name}}"
+                    }
+                },
+                "sidebar": {
+                    "entityName": {
+                        "nameUpdated": "Nombre actualizado",
+                        "failedUpdateName": "Error al actualizar el nombre:"
+                    },
+                    "sectionActionButton": {
+                        "noPermission": "No tiene permiso para cambiar esto."
+                    },
+                    "sidebarLogicSection": {
+                        "viewDefinition": "Ver Definición",
+                        "logic": "Lógica",
+                        "close": "Cerrar",
+                        "seeFull": "Ver Completo",
+                        "source": "Fuente",
+                        "compiled": "Compilado",
+                        "raw": "Crudo",
+                        "formatted": "Formateado"
+                    },
+                    "lastIngested": {
+                        "lastSynchronized": "Última Sincronización",
+                        "pastWeek": "semana pasada",
+                        "pastMonth": "mes pasado",
+                        "moreThanMonth": "hace más de un mes",
+                        "syncedWithPlatform": "Esto representa la hora en que la entidad se sincronizó por última vez con {{platformName}}"
+                    }
+                }
+            }
+        }
     }
 }

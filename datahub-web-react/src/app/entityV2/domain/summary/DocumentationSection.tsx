@@ -1,6 +1,7 @@
 import { EditOutlined, ExpandAltOutlined, FileOutlined } from '@ant-design/icons';
 import { Divider, Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData, useRouteToTab } from '@app/entity/shared/EntityContext';
@@ -50,6 +51,7 @@ const StyledFileOutlined = styled(FileOutlined)`
 `;
 
 export const DocumentationSection = () => {
+    const { t } = useTranslation();
     // The summary tab consists of modules
     const { entityData } = useEntityData();
     const routeToTab = useRouteToTab();
@@ -62,7 +64,7 @@ export const DocumentationSection = () => {
             <Header>
                 <Title level={3}>
                     <StyledFileOutlined />
-                    About
+                    {t('entity.domain.summary.about')}
                 </Title>
                 {hasDescription && (
                     <Button
@@ -87,7 +89,7 @@ export const DocumentationSection = () => {
                             data-testid="add-documentation"
                             onClick={() => routeToTab({ tabName: 'Documentation', tabParams: { editing: true } })}
                         >
-                            <EditOutlined /> Add Documentation
+                            <EditOutlined /> {t('entity.domain.summary.addDocumentation')}
                         </Button>
                     </EmptyTab>
                 )}

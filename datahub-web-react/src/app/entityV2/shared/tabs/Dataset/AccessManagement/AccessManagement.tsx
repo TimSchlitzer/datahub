@@ -1,5 +1,6 @@
 import { Table } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity } from '@app/entity/shared/EntityContext';
@@ -51,9 +52,9 @@ const EmptyAccessSection = styled.section`
 /**
  * Renders the access button or empty state based on role data
  */
-const renderAccessCell = (hasAccess: boolean, record: RoleAccessData) => {
+const renderAccessCell = (hasAccess: boolean, record: RoleAccessData, t: any) => {
     const roleData = { hasAccess, url: record.url, name: record.name };
-    const button = renderAccessButton(roleData);
+    const button = renderAccessButton(roleData, t);
 
     return button || <EmptyAccessSection />;
 };
@@ -64,6 +65,7 @@ const renderAccessCell = (hasAccess: boolean, record: RoleAccessData) => {
  * and "Request" (enabled) buttons for roles they can request access to.
  */
 export default function AccessManagement() {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
     const entityUrn = baseEntity?.dataset?.urn as string;
 
@@ -74,12 +76,12 @@ export default function AccessManagement() {
 
     const columns = [
         {
-            title: 'Role Name',
+            title: t('entity.access.table.roleName'),
             dataIndex: 'name',
             key: 'name',
         },
         {
-            title: 'Description',
+            title: t('entity.access.table.description'),
             dataIndex: 'description',
             key: 'description',
             render: (roleDescription) => {
@@ -87,15 +89,15 @@ export default function AccessManagement() {
             },
         },
         {
-            title: 'Access Type',
+            title: t('entity.access.table.accessType'),
             dataIndex: 'accessType',
             key: 'accessType',
         },
         {
-            title: 'Access',
+            title: t('entity.access.table.access'),
             dataIndex: 'hasAccess',
             key: 'hasAccess',
-            render: renderAccessCell,
+            render: (hasAccess, record) => renderAccessCell(hasAccess, record, t),
             hidden: true,
         },
     ];

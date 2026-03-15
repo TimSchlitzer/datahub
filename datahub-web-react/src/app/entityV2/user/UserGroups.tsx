@@ -1,6 +1,7 @@
 import { Tooltip } from '@components';
 import { Col, Pagination, Row } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -84,6 +85,7 @@ const GroupDescription = styled.span`
 `;
 
 export default function UserGroups({ urn, initialRelationships, pageSize }: Props) {
+    const { t } = useTranslation();
     const [page, setPage] = useState(1);
     const entityRegistry = useEntityRegistry();
 
@@ -113,7 +115,7 @@ export default function UserGroups({ urn, initialRelationships, pageSize }: Prop
                                             <GroupTitle>{item.info?.displayName || item.name}</GroupTitle>
                                             <GroupMember>
                                                 {item.relationships?.total}
-                                                {item.relationships?.total === 1 ? ' member' : ' members'}
+                                                {item.relationships?.total === 1 ? t('entity.user.memberSingular') : t('entity.user.memberPlural')}
                                             </GroupMember>
                                         </Row>
                                         <Row className="description-row">
