@@ -1415,7 +1415,13 @@
         "failedToFindRendererCorrespondingToRenderType": "Kein Renderer für den Rendertyp {{name}} gefunden",
         "pageNotFound": "Die angeforderte Seite wurde nicht gefunden",
         "sidebarFailedToLoad": "Die Seitenleiste konnte nicht geladen werden.",
-        "unsupportedTestResultType": "Nicht unterstützter Testergebnistyp {{result}} angegeben."
+        "unsupportedTestResultType": "Nicht unterstützter Testergebnistyp {{result}} angegeben.",
+        "view": {
+            "onlyVisibleToYou": "Nur für Sie sichtbar",
+            "visibleToEveryone": "Für alle sichtbar",
+            "public": "Öffentlich",
+            "private": "Privat"
+        }
     },
     "entityDropdown": {
         "copyUrl": "URL kopieren",
@@ -3605,6 +3611,9 @@
                     "description": "Zeigen Sie die Spalten dieses Datensatzes an"
                 },
                 "moduleDescriptions": "Module, die für Ihre Organisation erstellt wurden"
+            },
+            "searchBar": {
+                "discover": "Entdecken"
             }
         }
     },

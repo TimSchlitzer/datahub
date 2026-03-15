@@ -3809,6 +3809,9 @@
                     "description": "View the columns of this dataset"
                 },
                 "moduleDescriptions": "Modules created for your organization"
+            },
+            "searchBar": {
+                "discover": "Discover"
             }
         }
     },

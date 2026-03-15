@@ -1,5 +1,6 @@
 import { Button, Icon } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { useTheme } from 'styled-components';
 
 import { SearchBarV2 } from '@app/searchV2/searchBarV2/SearchBarV2';
@@ -22,6 +23,7 @@ const StyledButton = styled(Button)`
 `;
 
 export default function SearchBar() {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistryV2();
     const searchViewAll = useSearchViewAll();
     const search = useGoToSearchPage(null);
@@ -44,7 +46,7 @@ export default function SearchBar() {
             />
             <ViewAllContainer>
                 <StyledButton variant="text" color="gray" size="sm" onClick={searchViewAll}>
-                    Discover <Icon icon="ArrowRight" source="phosphor" size="sm" />
+                    {t('homeV3.searchBar.discover')} <Icon icon="ArrowRight" source="phosphor" size="sm" />
                 </StyledButton>
             </ViewAllContainer>
         </Container>
