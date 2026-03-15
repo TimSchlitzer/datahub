@@ -1,5 +1,6 @@
 import { Button } from '@components';
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { AnnouncementCard } from '@app/homeV3/announcements/AnnouncementCard';
@@ -20,6 +21,7 @@ interface Props {
 }
 
 export default function ExpandableAnnouncements({ announcements, onDismiss }: Props) {
+    const { t } = useTranslation();
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     const finalAnnouncements = useMemo(
@@ -42,7 +44,7 @@ export default function ExpandableAnnouncements({ announcements, onDismiss }: Pr
                         iconPosition="right"
                         onClick={() => setIsExpanded(false)}
                     >
-                        Show less
+                        {t('homeV3.announcements.showLess')}
                     </Button>
                 </ExpandCollapseButtonWrapper>
             );
@@ -57,7 +59,7 @@ export default function ExpandableAnnouncements({ announcements, onDismiss }: Pr
                     iconPosition="right"
                     onClick={() => setIsExpanded(true)}
                 >
-                    View all ({announcements.length})
+                    {t('homeV3.announcements.viewAll', { count: announcements.length })}
                 </Button>
             </ExpandCollapseButtonWrapper>
         );

@@ -2774,7 +2774,12 @@
             "sortByNameZA": "Name Z to A",
             "noResults": "No results"
         },
-        "moreForYou": "More you may be interested in"
+        "moreForYou": "More you may be interested in",
+        "discover": "Descubrir",
+        "matches": {
+            "showMore": "+ {{count}} más",
+            "showLess": "Mostrar menos"
+        }
     },
     "settings": {
         "ownershipTypeName": "Ownership type name",

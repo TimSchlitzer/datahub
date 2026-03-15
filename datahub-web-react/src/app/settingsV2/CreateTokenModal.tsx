@@ -1,12 +1,15 @@
+import { red } from '@ant-design/colors';
+import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import analytics, { EventType } from '@app/analytics';
 import { AccessTokenModal } from '@app/settingsV2/AccessTokenModal';
 import { ACCESS_TOKEN_DURATIONS, getTokenExpireDate } from '@app/settingsV2/utils';
 import { useEnterKeyListener } from '@app/shared/useEnterKeyListener';
-import { Button, Input, Modal, SimpleSelect, Text, TextArea, toast } from '@src/alchemy-components';
-import { spacing } from '@src/alchemy-components/theme';
+import { Button, Input, Modal, SimpleSelect, Text } from '@src/alchemy-components';
+import { colors } from '@src/alchemy-components/theme';
 
 import { useCreateAccessTokenMutation } from '@graphql/auth.generated';
 import { AccessTokenDuration, AccessTokenType, CreateAccessTokenInput } from '@types';
@@ -33,24 +36,38 @@ type Props = {
 const FormContainer = styled.div`
     display: flex;
     flex-direction: column;
-    gap: ${spacing.lg};
+    gap: 24px;
+`;
+
+const FormGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+`;
+
+const FormLabel = styled(Text)`
+    color: ${colors.gray[600]};
+`;
+
+const FormDescription = styled(Text)`
+    color: ${colors.gray[1700]};
 `;
 
 const ExpirationContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: ${spacing.xsm};
+    gap: 8px;
 `;
 
 const ExpirationText = styled(Text)<{ $isWarning?: boolean }>`
-    ${(props) => props.$isWarning && props.theme?.colors?.textError && `color: ${props.theme.colors.textError};`}
+    ${(props) => props.$isWarning && `color: ${red[5]};`}
 `;
 
 const ModalFooter = styled.div`
     display: flex;
     justify-content: flex-end;
-    gap: ${spacing.xsm};
+    gap: 8px;
 `;
 
 export default function CreateTokenModal({
@@ -63,6 +80,7 @@ export default function CreateTokenModal({
     tokenType = AccessTokenType.Personal,
     actorDisplayName,
 }: Props) {
+    const { t } = useTranslation();
     // Support legacy currentUserUrn prop
     const resolvedActorUrn = actorUrn || currentUserUrn || '';
 
@@ -111,11 +129,11 @@ export default function CreateTokenModal({
 
     const validateForm = (): boolean => {
         if (!tokenName.trim()) {
-            setTokenNameError('Token name is required');
+            setTokenNameError(t('settings.accessTokens.tokenNameRequired'));
             return false;
         }
         if (tokenName.length > 50) {
-            setTokenNameError('Token name must be 50 characters or less');
+            setTokenNameError(t('settings.accessTokens.tokenNameTooLong'));
             return false;
         }
         setTokenNameError('');
@@ -136,7 +154,6 @@ export default function CreateTokenModal({
         createAccessToken({ variables: { input } })
             .then(({ errors }) => {
                 if (!errors) {
-                    toast.success('Access token created successfully');
                     setSelectedTokenDuration(selectedDuration);
                     analytics.event({
                         type: EventType.CreateAccessTokenEvent,
@@ -147,7 +164,8 @@ export default function CreateTokenModal({
                 }
             })
             .catch((e) => {
-                toast.error(`Failed to create token: ${e.message || ''}`);
+                message.destroy();
+                message.error({ content: t('settings.accessTokens.failedToCreateToken', { error: e.message || '' }), duration: 3 });
                 onModalClose();
             });
     };
@@ -164,15 +182,15 @@ export default function CreateTokenModal({
     // Generate modal title based on token type and actor
     const getModalTitle = () => {
         if (forRemoteExecutor) {
-            return 'Create Token for Remote Executor';
+            return t('settings.accessTokens.createRemoteExecutorToken');
         }
         if (actorDisplayName) {
-            return `Create Access Token for ${actorDisplayName}`;
+            return t('settings.accessTokens.createAccessTokenFor', { actor: actorDisplayName });
         }
         if (tokenType === AccessTokenType.ServiceAccount) {
-            return 'Create Service Account Token';
+            return t('settings.accessTokens.createServiceAccountToken');
         }
-        return 'Create Access Token';
+        return t('settings.accessTokens.createAccessToken');
     };
 
     const durationOptions = ACCESS_TOKEN_DURATIONS.map((duration) => ({
@@ -195,7 +213,7 @@ export default function CreateTokenModal({
                                 color="gray"
                                 data-testid="cancel-create-token-button"
                             >
-                                Cancel
+                                {t('common.cancel')}
                             </Button>
                             <Button
                                 id="createTokenButton"
@@ -203,35 +221,48 @@ export default function CreateTokenModal({
                                 disabled={!tokenName.trim()}
                                 data-testid="create-access-token-button"
                             >
-                                Create
+                                {t('common.create')}
                             </Button>
                         </ModalFooter>
                     }
                 >
                     <FormContainer>
-                        <Input
-                            label="Token Name"
-                            isRequired
-                            value={tokenName}
-                            setValue={setTokenName}
-                            placeholder="A name for the token"
-                            error={tokenNameError}
-                            maxLength={50}
-                            inputTestId="create-access-token-name"
-                        />
-                        <TextArea
-                            label="Description"
-                            value={tokenDescription}
-                            onChange={(e) => setTokenDescription(e.target.value)}
-                            placeholder="A description for the token"
-                            maxLength={500}
-                            rows={3}
-                            id="create-access-token-description"
-                            data-testid="create-access-token-description"
-                        />
+                        <FormGroup>
+                            <FormLabel size="md" weight="semiBold">
+                                {t('settings.accessTokens.tokenName')}
+                            </FormLabel>
+                            <FormDescription size="sm" color="gray">
+                                {t('settings.accessTokens.tokenNameDescription')}
+                            </FormDescription>
+                            <Input
+                                value={tokenName}
+                                setValue={setTokenName}
+                                placeholder={t('settings.accessTokens.tokenNamePlaceholder')}
+                                error={tokenNameError}
+                                maxLength={50}
+                                inputTestId="create-access-token-name"
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <FormLabel size="md" weight="semiBold">
+                                {t('common.description')}
+                            </FormLabel>
+                            <FormDescription size="sm" color="gray">
+                                {t('settings.accessTokens.optionalDescription')}
+                            </FormDescription>
+                            <Input
+                                value={tokenDescription}
+                                setValue={setTokenDescription}
+                                placeholder={t('settings.accessTokens.descriptionPlaceholder')}
+                                maxLength={500}
+                                inputTestId="create-access-token-description"
+                            />
+                        </FormGroup>
                         <ExpirationContainer>
+                            <FormLabel size="md" weight="semiBold">
+                                {t('settings.accessTokens.expiresIn')}
+                            </FormLabel>
                             <SimpleSelect
-                                label="Expires in"
                                 options={durationOptions}
                                 values={[selectedDuration]}
                                 onUpdate={(values) => {

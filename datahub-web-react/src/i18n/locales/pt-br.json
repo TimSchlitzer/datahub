@@ -2222,6 +2222,7 @@
         "hideProcessInstancesTooltip": "Ocultar execuções de tarefa. Não ocultará o nó inicial.",
         "hideTransformations": "Ocultar Transformações",
         "hideTransformationsTooltip": "Ocultar consultas e transformações (nós circulares). Não ocultará o nó inicial.",
+        "home": "Início",
         "last": "Últimos {{count}} dias",
         "makeEntityYourHomeDownstream": "Faça esta entidade seu início para fazer edições downstream.",
         "makeEntityYourHomeUpstream": "Faça esta entidade seu início para fazer edições upstream.",
@@ -2254,6 +2255,8 @@
         "showFullTitle": "Mostrar Títulos Completos",
         "showHiddenEdges": "Mostrar Arestas Ocultas",
         "timeRange": "Intervalo de Tempo",
+        "timeRangeSubtitle": "Mostrar linhagem observada entre datas de início e término.",
+        "timeRangeTitle": "Intervalo de Tempo",
         "unableToConnect": "Não foi possível conectar",
         "unauthorizedToEditLineage": "Você não está autorizado a editar a linhagem desta entidade.",
         "until": "Até {{date}}",
@@ -2262,6 +2265,7 @@
         "viewGraph": "Ver Gráfico",
         "visualizeLineage": "Visualizar Linhagem",
         "willBeClearedOnExit": "{{count}} mudança(s) será(ao) removida(s).",
+        "yes": "Sim",
         "youAreNOtAuthToEditLineage": "Você não está autorizado a editar a linhagem desta entidade."
     },
     "navigation": {
@@ -2873,6 +2877,11 @@
             "of": "of",
             "results": "results",
             "didYouMean": "Did you mean"
+        },
+        "discover": "Descobrir",
+        "matches": {
+            "showMore": "+ {{count}} mais",
+            "showLess": "Mostrar menos"
         }
     },
     "settings": {

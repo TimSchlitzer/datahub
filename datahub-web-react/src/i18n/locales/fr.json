@@ -2119,6 +2119,7 @@
         "hideProcessInstancesTooltip": "Masquer les exécutions de tâches. Ne masquera pas le nœud initial.",
         "hideTransformations": "Masquer les transformations",
         "hideTransformationsTooltip": "Masquer les requêtes et transformations (nœuds circulaires). Ne masquera pas le nœud initial.",
+        "home": "Accueil",
         "last": "{{count}} derniers jours",
         "makeEntityYourHomeDownstream": "Faites de cette entité votre accueil pour effectuer des modifications en aval.",
         "makeEntityYourHomeUpstream": "Faites de cette entité votre accueil pour effectuer des modifications en amont.",
@@ -2151,6 +2152,8 @@
         "showFullTitle": "Afficher les titres complets",
         "showHiddenEdges": "Afficher les arêtes masquées",
         "timeRange": "Plage de temps",
+        "timeRangeSubtitle": "Afficher le lignage observé entre les dates de début et de fin.",
+        "timeRangeTitle": "Plage de temps",
         "unableToConnect": "Impossible de se connecter",
         "unauthorizedToEditLineage": "Vous n'êtes pas autorisé à modifier le lignage pour cette entité.",
         "until": "Jusqu'au {{date}}",
@@ -2159,6 +2162,7 @@
         "viewGraph": "Afficher le graphique",
         "visualizeLineage": "Visualiser le lignage",
         "willBeClearedOnExit": "{{count}} modification(s) sera(ont) supprimée(s).",
+        "yes": "Oui",
         "youAreNOtAuthToEditLineage": "Vous n'êtes pas autorisé à modifier le lignage pour cette entité."
     },
     "navigation": {
@@ -2770,7 +2774,12 @@
             "sortByNameZA": "Name Z to A",
             "noResults": "No results"
         },
-        "moreForYou": "More you may be interested in"
+        "moreForYou": "More you may be interested in",
+        "discover": "Découvrir",
+        "matches": {
+            "showMore": "+ {{count}} plus",
+            "showLess": "Afficher moins"
+        }
     },
     "settings": {
         "ownershipTypeName": "Ownership type name",

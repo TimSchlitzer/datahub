@@ -2801,6 +2801,11 @@
             "of": "of",
             "results": "results",
             "didYouMean": "Did you mean"
+        },
+        "discover": "Erkunden",
+        "matches": {
+            "showMore": "+ {{count}} mehr",
+            "showLess": "Weniger anzeigen"
         }
     },
     "settings": {
@@ -3108,6 +3113,67 @@
                 "graphqlDesc": "Die GraphQL-API erkunden",
                 "openapi": "OpenAPI",
                 "openapiDesc": "Die OpenAPI-Endpunkte erkunden"
+            }
+        },
+        "homeV3": {
+            "common": {
+                "add": "Hinzufügen",
+                "edit": "Bearbeiten",
+                "remove": "Entfernen",
+                "cancel": "Abbrechen",
+                "create": "Erstellen",
+                "update": "Aktualisieren",
+                "confirm": "Bestätigen",
+                "name": "Name",
+                "chooseName": "Wählen Sie einen Namen für Ihr Modul",
+                "nameRequired": "Bitte geben Sie den Namen ein",
+                "noAssets": "Keine Assets",
+                "editModuleToAddAssets": "Bearbeiten Sie das Modul und fügen Sie Assets hinzu, um sie in dieser Liste anzuzeigen"
+            },
+            "announcements": {
+                "showLess": "Weniger anzeigen",
+                "viewAll": "Alle anzeigen ({{count}})"
+            },
+            "linkForm": {
+                "urlRequired": "Bitte geben Sie die Link-URL ein",
+                "invalidUrl": "Bitte geben Sie eine gültige URL ein",
+                "linkLabel": "Link",
+                "imageUrlLabel": "Bild-URL (Optional)",
+                "imageUrlPlaceholder": "Ihre Bild-URL",
+                "descriptionLabel": "Beschreibung (Optional)",
+                "descriptionPlaceholder": "Beschreibung hinzufügen..."
+            },
+            "linkModal": {
+                "quickLink": "Schneller Link",
+                "subtitle": "Fügen Sie Links zu Ihrer Startseite hinzu"
+            },
+            "hierarchyViewModal": {
+                "hierarchyView": "Hierarchieansicht",
+                "subtitle": "Erstellen Sie ein Modul, indem Sie Assets und Informationen auswählen, die Ihren Benutzern angezeigt werden"
+            },
+            "assetCollectionModal": {
+                "assetCollection": "Asset-Sammlung",
+                "subtitle": "Erstellen Sie ein Modul, indem Sie Assets und Informationen auswählen, die Ihren Benutzern angezeigt werden"
+            },
+            "selectAssetsSection": {
+                "selectAssets": "Assets auswählen",
+                "dynamicFilter": "Dynamischer Filter"
+            },
+            "documentationModal": {
+                "documentation": "Dokumentation",
+                "subtitle": "Dokumentieren Sie wichtige Informationen für Ihre Benutzer"
+            },
+            "moduleMenu": {
+                "defaultModulesNotEditable": "Standardmodule können nicht bearbeitet werden",
+                "removeModuleTitle": "Modul entfernen?",
+                "removeModuleConfirmAdmin": "Sind Sie sicher, dass Sie dieses Modul entfernen möchten? Sie können es später über den Abschnitt \"Home-Standardeinstellungen\" hinzufügen, wenn Sie ein neues Modul hinzufügen.",
+                "removeModuleConfirmUser": "Sind Sie sicher, dass Sie dieses Modul entfernen möchten? Sie können später jederzeit ein neues erstellen, wenn nötig."
+            },
+            "editHomePageSettingsButton": {
+                "editOrganizationDefault": "Organisationsstandard bearbeiten",
+                "resetToOrganizationDefault": "Auf Organisationsstandard zurücksetzen",
+                "confirmResetTitle": "Zurücksetzen auf Standardvorlage bestätigen",
+                "confirmResetMessage": "Sind Sie sicher, dass Sie Ihre Homepage auf die Standardvorlage der Organisation zurücksetzen möchten? Sie verlieren alle Ihre persönlichen Module."
             }
         }
     }

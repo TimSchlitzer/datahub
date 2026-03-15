@@ -2854,7 +2854,12 @@
             "sortByNameZA": "Name Z to A",
             "noResults": "No results"
         },
-        "moreForYou": "More you may be interested in"
+        "moreForYou": "More you may be interested in",
+        "discover": "Discover",
+        "matches": {
+            "showMore": "+ {{count}} more",
+            "showLess": "Show less"
+        }
     },
     "settings": {
         "ownershipTypeName": "Ownership type name",
@@ -3161,6 +3166,67 @@
                 "graphqlDesc": "Explore the GraphQL API",
                 "openapi": "OpenAPI",
                 "openapiDesc": "Explore the OpenAPI endpoints"
+            }
+        },
+        "homeV3": {
+            "common": {
+                "add": "Add",
+                "edit": "Edit",
+                "remove": "Remove",
+                "cancel": "Cancel",
+                "create": "Create",
+                "update": "Update",
+                "confirm": "Confirm",
+                "name": "Name",
+                "chooseName": "Choose a name for your module",
+                "nameRequired": "Please enter the name",
+                "noAssets": "No Assets",
+                "editModuleToAddAssets": "Edit the module and add assets to see them in this list"
+            },
+            "announcements": {
+                "showLess": "Show less",
+                "viewAll": "View all ({{count}})"
+            },
+            "linkForm": {
+                "urlRequired": "Please enter the link URL",
+                "invalidUrl": "Please enter a valid URL",
+                "linkLabel": "Link",
+                "imageUrlLabel": "Image URL (Optional)",
+                "imageUrlPlaceholder": "Your image URL",
+                "descriptionLabel": "Description (Optional)",
+                "descriptionPlaceholder": "Add description..."
+            },
+            "linkModal": {
+                "quickLink": "Quick Link",
+                "subtitle": "Add links to your home page"
+            },
+            "hierarchyViewModal": {
+                "hierarchyView": "Hierarchy View",
+                "subtitle": "Create a module by selecting assets and information that will be shown to your users"
+            },
+            "assetCollectionModal": {
+                "assetCollection": "Asset Collection",
+                "subtitle": "Create a module by selecting assets and information that will be shown to your users"
+            },
+            "selectAssetsSection": {
+                "selectAssets": "Select Assets",
+                "dynamicFilter": "Dynamic Filter"
+            },
+            "documentationModal": {
+                "documentation": "Documentation",
+                "subtitle": "Document important information for you users"
+            },
+            "moduleMenu": {
+                "defaultModulesNotEditable": "Default modules are not editable",
+                "removeModuleTitle": "Remove Module?",
+                "removeModuleConfirmAdmin": "Are you sure you want to remove this module? You can re-add it later from the Home Defaults section when adding a new module.",
+                "removeModuleConfirmUser": "Are you sure you want to remove this module? You can always create a new one later if needed."
+            },
+            "editHomePageSettingsButton": {
+                "editOrganizationDefault": "Edit Organization Default",
+                "resetToOrganizationDefault": "Reset to Organization Default",
+                "confirmResetTitle": "Confirm reset to default template",
+                "confirmResetMessage": "Are you sure you want to reset your homepage to the organization's default template? You will lose all your personal modules."
             }
         }
     }
