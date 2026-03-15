@@ -1,5 +1,6 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { DetailsContainer } from '@app/ingestV2/executions/components/BaseTab';
@@ -23,7 +24,8 @@ const LogsSection = styled.div`
 `;
 
 export const LogsTab = ({ urn, data }: { urn: string; data: GetIngestionExecutionRequestQuery | undefined }) => {
-    const output = data?.executionRequest?.result?.report || 'No output found.';
+    const { t } = useTranslation();
+    const output = data?.executionRequest?.result?.report || t('ingest.noOutputFound');
 
     const downloadLogs = () => {
         downloadFile(output, `exec-${urn}.log`);
@@ -32,13 +34,13 @@ export const LogsTab = ({ urn, data }: { urn: string; data: GetIngestionExecutio
     return (
         <LogsSection>
             <Heading type="h4" size="lg" weight="bold">
-                Logs
+                {t('ingest.logs')}
             </Heading>
             <SectionSubHeader>
                 <SubHeaderParagraph color="gray" colorLevel={600}>
-                    View logs that were collected during the sync.
+                    {t('ingest.viewLogsCollected')}
                 </SubHeaderParagraph>
-                <Tooltip title="Download Logs">
+                <Tooltip title={t('ingest.downloadLogs')}>
                     <Button variant="text" onClick={downloadLogs}>
                         <DownloadOutlined />
                     </Button>

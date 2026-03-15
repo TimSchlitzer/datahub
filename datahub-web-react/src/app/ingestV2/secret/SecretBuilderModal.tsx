@@ -1,5 +1,6 @@
 import { Form, Input, Typography } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { SecretBuilderState } from '@app/ingestV2/secret/types';
 import { useEnterKeyListener } from '@app/shared/useEnterKeyListener';
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, onUpdate, onCancel }: Props) => {
+    const { t } = useTranslation();
     const [createButtonEnabled, setCreateButtonEnabled] = useState(false);
     const [form] = Form.useForm();
 
@@ -48,7 +50,7 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
         onCancel?.();
     };
 
-    const titleText = editSecret ? 'Edit Secret' : 'Create a new Secret';
+    const titleText = editSecret ? t('ingest.secret.editSecretTitle') : t('ingest.secret.createNewSecret');
 
     return (
         <Modal
@@ -59,12 +61,12 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
             zIndex={1051} // one higher than other modals - needed for managed ingestion forms
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('ingest.secret.cancel'),
                     variant: 'text',
                     onClick: onCloseModal,
                 },
                 {
-                    text: !editSecret ? 'Create' : 'Update',
+                    text: !editSecret ? t('ingest.secret.create') : t('ingest.secret.update'),
                     variant: 'filled',
                     buttonDataTestId: 'secret-modal-create-button',
                     id: 'createSecretButton',
@@ -102,9 +104,9 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
                     setCreateButtonEnabled(!form.getFieldsError().some((field) => field.errors.length > 0))
                 }
             >
-                <Form.Item label={<Typography.Text strong>Name</Typography.Text>}>
+                <Form.Item label={<Typography.Text strong>{t('ingest.secret.name')}</Typography.Text>}>
                     <Typography.Paragraph>
-                        Give your secret a name. This is what you&apos;ll use to reference the secret from your recipes.
+                        {t('ingest.secret.nameDescription')}
                     </Typography.Paragraph>
                     <Form.Item
                         data-testid="secret-modal-name-input"
@@ -112,24 +114,23 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
                         rules={[
                             {
                                 required: true,
-                                message: 'Enter a name.',
+                                message: t('ingest.secret.enterName'),
                             },
                             { whitespace: false },
                             { min: 1, max: 50 },
                             {
                                 pattern: /^[a-zA-Z_]+[a-zA-Z0-9_]*$/,
-                                message:
-                                    'Please start the secret name with a letter, followed by letters, digits, or underscores only.',
+                                message: t('ingest.secret.namePatternError'),
                             },
                         ]}
                         hasFeedback
                     >
-                        <Input placeholder="A name for your secret" disabled={editSecret !== undefined} />
+                        <Input placeholder={t('ingest.secret.nameInputPlaceholder')} disabled={editSecret !== undefined} />
                     </Form.Item>
                 </Form.Item>
-                <Form.Item label={<Typography.Text strong>Value</Typography.Text>}>
+                <Form.Item label={<Typography.Text strong>{t('ingest.secret.value')}</Typography.Text>}>
                     <Typography.Paragraph>
-                        The value of your secret, which will be encrypted and stored securely within DataHub.
+                        {t('ingest.secret.valueDescription')}
                     </Typography.Paragraph>
                     <Form.Item
                         data-testid="secret-modal-value-input"
@@ -137,19 +138,19 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
                         rules={[
                             {
                                 required: true,
-                                message: 'Enter a value.',
+                                message: t('ingest.secret.enterValue'),
                             },
                             // { whitespace: true },
                             { min: 1 },
                         ]}
                         hasFeedback
                     >
-                        <Input.TextArea placeholder="The value of your secret" autoComplete="false" />
+                        <Input.TextArea placeholder={t('ingest.secret.valueInputPlaceholder')} autoComplete="false" />
                     </Form.Item>
                 </Form.Item>
-                <Form.Item label={<Typography.Text strong>Description</Typography.Text>}>
+                <Form.Item label={<Typography.Text strong>{t('ingest.secret.description')}</Typography.Text>}>
                     <Typography.Paragraph>
-                        An optional description to help keep track of your secret.
+                        {t('ingest.secret.descriptionDescription')}
                     </Typography.Paragraph>
                     <Form.Item
                         data-testid="secret-modal-description-input"
@@ -157,7 +158,7 @@ export const SecretBuilderModal = ({ initialState, editSecret, open, onSubmit, o
                         rules={[{ whitespace: true }, { min: 1, max: 500 }]}
                         hasFeedback
                     >
-                        <Input.TextArea placeholder="A description for your secret" />
+                        <Input.TextArea placeholder={t('ingest.secret.descriptionInputPlaceholder')} />
                     </Form.Item>
                 </Form.Item>
             </Form>

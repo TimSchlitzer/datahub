@@ -3,6 +3,7 @@ import { Modal } from '@components';
 import { Spin, Steps } from 'antd';
 import { isEqual } from 'lodash';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -24,12 +25,12 @@ const StepsContainer = styled.div`
 /**
  * Mapping from the step type to the title for the step
  */
-export enum IngestionSourceBuilderStepTitles {
-    SELECT_TEMPLATE = 'Choose Data Source',
-    DEFINE_RECIPE = 'Configure Connection',
-    CREATE_SCHEDULE = 'Sync Schedule',
-    NAME_SOURCE = 'Finish up',
-}
+export const getIngestionSourceBuilderStepTitles = (t: any) => ({
+    SELECT_TEMPLATE: t('ingest.source.chooseDataSource'),
+    DEFINE_RECIPE: t('ingest.source.configureConnection'),
+    CREATE_SCHEDULE: t('ingest.source.syncSchedule'),
+    NAME_SOURCE: t('ingest.source.finishUp'),
+});
 
 /**
  * Mapping from the step type to the component implementing that step.
@@ -74,8 +75,9 @@ export const IngestionSourceBuilderModal = ({
     selectedSourceType,
     setSelectedSourceType,
 }: Props) => {
+    const { t } = useTranslation();
     const isEditing = initialState !== undefined;
-    const titleText = isEditing ? 'Edit Data Source' : 'Connect Data Source';
+    const titleText = isEditing ? t('ingest.source.editDataSource') : t('ingest.source.connectDataSource');
     const initialStep = isEditing
         ? IngestionSourceBuilderStep.DEFINE_RECIPE
         : IngestionSourceBuilderStep.SELECT_TEMPLATE;
@@ -88,6 +90,7 @@ export const IngestionSourceBuilderModal = ({
     });
 
     const { ingestionSources } = useIngestionSources();
+    const stepTitles = getIngestionSourceBuilderStepTitles(t);
 
     const sendAnalyticsStepViewedEvent = useCallback(
         (step: IngestionSourceBuilderStep) => {
@@ -166,7 +169,7 @@ export const IngestionSourceBuilderModal = ({
                     <StepsContainer>
                         <Steps current={currentStepIndex}>
                             {Object.keys(IngestionSourceBuilderStep).map((item) => (
-                                <Steps.Step key={item} title={IngestionSourceBuilderStepTitles[item]} />
+                                <Steps.Step key={item} title={stepTitles[item]} />
                             ))}
                         </Steps>
                     </StepsContainer>

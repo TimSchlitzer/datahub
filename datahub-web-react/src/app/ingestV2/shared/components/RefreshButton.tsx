@@ -1,5 +1,6 @@
 import { Button } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
     id?: string;
@@ -7,9 +8,10 @@ interface Props {
 }
 
 export default function RefreshButton({ id, onClick }: Props) {
+    const { t } = useTranslation();
     return (
         <Button id={id} variant="text" onClick={onClick} icon={{ icon: 'ArrowClockwise', source: 'phosphor' }}>
-            Refresh
+            {t('common.refresh')}
         </Button>
     );
 }

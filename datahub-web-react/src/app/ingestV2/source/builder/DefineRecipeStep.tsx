@@ -1,5 +1,6 @@
 import { Alert, Space, Typography, message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -53,6 +54,7 @@ export const DefineRecipeStep = ({
     selectedSource,
     setSelectedSourceType,
 }: StepProps) => {
+    const { t } = useTranslation();
     const existingRecipeJson = state.config?.recipe;
     const existingRecipeYaml = existingRecipeJson && jsonToYaml(existingRecipeJson);
     const { type } = state;
@@ -93,7 +95,7 @@ export const DefineRecipeStep = ({
 
         if (!JSON.parse(recipeJson).source?.type) {
             message.warning({
-                content: `Please add valid ingestion type`,
+                content: t('ingest.source.pleaseAddValidIngestionType'),
                 duration: 3,
             });
             return;
@@ -132,7 +134,7 @@ export const DefineRecipeStep = ({
     return (
         <>
             <Section>
-                <SelectTemplateHeader level={5}>Configure {sourceDisplayName} Recipe</SelectTemplateHeader>
+                <SelectTemplateHeader level={5}>{t('ingest.source.configureRecipe', { sourceDisplayName })}</SelectTemplateHeader>
                 {showLookerBanner && (
                     <Alert
                         type="warning"
@@ -141,25 +143,23 @@ export const DefineRecipeStep = ({
                             <>
                                 <big>
                                     <i>
-                                        <b>You must acknowledge this message to proceed!</b>
+                                        <b>{t('ingest.source.mustAcknowledgeMessage')}</b>
                                     </i>
                                 </big>
                                 <br />
                                 <br />
-                                To get complete Looker metadata integration (including Looker views and lineage to the
-                                underlying warehouse tables), you must <b>also</b> use the{' '}
+                                {t('ingest.source.lookerMetadataIntegration')}
                                 <a href={LOOKML_DOC_LINK} target="_blank" rel="noopener noreferrer">
-                                    DataHub lookml module
+                                    {t('ingest.source.datahubLookmlModule')}
                                 </a>
                                 .
                                 <br />
                                 <br />
-                                LookML ingestion <b>cannot</b> currently be performed via UI-based ingestion. This is a
-                                known problem the DataHub team is working to solve!
+                                {t('ingest.source.lookmlIngestionNotSupported')}
                                 <br />
                                 <Space direction="horizontal" style={{ width: '100%', justifyContent: 'center' }}>
                                     <Button variant="text" onClick={() => setShowLookerBanner(false)}>
-                                        I have set up LookML ingestion!
+                                        {t('ingest.source.haveSetupLookmlIngestion')}
                                     </Button>
                                 </Space>
                             </>
@@ -169,9 +169,9 @@ export const DefineRecipeStep = ({
                 )}
                 <Typography.Text>
                     {showLookerBanner && <br />}
-                    For more information about how to configure a recipe, see the{' '}
+                    {t('ingest.source.moreInfoAboutRecipe', { sourceDisplayName })}
                     <a href={sourceDocumentationUrl} target="_blank" rel="noopener noreferrer">
-                        {sourceDisplayName} source docs.
+                        {sourceDisplayName} {t('ingest.source.sourceDocs')}
                     </a>
                 </Typography.Text>
             </Section>
@@ -180,10 +180,10 @@ export const DefineRecipeStep = ({
             </BorderedSection>
             <ControlsContainer>
                 <Button variant="outline" color="gray" disabled={isEditing} onClick={prev}>
-                    Previous
+                    {t('ingest.source.previous')}
                 </Button>
                 <Button disabled={!stepComplete} onClick={onClickNext}>
-                    Next
+                    {t('ingest.source.next')}
                 </Button>
             </ControlsContainer>
         </>

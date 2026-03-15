@@ -1,5 +1,6 @@
 import { Button, PageTitle, Tabs, Tooltip } from '@components';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory, useLocation } from 'react-router';
 import styled from 'styled-components';
 
@@ -69,6 +70,7 @@ const HeaderActionsContainer = styled.div`
 `;
 
 export const ManageIngestionPage = () => {
+    const { t } = useTranslation();
     /**
      * Determines which view should be visible: ingestion sources or secrets.
      */
@@ -175,7 +177,7 @@ export const ManageIngestionPage = () => {
                 />
             ),
             key: TabType.RunHistory as string,
-            name: 'Run History',
+            name: t('ingest.runHistory'),
         },
         showSecretsTab && {
             component: (
@@ -224,8 +226,8 @@ export const ManageIngestionPage = () => {
             <PageHeaderContainer>
                 <TitleContainer>
                     <PageTitle
-                        title="Manage Data Sources"
-                        subTitle="Configure and schedule syncs to import data from your data sources"
+                        title={t('ingest.manageDataSourcesTitle')}
+                        subTitle={t('ingest.manageDataSourcesSubtitle')}
                     />
                 </TitleContainer>
                 <HeaderActionsContainer>
@@ -233,7 +235,7 @@ export const ManageIngestionPage = () => {
                         <Tooltip
                             title={
                                 !canManageIngestion &&
-                                `You don't have permission to perform this action. Please contact your DataHub admin for more info.`
+                                t('ingest.noPermissionForThisAction')
                             }
                         >
                             <div>
@@ -245,7 +247,7 @@ export const ManageIngestionPage = () => {
                                     icon={{ icon: 'Plus', source: 'phosphor' }}
                                     disabled={!canManageIngestion}
                                 >
-                                    Create Source
+                                    {t('ingest.createSource')}
                                 </Button>
                             </div>
                         </Tooltip>
@@ -258,7 +260,7 @@ export const ManageIngestionPage = () => {
                             data-testid="create-secret-button"
                             icon={{ icon: 'Plus', source: 'phosphor' }}
                         >
-                            Create secret
+                            {t('ingest.createSecret')}
                         </Button>
                     )}
                 </HeaderActionsContainer>

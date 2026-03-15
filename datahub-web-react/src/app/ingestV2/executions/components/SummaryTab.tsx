@@ -1,6 +1,7 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import YAML from 'yamljs';
 
@@ -60,7 +61,8 @@ export const SummaryTab = ({
     data: GetIngestionExecutionRequestQuery | undefined;
     onTabChange: (tab: TabType) => void;
 }) => {
-    const logs = data?.executionRequest?.result?.report || 'No output found.';
+    const { t } = useTranslation();
+    const logs = data?.executionRequest?.result?.report || t('ingest.noOutputFound');
 
     const downloadLogs = () => {
         downloadFile(logs, `exec-${urn}.log`);
@@ -101,17 +103,17 @@ export const SummaryTab = ({
             </IngestedAssetsSection>
             <SectionBase>
                 <Heading type="h4" size="lg" weight="bold">
-                    Logs
+                    {t('ingest.logs')}
                 </Heading>
                 <SectionSubHeader>
                     <SubHeaderParagraph color="gray" colorLevel={600}>
-                        View logs that were collected during the sync.
+                        {t('ingest.viewLogsCollected')}
                     </SubHeaderParagraph>
                     <ButtonGroup>
                         <Button variant="text" onClick={() => onTabChange(TabType.Logs)}>
-                            View All
+                            {t('common.viewAll')}
                         </Button>
-                        <Tooltip title="Download Logs">
+                        <Tooltip title={t('ingest.downloadLogs')}>
                             <Button variant="text" onClick={downloadLogs}>
                                 <DownloadOutlined />
                             </Button>
@@ -127,17 +129,17 @@ export const SummaryTab = ({
             {recipe && (
                 <SectionBase>
                     <Heading type="h4" size="lg" weight="bold">
-                        Recipe
+                        {t('ingest.recipe')}
                     </Heading>
                     <SectionSubHeader>
                         <SubHeaderParagraph color="gray" colorLevel={600}>
-                            The configurations used for this sync with the data source.
+                            {t('ingest.recipeConfigDescription')}
                         </SubHeaderParagraph>
                         <ButtonGroup>
                             <Button variant="text" onClick={() => onTabChange(TabType.Recipe)}>
-                                View More
+                                {t('common.viewMore')}
                             </Button>
-                            <Tooltip title="Download Recipe">
+                            <Tooltip title={t('ingest.downloadRecipe')}>
                                 <Button variant="text" onClick={downloadRecipe}>
                                     <DownloadOutlined />
                                 </Button>

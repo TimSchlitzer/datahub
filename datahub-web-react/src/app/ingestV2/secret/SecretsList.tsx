@@ -3,6 +3,7 @@ import { Typography, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import TabToolbar from '@app/entity/shared/components/styled/TabToolbar';
@@ -93,6 +94,7 @@ interface Props {
 }
 
 export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateModal: setIsCreatingSecret }: Props) => {
+    const { t } = useTranslation();
     const location = useLocation();
     const params = QueryString.parse(location.search, { arrayFormat: 'comma' });
     const paramsQuery = (params?.query as string) || undefined;
@@ -129,13 +131,13 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             variables: { urn },
         })
             .then(() => {
-                message.success({ content: 'Removed secret.', duration: 2 });
+                message.success({ content: t('ingest.secret.removedSecret'), duration: 2 });
                 removeSecretFromListSecretsCache(urn, client, page, pageSize);
             })
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `Failed to remove secret: \n ${e.message || ''}`, duration: 3 });
+                    message.error({ content: `${t('ingest.secret.failedToRemoveSecret')}: \n ${e.message || ''}`, duration: 3 });
                 }
             });
         setShowConfirmDelete(false);
@@ -164,7 +166,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
         })
             .then((res) => {
                 message.success({
-                    content: `Successfully created Secret!`,
+                    content: t('ingest.secret.successfullyCreated'),
                     duration: 3,
                 });
                 resetBuilderState();
@@ -182,7 +184,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             .catch((e) => {
                 message.destroy();
                 message.error({
-                    content: `Failed to update secret!: \n ${e.message || ''}`,
+                    content: `${t('ingest.secret.failedToUpdateSecret')}: \n ${e.message || ''}`,
                     duration: 3,
                 });
             });
@@ -200,7 +202,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
         })
             .then(() => {
                 message.success({
-                    content: `Successfully updated Secret!`,
+                    content: t('ingest.secret.successfullyUpdated'),
                     duration: 3,
                 });
                 resetBuilderState();
@@ -223,7 +225,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             .catch((e) => {
                 message.destroy();
                 message.error({
-                    content: `Failed to update Secret!: \n ${e.message || ''}`,
+                    content: `${t('ingest.secret.failedToUpdate')}: \n ${e.message || ''}`,
                     duration: 3,
                 });
             });
@@ -245,7 +247,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
 
     const tableColumns = [
         {
-            title: 'Name',
+            title: t('ingest.secret.name'),
             key: 'name',
             render: (record: TableDataType) => (
                 <TextContainer
@@ -264,7 +266,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             sorter: (a: TableDataType, b: TableDataType) => a.name.localeCompare(b.name),
         },
         {
-            title: 'Description',
+            title: t('ingest.secret.description'),
             key: 'description',
             render: (record: TableDataType) => {
                 return (
@@ -278,7 +280,7 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
                             },
                         }}
                     >
-                        {record.description || 'No description'}
+                        {record.description || t('ingest.secret.noDescription')}
                     </TextContainer>
                 );
             },
@@ -290,14 +292,14 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             render: (record: TableDataType) => (
                 <>
                     <ButtonsContainer>
-                        <button type="button" onClick={() => onEditSecret(record)} aria-label="Edit secret">
+                        <button type="button" onClick={() => onEditSecret(record)} aria-label={t('ingest.secret.editSecret')}>
                             <Icon icon="PencilSimpleLine" source="phosphor" />
                         </button>
                         <button
                             type="button"
                             className="delete-action"
                             onClick={() => setShowConfirmDelete(true)}
-                            aria-label="Delete secret"
+                            aria-label={t('ingest.secret.deleteSecret')}
                             data-test-id="delete-secret-action"
                             data-icon="delete"
                         >
@@ -306,8 +308,8 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
                     </ButtonsContainer>
                     <ConfirmationModal
                         isOpen={showConfirmDelete}
-                        modalTitle="Confirm Secret Removal"
-                        modalText="Are you sure you want to remove this secret? Sources that use it may no longer work as expected."
+                        modalTitle={t('ingest.secret.confirmRemovalTitle')}
+                        modalText={t('ingest.secret.confirmRemovalText')}
                         handleConfirm={() => deleteSecret(record.urn)}
                         handleClose={handleDeleteClose}
                     />
@@ -326,12 +328,12 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
 
     return (
         <>
-            {error && message.error({ content: `Failed to load secrets! \n ${error.message || ''}`, duration: 3 })}
+            {error && message.error({ content: `${t('ingest.secret.failedToLoadSecrets')}: \n ${error.message || ''}`, duration: 3 })}
             <SecretsContainer>
                 <StyledTabToolbar>
                     <SearchContainer>
                         <StyledSearchBar
-                            placeholder="Search..."
+                            placeholder={t('ingest.secret.search')}
                             value={query || ''}
                             onChange={(value) => handleSearch(value)}
                         />

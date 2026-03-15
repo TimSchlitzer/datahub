@@ -1,5 +1,6 @@
 import { Breadcrumb } from '@components';
 import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation, useParams } from 'react-router';
 
 import { VerticalDivider } from '@components/components/Breadcrumb/components';
@@ -13,6 +14,7 @@ import { PageLayout } from '@app/sharedV2/layouts/PageLayout';
 import { useGetIngestionExecutionRequestQuery } from '@graphql/ingestion.generated';
 
 export default function IngestionRunDetailsPage() {
+    const { t } = useTranslation();
     const { urn } = useParams<{ urn: string }>();
 
     const { state } = useLocation();
@@ -45,7 +47,7 @@ export default function IngestionRunDetailsPage() {
             items={[
                 {
                     key: 'back',
-                    label: fromUrl === tabUrlMap[TabType.RunHistory] ? 'Run history' : 'Manage Data Sources',
+                    label: fromUrl === tabUrlMap[TabType.RunHistory] ? t('ingest.runHistory') : t('ingest.manageDataSourcesTitle'),
                     href: fromUrl ?? tabUrlMap[TabType.Sources],
                     separator: <VerticalDivider type="vertical" />,
                 },
@@ -70,7 +72,7 @@ export default function IngestionRunDetailsPage() {
     );
 
     return (
-        <PageLayout title="Run Details" titlePill={titlePill} rightPanelContent={<AIChat />} topBreadcrumb={breadCrumb}>
+        <PageLayout title={t('ingest.runDetails')} titlePill={titlePill} rightPanelContent={<AIChat />} topBreadcrumb={breadCrumb}>
             <RunDetailsContent
                 urn={urn}
                 data={data}

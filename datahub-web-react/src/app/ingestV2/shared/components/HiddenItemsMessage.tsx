@@ -1,5 +1,6 @@
 import { Icon, Text } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -16,13 +17,14 @@ interface Props {
 }
 
 export default function HiddenItemsMessage({ message }: Props) {
+    const { t } = useTranslation();
     return (
         <Container>
             <Icon source="phosphor" icon="Lock" size="lg" />{' '}
             <Text weight="bold" size="sm">
                 {message}
             </Text>{' '}
-            <Text size="sm">Contact your admin for access</Text>
+            <Text size="sm">{t('ingest.contactAdminForAccess')}</Text>
         </Container>
     );
 }

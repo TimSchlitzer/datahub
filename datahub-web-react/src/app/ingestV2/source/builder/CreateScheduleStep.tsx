@@ -2,6 +2,7 @@ import { CheckCircleOutlined, WarningOutlined } from '@ant-design/icons';
 import { Checkbox, Form, Input, Switch, Typography } from 'antd';
 import cronstrue from 'cronstrue';
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Cron } from 'react-js-cron';
 import 'react-js-cron/dist/styles.css';
 import styled from 'styled-components';
@@ -87,6 +88,7 @@ const ItemDescriptionText = styled(Typography.Paragraph)``;
 const DAILY_MIDNIGHT_CRON_INTERVAL = '0 0 * * *';
 
 export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps) => {
+    const { t } = useTranslation();
     const { schedule } = state;
     const interval = schedule?.interval?.replaceAll(', ', ' ') || DAILY_MIDNIGHT_CRON_INTERVAL;
     const timezone = schedule?.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -139,14 +141,14 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
     return (
         <>
             <Section>
-                <SelectTemplateHeader level={5}>Configure an Ingestion Schedule</SelectTemplateHeader>
+                <SelectTemplateHeader level={5}>{t('ingest.source.configureIngestionSchedule')}</SelectTemplateHeader>
             </Section>
             <RequiredFieldForm layout="vertical">
                 <Form.Item
-                    tooltip="Enable to run ingestion syncs on a schedule. Running syncs on a schedule helps to keep information up to date."
+                    tooltip={t('ingest.source.runOnScheduleTooltip')}
                     label={
                         <Typography.Text strong>
-                            Run on a schedule <Typography.Text type="secondary">(Recommended)</Typography.Text>
+                            {t('ingest.source.runOnSchedule')} <Typography.Text type="secondary">{t('ingest.source.recommended')}</Typography.Text>
                         </Typography.Text>
                     }
                 >
@@ -154,11 +156,11 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                     {!scheduleEnabled && (
                         <WarningContainer>
                             <StyledWarningOutlined />
-                            Running ingestion without a schedule may result in out-of-date information.
+                            {t('ingest.source.noScheduleWarning')}
                         </WarningContainer>
                     )}
                 </Form.Item>
-                <StyledFormItem required label={<Typography.Text strong>Schedule</Typography.Text>}>
+                <StyledFormItem required label={<Typography.Text strong>{t('ingest.source.schedule')}</Typography.Text>}>
                     <Schedule>
                         {advancedCronCheck ? (
                             <CronInput
@@ -177,7 +179,7 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                             />
                         )}
                         <AdvancedSchedule>
-                            <AdvancedCheckBox type="secondary">Show Advanced</AdvancedCheckBox>
+                            <AdvancedCheckBox type="secondary">{t('ingest.source.showAdvanced')}</AdvancedCheckBox>
                             <Checkbox
                                 checked={advancedCronCheck}
                                 onChange={(event) => setAdvancedCronCheck(event.target.checked)}
@@ -185,10 +187,10 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                         </AdvancedSchedule>
                     </Schedule>
                     <CronText>
-                        {cronAsText.error && <>Invalid cron schedule. Cron must be of UNIX form:</>}
+                        {cronAsText.error && <>{t('ingest.source.invalidCronSchedule')}</>}
                         {!cronAsText.text && (
                             <Typography.Paragraph keyboard style={{ marginTop: 4 }}>
-                                minute, hour, day, month, day of week
+                                {t('ingest.source.cronFormatHint')}
                             </Typography.Paragraph>
                         )}
                         {cronAsText.text && (
@@ -199,14 +201,14 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                         )}
                     </CronText>
                 </StyledFormItem>
-                <Form.Item required label={<Typography.Text strong>Timezone</Typography.Text>}>
-                    <ItemDescriptionText>Choose a timezone for the schedule.</ItemDescriptionText>
+                <Form.Item required label={<Typography.Text strong>{t('ingest.source.timezone')}</Typography.Text>}>
+                    <ItemDescriptionText>{t('ingest.source.chooseTimezone')}</ItemDescriptionText>
                     <TimezoneSelect value={scheduleTimezone} onChange={setScheduleTimezone} />
                 </Form.Item>
             </RequiredFieldForm>
             <ControlsContainer>
                 <Button variant="outline" color="gray" onClick={prev}>
-                    Previous
+                    {t('ingest.source.previous')}
                 </Button>
                 <div>
                     <Button
@@ -214,7 +216,7 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                         disabled={!interval || interval.length === 0 || cronAsText.error}
                         onClick={onClickNext}
                     >
-                        Next
+                        {t('ingest.source.next')}
                     </Button>
                 </div>
             </ControlsContainer>

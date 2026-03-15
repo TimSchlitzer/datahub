@@ -1,5 +1,6 @@
 import { DownloadOutlined } from '@ant-design/icons';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import YAML from 'yamljs';
 
@@ -22,6 +23,7 @@ const SubHeaderParagraph = styled(Text)`
 const RecipeSection = styled(SectionBase)``;
 
 export const RecipeTab = ({ urn, data }: { urn: string; data: GetIngestionExecutionRequestQuery | undefined }) => {
+    const { t } = useTranslation();
     const recipeJson = data?.executionRequest?.input?.arguments?.find((arg) => arg.key === 'recipe')?.value;
     let recipeYaml: string;
     try {
@@ -37,13 +39,13 @@ export const RecipeTab = ({ urn, data }: { urn: string; data: GetIngestionExecut
     return (
         <RecipeSection>
             <Heading type="h4" size="lg" weight="bold">
-                Recipe
+                {t('ingest.recipe')}
             </Heading>
             <SectionSubHeader>
                 <SubHeaderParagraph color="gray" colorLevel={600}>
-                    The configurations used for this sync with the data source.
+                    {t('ingest.recipeConfigDescription')}
                 </SubHeaderParagraph>
-                <Tooltip title="Download Recipe">
+                <Tooltip title={t('ingest.downloadRecipe')}>
                     <Button variant="text" onClick={downloadRecipe}>
                         <DownloadOutlined />
                     </Button>
@@ -51,7 +53,7 @@ export const RecipeTab = ({ urn, data }: { urn: string; data: GetIngestionExecut
             </SectionSubHeader>
             <DetailsContainer>
                 <Text size="sm">
-                    <pre>{recipeYaml || 'No recipe found.'}</pre>
+                    <pre>{recipeYaml || t('ingest.noRecipeFound')}</pre>
                 </Text>
             </DetailsContainer>
         </RecipeSection>

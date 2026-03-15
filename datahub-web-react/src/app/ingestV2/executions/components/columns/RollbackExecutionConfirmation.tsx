@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ConfirmationModal } from '@app/sharedV2/modals/ConfirmationModal';
 
@@ -9,21 +10,20 @@ interface Props {
 }
 
 export default function RollbackExecutionConfirmation({ isOpen, onConfirm, onCancel }: Props) {
+    const { t } = useTranslation();
     return (
         <ConfirmationModal
             isOpen={isOpen}
-            modalTitle="Confirm Rollback"
+            modalTitle={t('ingest.confirmRollback')}
             modalText={
                 <>
-                    Are you sure you want to continue? Rolling back this ingestion run will remove any new data ingested
-                    during the run. This may exclude data that was previously extracted, but did not change during this
-                    run.{' '}
+                    {t('ingest.confirmRollbackModalText')}{' '}
                     <a
                         href="https://docs.datahub.com/docs/how/delete-metadata#rollback-ingestion-run"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Learn more
+                        {t('common.learnMore')}
                     </a>
                 </>
             }

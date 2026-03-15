@@ -1,6 +1,7 @@
 import { FormOutlined, SearchOutlined } from '@ant-design/icons';
 import { Input, InputRef } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY } from '@app/entity/shared/constants';
@@ -99,6 +100,7 @@ export const SelectTemplateStep = ({
     ingestionSources,
     setSelectedSourceType,
 }: StepProps) => {
+    const { t } = useTranslation();
     const [searchFilter, setSearchFilter] = useState('');
 
     // Callback ref that focuses immediately when the element is attached
@@ -143,7 +145,7 @@ export const SelectTemplateStep = ({
                 <SearchBarContainer>
                     <StyledSearchBar
                         ref={searchInputCallbackRef}
-                        placeholder="Search data sources..."
+                        placeholder={t('ingest.source.searchDataSources')}
                         value={searchFilter}
                         onChange={(e) => setSearchFilter(e.target.value)}
                         allowClear
@@ -160,7 +162,7 @@ export const SelectTemplateStep = ({
                             />
                         ))
                     ) : (
-                        <NoResultsMessage>Data Source with name &quot;{searchFilter}&quot; not found.</NoResultsMessage>
+                        <NoResultsMessage>{t('ingest.source.dataSourceNotFound', { searchFilter })}</NoResultsMessage>
                     )}
                 </PlatformListContainer>
             </Section>
