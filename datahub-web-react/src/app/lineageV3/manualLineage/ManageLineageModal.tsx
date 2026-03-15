@@ -180,7 +180,6 @@ export default function ManageLineageModal({ node, direction, closeModal, refetc
                         key: 'save',
                     },
                 ]}>
-            >
                 <ModalContentContainer>
                     <SearchSection>
                         <SectionHeader>{t('lineage.searchAndAdd')}</SectionHeader>
