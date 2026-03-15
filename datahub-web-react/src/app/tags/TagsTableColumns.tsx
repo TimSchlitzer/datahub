@@ -1,5 +1,6 @@
 import { Icon, Menu, Text, colors } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Highlight from 'react-highlighter';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
@@ -124,6 +125,7 @@ export const TagOwnersColumn = React.memo(({ tagUrn }: { tagUrn: string }) => {
 });
 
 export const TagAppliedToColumn = React.memo(({ tagUrn }: { tagUrn: string }) => {
+    const { t } = useTranslation();
     const history = useHistory();
     const entityRegistry = useEntityRegistry();
     const entityFilters = [{ field: 'tags', values: [tagUrn] }];
@@ -150,7 +152,7 @@ export const TagAppliedToColumn = React.memo(({ tagUrn }: { tagUrn: string }) =>
     const aggregations = entityFacet?.aggregations || [];
 
     if (aggregations.length === 0) {
-        return <Text>Not applied</Text>;
+        return <Text>{t('tags.notApplied')}</Text>;
     }
 
     // Get total count of entities this tag is applied to
@@ -197,7 +199,7 @@ export const TagAppliedToColumn = React.memo(({ tagUrn }: { tagUrn: string }) =>
                 }}
             >
                 <Text style={{ color: colors.violet[500] }}>
-                    {totalCount} {totalCount === 1 ? 'entity' : 'entities'}
+                    {totalCount} {totalCount === 1 ? t('tags.entity') : t('tags.entities')}
                 </Text>
             </div>
 
@@ -238,11 +240,12 @@ export const TagActionsColumn = React.memo(
         onDelete: () => void;
         canManageTags: boolean;
     }) => {
+        const { t } = useTranslation();
         const menuItems = [
             {
                 type: 'item' as const,
                 key: 'edit',
-                title: 'Edit',
+                title: t('tags.edit'),
                 icon: 'Edit' as const,
                 onClick: onEdit,
                 'data-testid': 'action-edit',
@@ -250,7 +253,7 @@ export const TagActionsColumn = React.memo(
             {
                 type: 'item' as const,
                 key: 'copy-urn',
-                title: 'Copy URN',
+                title: t('tags.copyUrn'),
                 icon: 'ContentCopy' as const,
                 onClick: () => {
                     navigator.clipboard.writeText(tagUrn);
@@ -261,7 +264,7 @@ export const TagActionsColumn = React.memo(
                       {
                           type: 'item' as const,
                           key: 'delete',
-                          title: 'Delete',
+                          title: t('tags.delete'),
                           icon: 'Delete' as const,
                           danger: true,
                           onClick: onDelete,

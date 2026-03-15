@@ -1,5 +1,6 @@
 import { Button, PageTitle, Pagination, SearchBar, StructuredPopover } from '@components';
 import React, { useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -53,6 +54,7 @@ const LoadingBar = styled.div`
 const PAGE_SIZE = 10;
 
 const ManageTags = () => {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -124,7 +126,7 @@ const ManageTags = () => {
         if (!canCreateTags) {
             return (
                 <StructuredPopover
-                    title="You do not have permission to create tags"
+                    title={t('tags.noPermissionCreateTags')}
                     placement="left"
                     showArrow
                     mouseEnterDelay={0.1}
@@ -132,7 +134,7 @@ const ManageTags = () => {
                 >
                     <span>
                         <Button size="md" color="violet" icon={{ icon: 'Plus', source: 'phosphor' }} disabled>
-                            Create Tag
+                            {t('tags.createTag')}
                         </Button>
                     </span>
                 </StructuredPopover>
@@ -147,7 +149,7 @@ const ManageTags = () => {
                 icon={{ icon: 'Plus', source: 'phosphor' }}
                 data-testid="add-tag-button"
             >
-                Create Tag
+                {t('tags.createTag')}
             </Button>
         );
     };
@@ -157,13 +159,13 @@ const ManageTags = () => {
             {searchLoading && <LoadingBar />}
 
             <HeaderContainer>
-                <PageTitle title="Manage Tags" subTitle="Create and edit asset & column tags" />
+                <PageTitle title={t('tags.pageTitle')} subTitle={t('tags.pageSubtitle')} />
                 {renderCreateTagButton()}
             </HeaderContainer>
 
             <SearchContainer>
                 <SearchBar
-                    placeholder="Search tags..."
+                    placeholder={t('tags.searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e)}
                     data-testid="tag-search-input"

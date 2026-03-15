@@ -1,5 +1,6 @@
 import { Button, PageTitle, Pagination, SearchBar, StructuredPopover } from '@components';
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useDebounce } from 'react-use';
 import styled from 'styled-components';
 
@@ -54,6 +55,7 @@ const LoadingBar = styled.div`
 const PAGE_SIZE = 10;
 
 const ManageApplications = () => {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
     const [searchQuery, setSearchQuery] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
@@ -99,7 +101,7 @@ const ManageApplications = () => {
         if (!canManageApplications) {
             return (
                 <StructuredPopover
-                    title="You do not have permission to create applications"
+                    title={t('applications.noPermissionCreate')}
                     placement="left"
                     showArrow
                     mouseEnterDelay={0.1}
@@ -107,7 +109,7 @@ const ManageApplications = () => {
                 >
                     <span>
                         <Button size="md" color="violet" icon={{ icon: 'Plus', source: 'phosphor' }} disabled>
-                            Create Application
+                            {t('applications.createApplication')}
                         </Button>
                     </span>
                 </StructuredPopover>
@@ -121,7 +123,7 @@ const ManageApplications = () => {
                 color="violet"
                 icon={{ icon: 'Plus', source: 'phosphor' }}
             >
-                Create Application
+                {t('applications.createApplication')}
             </Button>
         );
     };
@@ -131,13 +133,13 @@ const ManageApplications = () => {
             {searchLoading && <LoadingBar />}
 
             <HeaderContainer>
-                <PageTitle title="Manage Applications" subTitle="Create and edit applications" />
+                <PageTitle title={t('applications.pageTitle')} subTitle={t('applications.pageSubtitle')} />
                 {renderCreateApplicationButton()}
             </HeaderContainer>
 
             <SearchContainer>
                 <SearchBar
-                    placeholder="Search applications..."
+                    placeholder={t('applications.searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e)}
                     id="application-search-input"

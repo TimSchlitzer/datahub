@@ -1,6 +1,7 @@
 import { Modal } from '@components';
 import { message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ModalButton } from '@components/components/Modal/Modal';
 
@@ -19,6 +20,8 @@ type CreateNewApplicationModalProps = {
  * Modal for creating a new application with owners and applying it to entities
  */
 const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ onClose, open }) => {
+    const { t } = useTranslation();
+
     // Application details state
     const [applicationName, setApplicationName] = useState('');
     const [applicationDescription, setApplicationDescription] = useState('');
@@ -44,7 +47,7 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
     const onOk = async () => {
         if (!applicationName) {
             // this should not happen due to validation in the modal, but doesnt hurt to be safe
-            message.error('Application name is required');
+            message.error(t('applications.nameRequired'));
             return;
         }
 
@@ -66,7 +69,7 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
             const newApplicationUrn = createApplicationResult.data?.createApplication?.urn;
 
             if (!newApplicationUrn) {
-                message.error('Failed to create application. An unexpected error occurred');
+                message.error(t('applications.createError'));
                 setIsLoading(false);
                 return;
             }
@@ -83,7 +86,7 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
                 });
             }
 
-            message.success(`Application "${applicationName}" successfully created`);
+            message.success(t('applications.createSuccess', { name: applicationName }));
             setApplicationName('');
             setApplicationDescription('');
             setPendingOwners([]);
@@ -91,7 +94,7 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
             onClose();
         } catch (e: any) {
             message.destroy();
-            message.error(`Failed to create application. An unexpected error occurred: ${e.message}`);
+            message.error(`${t('applications.createFailed')}: ${e.message}`);
         } finally {
             setIsLoading(false);
         }
@@ -100,13 +103,13 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
     // Modal buttons configuration
     const buttons: ModalButton[] = [
         {
-            text: 'Cancel',
+            text: t('common.cancel'),
             color: 'violet',
             variant: 'text',
             onClick: onClose,
         },
         {
-            text: 'Create',
+            text: t('applications.create'),
             id: 'createNewApplicationButton',
             color: 'violet',
             variant: 'filled',
@@ -117,7 +120,7 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
     ];
 
     return (
-        <Modal title="Create New Application" onCancel={onClose} buttons={buttons} open={open} centered width={500}>
+        <Modal title={t('applications.createNewApplication')} onCancel={onClose} buttons={buttons} open={open} centered width={500}>
             <ApplicationDetailsSection
                 applicationName={applicationName}
                 setApplicationName={setApplicationName}

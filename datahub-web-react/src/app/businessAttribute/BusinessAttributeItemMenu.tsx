@@ -1,6 +1,7 @@
 import { DeleteOutlined } from '@ant-design/icons';
 import { Dropdown, Modal, message } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { MenuIcon } from '@app/entity/shared/EntityDropdown/EntityDropdown';
 import { MenuItemStyle } from '@app/entity/view/menu/item/styledComponent';
@@ -14,6 +15,7 @@ type Props = {
 };
 
 export default function BusinessAttributeItemMenu({ title, urn, onDelete }: Props) {
+    const { t } = useTranslation();
     const [deleteBusinessAttributeMutation] = useDeleteBusinessAttributeMutation();
 
     const deletePost = () => {
@@ -24,14 +26,14 @@ export default function BusinessAttributeItemMenu({ title, urn, onDelete }: Prop
         })
             .then(({ errors }) => {
                 if (!errors) {
-                    message.success('Deleted Business Attribute!');
+                    message.success(t('businessAttribute.deleteSuccess'));
                     onDelete?.();
                 }
             })
             .catch(() => {
                 message.destroy();
                 message.error({
-                    content: `Failed to delete Business Attribute!: An unknown error occurred.`,
+                    content: t('businessAttribute.deleteError'),
                     duration: 3,
                 });
             });
@@ -39,13 +41,13 @@ export default function BusinessAttributeItemMenu({ title, urn, onDelete }: Prop
 
     const onConfirmDelete = () => {
         Modal.confirm({
-            title: `Delete Business Attribute '${title}'`,
-            content: `Are you sure you want to remove this Business Attribute?`,
+            title: t('businessAttribute.deleteConfirmTitle', { name: title }),
+            content: t('businessAttribute.deleteConfirmContent'),
             onOk() {
                 deletePost();
             },
             onCancel() {},
-            okText: 'Yes',
+            okText: t('businessAttribute.yes'),
             maskClosable: true,
             closable: true,
         });
@@ -56,7 +58,7 @@ export default function BusinessAttributeItemMenu({ title, urn, onDelete }: Prop
             key: 'delete',
             label: (
                 <MenuItemStyle onClick={onConfirmDelete}>
-                    <DeleteOutlined /> &nbsp;Delete
+                    <DeleteOutlined /> &nbsp;{t('businessAttribute.delete')}
                 </MenuItemStyle>
             ),
         },

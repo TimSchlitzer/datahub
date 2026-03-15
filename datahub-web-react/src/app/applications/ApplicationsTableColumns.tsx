@@ -1,6 +1,7 @@
 import { Icon, colors, typography } from '@components';
 import { Dropdown } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Highlight from 'react-highlighter';
 import styled from 'styled-components';
 
@@ -108,6 +109,7 @@ export const ApplicationOwnersColumn = React.memo(
 
 export const ApplicationActionsColumn = React.memo(
     ({ applicationUrn, onDelete }: { applicationUrn: string; onDelete: () => void }) => {
+        const { t } = useTranslation();
         const entityRegistry = useEntityRegistry();
         const url = entityRegistry.getEntityUrl(EntityType.Application, applicationUrn);
 
@@ -116,7 +118,7 @@ export const ApplicationActionsColumn = React.memo(
                 key: '0',
                 label: (
                     <MenuItem onClick={() => window.open(url, '_blank')} data-testid="action-edit">
-                        View
+                        {t('applications.view')}
                     </MenuItem>
                 ),
             },
@@ -128,7 +130,7 @@ export const ApplicationActionsColumn = React.memo(
                             navigator.clipboard.writeText(applicationUrn);
                         }}
                     >
-                        Copy Urn
+                        {t('applications.copyUrn')}
                     </MenuItem>
                 ),
             },
@@ -136,7 +138,7 @@ export const ApplicationActionsColumn = React.memo(
                 key: '2',
                 label: (
                     <MenuItem onClick={onDelete} data-testid="action-delete" style={{ color: colors.red[500] }}>
-                        Delete
+                        {t('applications.delete')}
                     </MenuItem>
                 ),
             },

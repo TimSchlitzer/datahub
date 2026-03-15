@@ -1,6 +1,7 @@
 import { ColorPicker, Input, Modal } from '@components';
 import { message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ModalButton } from '@components/components/Modal/Modal';
@@ -30,6 +31,7 @@ interface PendingOwner {
 }
 
 const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const { data, loading, refetch } = useGetTagQuery({
         variables: { urn: tagUrn },
@@ -118,14 +120,14 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
             // Validate required fields
             if (!tagName.trim()) {
                 message.error({
-                    content: 'Tag name is required',
+                    content: t('tags.nameRequired'),
                     key: 'tagUpdate',
                     duration: 3,
                 });
                 return;
             }
 
-            message.loading({ content: 'Saving changes...', key: 'tagUpdate' });
+            message.loading({ content: t('tags.savingChanges'), key: 'tagUpdate' });
 
             // Track if we made any successful changes
             let changesMade = false;
@@ -198,7 +200,7 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
 
             if (changesMade) {
                 message.success({
-                    content: 'Tag updated successfully!',
+                    content: t('tags.updateSuccess'),
                     key: 'tagUpdate',
                     duration: 2,
                 });
@@ -217,7 +219,7 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
         } catch (error: unknown) {
             const errorMessage = error instanceof Error ? error.message : 'Unknown error';
             message.error({
-                content: `Failed to update tag: ${errorMessage}`,
+                content: `${t('tags.updateFailed')}: ${errorMessage}`,
                 key: 'tagUpdate',
                 duration: 3,
             });
@@ -230,20 +232,20 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
 
     const buttons: ModalButton[] = [
         {
-            text: 'Cancel',
+            text: t('common.cancel'),
             color: 'violet',
             variant: 'text',
             onClick: onClose,
         },
         {
-            text: 'Reset',
+            text: t('tags.reset'),
             color: 'violet',
             variant: 'outline',
             onClick: handleReset,
             disabled: !hasChanges(),
         },
         {
-            text: 'Save',
+            text: t('common.save'),
             color: 'violet',
             variant: 'filled',
             onClick: handleSave,
@@ -258,7 +260,7 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
     }
 
     // Dynamic modal title
-    const modalTitle = tagDisplayName ? `Edit Tag` : 'Edit Tag';
+    const modalTitle = t('tags.editTag');
 
     return (
         <Modal
@@ -273,10 +275,10 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
             <div>
                 <FormSection>
                     <Input
-                        label="Name"
+                        label={t('tags.name')}
                         value={tagName}
                         setValue={setTagName}
-                        placeholder="Enter tag name"
+                        placeholder={t('tags.enterTagName')}
                         isRequired
                         data-testid="tag-name-field"
                     />
@@ -284,17 +286,17 @@ const ManageTag = ({ tagUrn, onClose, onSave, isModalOpen = false }: Props) => {
 
                 <FormSection>
                     <Input
-                        label="Description"
+                        label={t('tags.description')}
                         value={description}
                         setValue={setDescription}
-                        placeholder="Tag description"
+                        placeholder={t('tags.tagDescription')}
                         type="textarea"
                         data-testid="tag-description-field"
                     />
                 </FormSection>
 
                 <FormSection>
-                    <ColorPicker initialColor={colorValue} onChange={handleColorChange} label="Color" />
+                    <ColorPicker initialColor={colorValue} onChange={handleColorChange} label={t('tags.color')} />
                 </FormSection>
 
                 <OwnersSection
