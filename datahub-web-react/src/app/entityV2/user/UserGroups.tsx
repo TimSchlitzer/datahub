@@ -115,7 +115,9 @@ export default function UserGroups({ urn, initialRelationships, pageSize }: Prop
                                             <GroupTitle>{item.info?.displayName || item.name}</GroupTitle>
                                             <GroupMember>
                                                 {item.relationships?.total}
-                                                {item.relationships?.total === 1 ? t('entity.user.memberSingular') : t('entity.user.memberPlural')}
+                                                {item.relationships?.total === 1
+                                                    ? t('entity.user.memberSingular')
+                                                    : t('entity.user.memberPlural')}
                                             </GroupMember>
                                         </Row>
                                         <Row className="description-row">

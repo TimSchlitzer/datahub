@@ -43,7 +43,10 @@ export default function UpdateDeprecationMenuAction() {
         } catch (e: unknown) {
             message.destroy();
             if (e instanceof Error) {
-                message.error({ content: t('entityDropdown.failedUpdateDeprecation', { error: e.message || '' }), duration: 2 });
+                message.error({
+                    content: t('entityDropdown.failedUpdateDeprecation', { error: e.message || '' }),
+                    duration: 2,
+                });
             }
         }
         refetchForEntity?.();

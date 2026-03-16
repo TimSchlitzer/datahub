@@ -1,6 +1,7 @@
 import { BookOpen } from '@phosphor-icons/react';
 import { Col } from 'antd';
 import React, { useContext, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { matchPath } from 'react-router';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components/macro';
@@ -77,6 +78,7 @@ type Props = {
  * TODO: Add use of apollo cache to improve fetching performance.
  */
 export default function GroupProfile({ urn }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const location = useLocation();
     const isCompact = React.useContext(CompactContext);
@@ -198,7 +200,7 @@ export default function GroupProfile({ urn }: Props) {
         >
             <EntityHead />
             {error && <ErrorSection />}
-            {loading && <Message type="loading" content="Loading..." style={messageStyle} />}
+            {loading && <Message type="loading" content={t('common.loading')} style={messageStyle} />}
             {data && data?.corpGroup && (
                 <GroupProfileWrapper>
                     <Col xl={7} lg={7} md={7} sm={24} xs={24} style={{ height: '100%', overflow: 'auto' }}>

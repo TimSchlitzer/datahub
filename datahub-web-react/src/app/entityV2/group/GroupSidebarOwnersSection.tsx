@@ -1,5 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import GroupOwnerSidebarSectionContent from '@app/entityV2/group/GroupOwnerSidebarSectionContent';
 import SectionActionButton from '@app/entityV2/shared/containers/profile/sidebar/SectionActionButton';
@@ -14,11 +15,12 @@ type Props = {
 };
 
 export const GroupSidebarOwnersSection = ({ ownership, refetch, urn }: Props) => {
+    const { t } = useTranslation();
     const [showAddOwnerModal, setShowAddOwnerModal] = useState(false);
 
     return (
         <SidebarSection
-            title="Owners"
+            title={t('group.owners')}
             count={ownership?.owners?.length}
             content={
                 <GroupOwnerSidebarSectionContent

@@ -105,9 +105,7 @@ export function MultiStepFormBottomPanel<TState, TStep extends Step>({
                 isDisabled ? (
                     <Tooltip
                         key="next"
-                        title={
-                            disabledNextTooltip || t('sharedV2.multiStepForm.completeRequiredFields')
-                        }
+                        title={disabledNextTooltip || t('sharedV2.multiStepForm.completeRequiredFields')}
                     >
                         <span>{nextButton}</span>
                     </Tooltip>

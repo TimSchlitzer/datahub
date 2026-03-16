@@ -48,9 +48,7 @@ export const ManageDomainsPage = () => {
             <PageContainer>
                 <PageHeaderContainer>
                     <PageTitle level={3}>{t('domain.pageTitle')}</PageTitle>
-                    <Typography.Paragraph type="secondary">
-                        {t('domain.pageDescription')}
-                    </Typography.Paragraph>
+                    <Typography.Paragraph type="secondary">{t('domain.pageDescription')}</Typography.Paragraph>
                 </PageHeaderContainer>
                 <ListContainer>
                     <DomainsList />

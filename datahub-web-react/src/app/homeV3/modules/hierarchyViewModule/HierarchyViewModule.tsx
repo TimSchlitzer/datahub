@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import { v4 as uuidv4 } from 'uuid';
 
 import EmptyContent from '@app/homeV3/module/components/EmptyContent';

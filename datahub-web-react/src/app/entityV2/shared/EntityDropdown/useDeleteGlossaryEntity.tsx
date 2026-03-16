@@ -1,5 +1,6 @@
 import { Modal, message } from 'antd';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
 import { useEntityRegistry } from '@app/useEntityRegistry';
@@ -7,6 +8,7 @@ import { useEntityRegistry } from '@app/useEntityRegistry';
 import { useDeleteGlossaryEntityMutation } from '@graphql/glossary.generated';
 
 function useDeleteGlossaryEntity() {
+    const { t } = useTranslation();
     const [hasBeenDeleted, setHasBeenDeleted] = useState(false);
     const { entityData, urn: entityDataUrn, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
@@ -21,16 +23,16 @@ function useDeleteGlossaryEntity() {
         })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to delete: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: t('entityDropdown.failedDelete', { error: e.message || '' }), duration: 3 });
             })
             .finally(() => {
                 message.loading({
-                    content: 'Deleting...',
+                    content: t('entityDropdown.deletingEllipsis'),
                     duration: 2,
                 });
                 setHasBeenDeleted(true);
                 message.success({
-                    content: `Deleted ${entityRegistry.getEntityName(entityType)}!`,
+                    content: t('entityDropdown.deleted', { type: entityRegistry.getEntityName(entityType) }),
                     duration: 2,
                 });
             });

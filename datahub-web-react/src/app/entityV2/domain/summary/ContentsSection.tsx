@@ -1,7 +1,7 @@
 import { AppstoreOutlined } from '@ant-design/icons';
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import { useEntityContext, useEntityData } from '@app/entity/shared/EntityContext';
@@ -66,7 +66,10 @@ export const ContentsSection = () => {
     return (
         <SectionContainer>
             <SummaryTabHeaderWrapper>
-                <SummaryTabHeaderTitle icon={<AppstoreOutlined />} title={`${t('entity.domain.summary.contents.title')} (${contentsCount})`} />
+                <SummaryTabHeaderTitle
+                    icon={<AppstoreOutlined />}
+                    title={`${t('entity.domain.summary.contents.title')} (${contentsCount})`}
+                />
                 <ViewAllButton onClick={() => navigateToDomainEntities(urn, entityType, history, entityRegistry)}>
                     {t('entity.domain.summary.contents.viewAll')}
                 </ViewAllButton>

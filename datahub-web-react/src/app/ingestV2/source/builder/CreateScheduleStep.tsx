@@ -148,7 +148,8 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                     tooltip={t('ingest.source.runOnScheduleTooltip')}
                     label={
                         <Typography.Text strong>
-                            {t('ingest.source.runOnSchedule')} <Typography.Text type="secondary">{t('ingest.source.recommended')}</Typography.Text>
+                            {t('ingest.source.runOnSchedule')}{' '}
+                            <Typography.Text type="secondary">{t('ingest.source.recommended')}</Typography.Text>
                         </Typography.Text>
                     }
                 >
@@ -160,7 +161,10 @@ export const CreateScheduleStep = ({ state, updateState, goTo, prev }: StepProps
                         </WarningContainer>
                     )}
                 </Form.Item>
-                <StyledFormItem required label={<Typography.Text strong>{t('ingest.source.schedule')}</Typography.Text>}>
+                <StyledFormItem
+                    required
+                    label={<Typography.Text strong>{t('ingest.source.schedule')}</Typography.Text>}
+                >
                     <Schedule>
                         {advancedCronCheck ? (
                             <CronInput

@@ -122,7 +122,9 @@ const SidebarLineageSection = () => {
                                 </DirectionHeader>
                             </Tooltip>
                             <SummaryText>
-                                {t('entity.shared.sidebar.dependsOn', { count: getRelatedEntitySummary(directUpstreamSummary as any, entityRegistry) })}
+                                {t('entity.shared.sidebar.dependsOn', {
+                                    count: getRelatedEntitySummary(directUpstreamSummary as any, entityRegistry),
+                                })}
                             </SummaryText>
                         </Section>
                     )}
@@ -139,7 +141,9 @@ const SidebarLineageSection = () => {
                                 </DirectionHeader>
                             </Tooltip>
                             <SummaryText>
-                                {t('entity.shared.sidebar.usedBy', { count: getRelatedEntitySummary(directDownstreamSummary as any, entityRegistry) })}
+                                {t('entity.shared.sidebar.usedBy', {
+                                    count: getRelatedEntitySummary(directDownstreamSummary as any, entityRegistry),
+                                })}
                             </SummaryText>
                         </Section>
                     )}
@@ -148,11 +152,7 @@ const SidebarLineageSection = () => {
             extra={
                 <SectionActionButton
                     button={
-                        <Tooltip
-                            title={t('entity.shared.sidebar.exploreLineage')}
-                            placement="left"
-                            showArrow={false}
-                        >
+                        <Tooltip title={t('entity.shared.sidebar.exploreLineage')} placement="left" showArrow={false}>
                             <Link to={`${entityRegistry.getEntityUrl(entityType, urn)}/Lineage`} {...linkProps}>
                                 <StyledPartitionOutlined />
                             </Link>

@@ -64,7 +64,9 @@ export default function IncompleteView({
                                 </>
                             )}
                             {!isUserAssigned && <StyledImgIcon src={ShieldExclamation} disable />}
-                            {showVerificationStyles ? t('entity.shared.sidebar.awaitingVerification') : t('entity.shared.sidebar.awaitingDocumentation')}
+                            {showVerificationStyles
+                                ? t('entity.shared.sidebar.awaitingVerification')
+                                : t('entity.shared.sidebar.awaitingDocumentation')}
                         </Title>
                         {isUserAssigned && <StyledArrow isOpen={isOpen} />}
                     </TitleWrapper>
@@ -86,7 +88,9 @@ export default function IncompleteView({
                             showVerificationStyles ? 'complete-verification-button' : 'complete-documentation-button'
                         }
                     >
-                        {showVerificationStyles ? t('entity.shared.sidebar.completeVerification') : t('entity.shared.sidebar.completeDocumentation')}
+                        {showVerificationStyles
+                            ? t('entity.shared.sidebar.completeVerification')
+                            : t('entity.shared.sidebar.completeDocumentation')}
                     </Button>
                 </StyledButtonWrapper>
             )}

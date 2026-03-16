@@ -8,8 +8,8 @@ import styled, { useTheme } from 'styled-components';
 
 import { IconStyleType } from '@app/entity/Entity';
 import { DEFAULT_FILTER_FIELDS } from '@app/searchV2/filters/field/fields';
-import { useTranslatedFilters } from '@app/searchV2/filters/useTranslatedFilters';
 import { FieldType, FilterField, FilterPredicate } from '@app/searchV2/filters/types';
+import { useTranslatedFilters } from '@app/searchV2/filters/useTranslatedFilters';
 import ValueMenu from '@app/searchV2/filters/value/ValueMenu';
 import { getDefaultFieldOperatorType } from '@app/searchV2/filters/value/utils';
 import { useEntityRegistry } from '@app/useEntityRegistry';

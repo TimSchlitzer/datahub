@@ -75,7 +75,11 @@ export default function SimpleSelectRole({
 
         // Add sentinel option for infinite scroll trigger
         if (hasMore) {
-            options.push({ value: LOAD_MORE_VALUE, label: t('identity.user.loadingMoreRoles'), icon: <LoadingOutlined /> });
+            options.push({
+                value: LOAD_MORE_VALUE,
+                label: t('identity.user.loadingMoreRoles'),
+                icon: <LoadingOutlined />,
+            });
         }
 
         return options;

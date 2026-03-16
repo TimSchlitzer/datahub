@@ -136,11 +136,7 @@ const StructuredProperties = () => {
                 </HeaderContent>
                 <Tooltip
                     showArrow={false}
-                    title={
-                        !canEditProps
-                            ? t('govern.structuredProperties.createPermissionError')
-                            : null
-                    }
+                    title={!canEditProps ? t('govern.structuredProperties.createPermissionError') : null}
                 >
                     <ButtonContainer>
                         <Button

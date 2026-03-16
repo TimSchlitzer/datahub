@@ -165,7 +165,10 @@ export default function CreateTokenModal({
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: t('settings.accessTokens.failedToCreateToken', { error: e.message || '' }), duration: 3 });
+                message.error({
+                    content: t('settings.accessTokens.failedToCreateToken', { error: e.message || '' }),
+                    duration: 3,
+                });
                 onModalClose();
             });
     };

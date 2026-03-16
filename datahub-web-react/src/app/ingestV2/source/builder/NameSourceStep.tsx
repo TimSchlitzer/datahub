@@ -247,12 +247,13 @@ export const NameSourceStep = ({ state, updateState, prev, submit, isEditing, se
                 </Form.Item>
 
                 <Collapse ghost>
-                    <Collapse.Panel header={<Typography.Text type="secondary">{t('ingest.source.advanced')}</Typography.Text>} key="1">
+                    <Collapse.Panel
+                        header={<Typography.Text type="secondary">{t('ingest.source.advanced')}</Typography.Text>}
+                        key="1"
+                    >
                         {/* NOTE: Executor ID is OSS-only, used by actions pod */}
                         <Form.Item label={<Typography.Text strong>{t('ingest.source.executorId')}</Typography.Text>}>
-                            <Typography.Paragraph>
-                                {t('ingest.source.executorIdDescription')}
-                            </Typography.Paragraph>
+                            <Typography.Paragraph>{t('ingest.source.executorIdDescription')}</Typography.Paragraph>
                             <Input
                                 placeholder={t('ingest.source.defaultExecutorId')}
                                 value={state.config?.executorId || ''}
@@ -261,9 +262,7 @@ export const NameSourceStep = ({ state, updateState, prev, submit, isEditing, se
                             />
                         </Form.Item>
                         <Form.Item label={<Typography.Text strong>{t('ingest.source.cliVersion')}</Typography.Text>}>
-                            <Typography.Paragraph>
-                                {t('ingest.source.cliVersionDescription')}
-                            </Typography.Paragraph>
+                            <Typography.Paragraph>{t('ingest.source.cliVersionDescription')}</Typography.Paragraph>
                             <Input
                                 data-testid="cli-version-input"
                                 className="cli-version-input"
@@ -274,15 +273,15 @@ export const NameSourceStep = ({ state, updateState, prev, submit, isEditing, se
                             />
                         </Form.Item>
                         <Form.Item label={<Typography.Text strong>{t('ingest.source.debugMode')}</Typography.Text>}>
-                            <Typography.Paragraph>
-                                {t('ingest.source.debugModeDescription')}
-                            </Typography.Paragraph>
+                            <Typography.Paragraph>{t('ingest.source.debugModeDescription')}</Typography.Paragraph>
                             <Checkbox
                                 checked={state.config?.debugMode || false}
                                 onChange={(event) => setDebugMode(event.target.checked)}
                             />
                         </Form.Item>
-                        <Form.Item label={<Typography.Text strong>{t('ingest.source.extraEnvVariables')}</Typography.Text>}>
+                        <Form.Item
+                            label={<Typography.Text strong>{t('ingest.source.extraEnvVariables')}</Typography.Text>}
+                        >
                             <Typography.Paragraph>
                                 {t('ingest.source.extraEnvVariablesDescription')}
                             </Typography.Paragraph>
@@ -294,7 +293,9 @@ export const NameSourceStep = ({ state, updateState, prev, submit, isEditing, se
                                 onBlur={(event) => handleBlur(event, setExtraEnvs)}
                             />
                         </Form.Item>
-                        <Form.Item label={<Typography.Text strong>{t('ingest.source.extraDataHubPlugins')}</Typography.Text>}>
+                        <Form.Item
+                            label={<Typography.Text strong>{t('ingest.source.extraDataHubPlugins')}</Typography.Text>}
+                        >
                             <Typography.Paragraph>
                                 {t('ingest.source.extraDataHubPluginsDescription')}
                             </Typography.Paragraph>
@@ -306,7 +307,9 @@ export const NameSourceStep = ({ state, updateState, prev, submit, isEditing, se
                                 onBlur={(event) => handleBlur(event, setExtraDataHubPlugins)}
                             />
                         </Form.Item>
-                        <Form.Item label={<Typography.Text strong>{t('ingest.source.extraPipLibraries')}</Typography.Text>}>
+                        <Form.Item
+                            label={<Typography.Text strong>{t('ingest.source.extraPipLibraries')}</Typography.Text>}
+                        >
                             <Typography.Paragraph>
                                 {t('ingest.source.extraPipLibrariesDescription')}
                             </Typography.Paragraph>

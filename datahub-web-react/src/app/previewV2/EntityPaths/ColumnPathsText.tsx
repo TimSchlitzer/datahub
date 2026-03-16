@@ -49,7 +49,8 @@ export default function ColumnPathsText({ paths, resultEntityUrn, openModal }: P
 
     if (!displayedColumns.length) return null;
 
-    const directionLabel = lineageDirection === LineageDirection.Downstream ? t('preview.downstream') : t('preview.upstream');
+    const directionLabel =
+        lineageDirection === LineageDirection.Downstream ? t('preview.downstream') : t('preview.upstream');
 
     return (
         <>

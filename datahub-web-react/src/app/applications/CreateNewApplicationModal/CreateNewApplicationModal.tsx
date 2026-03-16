@@ -120,7 +120,14 @@ const CreateNewApplicationModal: React.FC<CreateNewApplicationModalProps> = ({ o
     ];
 
     return (
-        <Modal title={t('applications.createNewApplication')} onCancel={onClose} buttons={buttons} open={open} centered width={500}>
+        <Modal
+            title={t('applications.createNewApplication')}
+            onCancel={onClose}
+            buttons={buttons}
+            open={open}
+            centered
+            width={500}
+        >
             <ApplicationDetailsSection
                 applicationName={applicationName}
                 setApplicationName={setApplicationName}

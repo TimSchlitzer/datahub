@@ -263,11 +263,13 @@ export const UserList = () => {
                                 {t('identity.user.confirmRoleAssignmentPrefix')}{' '}
                                 {roleToAssign?.urn === NO_ROLE_URN ? (
                                     <>
-                                        {t('identity.user.removeRolePrefix')} <strong>{roleAssignmentState.username}</strong>?
+                                        {t('identity.user.removeRolePrefix')}{' '}
+                                        <strong>{roleAssignmentState.username}</strong>?
                                     </>
                                 ) : (
                                     <>
-                                        {t('identity.user.assignRolePrefix')} <strong>{roleToAssign?.name}</strong> {t('identity.user.assignRoleToUser')}{' '}
+                                        {t('identity.user.assignRolePrefix')} <strong>{roleToAssign?.name}</strong>{' '}
+                                        {t('identity.user.assignRoleToUser')}{' '}
                                         <strong>{roleAssignmentState.username}</strong>?
                                     </>
                                 )}

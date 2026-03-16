@@ -1,11 +1,11 @@
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Empty, List, Select, Typography } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
 import TabToolbar from '@app/entity/shared/components/styled/TabToolbar';
-import { ANTD_GRAY } from '@app/entity/shared/constants';
 import { combineEntityDataWithSiblings } from '@app/entity/shared/siblingUtils';
 import { AddIncidentModal } from '@app/entity/shared/tabs/Incident/components/AddIncidentModal';
 import IncidentListItem from '@app/entity/shared/tabs/Incident/components/IncidentListItem';
@@ -21,7 +21,7 @@ import { useGetEntityIncidentsQuery } from '@graphql/incident.generated';
 import { EntityType, Incident, IncidentState } from '@types';
 
 const Header = styled.div`
-    border-bottom: 1px solid ${ANTD_GRAY[3]};
+    border-bottom: 1px solid ${(props) => props.theme.colors.border};
     box-shadow: ${(props) => props.theme.styles['box-shadow']};
 `;
 
@@ -52,6 +52,7 @@ const IncidentStateSelect = styled(Select)`
 
 export const IncidentTab = () => {
     const { urn, entityType } = useEntityData();
+    const { t } = useTranslation();
     const incidentStates = INCIDENT_DISPLAY_STATES;
     const [selectedIncidentState, setSelectedIncidentState] = useState<IncidentState | undefined>(IncidentState.Active);
     const [isRaiseIncidentModalVisible, setIsRaiseIncidentModalVisible] = useState(false);
@@ -80,7 +81,7 @@ export const IncidentTab = () => {
             <Header>
                 <TabToolbar>
                     <Button icon={<PlusOutlined />} onClick={() => setIsRaiseIncidentModalVisible(true)} type="text">
-                        Raise Incident
+                        {t('incident.raiseIncident')}
                     </Button>
                     <AddIncidentModal
                         refetch={refetch}
@@ -114,9 +115,11 @@ export const IncidentTab = () => {
                         locale={{
                             emptyText: (
                                 <Empty
-                                    description={`No${
-                                        selectedIncidentState ? ` ${selectedIncidentState.toLocaleLowerCase()} ` : ''
-                                    } incidents`}
+                                    description={
+                                        selectedIncidentState === 'ACTIVE'
+                                            ? t('incident.noActiveIncidents')
+                                            : t('incident.noIncidentsRaised')
+                                    }
                                     image={Empty.PRESENTED_IMAGE_SIMPLE}
                                 />
                             ),

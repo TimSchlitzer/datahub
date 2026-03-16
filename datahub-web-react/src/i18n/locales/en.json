@@ -865,49 +865,13 @@
                 "loading": "Fetching runs..."
             },
             "stats": {
-                "highlights": {
-                    "title": "Highlights",
-                    "subTitle": "View the latest statistics for this table",
-                    "latest": "Latest",
-                    "last30Days": "Last 30 days"
-                },
-                "columnStats": {
-                    "title": "Column Stats",
-                    "subTitle": "View latest stats for each column in this table.",
-                    "searchPlaceholder": "Search Column Name",
-                    "table": {
-                        "nullPercentage": "Null Percentage",
-                        "uniqueValues": "Unique Values",
-                        "min": "Min",
-                        "max": "Max",
-                        "column": "Column",
-                        "type": "Type",
-                        "view": "View"
-                    }
-                },
-                "historical": {
-                    "title": "Historical",
-                    "subTitle": "View important trends for this table"
-                },
-                "timeRange": {
-                    "choosePlaceholder": "Choose time range"
-                },
-                "permissions": {
-                    "noPermission": "No Permission",
-                    "noDataPermission": "You do not have permission to view {{statName}} data."
-                },
-                "changeHistory": {
-                    "noDataReported": "No data reported",
-                    "noChangesThisDay": "No changes this day",
-                    "viewDetails": "View Details",
-                    "title": "Change History Details",
-                    "changeTypeLabel": "Change Type",
-                    "usersLabel": "Users"
-                },
-                "graphs": {
-                    "dailyQueryCount": "Daily Query Count",
-                    "rowCount": "Row Count"
-                }
+                "latest": "Latest",
+                "historical": "Historical",
+                "rows": "rows",
+                "columns": "columns",
+                "queries": "queries",
+                "monthlyQueries": "monthly queries",
+                "users": "users"
             },
             "queries": {
                 "section": {
@@ -1015,140 +979,20 @@
                 "to": "to",
                 "latest": "latest",
                 "version": "version"
-            },
-            "stats": {
-                "latest": "Latest",
-                "historical": "Historical",
-                "rows": "rows",
-                "columns": "columns",
-                "queries": "queries",
-                "monthlyQueries": "monthly queries",
-                "users": "users"
             }
         },
         "shared": {
             "tabs": {
                 "summary": "Summary",
                 "documentation": "Documentation",
+                "preview": "Preview",
                 "lineage": "Lineage",
                 "properties": "Properties",
-                "incidents": "Incidents",
-                "preview": "Preview",
-                "access": "Access",
-                "runs": "Runs"
+                "incidents": "Incidents"
             },
             "sidebarTabs": {
-                "lineageDesc": "View this data asset's upstream and downstream dependencies",
-                "propertiesDesc": "View additional properties about this asset",
-                "columnsDesc": "View this data asset's columns"
-            },
-            "sidebar": {
-                "documentation": "Documentation",
-                "owners": "Owners",
-                "terms": "Terms",
-                "tags": "Tags",
-                "domain": "Domain",
-                "contents": "Contents",
-                "dataProducts": "Data Products",
-                "dataProduct": "Data Product",
-                "lineage": "Lineage",
-                "stats": "Stats",
-                "fields": "Fields",
-                "status": "Status",
-                "applications": "Applications",
-                "viewDefinition": "View Definition",
-                "materialized": "Materialized",
-                "language": "Language",
-                "logic": "Logic",
-                "partOf": "Part of",
-                "composedOf": "Composed of",
-                "viewAllSiblings": "View All Siblings",
-                "andNMore": "and {{n}} more",
-                "viewAll": "View all",
-                "noContents": "No contents yet",
-                "noProducts": "No products yet",
-                "confirmDataProductRemoval": "Confirm Data Product Removal",
-                "confirmDataProductRemovalText": "Are you sure you want to remove this asset from the data product?",
-                "rows": "Rows",
-                "columns": "Columns",
-                "monthlyQueries": "Monthly Queries",
-                "topUsers": "Top Users",
-                "lastUpdated": "Last Updated",
-                "moreStats": "More stats >",
-                "seeFullDefinition": "See Full",
-                "created": "Created:",
-                "lastModified": "Last Modified:",
-                "dataLastRefreshed": "Data Last Refreshed:",
-                "synchronized": "Synchronized on {{date}}",
-                "lastSynchronized": "Last Synchronized",
-                "upstream": "UPSTREAM",
-                "downstreamTooltip": "Data assets that directly depend on this",
-                "downstream": "DOWNSTREAM",
-                "dependsOn": "Depends on {{count}}",
-                "upstreamTooltip": "Data assets that this is directly derived from",
-                "usedBy": "Used by {{count}}",
-                "exploreLineage": "Explore related entities using the lineage graph",
-                "verified": "Verified",
-                "documented": "Documented",
-                "viewAndEdit": "View & Edit",
-                "awaitingVerification": "Awaiting Verification",
-                "awaitingDocumentation": "Awaiting Documentation",
-                "confirmApplicationRemoval": "Confirm Application Removal",
-                "confirmApplicationRemovalText": "Are you sure you want to remove this application?",
-                "removedApplication": "Removed Application.",
-                "failedRemoveApplication": "Failed to remove application: {{error}}",
-                "completeVerification": "Complete Verification",
-                "completeDocumentation": "Complete Documentation",
-                "completeRequirements": "You are being asked to complete a set of requirements for this entity."
-            },
-            "documentation": {
-                "sectionTitle": "Documentation",
-                "addButton": "Add Documentation",
-                "editButton": "Edit",
-                "noDocumentation": "No documentation added yet"
-            },
-            "properties": {
-                "sectionTitle": "Properties",
-                "name": "Name",
-                "value": "Value",
-                "noProperties": "No properties found"
-            },
-            "lineage": {
-                "explorer": "Explorer",
-                "impactAnalysis": "Impact Analysis"
-            },
-            "incidents": {
-                "sectionTitle": "Incidents",
-                "subtitle": "View and manage ongoing data incidents for this asset",
-                "noIncidents": "No incidents yet"
-            },
-            "emptyMessages": {
-                "documentation": "No documentation yet",
-                "tags": "No tags yet",
-                "tagsDescription": "Tag entities to help make them more discoverable and call out their most important attributes.",
-                "terms": "No terms yet",
-                "termsDescription": "Apply glossary terms to entities to classify their data.",
-                "owners": "No owners yet",
-                "ownersDescription": "Adding owners helps you keep track of who is responsible for this data.",
-                "properties": "No properties",
-                "propertiesDescription": "Properties will appear here if they exist in your data source.",
-                "queries": "No queries yet",
-                "queriesDescription": "Create, view, and share commonly used queries for this dataset.",
-                "domain": "No domain yet",
-                "domainDescription": "Group related entities based on your organizational structure using by adding them to a Domain.",
-                "dataProduct": "No product yet",
-                "dataProductDescription": "Group related entities based on shared characteristics by adding them to a Data Product.",
-                "application": "No application yet",
-                "applicationDescription": "Associate entities with applications to track ownership and lifecycle.",
-                "contains": "Does not Contain any Glossary Terms",
-                "containsDescription": "Terms can contain other terms to represent a \"Has A\" style relationship.",
-                "inherits": "Does not Inherit any Glossary Terms",
-                "inheritsDescription": "Terms can inherit from other terms to represent an \"Is A\" style relationship.",
-                "containedBy": "Is not Contained by any Glossary Terms",
-                "containedByDescription": "Terms can be contained by other terms to represent a \"Has A\" style relationship.",
-                "inheritedBy": "Is not Inherited by any Glossary Terms",
-                "inheritedByDescription": "Terms can be inherited by other terms to represent an \"Is A\" style relationship.",
-                "structuredProps": "No value set"
+                "lineageDesc": "Explore lineage",
+                "propertiesDesc": "View properties"
             }
         },
         "dashboard": {
@@ -1226,24 +1070,8 @@
             }
         },
         "glossaryTerm": {
-            "relatedTerms": {
-                "contains": "Contains",
-                "inherits": "Inherits",
-                "containedBy": "Contained by",
-                "inheritedBy": "Inherited by",
-                "addTerms": "Add Terms",
-                "modal": {
-                    "title": "Add Related Terms",
-                    "placeholder": "Search for Glossary Terms...",
-                    "cancel": "Cancel",
-                    "add": "Add"
-                },
-                "messages": {
-                    "failed": "Failed to move: {{error}}",
-                    "adding": "Adding...",
-                    "success": "Added Related Terms!"
-                }
-            }
+            "source": "Source",
+            "viewSource": "view source"
         },
         "domain": {
             "summary": {
@@ -1306,11 +1134,10 @@
             "phoneInvalid": "not valid phone number",
             "ownerOf": "Owner Of",
             "groups": "Groups",
-            "aboutTab": "About"
-        },
-        "glossaryTerm": {
-            "source": "Source",
-            "viewSource": "view source"
+            "aboutTab": "About",
+            "person": "Person",
+            "people": "People",
+            "filterEntities": "Filter entities..."
         },
         "container": {
             "tabs": {
@@ -1330,20 +1157,6 @@
             "tableau": {
                 "dataSources": "Data Sources",
                 "views": "Views"
-            }
-        },
-        "shared": {
-            "tabs": {
-                "summary": "Summary",
-                "documentation": "Documentation",
-                "preview": "Preview",
-                "lineage": "Lineage",
-                "properties": "Properties",
-                "incidents": "Incidents"
-            },
-            "sidebarTabs": {
-                "lineageDesc": "Explore lineage",
-                "propertiesDesc": "View properties"
             }
         },
         "membershipThisGroupCannotEddit": "Membership in this group cannot be edited in DataHub as it originates from",
@@ -1535,6 +1348,7 @@
         "failedRemoveDomain": "Failed to remove domain: {{error}}",
         "create": "Create",
         "created": "Created {{type}}!",
+        "deleted": "Deleted {{type}}!",
         "failedCreate": "Failed to create: {{error}}",
         "invalidEntityId": "Please enter a valid entity id",
         "linked": "Linked {{type}}!",
@@ -1546,7 +1360,11 @@
         "unlinked": "Unlinked {{type}}!",
         "failedUnlink": "Failed to unlink: {{error}}",
         "confirmUnlink": "Are you sure?",
-        "confirmUnlinkText": "Would you like to unlink this version?"
+        "confirmUnlinkText": "Would you like to unlink this version?",
+        "selectDomain": "Select Domain",
+        "noDomainFound": "No Domains Found",
+        "deletingEllipsis": "Deleting...",
+        "failedDelete": "Failed to delete: {{error}}"
     },
     "filter": {
         "basicFilters": "Basic Filters",
@@ -1804,7 +1622,35 @@
         "removeUserConfirm": "Are you sure you want to remove this user from the group?",
         "assignRoleError": "Failed to assign role {{roleName}} to group {{groupName}}",
         "assignRoleSuccess": "Assigned role {{roleName}} to group {{groupName}}!",
-        "assignRoleTitle": "Would you like to assign the role {{roleName}} to group {{groupName}}"
+        "assignRoleTitle": "Would you like to assign the role {{roleName}} to group {{groupName}}",
+        "editProfile": "Edit Profile",
+        "saveChanges": "Save Changes",
+        "saveSuccess": "Changes saved.",
+        "saveError": "Failed to Save changes!",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "engineering@example.com",
+        "emailError": "Please enter valid email",
+        "slackChannelLabel": "Slack Channel",
+        "slackChannelPlaceholder": "#engineering",
+        "addMember": "Add Member",
+        "makeOwner": "Make owner",
+        "removedMember": "Removed Group Member!",
+        "removeError": "Failed to remove group member:",
+        "removeConfirmTitle": "Confirm Group Member Removal",
+        "removeConfirmContent": "Are you sure you want to remove this user from the group?",
+        "addGroupMembers": "Add group members",
+        "membersAdded": "Group members added!",
+        "membersAddError": "Failed to group members:",
+        "membersCount": "{{count}} members",
+        "noMembers": "No members yet.",
+        "viewAllMembers": "View all members",
+        "members": "Members",
+        "owners": "Owners",
+        "nameUpdated": "Name Updated",
+        "nameUpdateError": "Failed to update name:",
+        "searchForUsers": "Search for users...",
+        "noUsersFound": "No Users Found"
     },
     "home": {
         "changeLanguageTitle": "Change Langage",
@@ -2060,7 +1906,7 @@
         "createNewSecret": "Create new secret",
         "createNewSource": "Create new source",
         "createNewView": "Create New View",
-        "createSecret": "Create Secret",
+        "createSecret": "Create secret",
         "datahubLookerIngestionSource": "DataHub Looker Ingestion Source",
         "datahubLookMLIngestionSource": "DataHub LookML Ingestion Source",
         "dbtCloud": {
@@ -2526,7 +2372,6 @@
         "manageDataSourcesTitle": "Manage Data Sources",
         "manageDataSourcesSubtitle": "Configure and schedule syncs to import data from your data sources",
         "createSource": "Create Source",
-        "createSecret": "Create secret",
         "noPermissionForThisAction": "You don't have permission to perform this action. Please contact your DataHub admin for more info.",
         "runHistory": "Run History",
         "noSearchResults": "No search results!",
@@ -2544,7 +2389,6 @@
         "recipeConfigDescription": "The configurations used for this sync with the data source.",
         "downloadRecipe": "Download Recipe",
         "noRecipeFound": "No recipe found.",
-        "noOutputFound": "No output found.",
         "contactAdminForAccess": "Contact your admin for access",
         "pending": "Pending",
         "confirmCancel": "Confirm Cancel",
@@ -3618,6 +3462,33 @@
     },
     "incident": {
         "raiseIncident": "Raise Incident",
+        "type": "Type",
+        "title": "Title",
+        "titlePlaceholder": "What went wrong?",
+        "titleRequired": "A title is required.",
+        "description": "Description",
+        "descriptionRequired": "A description is required.",
+        "customTypeRequired": "A custom type is required.",
+        "added": "Incident Added",
+        "resolveIncident": "Resolve Incident",
+        "resolve": "Resolve",
+        "reopenIncident": "Reopen incident",
+        "noIncidentsRaised": "No incidents have been raised",
+        "noActiveIncidents": "There are no active incidents",
+        "activeIncidentSingle": "There is {{count}} active incident",
+        "activeIncidentsPlural": "There are {{count}} active incidents",
+        "summarySubtitle": "{{active}} active incidents, {{resolved}} resolved incidents",
+        "resolutionNote": "Resolution Note",
+        "noDetails": "No additional details",
+        "createdBy": "Created {{time}} by",
+        "resolvedBy": "Resolved {{time}} by",
+        "updating": "Updating...",
+        "updated": "Incident updated!",
+        "noteLabel": "Note (optional)",
+        "failedToRaise": "Failed to raise incident! An unexpected error occurred",
+        "unauthorizedRaise": "Unauthorized to raise incident for this asset. Please contact your DataHub administrator.",
+        "failedToUpdate": "Failed to update incident! An unexpected error occurred",
+        "unauthorizedUpdate": "Unauthorized to update incident for this asset. Please contact your DataHub administrator.",
         "operational": "Operational",
         "other": "Custom",
         "customType": "Custom Type",
@@ -3976,6 +3847,56 @@
                         "pastMonth": "past month",
                         "moreThanMonth": "more than a month ago",
                         "syncedWithPlatform": "This represents the time that the entity was last synchronized with {{platformName}}"
+                    },
+                    "modals": {
+                        "editOwnersModal": {
+                            "addTitle": "Add Owners",
+                            "removeTitle": "Remove Owners",
+                            "ownerLabel": "Owner",
+                            "findUserOrGroup": "Find a user or group",
+                            "searchPlaceholder": "Search for users or groups...",
+                            "noUsersOrGroupsFound": "No Users or Groups Found",
+                            "typeLabel": "Type",
+                            "chooseOwnerType": "Choose an owner type",
+                            "cancelButton": "Cancel",
+                            "addButton": "Add",
+                            "ownersAddedSuccess": "Owners Added",
+                            "ownersRemovedSuccess": "Owners Removed",
+                            "failedAddOwners": "Failed to add owners",
+                            "failedRemoveOwners": "Failed to remove owners"
+                        },
+                        "setDataProductModal": {
+                            "setDataProductsTitle": "Set Data Products",
+                            "setDataProductTitle": "Set Data Product",
+                            "searchPlaceholder": "Search for Data Products...",
+                            "noDataProductsFound": "No Data Products Found",
+                            "cancelButton": "Cancel",
+                            "saveButton": "Save",
+                            "updatedDataProductsSuccess": "Updated Data Products!",
+                            "updatedDataProductSuccess": "Updated Data Product!",
+                            "failedAddToDataProducts": "Failed to add assets to Data Products",
+                            "failedAddToDataProduct": "Failed to add assets to Data Product"
+                        },
+                        "setDomainModal": {
+                            "title": "Set Domain",
+                            "searchPlaceholder": "Search for Domains...",
+                            "noDomainsFound": "No Domains Found",
+                            "cancelButton": "Cancel",
+                            "saveButton": "Save",
+                            "updatedDomainSuccess": "Updated Domain!",
+                            "failedAddToDomain": "Failed to add assets to Domain"
+                        },
+                        "selectPlatformModal": {
+                            "title": "Select Platform",
+                            "searchPlaceholder": "Search for Platforms...",
+                            "cancelButton": "Cancel",
+                            "addButton": "Add"
+                        },
+                        "contentsSection": {
+                            "title": "Contents",
+                            "viewAll": "View all",
+                            "noContents": "No contents yet"
+                        }
                     }
                 }
             }

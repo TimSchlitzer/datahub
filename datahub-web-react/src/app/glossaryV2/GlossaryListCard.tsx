@@ -209,7 +209,7 @@ const GlossaryListCard = (props: Props) => {
                     <Tooltip
                         title={`${t('glossary.contains', {
                             count: props.nodeCount,
-                            label: props.nodeCount === 1 ? 'term group' : 'term groups'
+                            label: props.nodeCount === 1 ? 'term group' : 'term groups',
                         })}`}
                         placement="top"
                         showArrow={false}
@@ -226,7 +226,7 @@ const GlossaryListCard = (props: Props) => {
                     <Tooltip
                         title={`${t('glossary.contains', {
                             count: props.termCount,
-                            label: props.termCount === 1 ? 'term' : 'terms'
+                            label: props.termCount === 1 ? 'term' : 'terms',
                         })}`}
                         placement="top"
                         showArrow={false}

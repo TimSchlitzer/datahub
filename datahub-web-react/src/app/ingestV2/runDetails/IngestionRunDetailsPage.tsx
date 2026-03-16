@@ -47,7 +47,10 @@ export default function IngestionRunDetailsPage() {
             items={[
                 {
                     key: 'back',
-                    label: fromUrl === tabUrlMap[TabType.RunHistory] ? t('ingest.runHistory') : t('ingest.manageDataSourcesTitle'),
+                    label:
+                        fromUrl === tabUrlMap[TabType.RunHistory]
+                            ? t('ingest.runHistory')
+                            : t('ingest.manageDataSourcesTitle'),
                     href: fromUrl ?? tabUrlMap[TabType.Sources],
                     separator: <VerticalDivider type="vertical" />,
                 },
@@ -72,7 +75,12 @@ export default function IngestionRunDetailsPage() {
     );
 
     return (
-        <PageLayout title={t('ingest.runDetails')} titlePill={titlePill} rightPanelContent={<AIChat />} topBreadcrumb={breadCrumb}>
+        <PageLayout
+            title={t('ingest.runDetails')}
+            titlePill={titlePill}
+            rightPanelContent={<AIChat />}
+            topBreadcrumb={breadCrumb}
+        >
             <RunDetailsContent
                 urn={urn}
                 data={data}

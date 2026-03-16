@@ -204,7 +204,9 @@ export const WelcomeToDataHubModal = () => {
                 <SlideContainer>
                     <Heading type="h2">&nbsp;</Heading>
                     <VideoContainer>
-                        <LoadingContainer width={MODAL_IMAGE_WIDTH}>{t('onboarding.welcomeModal.loading')}</LoadingContainer>
+                        <LoadingContainer width={MODAL_IMAGE_WIDTH}>
+                            {t('onboarding.welcomeModal.loading')}
+                        </LoadingContainer>
                     </VideoContainer>
                 </SlideContainer>
             </Modal>
@@ -228,118 +230,118 @@ export const WelcomeToDataHubModal = () => {
         >
             <CarouselErrorBoundary onError={() => closeTour('close_button')}>
                 <Carousel
-                ref={carouselRef}
-                autoplay
-                autoplaySpeed={SLIDE_DURATION_MS}
-                afterChange={handleSlideChange}
-                arrows={false}
-                animateDot
-                leftComponent={
-                    currentSlide === TOTAL_CAROUSEL_SLIDES - 1 ? (
-                        <StyledDocsLink
-                            href={DATAHUB_DOCS_URL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={() => {
-                                trackExternalLinkClick(DATAHUB_DOCS_URL);
-                            }}
-                        >
-                            {t('onboarding.welcomeModal.docs')}
-                        </StyledDocsLink>
-                    ) : undefined
-                }
-                rightComponent={
-                    currentSlide === TOTAL_CAROUSEL_SLIDES - 1 ? (
-                        <Button
-                            className="primary-button"
-                            variant="filled"
-                            onClick={() => closeTour('get_started_button')}
-                        >
-                            {t('onboarding.welcomeModal.getStarted')}
-                        </Button>
-                    ) : undefined
-                }
-                infinite={false}
-            >
-                <SlideContainer>
-                    <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        {t('onboarding.welcomeModal.slide1.title')}
-                    </Heading>
-                    <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        {t('onboarding.welcomeModal.slide1.subtitle')}
-                    </Heading>
-                    <VideoContainer>
-                        <VideoSlide
-                            videoSrc={videoSources?.search}
-                            isReady={videosReady.search || false}
-                            onVideoLoad={() => handleVideoLoad('search')}
-                            width={MODAL_IMAGE_WIDTH}
-                        />
-                    </VideoContainer>
-                </SlideContainer>
-                <SlideContainer>
-                    <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        {t('onboarding.welcomeModal.slide2.title')}
-                    </Heading>
-                    <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        {t('onboarding.welcomeModal.slide2.subtitle')}
-                    </Heading>
-                    <VideoContainer>
-                        <VideoSlide
-                            videoSrc={videoSources?.lineage}
-                            isReady={videosReady.lineage || false}
-                            onVideoLoad={() => handleVideoLoad('lineage')}
-                            width={MODAL_IMAGE_WIDTH}
-                        />
-                    </VideoContainer>
-                </SlideContainer>
-                <SlideContainer>
-                    <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        {t('onboarding.welcomeModal.slide3.title')}
-                    </Heading>
-                    <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        {t('onboarding.welcomeModal.slide3.subtitle')}
-                    </Heading>
-                    <VideoContainer>
-                        <VideoSlide
-                            videoSrc={videoSources?.impact}
-                            isReady={videosReady.impact || false}
-                            onVideoLoad={() => handleVideoLoad('impact')}
-                            width={MODAL_IMAGE_WIDTH}
-                        />
-                    </VideoContainer>
-                </SlideContainer>
-                {videoSources.aiDocs && (
+                    ref={carouselRef}
+                    autoplay
+                    autoplaySpeed={SLIDE_DURATION_MS}
+                    afterChange={handleSlideChange}
+                    arrows={false}
+                    animateDot
+                    leftComponent={
+                        currentSlide === TOTAL_CAROUSEL_SLIDES - 1 ? (
+                            <StyledDocsLink
+                                href={DATAHUB_DOCS_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => {
+                                    trackExternalLinkClick(DATAHUB_DOCS_URL);
+                                }}
+                            >
+                                {t('onboarding.welcomeModal.docs')}
+                            </StyledDocsLink>
+                        ) : undefined
+                    }
+                    rightComponent={
+                        currentSlide === TOTAL_CAROUSEL_SLIDES - 1 ? (
+                            <Button
+                                className="primary-button"
+                                variant="filled"
+                                onClick={() => closeTour('get_started_button')}
+                            >
+                                {t('onboarding.welcomeModal.getStarted')}
+                            </Button>
+                        ) : undefined
+                    }
+                    infinite={false}
+                >
                     <SlideContainer>
                         <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                            {t('onboarding.welcomeModal.slide4.title')}
+                            {t('onboarding.welcomeModal.slide1.title')}
                         </Heading>
                         <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                            {t('onboarding.welcomeModal.slide4.subtitle')}
+                            {t('onboarding.welcomeModal.slide1.subtitle')}
                         </Heading>
                         <VideoContainer>
                             <VideoSlide
-                                videoSrc={videoSources?.aiDocs}
-                                isReady={videosReady.aiDocs || false}
-                                onVideoLoad={() => handleVideoLoad('aiDocs')}
+                                videoSrc={videoSources?.search}
+                                isReady={videosReady.search || false}
+                                onVideoLoad={() => handleVideoLoad('search')}
                                 width={MODAL_IMAGE_WIDTH}
                             />
                         </VideoContainer>
                     </SlideContainer>
-                )}
-                <SlideContainer>
-                    <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
-                        {t('onboarding.welcomeModal.slideLast.title')}
-                    </Heading>
-                    <Heading type="h3" size="md" color="gray" colorLevel={1700}>
-                        {t('onboarding.welcomeModal.slideLast.subtitle')}
-                    </Heading>
-                    <LoadedImage
-                        src={welcomeModalHomeScreenshot}
-                        alt={t('onboarding.welcomeModal.title')}
-                        width={MODAL_IMAGE_WIDTH}
-                    />
-                </SlideContainer>
+                    <SlideContainer>
+                        <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
+                            {t('onboarding.welcomeModal.slide2.title')}
+                        </Heading>
+                        <Heading type="h3" size="md" color="gray" colorLevel={1700}>
+                            {t('onboarding.welcomeModal.slide2.subtitle')}
+                        </Heading>
+                        <VideoContainer>
+                            <VideoSlide
+                                videoSrc={videoSources?.lineage}
+                                isReady={videosReady.lineage || false}
+                                onVideoLoad={() => handleVideoLoad('lineage')}
+                                width={MODAL_IMAGE_WIDTH}
+                            />
+                        </VideoContainer>
+                    </SlideContainer>
+                    <SlideContainer>
+                        <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
+                            {t('onboarding.welcomeModal.slide3.title')}
+                        </Heading>
+                        <Heading type="h3" size="md" color="gray" colorLevel={1700}>
+                            {t('onboarding.welcomeModal.slide3.subtitle')}
+                        </Heading>
+                        <VideoContainer>
+                            <VideoSlide
+                                videoSrc={videoSources?.impact}
+                                isReady={videosReady.impact || false}
+                                onVideoLoad={() => handleVideoLoad('impact')}
+                                width={MODAL_IMAGE_WIDTH}
+                            />
+                        </VideoContainer>
+                    </SlideContainer>
+                    {videoSources.aiDocs && (
+                        <SlideContainer>
+                            <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
+                                {t('onboarding.welcomeModal.slide4.title')}
+                            </Heading>
+                            <Heading type="h3" size="md" color="gray" colorLevel={1700}>
+                                {t('onboarding.welcomeModal.slide4.subtitle')}
+                            </Heading>
+                            <VideoContainer>
+                                <VideoSlide
+                                    videoSrc={videoSources?.aiDocs}
+                                    isReady={videosReady.aiDocs || false}
+                                    onVideoLoad={() => handleVideoLoad('aiDocs')}
+                                    width={MODAL_IMAGE_WIDTH}
+                                />
+                            </VideoContainer>
+                        </SlideContainer>
+                    )}
+                    <SlideContainer>
+                        <Heading type="h2" size="lg" color="gray" colorLevel={600} weight="bold">
+                            {t('onboarding.welcomeModal.slideLast.title')}
+                        </Heading>
+                        <Heading type="h3" size="md" color="gray" colorLevel={1700}>
+                            {t('onboarding.welcomeModal.slideLast.subtitle')}
+                        </Heading>
+                        <LoadedImage
+                            src={welcomeModalHomeScreenshot}
+                            alt={t('onboarding.welcomeModal.title')}
+                            width={MODAL_IMAGE_WIDTH}
+                        />
+                    </SlideContainer>
                 </Carousel>
             </CarouselErrorBoundary>
         </Modal>

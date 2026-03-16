@@ -141,7 +141,10 @@ const EntityDropdown = (props: Props) => {
         } catch (e: unknown) {
             message.destroy();
             if (e instanceof Error) {
-                message.error({ content: t('entityDropdown.failedUpdateDeprecation', { error: e.message || '' }), duration: 2 });
+                message.error({
+                    content: t('entityDropdown.failedUpdateDeprecation', { error: e.message || '' }),
+                    duration: 2,
+                });
             }
         }
         refetchForEntity?.();
@@ -178,7 +181,9 @@ const EntityDropdown = (props: Props) => {
         menuItemsList.push({
             type: 'item' as const,
             key: '1',
-            title: !entityData?.deprecation?.deprecated ? t('entityDropdown.markDeprecated') : t('entityDropdown.unmarkDeprecated'),
+            title: !entityData?.deprecation?.deprecated
+                ? t('entityDropdown.markDeprecated')
+                : t('entityDropdown.unmarkDeprecated'),
             render: () => (
                 <div
                     data-testid="entity-menu-deprecate-button"
@@ -223,7 +228,9 @@ const EntityDropdown = (props: Props) => {
                                 fontSize: '14px',
                             }}
                         >
-                            {!entityData?.deprecation?.deprecated ? t('entityDropdown.markDeprecated') : t('entityDropdown.unmarkDeprecated')}
+                            {!entityData?.deprecation?.deprecated
+                                ? t('entityDropdown.markDeprecated')
+                                : t('entityDropdown.unmarkDeprecated')}
                         </span>
                     </div>
                 </div>

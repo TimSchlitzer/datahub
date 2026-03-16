@@ -149,7 +149,11 @@ export default function ManageLineageMenu({ node, refetch, isRootUrn, isGhost, i
                 onClick: () => manageLineage(LineageDirection.Upstream),
                 label: (
                     <Popover
-                        content={!canEditLineage ? t('lineage.unauthorizedToEditLineage') : t('lineage.makeEntityYourHomeUpstream')}
+                        content={
+                            !canEditLineage
+                                ? t('lineage.unauthorizedToEditLineage')
+                                : t('lineage.makeEntityYourHomeUpstream')
+                        }
                         overlayStyle={isUpstreamDisabled ? { zIndex: POPOVER_Z_INDEX } : { display: 'none' }}
                     >
                         <MenuItemContent data-testid="edit-upstream-lineage">

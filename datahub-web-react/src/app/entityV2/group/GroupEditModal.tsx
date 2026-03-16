@@ -1,6 +1,7 @@
 import { Modal } from '@components';
 import { Form, Input, Typography, message } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { useUpdateCorpGroupPropertiesMutation } from '@graphql/group.generated';
 
@@ -32,6 +33,7 @@ export default function GroupEditModal({
     handleTitleUpdate,
     updateName,
 }: Props) {
+    const { t } = useTranslation();
     const [updateCorpGroupPropertiesMutation] = useUpdateCorpGroupPropertiesMutation();
     const [form] = Form.useForm();
 
@@ -62,7 +64,7 @@ export default function GroupEditModal({
         })
             .then(() => {
                 message.success({
-                    content: `Changes saved.`,
+                    content: t('group.saveSuccess'),
                     duration: 3,
                 });
                 onSave(); // call the refetch function once save
@@ -76,7 +78,7 @@ export default function GroupEditModal({
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to Save changes!: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: `${t('group.saveError')}: \n ${e.message || ''}`, duration: 3 });
             });
         handleTitleUpdate(data?.name || '');
         onClose();
@@ -84,17 +86,17 @@ export default function GroupEditModal({
 
     return (
         <Modal
-            title="Edit Profile"
+            title={t('group.editProfile')}
             open={visible}
             onCancel={onClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('common.cancel'),
                     variant: 'text',
                     onClick: onClose,
                 },
                 {
-                    text: 'Save Changes',
+                    text: t('group.saveChanges'),
                     onClick: onSaveChanges,
                     variant: 'filled',
                     disabled: saveButtonEnabled,
@@ -118,17 +120,17 @@ export default function GroupEditModal({
                 }}
             >
                 {canEditGroupName && (
-                    <Form.Item name="name" label={<Typography.Text strong>Name</Typography.Text>}>
+                    <Form.Item name="name" label={<Typography.Text strong>{t('group.nameLabel')}</Typography.Text>}>
                         <Input value={data.name} onChange={(event) => setData({ ...data, name: event.target.value })} />
                     </Form.Item>
                 )}
                 <Form.Item
                     name="email"
-                    label={<Typography.Text strong>Email</Typography.Text>}
+                    label={<Typography.Text strong>{t('group.emailLabel')}</Typography.Text>}
                     rules={[
                         {
                             type: 'email',
-                            message: 'Please enter valid email',
+                            message: t('group.emailError'),
                         },
                         { whitespace: true },
                         { min: 2, max: 50 },
@@ -136,19 +138,19 @@ export default function GroupEditModal({
                     hasFeedback
                 >
                     <Input
-                        placeholder="engineering@example.com"
+                        placeholder={t('group.emailPlaceholder')}
                         value={data.email}
                         onChange={(event) => setData({ ...data, email: event.target.value })}
                     />
                 </Form.Item>
                 <Form.Item
                     name="slack"
-                    label={<Typography.Text strong>Slack Channel</Typography.Text>}
+                    label={<Typography.Text strong>{t('group.slackChannelLabel')}</Typography.Text>}
                     rules={[{ whitespace: true }, { min: 2, max: 50 }]}
                     hasFeedback
                 >
                     <Input
-                        placeholder="#engineering"
+                        placeholder={t('group.slackChannelPlaceholder')}
                         value={data.slack}
                         onChange={(event) => setData({ ...data, slack: event.target.value })}
                     />

@@ -1,9 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useHistory } from 'react-router';
 import styled from 'styled-components/macro';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
-import { REDESIGN_COLORS } from '@app/entityV2/shared/constants';
 import SidebarContentsLoadingSection from '@app/entityV2/shared/containers/profile/sidebar/Container/SidebarContentsLoadingSection';
 import {
     getContentsSummary,
@@ -33,13 +33,14 @@ const ViewAllButton = styled.div`
     align-items: center;
     font-weight: bold;
     padding: 0px 2px;
-    color: ${REDESIGN_COLORS.DARK_GREY};
+    color: ${(props) => props.theme.colors.textSecondary};
     :hover {
         cursor: pointer;
     }
 `;
 
 const SidebarContentsSection = () => {
+    const { t } = useTranslation();
     const { urn, entityType } = useEntityData();
     const entityRegistry = useEntityRegistry();
     const history = useHistory();
@@ -56,7 +57,7 @@ const SidebarContentsSection = () => {
 
     return (
         <SidebarSection
-            title="Contents"
+            title={t('entityV2.containers.profile.sidebar.modals.contentsSection.title')}
             key="Contents"
             content={
                 <>
@@ -72,11 +73,13 @@ const SidebarContentsSection = () => {
                                         navigateToContainerContents(urn, entityType, history, entityRegistry)
                                     }
                                 >
-                                    View all
+                                    {t('entityV2.containers.profile.sidebar.modals.contentsSection.viewAll')}
                                 </ViewAllButton>
                             </Section>
                         ) : (
-                            <EmptySectionText message="No contents yet" />
+                            <EmptySectionText
+                                message={t('entityV2.containers.profile.sidebar.modals.contentsSection.noContents')}
+                            />
                         ))}
                 </>
             }

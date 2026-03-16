@@ -2,8 +2,8 @@ import { DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { Button, Empty, Pagination, Select, Tag, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import styled from 'styled-components/macro';
 
 import analytics, { EventType } from '@app/analytics';
@@ -410,7 +410,9 @@ export const ManagePolicies = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     locale={{
-                        emptyText: <Empty description={t('permissions.noPolicies')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                        emptyText: (
+                            <Empty description={t('permissions.noPolicies')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                        ),
                     }}
                     pagination={false}
                 />

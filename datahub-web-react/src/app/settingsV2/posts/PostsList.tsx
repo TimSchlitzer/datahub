@@ -177,7 +177,11 @@ export const PostList = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     pagination={false}
-                    locale={{ emptyText: <Empty description={t('settings.posts.noPosts')} image={Empty.PRESENTED_IMAGE_SIMPLE} /> }}
+                    locale={{
+                        emptyText: (
+                            <Empty description={t('settings.posts.noPosts')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                        ),
+                    }}
                 />
                 {totalPosts > pageSize && (
                     <PostsPaginationContainer>

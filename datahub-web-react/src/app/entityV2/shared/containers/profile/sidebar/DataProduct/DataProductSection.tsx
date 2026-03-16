@@ -126,7 +126,11 @@ export default function DataProductSection({ readOnly }: Props) {
     return (
         <>
             <SidebarSection
-                title={isMultipleDataProductsEnabled ? t('entity.shared.sidebar.dataProducts') : t('entity.shared.sidebar.dataProduct')}
+                title={
+                    isMultipleDataProductsEnabled
+                        ? t('entity.shared.sidebar.dataProducts')
+                        : t('entity.shared.sidebar.dataProduct')
+                }
                 content={
                     <Content>
                         {dataProducts.length > 0 ? (

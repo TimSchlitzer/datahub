@@ -110,12 +110,16 @@ const StructuredPropsDrawer = ({
     };
 
     const showErrorMessage = () => {
-        const message = isEditMode ? t('govern.structuredProperties.failedUpdate') : t('govern.structuredProperties.failedCreate');
+        const message = isEditMode
+            ? t('govern.structuredProperties.failedUpdate')
+            : t('govern.structuredProperties.failedCreate');
         showToastMessage(ToastType.ERROR, message, 3);
     };
 
     const showSuccessMessage = () => {
-        const message = isEditMode ? t('govern.structuredProperties.successUpdate') : t('govern.structuredProperties.successCreate');
+        const message = isEditMode
+            ? t('govern.structuredProperties.successUpdate')
+            : t('govern.structuredProperties.successCreate');
         showToastMessage(ToastType.SUCCESS, message, 3);
     };
 

@@ -81,7 +81,10 @@ export const SidebarDomainSection = ({ readOnly, properties }: Props) => {
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `${t('entity.shared.sidebar.failedRemoveDomain')}\n ${e.message || ''}`, duration: 3 });
+                    message.error({
+                        content: `${t('entity.shared.sidebar.failedRemoveDomain')}\n ${e.message || ''}`,
+                        duration: 3,
+                    });
                 }
             });
     };

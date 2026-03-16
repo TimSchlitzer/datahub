@@ -51,7 +51,7 @@ const PlatformsModule = (props: ModuleProps) => {
             <Tooltip
                 title={t('home.platforms.viewAssets', {
                     count: formatNumberWithoutAbbreviation(platformEntity?.count),
-                    platform: platformEntity?.platform.name
+                    platform: platformEntity?.platform.name,
                 })}
                 placement="bottom"
             >

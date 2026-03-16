@@ -30,13 +30,13 @@ const EmptyApplications = ({ isEmptySearch }: Props) => {
                 description={
                     <>
                         <Typography.Text data-testid="applications-not-found">
-                            {isEmptySearch ? t('applications.noApplicationsSearched') : t('applications.noApplications')}
+                            {isEmptySearch
+                                ? t('applications.noApplicationsSearched')
+                                : t('applications.noApplications')}
                         </Typography.Text>
                         <div>
                             {!isEmptySearch && (
-                                <Typography.Paragraph>
-                                    {t('applications.applicationsDescription')}
-                                </Typography.Paragraph>
+                                <Typography.Paragraph>{t('applications.applicationsDescription')}</Typography.Paragraph>
                             )}
                         </div>
                     </>

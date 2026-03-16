@@ -46,7 +46,9 @@ export const ChartStatsSummary = ({
     const { t } = useTranslation();
     // acryl-main only.
     const effectiveViewCount = (!!viewCountLast30Days && viewCountLast30Days) || viewCount;
-    const effectiveViewCountText = (!!viewCountLast30Days && t('entity.chart.statsSummary.viewsLastMonth')) || t('entity.chart.statsSummary.views');
+    const effectiveViewCountText =
+        (!!viewCountLast30Days && t('entity.chart.statsSummary.viewsLastMonth')) ||
+        t('entity.chart.statsSummary.views');
 
     const statsViews = [
         (!!chartCount && (
@@ -68,7 +70,9 @@ export const ChartStatsSummary = ({
                 {!!viewCountPercentileLast30Days && (
                     <PercentileLabel
                         percentile={viewCountPercentileLast30Days}
-                        description={t('entity.chart.statsSummary.moreViewsThan', { percentile: viewCountPercentileLast30Days })}
+                        description={t('entity.chart.statsSummary.moreViewsThan', {
+                            percentile: viewCountPercentileLast30Days,
+                        })}
                     />
                 )}
             </StatText>
@@ -82,7 +86,9 @@ export const ChartStatsSummary = ({
                     <Typography.Text type="secondary">
                         <PercentileLabel
                             percentile={uniqueUserPercentileLast30Days}
-                            description={t('entity.chart.statsSummary.moreUsersThan', { percentile: uniqueUserPercentileLast30Days })}
+                            description={t('entity.chart.statsSummary.moreUsersThan', {
+                                percentile: uniqueUserPercentileLast30Days,
+                            })}
                         />
                     </Typography.Text>
                 )}
@@ -93,7 +99,11 @@ export const ChartStatsSummary = ({
             <Popover
                 content={
                     <>
-                        {createdMs && <div>{t('entity.chart.statsSummary.createdOn', { date: toLocalDateTimeString(createdMs) })}</div>}
+                        {createdMs && (
+                            <div>
+                                {t('entity.chart.statsSummary.createdOn', { date: toLocalDateTimeString(createdMs) })}
+                            </div>
+                        )}
                         <div>
                             {t('entity.chart.statsSummary.changedOn', { date: toLocalDateTimeString(lastUpdatedMs) })}{' '}
                             <Tooltip title={t('entity.chart.statsSummary.lastChangedTooltip')}>

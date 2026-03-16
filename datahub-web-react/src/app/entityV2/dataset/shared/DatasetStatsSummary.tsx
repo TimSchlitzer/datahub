@@ -66,7 +66,8 @@ export const DatasetStatsSummary = ({
                 render={(isExpanded) => (
                     <StatText color={displayedColor}>
                         {/* <TableOutlined style={{ marginRight: 8, color: displayedColor }} /> */}
-                        {isExpanded ? formatNumberWithoutAbbreviation(rowCount) : countFormatter(rowCount)} {t('entity.dataset.stats.rows')}
+                        {isExpanded ? formatNumberWithoutAbbreviation(rowCount) : countFormatter(rowCount)}{' '}
+                        {t('entity.dataset.stats.rows')}
                         {!!columnCount && (
                             <>
                                 ,{' '}
@@ -84,7 +85,11 @@ export const DatasetStatsSummary = ({
             <StatText color={displayedColor}>
                 {/* <ConsoleSqlOutlined style={{ marginRight: 8, color: displayedColor }} /> */}
                 {formatNumber(queryCountLast30Days || totalSqlQueries)}{' '}
-                {queryCountLast30Days ? <>{t('entity.dataset.stats.queries')}</> : <>{t('entity.dataset.stats.monthlyQueries')}</>}
+                {queryCountLast30Days ? (
+                    <>{t('entity.dataset.stats.queries')}</>
+                ) : (
+                    <>{t('entity.dataset.stats.monthlyQueries')}</>
+                )}
                 {!!queryCountPercentileLast30Days && (
                     <Typography.Text type="secondary">
                         <PercentileLabel

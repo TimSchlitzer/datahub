@@ -1,7 +1,7 @@
 import { Button, PageTitle, Tabs, colors } from '@components';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
 import { Tab } from '@components/components/Tabs/Tabs';
@@ -104,10 +104,7 @@ export const ManageViews = () => {
         <PageContainer>
             <PageHeaderContainer>
                 <TitleContainer>
-                    <PageTitle
-                        title={t('entity.view.title')}
-                        subTitle={t('entity.view.subTitle')}
-                    />
+                    <PageTitle title={t('entity.view.title')} subTitle={t('entity.view.subTitle')} />
                 </TitleContainer>
                 <HeaderActionsContainer>
                     <Button

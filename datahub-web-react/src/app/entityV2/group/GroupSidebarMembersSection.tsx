@@ -1,5 +1,6 @@
 import { PlusOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import GroupMembersSideBarSectionContent from '@app/entityV2/group/GroupMembersSidebarSectionContent';
 import SectionActionButton from '@app/entityV2/shared/containers/profile/sidebar/SectionActionButton';
@@ -14,10 +15,11 @@ type Props = {
 };
 
 export const GroupSidebarMembersSection = ({ groupMemberRelationships, urn, refetch }: Props) => {
+    const { t } = useTranslation();
     const [showAddMemberModal, setShowAddMemberModal] = useState(false);
     return (
         <SidebarSection
-            title="Members"
+            title={t('group.members')}
             count={groupMemberRelationships?.total || undefined}
             showFullCount
             content={

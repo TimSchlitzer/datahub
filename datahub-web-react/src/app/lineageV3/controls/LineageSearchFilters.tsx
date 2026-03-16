@@ -70,11 +70,7 @@ export default function LineageSearchFilters() {
                     <ToggleLabel>
                         {t('lineage.hideTransformations')}
                         <StyledInfoPopover
-                            content={
-                                <PopoverWrapper>
-                                    {t('lineage.hideTransformationsTooltip')}
-                                </PopoverWrapper>
-                            }
+                            content={<PopoverWrapper>{t('lineage.hideTransformationsTooltip')}</PopoverWrapper>}
                         />
                     </ToggleLabel>
                 </span>
@@ -107,11 +103,7 @@ export default function LineageSearchFilters() {
                     <ToggleLabel>
                         {t('lineage.showHiddenEdges')}
                         <StyledInfoPopover
-                            content={
-                                <PopoverWrapper>
-                                    {t('lineage.hiddenEdgesTooltip')}
-                                </PopoverWrapper>
-                            }
+                            content={<PopoverWrapper>{t('lineage.hiddenEdgesTooltip')}</PopoverWrapper>}
                         />
                     </ToggleLabel>
                 </span>

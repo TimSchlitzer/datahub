@@ -1,6 +1,7 @@
 import { LoadingOutlined } from '@ant-design/icons';
 import { Empty, Form, Select, Tag, Typography, message } from 'antd';
 import React, { ReactNode, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import analytics, { EntityActionType, EventType } from '@app/analytics';
@@ -79,6 +80,7 @@ export const EditOwnersModal = ({
     title,
     defaultValues,
 }: Props) => {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const { reloadByKeyType } = useReloadableContext();
     const { user } = useUserContext();
@@ -269,14 +271,17 @@ export const EditOwnersModal = ({
                     },
                 },
             });
-            message.success({ content: 'Owners Added', duration: 2 });
+            message.success({
+                content: t('entityV2.containers.profile.sidebar.modals.editOwnersModal.ownersAddedSuccess'),
+                duration: 2,
+            });
             emitAnalytics();
         } catch (e: unknown) {
             message.destroy();
             if (e instanceof Error) {
                 message.error(
                     handleBatchError(urns, e, {
-                        content: `Failed to add owners: \n ${e.message || ''}`,
+                        content: `${t('entityV2.containers.profile.sidebar.modals.editOwnersModal.failedAddOwners')}: \n ${e.message || ''}`,
                         duration: 3,
                     }),
                 );
@@ -297,14 +302,17 @@ export const EditOwnersModal = ({
                     },
                 },
             });
-            message.success({ content: 'Owners Removed', duration: 2 });
+            message.success({
+                content: t('entityV2.containers.profile.sidebar.modals.editOwnersModal.ownersRemovedSuccess'),
+                duration: 2,
+            });
             emitAnalytics();
         } catch (e: unknown) {
             message.destroy();
             if (e instanceof Error) {
                 message.error(
                     handleBatchError(urns, e, {
-                        content: `Failed to remove owners: \n ${e.message || ''}`,
+                        content: `${t('entityV2.containers.profile.sidebar.modals.editOwnersModal.failedRemoveOwners')}: \n ${e.message || ''}`,
                         duration: 3,
                     }),
                 );
@@ -356,17 +364,20 @@ export const EditOwnersModal = ({
 
     return (
         <Modal
-            title={title || `${operationType === OperationType.ADD ? 'Add' : 'Remove'} Owners`}
+            title={
+                title ||
+                `${operationType === OperationType.ADD ? t('entityV2.containers.profile.sidebar.modals.editOwnersModal.addTitle') : t('entityV2.containers.profile.sidebar.modals.editOwnersModal.removeTitle')}`
+            }
             onCancel={onModalClose}
             keyboard
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('entityV2.containers.profile.sidebar.modals.editOwnersModal.cancelButton'),
                     variant: 'text',
                     onClick: onModalClose,
                 },
                 {
-                    text: 'Add',
+                    text: t('entityV2.containers.profile.sidebar.modals.editOwnersModal.addButton'),
                     id: 'addOwnerButton',
                     variant: 'filled',
                     disabled: selectedOwners.length === 0,
@@ -376,8 +387,18 @@ export const EditOwnersModal = ({
             getContainer={getModalDomContainer}
         >
             <Form layout="vertical" colon={false}>
-                <Form.Item key="owners" name="owners" label={<Typography.Text strong>Owner</Typography.Text>}>
-                    <Typography.Paragraph>Find a user or group</Typography.Paragraph>
+                <Form.Item
+                    key="owners"
+                    name="owners"
+                    label={
+                        <Typography.Text strong>
+                            {t('entityV2.containers.profile.sidebar.modals.editOwnersModal.ownerLabel')}
+                        </Typography.Text>
+                    }
+                >
+                    <Typography.Paragraph>
+                        {t('entityV2.containers.profile.sidebar.modals.editOwnersModal.findUserOrGroup')}
+                    </Typography.Paragraph>
                     <Form.Item name="owner">
                         <SelectInput
                             labelInValue
@@ -385,7 +406,9 @@ export const EditOwnersModal = ({
                             defaultOpen
                             mode="multiple"
                             ref={inputEl}
-                            placeholder="Search for users or groups..."
+                            placeholder={t(
+                                'entityV2.containers.profile.sidebar.modals.editOwnersModal.searchPlaceholder',
+                            )}
                             showSearch
                             data-testid="edit-owners-modal-find-actors-input"
                             filterOption={false}
@@ -409,7 +432,9 @@ export const EditOwnersModal = ({
                             notFoundContent={
                                 !loading ? (
                                     <Empty
-                                        description="No Users or Groups Found"
+                                        description={t(
+                                            'entityV2.containers.profile.sidebar.modals.editOwnersModal.noUsersOrGroupsFound',
+                                        )}
                                         image={Empty.PRESENTED_IMAGE_SIMPLE}
                                         style={{ color: ANTD_GRAY[7] }}
                                     />
@@ -429,8 +454,16 @@ export const EditOwnersModal = ({
                     </Form.Item>
                 </Form.Item>
                 {!hideOwnerType && (
-                    <Form.Item label={<Typography.Text strong>Type</Typography.Text>}>
-                        <Typography.Paragraph>Choose an owner type</Typography.Paragraph>
+                    <Form.Item
+                        label={
+                            <Typography.Text strong>
+                                {t('entityV2.containers.profile.sidebar.modals.editOwnersModal.typeLabel')}
+                            </Typography.Text>
+                        }
+                    >
+                        <Typography.Paragraph>
+                            {t('entityV2.containers.profile.sidebar.modals.editOwnersModal.chooseOwnerType')}
+                        </Typography.Paragraph>
                         <Form.Item name="type">
                             {ownershipTypesLoading && <Select />}
                             {!ownershipTypesLoading && (

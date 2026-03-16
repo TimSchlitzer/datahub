@@ -145,7 +145,14 @@ export default function ViewInviteTokenModal({ open, onClose }: Props) {
     const inviteLink = `${baseUrl}${resolveRuntimePath(`${PageRoutes.SIGN_UP}?invite_token=${inviteToken}`)}`;
 
     return (
-        <Modal width={950} footer={null} buttons={[]} title={t('identity.user.shareInviteLink')} open={open} onCancel={onClose}>
+        <Modal
+            width={950}
+            footer={null}
+            buttons={[]}
+            title={t('identity.user.shareInviteLink')}
+            open={open}
+            onCancel={onClose}
+        >
             <ModalSection>
                 <InviteLinkDiv>
                     <InfoContainer>
@@ -192,9 +199,7 @@ export default function ViewInviteTokenModal({ open, onClose }: Props) {
                         </Tooltip>
                     </ActionsContainer>
                 </InviteLinkDiv>
-                <ModalSectionFooter type="secondary">
-                    {t('identity.user.inviteLinkDescription')}
-                </ModalSectionFooter>
+                <ModalSectionFooter type="secondary">{t('identity.user.inviteLinkDescription')}</ModalSectionFooter>
             </ModalSection>
         </Modal>
     );

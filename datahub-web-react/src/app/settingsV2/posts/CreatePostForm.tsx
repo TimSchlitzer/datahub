@@ -54,7 +54,10 @@ export default function CreatePostForm({ setCreateButtonEnabled, form, editData,
                 setCreateButtonEnabled(!form.getFieldsError().some((field) => field.errors.length > 0));
             }}
         >
-            <TopFormItem name={TYPE_FIELD_NAME} label={<Typography.Text strong>{t('settings.posts.contentType')}</Typography.Text>}>
+            <TopFormItem
+                name={TYPE_FIELD_NAME}
+                label={<Typography.Text strong>{t('settings.posts.contentType')}</Typography.Text>}
+            >
                 <Radio.Group
                     onChange={(e) => setPostType(e.target.value)}
                     value={postType}
@@ -95,23 +98,24 @@ export default function CreatePostForm({ setCreateButtonEnabled, form, editData,
             {postType === PostContentType.Link && (
                 <>
                     <TopFormItem label={<Typography.Text strong>{t('settings.posts.linkUrl')}</Typography.Text>}>
-                        <Typography.Paragraph>
-                            {t('settings.posts.linkUrlDescription')}
-                        </Typography.Paragraph>
+                        <Typography.Paragraph>{t('settings.posts.linkUrlDescription')}</Typography.Paragraph>
                         <SubFormItem name={LINK_FIELD_NAME} rules={[{ type: 'url', warningOnly: true }]} hasFeedback>
                             <Input data-testid="create-post-link" placeholder={t('settings.posts.yourLinkUrl')} />
                         </SubFormItem>
                     </TopFormItem>
-                    <TopFormItem label={<Typography.Text strong>{t('settings.posts.imageUrlOptional')}</Typography.Text>}>
-                        <Typography.Paragraph>
-                            {t('settings.posts.imageUrlDescription')}
-                        </Typography.Paragraph>
+                    <TopFormItem
+                        label={<Typography.Text strong>{t('settings.posts.imageUrlOptional')}</Typography.Text>}
+                    >
+                        <Typography.Paragraph>{t('settings.posts.imageUrlDescription')}</Typography.Paragraph>
                         <SubFormItem
                             name={LOCATION_FIELD_NAME}
                             rules={[{ type: 'url', warningOnly: true }]}
                             hasFeedback
                         >
-                            <Input data-testid="create-post-media-location" placeholder={t('settings.posts.yourImageUrl')} />
+                            <Input
+                                data-testid="create-post-media-location"
+                                placeholder={t('settings.posts.yourImageUrl')}
+                            />
                         </SubFormItem>
                     </TopFormItem>
                     <SubFormItem label={<Typography.Text strong>{t('common.description')}</Typography.Text>}>

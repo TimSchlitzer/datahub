@@ -75,7 +75,9 @@ function GlossaryEntitiesList(props: Props) {
                     ))}
                 </GlossaryNodes>
             ) : null}
-            {terms.length > 0 && isGlossaryEntityPage ? <SectionTitle>{t('glossary.glossaryTerms')}</SectionTitle> : null}
+            {terms.length > 0 && isGlossaryEntityPage ? (
+                <SectionTitle>{t('glossary.glossaryTerms')}</SectionTitle>
+            ) : null}
             {terms.length ? (
                 <GlossaryTerms>
                     {terms.map((term) => (

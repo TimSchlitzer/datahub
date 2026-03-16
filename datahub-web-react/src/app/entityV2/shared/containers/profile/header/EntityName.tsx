@@ -92,7 +92,10 @@ function EntityName(props: Props) {
         updateName({ variables: { input: { name, urn } } })
             .then(() => {
                 setIsEditing(false);
-                message.success({ content: t('entityV2.containers.profile.sidebar.entityName.nameUpdated'), duration: 2 });
+                message.success({
+                    content: t('entityV2.containers.profile.sidebar.entityName.nameUpdated'),
+                    duration: 2,
+                });
                 refetch();
                 if (isInGlossaryContext) {
                     const parentNodeToUpdate = getParentNodeToUpdate(entityData, entityType);

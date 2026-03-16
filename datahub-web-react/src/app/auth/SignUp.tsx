@@ -177,9 +177,7 @@ export const SignUp: React.VFC<SignUpProps> = () => {
                                 ({ getFieldValue }) => ({
                                     validator() {
                                         if (getFieldValue('password').length < 8) {
-                                            return Promise.reject(
-                                                new Error(t('auth.passwordLengthError')),
-                                            );
+                                            return Promise.reject(new Error(t('auth.passwordLengthError')));
                                         }
                                         return Promise.resolve();
                                     },

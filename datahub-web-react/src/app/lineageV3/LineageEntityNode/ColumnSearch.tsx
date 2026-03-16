@@ -1,7 +1,7 @@
 import { SearchBar } from '@components';
 import React, { Dispatch, SetStateAction, useState } from 'react';
-import { useDebounce } from 'react-use';
 import { useTranslation } from 'react-i18next';
+import { useDebounce } from 'react-use';
 
 import { onClickPreventSelect } from '@app/lineageV3/common';
 

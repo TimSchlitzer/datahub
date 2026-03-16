@@ -101,10 +101,7 @@ export function DiscardUnsavedChangesConfirmationProvider({
             <ConfirmationModal
                 isOpen={isConfirmationShown}
                 modalTitle={confirmationModalTitle ?? t('sharedV2.discardChanges.unsavedChanges')}
-                modalText={
-                    confirmationModalContent ??
-                    t('sharedV2.discardChanges.confirmText')
-                }
+                modalText={confirmationModalContent ?? t('sharedV2.discardChanges.confirmText')}
                 closeButtonColor="gray"
                 handleConfirm={() => {
                     setIsConfirmationShown(false);
@@ -123,10 +120,7 @@ export function DiscardUnsavedChangesConfirmationProvider({
                     <ConfirmationModal
                         isOpen={isRedirectConfirmationShown}
                         modalTitle={confirmationModalTitle ?? t('sharedV2.discardChanges.unsavedChanges')}
-                        modalText={
-                            confirmationModalContent ??
-                            t('sharedV2.discardChanges.confirmText')
-                        }
+                        modalText={confirmationModalContent ?? t('sharedV2.discardChanges.confirmText')}
                         closeButtonColor="gray"
                         handleConfirm={() => setIsRedirectConfirmationShown(false)}
                         confirmButtonText={confirmButtonText ?? t('sharedV2.discardChanges.continue')}

@@ -2,8 +2,8 @@ import { Icon, Pagination, SearchBar, Table, colors } from '@components';
 import { Typography, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
 import TabToolbar from '@app/entity/shared/components/styled/TabToolbar';
@@ -137,7 +137,10 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `${t('ingest.secret.failedToRemoveSecret')}: \n ${e.message || ''}`, duration: 3 });
+                    message.error({
+                        content: `${t('ingest.secret.failedToRemoveSecret')}: \n ${e.message || ''}`,
+                        duration: 3,
+                    });
                 }
             });
         setShowConfirmDelete(false);
@@ -292,7 +295,11 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
             render: (record: TableDataType) => (
                 <>
                     <ButtonsContainer>
-                        <button type="button" onClick={() => onEditSecret(record)} aria-label={t('ingest.secret.editSecret')}>
+                        <button
+                            type="button"
+                            onClick={() => onEditSecret(record)}
+                            aria-label={t('ingest.secret.editSecret')}
+                        >
                             <Icon icon="PencilSimpleLine" source="phosphor" />
                         </button>
                         <button
@@ -328,7 +335,11 @@ export const SecretsList = ({ showCreateModal: isCreatingSecret, setShowCreateMo
 
     return (
         <>
-            {error && message.error({ content: `${t('ingest.secret.failedToLoadSecrets')}: \n ${error.message || ''}`, duration: 3 })}
+            {error &&
+                message.error({
+                    content: `${t('ingest.secret.failedToLoadSecrets')}: \n ${error.message || ''}`,
+                    duration: 3,
+                })}
             <SecretsContainer>
                 <StyledTabToolbar>
                     <SearchContainer>

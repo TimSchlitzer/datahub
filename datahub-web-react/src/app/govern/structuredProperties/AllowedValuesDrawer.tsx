@@ -66,7 +66,10 @@ const AllowedValuesDrawer = ({
                                                 </Text>
                                             </InputLabel>
                                             <Tooltip
-                                                title={isExisting && t('govern.structuredProperties.form.allowedValueCannotEdit')}
+                                                title={
+                                                    isExisting &&
+                                                    t('govern.structuredProperties.form.allowedValueCannotEdit')
+                                                }
                                                 showArrow={false}
                                             >
                                                 <Form.Item
@@ -75,7 +78,9 @@ const AllowedValuesDrawer = ({
                                                     rules={[
                                                         {
                                                             required: true,
-                                                            message: t('govern.structuredProperties.form.allowedValueRequired'),
+                                                            message: t(
+                                                                'govern.structuredProperties.form.allowedValueRequired',
+                                                            ),
                                                         },
                                                     ]}
                                                     key={`${field.name}.value`}
@@ -83,7 +88,9 @@ const AllowedValuesDrawer = ({
                                                 >
                                                     <Input
                                                         label=""
-                                                        placeholder={t('govern.structuredProperties.form.allowedValuePlaceholder')}
+                                                        placeholder={t(
+                                                            'govern.structuredProperties.form.allowedValuePlaceholder',
+                                                        )}
                                                         type={propType === 'numberValue' ? 'number' : 'text'}
                                                         isDisabled={isExisting}
                                                     />
@@ -95,8 +102,12 @@ const AllowedValuesDrawer = ({
                                                 key={`${field.name}.desc`}
                                             >
                                                 <TextArea
-                                                    label={t('govern.structuredProperties.form.allowedValueDescription')}
-                                                    placeholder={t('govern.structuredProperties.form.allowedValueDescriptionPlaceholder')}
+                                                    label={t(
+                                                        'govern.structuredProperties.form.allowedValueDescription',
+                                                    )}
+                                                    placeholder={t(
+                                                        'govern.structuredProperties.form.allowedValueDescriptionPlaceholder',
+                                                    )}
                                                     isDisabled={isExisting}
                                                 />
                                             </Form.Item>

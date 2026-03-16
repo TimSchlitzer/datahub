@@ -94,13 +94,16 @@ function TooltipContent() {
     return (
         <div>
             <TooltipSection>
-                <StyledDot color={green[5]} /> Synchronized in the&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.pastWeek')}</b>
+                <StyledDot color={green[5]} /> Synchronized in the&nbsp;
+                <b>{t('entityV2.containers.profile.sidebar.lastIngested.pastWeek')}</b>
             </TooltipSection>
             <TooltipSection>
-                <StyledDot color={orange[5]} /> Synchronized in the&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.pastMonth')}</b>
+                <StyledDot color={orange[5]} /> Synchronized in the&nbsp;
+                <b>{t('entityV2.containers.profile.sidebar.lastIngested.pastMonth')}</b>
             </TooltipSection>
             <TooltipSection>
-                <StyledDot color={red[5]} /> Synchronized&nbsp;<b>{t('entityV2.containers.profile.sidebar.lastIngested.moreThanMonth')}</b>
+                <StyledDot color={red[5]} /> Synchronized&nbsp;
+                <b>{t('entityV2.containers.profile.sidebar.lastIngested.moreThanMonth')}</b>
             </TooltipSection>
         </div>
     );
@@ -144,7 +147,9 @@ function LastIngested({ lastIngested }: Props) {
                             This {displayedEntityType.toLocaleLowerCase()} was last synchronized&nbsp;
                             <b>{toRelativeTimeString(lastIngested)}</b>
                         </RelativeDescription>
-                        <SubText>{t('entity.shared.sidebar.synchronized', { date: toLocalDateTimeString(lastIngested) })}</SubText>
+                        <SubText>
+                            {t('entity.shared.sidebar.synchronized', { date: toLocalDateTimeString(lastIngested) })}
+                        </SubText>
                     </PopoverContentWrapper>
                 }
             >

@@ -96,9 +96,7 @@ const BusinessGlossaryPage = () => {
                     {(termsLoading || nodesLoading) && (
                         <Message type="loading" content={t('glossary.loading')} style={{ marginTop: '10%' }} />
                     )}
-                    {(termsError || nodesError) && (
-                        <Message type="error" content={t('glossary.loadingFailed')} />
-                    )}
+                    {(termsError || nodesError) && <Message type="error" content={t('glossary.loadingFailed')} />}
                     <GlossaryContentProvider
                         setIsCreateNodeModalVisible={setIsCreateNodeModalVisible}
                         setIsCreateTermModalVisible={setIsCreateTermModalVisible}

@@ -17,17 +17,18 @@ function EmptyDomainDescription() {
     return (
         <>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.welcomeTitle')}</strong> {t('domain.welcomeDescription')}
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.welcomeTitle')}</strong>{' '}
+                {t('domain.welcomeDescription')}
             </StyledParagraph>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.nestedDomainsTitle')}</strong> {t('domain.nestedDomainsDescription')}
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.nestedDomainsTitle')}</strong>{' '}
+                {t('domain.nestedDomainsDescription')}
             </StyledParagraph>
             <StyledParagraph type="secondary">
-                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.buildDataProductsTitle')}</strong>: {t('domain.buildDataProductsDescription')}
+                <strong style={{ color: ANTD_GRAY[8] }}>{t('domain.buildDataProductsTitle')}</strong>:{' '}
+                {t('domain.buildDataProductsDescription')}
             </StyledParagraph>
-            <StyledParagraph type="secondary">
-                {t('domain.readyToStart')}
-            </StyledParagraph>
+            <StyledParagraph type="secondary">{t('domain.readyToStart')}</StyledParagraph>
         </>
     );
 }

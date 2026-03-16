@@ -1,7 +1,7 @@
 import { Button, Divider, Modal, Tag, Typography } from 'antd';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import AvatarsGroup from '@app/permissions/AvatarsGroup';

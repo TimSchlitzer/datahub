@@ -2,6 +2,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Empty, Select, message } from 'antd';
 import { debounce } from 'lodash';
 import React, { useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EntityActionType, EventType } from '@app/analytics';
@@ -49,6 +50,7 @@ export default function SetDataProductModal({
     setDataProducts,
     refetch,
 }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
     const { reloadByKeyType } = useReloadableContext();
     const { refetch: refetchEntity } = useEntityContext();
@@ -107,8 +109,8 @@ export default function SetDataProductModal({
         }
     };
 
-    const handleMutationSuccess = (successMessage: string) => {
-        message.success({ content: successMessage, duration: 3 });
+    const handleMutationSuccess = (successMessageKey: string) => {
+        message.success({ content: t(successMessageKey), duration: 3 });
         setDataProducts?.(selectedDataProducts);
         sendAnalytics();
         onModalClose();
@@ -120,11 +122,11 @@ export default function SetDataProductModal({
         }, 3000);
     };
 
-    const handleMutationError = (e: any, errorMessage: string) => {
+    const handleMutationError = (e: any, errorMessageKey: string) => {
         message.destroy();
         message.error(
             handleBatchError(urns, e, {
-                content: `${errorMessage} \n ${e.message || ''}`,
+                content: `${t(errorMessageKey)} \n ${e.message || ''}`,
                 duration: 3,
             }),
         );
@@ -148,8 +150,17 @@ export default function SetDataProductModal({
                     },
                 },
             })
-                .then(() => handleMutationSuccess('Updated Data Products!'))
-                .catch((e) => handleMutationError(e, 'Failed to add assets to Data Products:'));
+                .then(() =>
+                    handleMutationSuccess(
+                        'entityV2.containers.profile.sidebar.modals.setDataProductModal.updatedDataProductsSuccess',
+                    ),
+                )
+                .catch((e) =>
+                    handleMutationError(
+                        e,
+                        'entityV2.containers.profile.sidebar.modals.setDataProductModal.failedAddToDataProducts',
+                    ),
+                );
         } else {
             batchSetDataProductMutation({
                 variables: {
@@ -159,8 +170,17 @@ export default function SetDataProductModal({
                     },
                 },
             })
-                .then(() => handleMutationSuccess('Updated Data Product!'))
-                .catch((e) => handleMutationError(e, 'Failed to add assets to Data Product:'));
+                .then(() =>
+                    handleMutationSuccess(
+                        'entityV2.containers.profile.sidebar.modals.setDataProductModal.updatedDataProductSuccess',
+                    ),
+                )
+                .catch((e) =>
+                    handleMutationError(
+                        e,
+                        'entityV2.containers.profile.sidebar.modals.setDataProductModal.failedAddToDataProduct',
+                    ),
+                );
         }
     }
 
@@ -218,18 +238,23 @@ export default function SetDataProductModal({
 
     return (
         <Modal
-            title={titleOverride || (isMultipleDataProductsEnabled ? 'Set Data Products' : 'Set Data Product')}
+            title={
+                titleOverride ||
+                (isMultipleDataProductsEnabled
+                    ? t('entityV2.containers.profile.sidebar.modals.setDataProductModal.setDataProductsTitle')
+                    : t('entityV2.containers.profile.sidebar.modals.setDataProductModal.setDataProductTitle'))
+            }
             open
             onCancel={onModalClose}
             getContainer={getModalDomContainer}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('entityV2.containers.profile.sidebar.modals.setDataProductModal.cancelButton'),
                     variant: 'text',
                     onClick: onModalClose,
                 },
                 {
-                    text: 'Save',
+                    text: t('entityV2.containers.profile.sidebar.modals.setDataProductModal.saveButton'),
                     variant: 'filled',
                     disabled: selectedDataProducts.length === 0,
                     onClick: onOk,
@@ -244,7 +269,7 @@ export default function SetDataProductModal({
                 filterOption={false}
                 mode={isMultipleDataProductsEnabled ? 'multiple' : undefined}
                 defaultActiveFirstOption={false}
-                placeholder="Search for Data Products..."
+                placeholder={t('entityV2.containers.profile.sidebar.modals.setDataProductModal.searchPlaceholder')}
                 onSelect={(urn: string) => onSelectDataProduct(urn)}
                 onDeselect={(urn: string) => onDeselect(urn)}
                 onSearch={handleSearch}
@@ -255,7 +280,9 @@ export default function SetDataProductModal({
                 notFoundContent={
                     !loading ? (
                         <Empty
-                            description="No Data Products Found"
+                            description={t(
+                                'entityV2.containers.profile.sidebar.modals.setDataProductModal.noDataProductsFound',
+                            )}
                             image={Empty.PRESENTED_IMAGE_SIMPLE}
                             style={{ color: ANTD_GRAY[7] }}
                         />

@@ -24,10 +24,7 @@ export default function ManagePosts() {
     const { t } = useTranslation();
     return (
         <PageContainer data-testid="managePostsV2">
-            <PageTitle
-                title={t('settings.homePage')}
-                subTitle={t('settings.posts.pageSubtitle')}
-            />
+            <PageTitle title={t('settings.homePage')} subTitle={t('settings.posts.pageSubtitle')} />
             <ListContainer>
                 <PostList />
             </ListContainer>

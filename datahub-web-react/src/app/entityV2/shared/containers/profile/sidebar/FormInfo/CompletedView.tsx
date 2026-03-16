@@ -51,7 +51,9 @@ export default function CompletedView({
                             ) : (
                                 <StyledReadOutlined color="#77B750" addLineHeight />
                             )}
-                            {showVerificationStyles ? t('entity.shared.sidebar.verified') : t('entity.shared.sidebar.documented')}
+                            {showVerificationStyles
+                                ? t('entity.shared.sidebar.verified')
+                                : t('entity.shared.sidebar.documented')}
                         </Title>
                         {isUserAssigned && <StyledArrow isOpen={isOpen} />}
                     </TitleWrapper>

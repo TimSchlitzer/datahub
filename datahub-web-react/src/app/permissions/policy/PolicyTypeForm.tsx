@@ -41,7 +41,11 @@ export default function PolicyTypeForm({
 
     return (
         <TypeForm layout="vertical">
-            <Form.Item name="policyName" labelAlign="right" label={<Typography.Text strong>{t('permissions.name')}</Typography.Text>}>
+            <Form.Item
+                name="policyName"
+                labelAlign="right"
+                label={<Typography.Text strong>{t('permissions.name')}</Typography.Text>}
+            >
                 <Typography.Paragraph>{t('permissions.nameForNewPolicy')}</Typography.Paragraph>
                 <Input
                     placeholder={t('permissions.yourPolicyNamePlaceholder')}

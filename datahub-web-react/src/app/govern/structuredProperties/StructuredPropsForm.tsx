@@ -69,7 +69,12 @@ const StructuredPropsForm = ({
                     },
                 ]}
             >
-                <Input label={t('govern.structuredProperties.form.name')} placeholder={t('govern.structuredProperties.form.namePlaceholder')} isRequired data-testid="structured-props-input-name" />
+                <Input
+                    label={t('govern.structuredProperties.form.name')}
+                    placeholder={t('govern.structuredProperties.form.namePlaceholder')}
+                    isRequired
+                    data-testid="structured-props-input-name"
+                />
             </Form.Item>
             <Form.Item name="description">
                 <TextArea

@@ -128,7 +128,10 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: t('domain.createModalErrorMessage', { error: e.message || '' }), duration: 3 });
+                message.error({
+                    content: t('domain.createModalErrorMessage', { error: e.message || '' }),
+                    duration: 3,
+                });
             })
             .finally(() => {
                 onClose();
@@ -180,7 +183,11 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                     ]}
                     hasFeedback
                 >
-                    <Input label={t('domain.createModalNameLabel')} data-testid="create-domain-name" placeholder={t('domain.createModalNamePlaceholder')} />
+                    <Input
+                        label={t('domain.createModalNameLabel')}
+                        data-testid="create-domain-name"
+                        placeholder={t('domain.createModalNamePlaceholder')}
+                    />
                 </FormItemWithMargin>
                 <FormItemWithMargin
                     name={DESCRIPTION_FIELD_NAME}
@@ -228,7 +235,11 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                                 }),
                             ]}
                         >
-                            <Input label={t('domain.createModalCustomIdLabel')} data-testid="create-domain-id" placeholder={t('domain.createModalCustomIdPlaceholder')} />
+                            <Input
+                                label={t('domain.createModalCustomIdLabel')}
+                                data-testid="create-domain-id"
+                                placeholder={t('domain.createModalCustomIdPlaceholder')}
+                            />
                         </FormItemWithMargin>
                     </Collapse.Panel>
                 </Collapse>

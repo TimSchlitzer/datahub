@@ -148,7 +148,10 @@ export const AnalyticsPage = () => {
                 <>
                     <HighlightGroup>
                         {highlightError && (
-                            <Alert type="error" message={highlightError?.message || t('analytics.highlightsFailedToLoad')} />
+                            <Alert
+                                type="error"
+                                message={highlightError?.message || t('analytics.highlightsFailedToLoad')}
+                            />
                         )}
                         {highlightData?.getHighlights?.map((highlight) => (
                             <Highlight highlight={highlight} shortenValue key={highlight.title} />
@@ -156,7 +159,10 @@ export const AnalyticsPage = () => {
                     </HighlightGroup>
 
                     {chartError && (
-                        <Alert type="error" message={metadataAnalyticsError?.message || t('analytics.chartsFailedToLoad')} />
+                        <Alert
+                            type="error"
+                            message={metadataAnalyticsError?.message || t('analytics.chartsFailedToLoad')}
+                        />
                     )}
                     {chartData?.getAnalyticsCharts
                         ?.filter((chartGroup) => chartGroup.groupId === 'GlobalMetadataAnalytics')
@@ -192,7 +198,10 @@ export const AnalyticsPage = () => {
                     </DomainSection>
 
                     {metadataAnalyticsError && (
-                        <Alert type="error" message={metadataAnalyticsError?.message || t('analytics.chartsFailedToLoad')} />
+                        <Alert
+                            type="error"
+                            message={metadataAnalyticsError?.message || t('analytics.chartsFailedToLoad')}
+                        />
                     )}
                     {metadataAnalyticsData?.getMetadataAnalyticsCharts?.map((chartGroup) => (
                         <ChartGroup chartGroup={{ ...chartGroup, title: '' }} key={chartGroup.groupId} />
@@ -206,7 +215,9 @@ export const AnalyticsPage = () => {
                             </EmptyDomainText>
                         )}
 
-                    {chartError && <Alert type="error" message={chartError?.message || t('analytics.chartsFailedToLoad')} />}
+                    {chartError && (
+                        <Alert type="error" message={chartError?.message || t('analytics.chartsFailedToLoad')} />
+                    )}
                     {chartData?.getAnalyticsCharts
                         ?.filter((chartGroup) => chartGroup.groupId === 'DataHubUsageAnalytics')
                         .map((chartGroup) => (

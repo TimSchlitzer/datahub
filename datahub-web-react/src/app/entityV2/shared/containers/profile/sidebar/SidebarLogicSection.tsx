@@ -123,8 +123,14 @@ export function SidebarLogicSection({ title, statement, highlightedStrings, exte
 
     const isDbt = baseEntity?.dataset?.platform?.urn === DBT_URN;
     const formatOptions = isDbt
-        ? [t('entityV2.containers.profile.sidebar.sidebarLogicSection.source'), t('entityV2.containers.profile.sidebar.sidebarLogicSection.compiled')]
-        : [t('entityV2.containers.profile.sidebar.sidebarLogicSection.raw'), t('entityV2.containers.profile.sidebar.sidebarLogicSection.formatted')];
+        ? [
+              t('entityV2.containers.profile.sidebar.sidebarLogicSection.source'),
+              t('entityV2.containers.profile.sidebar.sidebarLogicSection.compiled'),
+          ]
+        : [
+              t('entityV2.containers.profile.sidebar.sidebarLogicSection.raw'),
+              t('entityV2.containers.profile.sidebar.sidebarLogicSection.formatted'),
+          ];
     const [showFormatted, setShowFormatted] = useState(false);
 
     return (
@@ -182,7 +188,10 @@ export function SidebarLogicSection({ title, statement, highlightedStrings, exte
                         variant="text"
                         onClick={() => {
                             if (isEmbeddedProfile) {
-                                window.open(`${externalUrl}/${t('entityV2.containers.profile.sidebar.sidebarLogicSection.viewDefinition')}`, '_blank');
+                                window.open(
+                                    `${externalUrl}/${t('entityV2.containers.profile.sidebar.sidebarLogicSection.viewDefinition')}`,
+                                    '_blank',
+                                );
                             } else {
                                 setShowFullContentModal(true);
                             }

@@ -1,7 +1,7 @@
 import { Icon, Menu, Pill, Table, Text, Tooltip } from '@components';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import Highlight from 'react-highlighter';
+import { useTranslation } from 'react-i18next';
 
 import { TableWithInfiniteScroll } from '@components/components/Table/TableWithInfiniteScroll';
 
@@ -298,9 +298,7 @@ const StructuredPropsTable = ({
                         title: t('common.delete'),
                         disabled: !canEditProps,
                         danger: true,
-                        tooltip: !canEditProps
-                            ? t('govern.structuredProperties.createPermissionError')
-                            : undefined,
+                        tooltip: !canEditProps ? t('govern.structuredProperties.createPermissionError') : undefined,
                         onClick: () => {
                             if (canEditProps) {
                                 setSelectedProperty(record);

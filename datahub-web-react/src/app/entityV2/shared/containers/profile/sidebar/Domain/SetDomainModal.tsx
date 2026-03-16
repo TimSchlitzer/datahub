@@ -1,10 +1,11 @@
 import { Empty, Form, Select, message } from 'antd';
 import React, { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from 'styled-components';
 
 import domainAutocompleteOptions from '@app/domainV2/DomainAutocompleteOptions';
 import DomainNavigator from '@app/domainV2/nestedDomains/domainNavigator/DomainNavigator';
 import { useEntityContext } from '@app/entity/shared/EntityContext';
-import { ANTD_GRAY } from '@app/entityV2/shared/constants';
 import { handleBatchError } from '@app/entityV2/shared/utils';
 import ClickOutside from '@app/shared/ClickOutside';
 import { BrowserWrapper } from '@app/shared/tags/AddTagsTermsModal';
@@ -37,6 +38,8 @@ type SelectedDomain = {
 };
 
 export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOkOverride, titleOverride }: Props) => {
+    const { t } = useTranslation();
+    const theme = useTheme();
     const { reloadByKeyType } = useReloadableContext();
     const entityRegistry = useEntityRegistry();
     const { entityType } = useEntityContext();
@@ -148,7 +151,10 @@ export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOk
         })
             .then(({ errors }) => {
                 if (!errors) {
-                    message.success({ content: 'Updated Domain!', duration: 2 });
+                    message.success({
+                        content: t('entityV2.containers.profile.sidebar.modals.setDomainModal.updatedDomainSuccess'),
+                        duration: 2,
+                    });
                     refetch?.();
                     sendAnalytics();
                     onModalClose();
@@ -177,7 +183,7 @@ export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOk
                 message.destroy();
                 message.error(
                     handleBatchError(urns, e, {
-                        content: `Failed to add assets to Domain: \n ${e.message || ''}`,
+                        content: `${t('entityV2.containers.profile.sidebar.modals.setDomainModal.failedAddToDomain')}: \n ${e.message || ''}`,
                         duration: 3,
                     }),
                 );
@@ -202,18 +208,18 @@ export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOk
 
     return (
         <Modal
-            title={titleOverride || 'Set Domain'}
+            title={titleOverride || t('entityV2.containers.profile.sidebar.modals.setDomainModal.title')}
             open
             onCancel={onModalClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('entityV2.containers.profile.sidebar.modals.setDomainModal.cancelButton'),
                     variant: 'text',
                     onClick: onModalClose,
                     buttonDataTestId: 'cancel-button',
                 },
                 {
-                    text: 'Save',
+                    text: t('entityV2.containers.profile.sidebar.modals.setDomainModal.saveButton'),
                     variant: 'filled',
                     disabled: selectedDomain === undefined,
                     onClick: onOk,
@@ -232,7 +238,9 @@ export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOk
                             showSearch
                             filterOption={false}
                             defaultActiveFirstOption={false}
-                            placeholder="Search for Domains..."
+                            placeholder={t(
+                                'entityV2.containers.profile.sidebar.modals.setDomainModal.searchPlaceholder',
+                            )}
                             onSelect={(domainUrn: any) => onSelectDomain(domainUrn)}
                             onDeselect={onDeselectDomain}
                             onSearch={(value: string) => {
@@ -246,9 +254,11 @@ export const SetDomainModal = ({ urns, onCloseModal, refetch, defaultValue, onOk
                             dropdownStyle={isShowingDomainNavigator ? { display: 'none' } : {}}
                             notFoundContent={
                                 <Empty
-                                    description="No Domains Found"
+                                    description={t(
+                                        'entityV2.containers.profile.sidebar.modals.setDomainModal.noDomainsFound',
+                                    )}
                                     image={Empty.PRESENTED_IMAGE_SIMPLE}
-                                    style={{ color: ANTD_GRAY[7] }}
+                                    style={{ color: theme.colors.textSecondary }}
                                 />
                             }
                             options={domainAutocompleteOptions(domainResult, searchLoading, entityRegistry)}

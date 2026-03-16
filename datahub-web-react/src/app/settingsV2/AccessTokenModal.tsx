@@ -136,9 +136,7 @@ export const AccessTokenModal = ({ visible, onClose, accessToken, expiresInText 
             <ModalContent>
                 <InfoAlert>
                     <InfoIcon />
-                    <Text size="sm">
-                        {t('settings.accessTokens.makeSureTokenCopy')}
-                    </Text>
+                    <Text size="sm">{t('settings.accessTokens.makeSureTokenCopy')}</Text>
                 </InfoAlert>
 
                 <Section>

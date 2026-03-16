@@ -178,7 +178,9 @@ function CreateGlossaryEntityModal(props: Props) {
                         rules={[
                             {
                                 required: true,
-                                message: t('entityDropdown.enterName', { type: entityRegistry.getEntityName(entityType) }),
+                                message: t('entityDropdown.enterName', {
+                                    type: entityRegistry.getEntityName(entityType),
+                                }),
                             },
                             { whitespace: true },
                             { min: 1, max: 100 },
@@ -213,7 +215,8 @@ function CreateGlossaryEntityModal(props: Props) {
                 <StyledItem
                     label={
                         <Typography.Text strong>
-                            {t('entityDropdown.documentation')} <OptionalWrapper>({t('common.optional')})</OptionalWrapper>
+                            {t('entityDropdown.documentation')}{' '}
+                            <OptionalWrapper>({t('common.optional')})</OptionalWrapper>
                         </Typography.Text>
                     }
                 >
@@ -231,7 +234,10 @@ function CreateGlossaryEntityModal(props: Props) {
                     )}
                 </StyledItem>
                 <Collapse ghost>
-                    <Collapse.Panel header={<Typography.Text type="secondary">{t('entityDropdown.advanced')}</Typography.Text>} key="1">
+                    <Collapse.Panel
+                        header={<Typography.Text type="secondary">{t('entityDropdown.advanced')}</Typography.Text>}
+                        key="1"
+                    >
                         <Form.Item
                             label={
                                 <Typography.Text strong>

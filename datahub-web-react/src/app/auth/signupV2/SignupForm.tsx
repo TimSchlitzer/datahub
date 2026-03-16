@@ -62,7 +62,11 @@ export default function SignupForm({ form, handleSubmit, onFormChange, isSubmitD
                 <ItemContainer>
                     <FieldLabel label={t('auth.signup.emailLabel')} required />
                     <Form.Item rules={[{ required: true, message: t('auth.signup.emailError') }]} name="email">
-                        <Input placeholder={t('auth.signup.emailPlaceholder')} isDisabled={isEmailFromQuery} inputTestId="email" />
+                        <Input
+                            placeholder={t('auth.signup.emailPlaceholder')}
+                            isDisabled={isEmailFromQuery}
+                            inputTestId="email"
+                        />
                     </Form.Item>
                 </ItemContainer>
 
@@ -89,7 +93,11 @@ export default function SignupForm({ form, handleSubmit, onFormChange, isSubmitD
                         ]}
                         name="password"
                     >
-                        <Input placeholder={t('auth.signup.passwordPlaceholder')} type="password" inputTestId="password" />
+                        <Input
+                            placeholder={t('auth.signup.passwordPlaceholder')}
+                            type="password"
+                            inputTestId="password"
+                        />
                     </Form.Item>
                 </ItemContainer>
 
@@ -109,7 +117,11 @@ export default function SignupForm({ form, handleSubmit, onFormChange, isSubmitD
                         ]}
                         name="confirmPassword"
                     >
-                        <Input placeholder={t('auth.signup.confirmPasswordPlaceholder')} type="password" inputTestId="confirmPassword" />
+                        <Input
+                            placeholder={t('auth.signup.confirmPasswordPlaceholder')}
+                            type="password"
+                            inputTestId="confirmPassword"
+                        />
                     </Form.Item>
                 </ItemContainer>
             </Form>

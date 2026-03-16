@@ -78,7 +78,9 @@ const ViewDisplayPreferences = ({ propEntity }: Props) => {
                                         <Checkbox
                                             label={t('govern.structuredProperties.displayPreferences.hideWhenEmpty')}
                                             isChecked={propEntity?.settings?.hideInAssetSummaryWhenEmpty}
-                                            labelTooltip={t('govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip')}
+                                            labelTooltip={t(
+                                                'govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip',
+                                            )}
                                             size="sm"
                                             gap="2px"
                                             justifyContent="flex-start"

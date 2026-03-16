@@ -232,12 +232,7 @@ export const ManageIngestionPage = () => {
                 </TitleContainer>
                 <HeaderActionsContainer>
                     {selectedTab === TabType.Sources && showIngestionTab && (
-                        <Tooltip
-                            title={
-                                !canManageIngestion &&
-                                t('ingest.noPermissionForThisAction')
-                            }
-                        >
+                        <Tooltip title={!canManageIngestion && t('ingest.noPermissionForThisAction')}>
                             <div>
                                 <Button
                                     variant="filled"

@@ -2,8 +2,8 @@ import { Button, Tooltip } from '@components';
 import { Avatar, Empty, Pagination, Typography, message } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -288,7 +288,9 @@ export const ManageRoles = () => {
                     dataSource={tableData}
                     rowKey="urn"
                     locale={{
-                        emptyText: <Empty description={t('permissions.noRoles')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                        emptyText: (
+                            <Empty description={t('permissions.noRoles')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                        ),
                     }}
                     pagination={false}
                 />

@@ -122,9 +122,7 @@ export const ResetCredentials: React.VFC<ResetCredentialsProps> = () => {
                                 ({ getFieldValue }) => ({
                                     validator() {
                                         if (getFieldValue('password').length < 8) {
-                                            return Promise.reject(
-                                                new Error(t('auth.passwordLengthError')),
-                                            );
+                                            return Promise.reject(new Error(t('auth.passwordLengthError')));
                                         }
                                         return Promise.resolve();
                                     },

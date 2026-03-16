@@ -74,7 +74,10 @@ export const SidebarApplicationSection = ({ readOnly, properties }: Props) => {
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: t('entity.shared.sidebar.failedRemoveApplication', { error: e.message || '' }), duration: 3 });
+                    message.error({
+                        content: t('entity.shared.sidebar.failedRemoveApplication', { error: e.message || '' }),
+                        duration: 3,
+                    });
                 }
             });
     };

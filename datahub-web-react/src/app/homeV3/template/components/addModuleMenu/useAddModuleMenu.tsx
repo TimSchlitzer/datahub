@@ -201,7 +201,13 @@ export default function useAddModuleMenu(position: ModulePositionInput, closeMen
         const hierarchyView = {
             title: t('homeV3.addModuleMenu.hierarchy.title'),
             key: 'hierarchyView',
-            label: <MenuItem description={t('homeV3.addModuleMenu.hierarchy.description')} title={t('homeV3.addModuleMenu.hierarchy.title')} icon="Globe" />,
+            label: (
+                <MenuItem
+                    description={t('homeV3.addModuleMenu.hierarchy.description')}
+                    title={t('homeV3.addModuleMenu.hierarchy.title')}
+                    icon="Globe"
+                />
+            ),
             onClick: () => {
                 handleOpenCreateModuleModal(DataHubPageModuleType.Hierarchy);
             },
@@ -295,7 +301,11 @@ export default function useAddModuleMenu(position: ModulePositionInput, closeMen
             label: (
                 <MenuItem
                     description={t('homeV3.addModuleMenu.childHierarchy.description')}
-                    title={entityType === EntityType.Domain ? t('homeV3.addModuleMenu.childHierarchy.titleDomain') : t('homeV3.addModuleMenu.childHierarchy.title')}
+                    title={
+                        entityType === EntityType.Domain
+                            ? t('homeV3.addModuleMenu.childHierarchy.titleDomain')
+                            : t('homeV3.addModuleMenu.childHierarchy.title')
+                    }
                     icon="Globe"
                     isSmallModule={false}
                 />

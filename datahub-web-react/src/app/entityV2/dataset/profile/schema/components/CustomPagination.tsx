@@ -68,7 +68,9 @@ export default function CustomPagination({ onChange, maxVersion }: Props) {
                 // eslint-disable-next-line react/no-array-index-key
                 <Menu.Item key={maxVersion - i}>
                     <Typography.Text>
-                        {i === 0 ? t('entity.dataset.versionSelector.latest') : `${t('entity.dataset.versionSelector.version')} ${maxVersion + 1 - i}`}
+                        {i === 0
+                            ? t('entity.dataset.versionSelector.latest')
+                            : `${t('entity.dataset.versionSelector.version')} ${maxVersion + 1 - i}`}
                     </Typography.Text>
                 </Menu.Item>
             ))}
@@ -98,12 +100,17 @@ export default function CustomPagination({ onChange, maxVersion }: Props) {
             <DescriptionText>{t('entity.dataset.versionSelector.comparing')}</DescriptionText>
             <Dropdown overlay={menu1} trigger={['click']}>
                 <VersionText strong type="success">
-                    {version1 === maxVersion ? t('entity.dataset.versionSelector.latest') : `${t('entity.dataset.versionSelector.version')} ${version1 + 1}`}
+                    {version1 === maxVersion
+                        ? t('entity.dataset.versionSelector.latest')
+                        : `${t('entity.dataset.versionSelector.version')} ${version1 + 1}`}
                 </VersionText>
             </Dropdown>
             <DescriptionText>{t('entity.dataset.versionSelector.to')}</DescriptionText>
             <Dropdown overlay={menu2} trigger={['click']}>
-                <VersionRightText strong type="success">{`${t('entity.dataset.versionSelector.version')} ${version2 + 1}`}</VersionRightText>
+                <VersionRightText
+                    strong
+                    type="success"
+                >{`${t('entity.dataset.versionSelector.version')} ${version2 + 1}`}</VersionRightText>
             </Dropdown>
             <NavButton
                 size="small"

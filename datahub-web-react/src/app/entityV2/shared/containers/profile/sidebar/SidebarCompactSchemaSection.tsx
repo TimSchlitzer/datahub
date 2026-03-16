@@ -10,7 +10,10 @@ export const SidebarCompactSchemaSection = () => {
     const { t } = useTranslation();
     return (
         <div id={ENTITY_PROFILE_SCHEMA_ID}>
-            <SidebarSection title={t('entity.shared.sidebar.fields')} content={<SchemaTab renderType={TabRenderType.COMPACT} />} />
+            <SidebarSection
+                title={t('entity.shared.sidebar.fields')}
+                content={<SchemaTab renderType={TabRenderType.COMPACT} />}
+            />
         </div>
     );
 };

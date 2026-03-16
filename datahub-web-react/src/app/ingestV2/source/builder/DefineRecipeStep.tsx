@@ -134,7 +134,9 @@ export const DefineRecipeStep = ({
     return (
         <>
             <Section>
-                <SelectTemplateHeader level={5}>{t('ingest.source.configureRecipe', { sourceDisplayName })}</SelectTemplateHeader>
+                <SelectTemplateHeader level={5}>
+                    {t('ingest.source.configureRecipe', { sourceDisplayName })}
+                </SelectTemplateHeader>
                 {showLookerBanner && (
                     <Alert
                         type="warning"

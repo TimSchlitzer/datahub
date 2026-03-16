@@ -2,6 +2,7 @@ import { LockOutlined } from '@ant-design/icons';
 import { Tooltip } from '@components';
 import { Typography } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { MemberCount } from '@app/entityV2/group/GroupSidebar';
@@ -45,17 +46,18 @@ export const GroupInfoHeaderSection = ({
     isExternalGroup,
     groupName,
 }: Props) => {
+    const { t } = useTranslation();
     const groupMemberRelationshipsTotal = groupMemberRelationships?.total || 0;
     return (
         <GroupHeader>
             <Tooltip title={groupName}>
                 <GroupName level={3}>{groupName}</GroupName>
             </Tooltip>
-            {groupMemberRelationshipsTotal > 0 && <MemberCount>{groupMemberRelationshipsTotal} members</MemberCount>}
+            {groupMemberRelationshipsTotal > 0 && (
+                <MemberCount>{t('group.membersCount', { count: groupMemberRelationshipsTotal })}</MemberCount>
+            )}
             {isExternalGroup && (
-                <Tooltip
-                    title={`Membership for this group cannot be edited in DataHub as it originates from ${externalGroupType}.`}
-                >
+                <Tooltip title={t('group.cantEditBecauseExternalGroup', { externalGroupType })}>
                     <LockOutlined />
                 </Tooltip>
             )}

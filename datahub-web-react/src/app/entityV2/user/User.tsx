@@ -10,7 +10,7 @@ import { Preview } from '@app/entityV2/user/preview/Preview';
 import { CorpUser, EntityType, SearchResult } from '@types';
 
 /**
- * Definition of the DataHub Dataset entity.
+ * Definition of the DataHub User entity.
  */
 export class UserEntity implements Entity<CorpUser> {
     type: EntityType = EntityType.CorpUser;

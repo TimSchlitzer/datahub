@@ -252,10 +252,11 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                 <Typography.Paragraph>{t('permissions.policyAppliesToLabel')}</Typography.Paragraph>
             </ActorFormHeader>
             {showAppliesToOwners && (
-                <Form.Item label={<Typography.Text strong>{t('permissions.owners')}</Typography.Text>} labelAlign="right">
-                    <Typography.Paragraph>
-                        {t('permissions.policyAppliesToDescription')}
-                    </Typography.Paragraph>
+                <Form.Item
+                    label={<Typography.Text strong>{t('permissions.owners')}</Typography.Text>}
+                    labelAlign="right"
+                >
+                    <Typography.Paragraph>{t('permissions.policyAppliesToDescription')}</Typography.Paragraph>
                     <Switch size="small" checked={actors.resourceOwners} onChange={onToggleAppliesToOwners} />
                     {actors.resourceOwners && (
                         <OwnershipWrapper>
@@ -289,9 +290,7 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                 </Form.Item>
             )}
             <Form.Item label={<Typography.Text strong>{t('permissions.usersServiceAccounts')}</Typography.Text>}>
-                <Typography.Paragraph>
-                    {t('permissions.policyAppliesToUserDescription')}
-                </Typography.Paragraph>
+                <Typography.Paragraph>{t('permissions.policyAppliesToUserDescription')}</Typography.Paragraph>
                 <Select
                     data-testid="users"
                     value={usersSelectUrns}
@@ -332,9 +331,7 @@ export default function PolicyActorForm({ policyType, actors, setActors }: Props
                 </Select>
             </Form.Item>
             <Form.Item label={<Typography.Text strong>{t('permissions.groups')}</Typography.Text>}>
-                <Typography.Paragraph>
-                    {t('permissions.policyAppliesToGroupsDescription')}
-                </Typography.Paragraph>
+                <Typography.Paragraph>{t('permissions.policyAppliesToGroupsDescription')}</Typography.Paragraph>
                 <Select
                     data-testid="groups"
                     value={groupsSelectUrns}

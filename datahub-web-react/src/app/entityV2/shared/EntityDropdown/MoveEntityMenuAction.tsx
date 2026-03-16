@@ -30,7 +30,11 @@ export default function MoveEntityMenuAction() {
     }
 
     return (
-        <Tooltip placement="bottom" title={t('entityDropdown.moveThis', { type: entityRegistry.getEntityName(entityType) })} showArrow={false}>
+        <Tooltip
+            placement="bottom"
+            title={t('entityDropdown.moveThis', { type: entityRegistry.getEntityName(entityType) })}
+            showArrow={false}
+        >
             <ActionMenuItem
                 key="move"
                 disabled={isMoveDisabled(entityType, entityData, me.platformPrivileges)}

@@ -1,12 +1,12 @@
 import { useApolloClient } from '@apollo/client';
 import { Button, Form, Input, Modal, Select, Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EntityActionType, EventType } from '@app/analytics';
 import { useUserContext } from '@app/context/useUserContext';
 import { useEntityData } from '@app/entity/shared/EntityContext';
-import { ANTD_GRAY } from '@app/entity/shared/constants';
 import { Editor } from '@app/entity/shared/tabs/Documentation/components/editor/Editor';
 import {
     INCIDENT_DISPLAY_TYPES,
@@ -19,7 +19,7 @@ import { useRaiseIncidentMutation } from '@graphql/mutations.generated';
 import { EntityType, IncidentSourceType, IncidentState, IncidentType } from '@types';
 
 const StyledEditor = styled(Editor)`
-    border: 1px solid ${ANTD_GRAY[4.5]};
+    border: 1px solid ${(props) => props.theme.colors.border};
 `;
 
 type AddIncidentProps = {
@@ -31,6 +31,7 @@ type AddIncidentProps = {
 export const AddIncidentModal = ({ open, onClose, refetch }: AddIncidentProps) => {
     const { urn, entityType } = useEntityData();
     const { user } = useUserContext();
+    const { t } = useTranslation();
     const incidentTypes = INCIDENT_DISPLAY_TYPES;
     const [selectedIncidentType, setSelectedIncidentType] = useState<IncidentType>(IncidentType.Operational);
     const [isOtherTypeSelected, setIsOtherTypeSelected] = useState<boolean>(false);
@@ -93,7 +94,7 @@ export const AddIncidentModal = ({ open, onClose, refetch }: AddIncidentProps) =
                         actor: user?.urn,
                     },
                 };
-                message.success({ content: 'Incident Added', duration: 2 });
+                message.success({ content: t('incident.added'), duration: 2 });
                 analytics.event({
                     type: EventType.EntityActionEvent,
                     entityType,
@@ -110,9 +111,8 @@ export const AddIncidentModal = ({ open, onClose, refetch }: AddIncidentProps) =
                 console.error(error);
                 handleGraphQLError({
                     error,
-                    defaultMessage: 'Failed to raise incident! An unexpected error occurred',
-                    permissionMessage:
-                        'Unauthorized to raise incident for this asset. Please contact your DataHub administrator.',
+                    defaultMessage: t('incident.failedToRaise'),
+                    permissionMessage: t('incident.unauthorizedRaise'),
                 });
             });
     };
@@ -120,22 +120,22 @@ export const AddIncidentModal = ({ open, onClose, refetch }: AddIncidentProps) =
     return (
         <>
             <Modal
-                title="Raise Incident"
+                title={t('incident.raiseIncident')}
                 open={open}
                 destroyOnClose
                 onCancel={handleClose}
                 width={600}
                 footer={[
                     <Button type="text" onClick={handleClose}>
-                        Cancel
+                        {t('common.cancel')}
                     </Button>,
                     <Button form="addIncidentForm" key="submit" htmlType="submit">
-                        Add
+                        {t('common.add')}
                     </Button>,
                 ]}
             >
                 <Form form={form} name="addIncidentForm" onFinish={handleAddIncident} layout="vertical">
-                    <Form.Item label={<Typography.Text strong>Type</Typography.Text>}>
+                    <Form.Item label={<Typography.Text strong>{t('incident.type')}</Typography.Text>}>
                         <Form.Item name="type" style={{ marginBottom: '0px' }}>
                             <Select
                                 value={selectedIncidentType}
@@ -154,36 +154,36 @@ export const AddIncidentModal = ({ open, onClose, refetch }: AddIncidentProps) =
                     {isOtherTypeSelected && (
                         <Form.Item
                             name="customType"
-                            label="Custom Type"
+                            label={t('incident.customType')}
                             rules={[
                                 {
                                     required: selectedIncidentType === IncidentType.Custom,
-                                    message: 'A custom type is required.',
+                                    message: t('incident.customTypeRequired'),
                                 },
                             ]}
                         >
-                            <Input placeholder="Freshness" />
+                            <Input placeholder={t('incident.customTypePlaceholder')} />
                         </Form.Item>
                     )}
                     <Form.Item
                         name="title"
-                        label="Title"
+                        label={t('incident.title')}
                         rules={[
                             {
                                 required: true,
-                                message: 'A title is required.',
+                                message: t('incident.titleRequired'),
                             },
                         ]}
                     >
-                        <Input placeholder="What went wrong?" />
+                        <Input placeholder={t('incident.titlePlaceholder')} />
                     </Form.Item>
                     <Form.Item
                         name="description"
-                        label="Description"
+                        label={t('incident.description')}
                         rules={[
                             {
                                 required: true,
-                                message: 'A description is required.',
+                                message: t('incident.descriptionRequired'),
                             },
                         ]}
                     >

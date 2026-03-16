@@ -104,7 +104,10 @@ export default function CreateBusinessAttributeModal({ open, onClose, onCreateBu
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `${t('businessAttribute.createFailed')}: \n ${e.message || ''}`, duration: 3 });
+                message.error({
+                    content: `${t('businessAttribute.createFailed')}: \n ${e.message || ''}`,
+                    duration: 3,
+                });
             });
         onModalClose();
         setDocumentation('');
@@ -174,7 +177,9 @@ export default function CreateBusinessAttributeModal({ open, onClose, onCreateBu
                         </Form.Item>
                     </Form.Item>
                     <DataTypeSelectContainer>
-                        <Form.Item label={<Typography.Text strong>{t('businessAttribute.dataTypeLabel')}</Typography.Text>}>
+                        <Form.Item
+                            label={<Typography.Text strong>{t('businessAttribute.dataTypeLabel')}</Typography.Text>}
+                        >
                             <Form.Item
                                 rules={[
                                     {
@@ -199,13 +204,15 @@ export default function CreateBusinessAttributeModal({ open, onClose, onCreateBu
                     <StyledItem
                         label={
                             <Typography.Text strong>
-                                {t('businessAttribute.documentation')} <OptionalWrapper>({t('businessAttribute.optional')})</OptionalWrapper>
+                                {t('businessAttribute.documentation')}{' '}
+                                <OptionalWrapper>({t('businessAttribute.optional')})</OptionalWrapper>
                             </Typography.Text>
                         }
                     >
                         <StyledButton type="link" onClick={() => setIsDocumentationModalVisible(true)}>
                             <EditOutlined />
-                            {documentation ? t('businessAttribute.edit') : t('businessAttribute.add')} {t('businessAttribute.documentation')}
+                            {documentation ? t('businessAttribute.edit') : t('businessAttribute.add')}{' '}
+                            {t('businessAttribute.documentation')}
                         </StyledButton>
                         {isDocumentationModalVisible && (
                             <DescriptionModal
@@ -217,17 +224,21 @@ export default function CreateBusinessAttributeModal({ open, onClose, onCreateBu
                         )}
                     </StyledItem>
                     <Collapse ghost>
-                        <Collapse.Panel header={<Typography.Text type="secondary">{t('businessAttribute.advanced')}</Typography.Text>} key="1">
+                        <Collapse.Panel
+                            header={
+                                <Typography.Text type="secondary">{t('businessAttribute.advanced')}</Typography.Text>
+                            }
+                            key="1"
+                        >
                             <Form.Item
                                 label={
                                     <Typography.Text strong>
-                                        {entityRegistry.getEntityName(EntityType.BusinessAttribute)} {t('businessAttribute.id')}
+                                        {entityRegistry.getEntityName(EntityType.BusinessAttribute)}{' '}
+                                        {t('businessAttribute.id')}
                                     </Typography.Text>
                                 }
                             >
-                                <Typography.Paragraph>
-                                    {t('businessAttribute.idDescription')}
-                                </Typography.Paragraph>
+                                <Typography.Paragraph>{t('businessAttribute.idDescription')}</Typography.Paragraph>
                                 <Form.Item
                                     name="id"
                                     rules={[

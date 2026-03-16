@@ -94,7 +94,8 @@ export const renderAccessButton = (roleData: RoleAccessData, t: any): React.Reac
 /**
  * Determines the button text based on access status
  */
-export const getAccessButtonText = (hasAccess: boolean, t: any): string => (hasAccess ? t('entity.access.button.granted') : t('entity.access.button.request'));
+export const getAccessButtonText = (hasAccess: boolean, t: any): string =>
+    hasAccess ? t('entity.access.button.granted') : t('entity.access.button.request');
 
 /**
  * Determines if the button should be disabled

@@ -1,7 +1,7 @@
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import React from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import { IconStyleType } from '@app/entity/Entity';

@@ -234,7 +234,9 @@ export const BusinessAttributes = () => {
                 dataSource={tableData}
                 rowKey="urn"
                 locale={{
-                    emptyText: <Empty description={t('businessAttribute.noAttributes')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: (
+                        <Empty description={t('businessAttribute.noAttributes')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                    ),
                 }}
                 pagination={false}
             />

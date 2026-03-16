@@ -1,7 +1,7 @@
 import { InfiniteScrollList } from '@components';
 import React, { useCallback } from 'react';
-import { useHistory } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';

@@ -1,6 +1,7 @@
 import { Modal, Tooltip } from '@components';
 import { Button, Form, Select, Tag } from 'antd';
 import React, { ReactNode, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/macro';
 
 import { useEnterKeyListener } from '@app/shared/useEnterKeyListener';
@@ -37,6 +38,7 @@ const PreviewImage = styled.img`
 `;
 
 export const SelectPlatformModal = ({ onCloseModal, defaultValues, onOk, titleOverride }: Props) => {
+    const { t } = useTranslation();
     const [platformSearch, { data: platforSearchData }] = useGetSearchResultsLazyQuery();
     const platformSearchResults =
         platforSearchData?.search?.searchResults?.map((searchResult) => searchResult.entity) || [];
@@ -139,17 +141,17 @@ export const SelectPlatformModal = ({ onCloseModal, defaultValues, onOk, titleOv
 
     return (
         <Modal
-            title={titleOverride || 'Select Platform'}
+            title={titleOverride || t('entityV2.containers.profile.sidebar.modals.selectPlatformModal.title')}
             open
             onCancel={onModalClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('entityV2.containers.profile.sidebar.modals.selectPlatformModal.cancelButton'),
                     variant: 'text',
                     onClick: onModalClose,
                 },
                 {
-                    text: 'Add',
+                    text: t('entityV2.containers.profile.sidebar.modals.selectPlatformModal.addButton'),
                     variant: 'filled',
                     onClick: handleOk,
                     id: 'setPlatformButton',
@@ -159,10 +161,10 @@ export const SelectPlatformModal = ({ onCloseModal, defaultValues, onOk, titleOv
             footer={
                 <>
                     <Button onClick={onModalClose} type="text">
-                        Cancel
+                        {t('entityV2.containers.profile.sidebar.modals.selectPlatformModal.cancelButton')}
                     </Button>
                     <Button id="setPlatformButton" disabled={selectedPlatforms?.length === 0} onClick={handleOk}>
-                        Add
+                        {t('entityV2.containers.profile.sidebar.modals.selectPlatformModal.addButton')}
                     </Button>
                 </>
             }
@@ -175,7 +177,9 @@ export const SelectPlatformModal = ({ onCloseModal, defaultValues, onOk, titleOv
                         showSearch
                         mode="multiple"
                         defaultActiveFirstOption={false}
-                        placeholder="Search for Platforms..."
+                        placeholder={t(
+                            'entityV2.containers.profile.sidebar.modals.selectPlatformModal.searchPlaceholder',
+                        )}
                         onSelect={(platformUrn: any) => onSelectPlatform(platformUrn)}
                         onDeselect={onDeselectPlatform}
                         onSearch={(value: string) => {

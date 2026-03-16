@@ -1,6 +1,7 @@
 import { CheckCircleFilled, CheckOutlined, MoreOutlined, WarningFilled } from '@ant-design/icons';
 import { Button, Dropdown, List, Popover, Tag, Tooltip, Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -149,6 +150,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
     const { entityType } = useEntityData();
     const refetchEntity = useRefetch();
     const entityRegistry = useEntityRegistry();
+    const { t } = useTranslation();
     const [updateIncidentStatusMutation] = useUpdateIncidentStatusMutation();
     const [isResolvedModalVisible, setIsResolvedModalVisible] = useState(false);
 
@@ -168,7 +170,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
 
     // Updating the incident status on button click
     const updateIncidentStatus = (state: IncidentState, resolvedMessage: string) => {
-        message.loading({ content: 'Updating...' });
+        message.loading({ content: t('incident.updating') });
         updateIncidentStatusMutation({
             variables: { urn: incident.urn, input: { state, message: resolvedMessage } },
         })
@@ -180,7 +182,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                     entityUrn: incident.urn,
                     actionType: EntityActionType.ResolvedIncident,
                 });
-                message.success({ content: 'Incident updated! .', duration: 2 });
+                message.success({ content: t('incident.updated'), duration: 2 });
                 refetchEntity?.();
                 refetch?.();
                 setIsResolvedModalVisible(false);
@@ -188,9 +190,8 @@ export default function IncidentListItem({ incident, refetch }: Props) {
             .catch((error) => {
                 handleGraphQLError({
                     error,
-                    defaultMessage: 'Failed to update incident! An unexpected error occurred',
-                    permissionMessage:
-                        'Unauthorized to update incident for this asset. Please contact your DataHub administrator.',
+                    defaultMessage: t('incident.failedToUpdate'),
+                    permissionMessage: t('incident.unauthorizedUpdate'),
                 });
             });
     };
@@ -208,7 +209,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                     onClick={() => updateIncidentStatus(IncidentState.Active, '')}
                     data-testid="reopen-incident"
                 >
-                    Reopen incident
+                    {t('incident.reopenIncident')}
                 </MenuItemStyle>
             ),
         },
@@ -229,13 +230,15 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                                 </IncidentTypeTag>
                             </TitleContainer>
                             <DescriptionContainer>
-                                <IncidentDescriptionLabel>Description</IncidentDescriptionLabel>
+                                <IncidentDescriptionLabel>{t('incident.description')}</IncidentDescriptionLabel>
                                 <MarkdownViewer source={incident?.description || ''} />
                                 {incident.incidentStatus?.state === IncidentState.Resolved ? (
                                     <>
-                                        <IncidentDescriptionLabel>Resolution Note</IncidentDescriptionLabel>
+                                        <IncidentDescriptionLabel>
+                                            {t('incident.resolutionNote')}
+                                        </IncidentDescriptionLabel>
                                         <IncidentDescriptionText>
-                                            {incident?.incidentStatus?.message || 'No additional details'}
+                                            {incident?.incidentStatus?.message || t('incident.noDetails')}
                                         </IncidentDescriptionText>
                                     </>
                                 ) : null}
@@ -243,7 +246,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                             <DescriptionContainer>
                                 <Tooltip placement="right" showArrow={false} title={toLocalDateTimeString(createdDate)}>
                                     <IncidentCreatedTime>
-                                        Created {toRelativeTimeString(createdDate)} by{' '}
+                                        {t('incident.createdBy', { time: toRelativeTimeString(createdDate) })}{' '}
                                     </IncidentCreatedTime>
                                 </Tooltip>
                                 {createdActor?.corpUser && (
@@ -264,10 +267,10 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                             <Popover
                                 overlayStyle={{ maxWidth: 240 }}
                                 placement="left"
-                                title={<Typography.Text strong>Note</Typography.Text>}
+                                title={<Typography.Text strong>{t('incident.noteLabel')}</Typography.Text>}
                                 content={
                                     incident?.incidentStatus?.message === null ? (
-                                        <Typography.Text type="secondary">No additional details</Typography.Text>
+                                        <Typography.Text type="secondary">{t('incident.noDetails')}</Typography.Text>
                                     ) : (
                                         <Typography.Text type="secondary">
                                             {incident?.incidentStatus?.message}
@@ -278,7 +281,9 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                                 <IncidentResolvedText>
                                     {incident?.incidentStatus?.lastUpdated && (
                                         <Tooltip showArrow={false} title={toLocalDateTimeString(lastModifiedDate)}>
-                                            Resolved {toRelativeTimeString(lastModifiedDate)} by{' '}
+                                            {t('incident.resolvedBy', {
+                                                time: toRelativeTimeString(lastModifiedDate),
+                                            })}{' '}
                                         </Tooltip>
                                     )}
                                     {lastUpdatedActor?.corpUser && (
@@ -310,7 +315,7 @@ export default function IncidentListItem({ incident, refetch }: Props) {
                                 onClick={() => handleResolved()}
                                 data-testid="resolve-incident"
                             >
-                                Resolve
+                                {t('incident.resolve')}
                             </IncidentResolvedButton>
                             <WarningFilled style={{ fontSize: '28px', marginLeft: '16px', color: FAILURE_COLOR_HEX }} />
                         </IncidentResolvedContainer>

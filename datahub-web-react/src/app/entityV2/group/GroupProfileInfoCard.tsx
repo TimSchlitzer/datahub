@@ -1,5 +1,6 @@
 import { Col, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useUserContext } from '@app/context/useUserContext';
@@ -54,6 +55,7 @@ type Props = {
 };
 
 export const GroupProfileInfoCard = ({ sidebarData, refetch }: Props) => {
+    const { t } = useTranslation();
     const {
         avatarName,
         name,
@@ -77,13 +79,13 @@ export const GroupProfileInfoCard = ({ sidebarData, refetch }: Props) => {
     const handleTitleUpdate = async (name: string) => {
         await updateName({ variables: { input: { name, urn } } })
             .then(() => {
-                message.success({ content: 'Name Updated', duration: 2 });
+                message.success({ content: t('group.nameUpdated'), duration: 2 });
                 refetch();
             })
             .catch((e: unknown) => {
                 message.destroy();
                 if (e instanceof Error) {
-                    message.error({ content: `Failed to update name: \n ${e.message || ''}`, duration: 3 });
+                    message.error({ content: `${t('group.nameUpdateError')} \n ${e.message || ''}`, duration: 3 });
                 }
             });
     };

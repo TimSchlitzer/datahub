@@ -1,5 +1,6 @@
 import { message } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { GroupProfileInfoCard, SidebarData } from '@app/entityV2/group/GroupProfileInfoCard';
@@ -27,6 +28,7 @@ export const MemberCount = styled.div`
  * Responsible for reading & writing users.
  */
 export default function GroupSidebar({ sidebarData, refetch }: Props) {
+    const { t } = useTranslation();
     const { aboutText, groupMemberRelationships, urn, groupOwnership: ownership } = sidebarData;
     const [updateCorpGroupPropertiesMutation] = useUpdateCorpGroupPropertiesMutation();
 
@@ -42,14 +44,14 @@ export default function GroupSidebar({ sidebarData, refetch }: Props) {
         })
             .then(() => {
                 message.success({
-                    content: `Changes saved.`,
+                    content: t('group.saveSuccess'),
                     duration: 3,
                 });
                 refetch();
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to Save changes!: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: `${t('group.saveError')}: \n ${e.message || ''}`, duration: 3 });
             });
     };
 

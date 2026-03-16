@@ -1,8 +1,8 @@
 import { Icon, colors, typography } from '@components';
 import { Dropdown } from 'antd';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import Highlight from 'react-highlighter';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { CardIcons } from '@app/govern/structuredProperties/styledComponents';

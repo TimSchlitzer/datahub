@@ -136,9 +136,7 @@ export default function GlossarySelector({ resources, setResources }: Props) {
 
     return (
         <>
-            <Typography.Paragraph>
-                {t('permissions.glossaryDescription')}
-            </Typography.Paragraph>
+            <Typography.Paragraph>{t('permissions.glossaryDescription')}</Typography.Paragraph>
             <ClickOutside onClickOutside={handleClickOutsideGlossary}>
                 <Select
                     showSearch

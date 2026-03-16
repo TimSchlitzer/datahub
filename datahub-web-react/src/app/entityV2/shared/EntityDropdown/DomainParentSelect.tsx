@@ -1,11 +1,12 @@
 import { CloseCircleFilled } from '@ant-design/icons';
 import { Empty, Select } from 'antd';
 import React, { MouseEvent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useTheme } from 'styled-components';
 
 import domainAutocompleteOptions from '@app/domainV2/DomainAutocompleteOptions';
 import DomainNavigator from '@app/domainV2/nestedDomains/domainNavigator/DomainNavigator';
 import useParentSelector from '@app/entityV2/shared/EntityDropdown/useParentSelector';
-import { ANTD_GRAY } from '@app/entityV2/shared/constants';
 import ClickOutside from '@app/shared/ClickOutside';
 import { BrowserWrapper } from '@app/shared/tags/AddTagsTermsModal';
 import { useEntityRegistry } from '@app/useEntityRegistry';
@@ -29,6 +30,8 @@ interface Props {
 }
 
 export default function DomainParentSelect({ selectedParentUrn, setSelectedParentUrn, isMoving }: Props) {
+    const { t } = useTranslation();
+    const theme = useTheme();
     const entityRegistry = useEntityRegistry();
     const { entityData } = useDomainsContext();
     const domainUrn = entityData?.urn;
@@ -79,7 +82,7 @@ export default function DomainParentSelect({ selectedParentUrn, setSelectedParen
                 clearIcon={<CloseCircleFilled onClick={handleClear} />}
                 filterOption={false}
                 defaultActiveFirstOption={false}
-                placeholder="Select"
+                placeholder={t('entityDropdown.selectDomain')}
                 value={selectedParentName}
                 onSelect={onSelectParent}
                 onSearch={handleSearch}
@@ -87,9 +90,9 @@ export default function DomainParentSelect({ selectedParentUrn, setSelectedParen
                 dropdownStyle={isShowingDomainNavigator || !searchQuery ? { display: 'none' } : {}}
                 notFoundContent={
                     <Empty
-                        description="No Domains Found"
+                        description={t('entityDropdown.noDomainFound')}
                         image={Empty.PRESENTED_IMAGE_SIMPLE}
-                        style={{ color: ANTD_GRAY[7] }}
+                        style={{ color: theme.colors.textSecondary }}
                     />
                 }
                 options={domainAutocompleteOptions(

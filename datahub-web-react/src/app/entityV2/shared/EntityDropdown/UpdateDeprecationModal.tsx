@@ -116,7 +116,11 @@ export const UpdateDeprecationModal = ({ urns, resourceRefs, onClose, refetch, z
             ]}
         >
             <Form form={form} name="addDeprecationForm" onFinish={handleOk} layout="vertical">
-                <Form.Item name="note" label={t('entityDropdown.reason')} rules={[{ whitespace: true }, { min: 0, max: 1000 }]}>
+                <Form.Item
+                    name="note"
+                    label={t('entityDropdown.reason')}
+                    rules={[{ whitespace: true }, { min: 0, max: 1000 }]}
+                >
                     <TextArea placeholder={t('entityDropdown.addReason')} autoFocus rows={4} />
                 </Form.Item>
                 <Form.Item name="decommissionTime" label={t('entityDropdown.decommissionDate')} initialValue={dayjs()}>

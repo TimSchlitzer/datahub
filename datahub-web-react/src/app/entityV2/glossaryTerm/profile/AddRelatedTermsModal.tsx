@@ -63,7 +63,10 @@ function AddRelatedTermsModal(props: Props) {
         })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `${t('entity.glossaryTerm.relatedTerms.messages.failed', { error: e.message || '' })}`, duration: 3 });
+                message.error({
+                    content: `${t('entity.glossaryTerm.relatedTerms.messages.failed', { error: e.message || '' })}`,
+                    duration: 3,
+                });
             })
             .finally(() => {
                 message.loading({ content: t('entity.glossaryTerm.relatedTerms.messages.adding'), duration: 2 });

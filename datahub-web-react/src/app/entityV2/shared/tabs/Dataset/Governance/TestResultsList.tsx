@@ -116,7 +116,12 @@ export const TestResultsList = ({ title, results }: Props) => {
                 dataSource={resultsTableData}
                 rowKey="urn"
                 locale={{
-                    emptyText: <Empty description={t('entity.governance.testResults.noTests')} image={Empty.PRESENTED_IMAGE_SIMPLE} />,
+                    emptyText: (
+                        <Empty
+                            description={t('entity.governance.testResults.noTests')}
+                            image={Empty.PRESENTED_IMAGE_SIMPLE}
+                        />
+                    ),
                 }}
                 showHeader={false}
                 pagination={false}

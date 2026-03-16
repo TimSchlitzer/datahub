@@ -167,7 +167,11 @@ export const ViewsList = ({ viewType = DataHubViewType.Personal }: Props) => {
             <ViewsContainer>
                 <StyledTabToolbar>
                     <SearchContainer>
-                        <StyledSearchBar placeholder={t('entity.view.searchViews')} onChange={setQuery} value={query || ''} />
+                        <StyledSearchBar
+                            placeholder={t('entity.view.searchViews')}
+                            onChange={setQuery}
+                            value={query || ''}
+                        />
                     </SearchContainer>
                 </StyledTabToolbar>
                 <TableContainer>

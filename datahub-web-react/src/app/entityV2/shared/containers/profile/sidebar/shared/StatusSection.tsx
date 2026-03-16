@@ -104,8 +104,15 @@ const StatusSection = () => {
                     {!!created && <TimeProperty labelText={t('entity.shared.sidebar.created')} time={created} />}
                     {(entityType === EntityType.Dashboard || entityType === EntityType.Chart) && (
                         <>
-                            {!!lastModified && <TimeProperty labelText={t('entity.shared.sidebar.lastModified')} time={lastModified} />}
-                            {!!lastRefreshed && <TimeProperty labelText={t('entity.shared.sidebar.dataLastRefreshed')} time={lastRefreshed} />}
+                            {!!lastModified && (
+                                <TimeProperty labelText={t('entity.shared.sidebar.lastModified')} time={lastModified} />
+                            )}
+                            {!!lastRefreshed && (
+                                <TimeProperty
+                                    labelText={t('entity.shared.sidebar.dataLastRefreshed')}
+                                    time={lastRefreshed}
+                                />
+                            )}
                         </>
                     )}
                     {!!lastUpdated && entityType === EntityType.Dataset && (

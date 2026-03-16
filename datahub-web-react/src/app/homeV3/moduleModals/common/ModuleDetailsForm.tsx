@@ -28,7 +28,12 @@ const ModuleDetailsForm = ({ form, formValues }: Props) => {
                     },
                 ]}
             >
-                <Input label={t('homeV3.common.name')} placeholder={t('homeV3.common.chooseName')} isRequired data-testid="module-name" />
+                <Input
+                    label={t('homeV3.common.name')}
+                    placeholder={t('homeV3.common.chooseName')}
+                    isRequired
+                    data-testid="module-name"
+                />
             </NameInput>
             {/* Should be used later, once support for description is added  */}
             {/* <Form.Item name="description">

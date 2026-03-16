@@ -1,5 +1,6 @@
 import { Modal, message } from 'antd';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import analytics, { EventType } from '@app/analytics';
 import { useHandleDeleteDomain } from '@app/entityV2/shared/EntityDropdown/useHandleDeleteDomain';
@@ -28,6 +29,7 @@ function useDeleteEntity(
     hideMessage?: boolean,
     skipWait?: boolean,
 ) {
+    const { t } = useTranslation();
     const { reloadByKeyType } = useReloadableContext();
     const [hasBeenDeleted, setHasBeenDeleted] = useState(false);
     const entityRegistry = useEntityRegistry();
@@ -46,7 +48,7 @@ function useDeleteEntity(
                 });
                 if (!hideMessage && !skipWait) {
                     message.loading({
-                        content: 'Deleting...',
+                        content: t('entityDropdown.deletingEllipsis'),
                         duration: 2,
                     });
                 }
@@ -69,7 +71,7 @@ function useDeleteEntity(
                         }
                         if (!hideMessage) {
                             message.success({
-                                content: `Deleted ${entityRegistry.getEntityName(type)}!`,
+                                content: t('entityDropdown.deleted', { type: entityRegistry.getEntityName(type) }),
                                 duration: 2,
                             });
                         }
@@ -122,7 +124,7 @@ function useDeleteEntity(
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to delete: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: t('entityDropdown.failedDelete', { error: e.message || '' }), duration: 3 });
             });
     }
 

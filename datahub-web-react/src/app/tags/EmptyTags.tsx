@@ -33,11 +33,7 @@ const EmptyTags = ({ isEmptySearch }: Props) => {
                             {isEmptySearch ? t('tags.noTagsSearched') : t('tags.noTags')}
                         </Typography.Text>
                         <div>
-                            {!isEmptySearch && (
-                                <Typography.Paragraph>
-                                    {t('tags.tagsDescription')}
-                                </Typography.Paragraph>
-                            )}
+                            {!isEmptySearch && <Typography.Paragraph>{t('tags.tagsDescription')}</Typography.Paragraph>}
                         </div>
                     </>
                 }

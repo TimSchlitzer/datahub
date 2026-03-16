@@ -85,7 +85,9 @@ function MoveGlossaryEntityModal({ onClose, urn, entityData, entityType }: Props
     return (
         <Modal
             data-testid="move-glossary-entity-modal"
-            title={t(entityType === EntityType.GlossaryNode ? 'entityDropdown.moveTermGroup' : 'entityDropdown.moveTerm')}
+            title={t(
+                entityType === EntityType.GlossaryNode ? 'entityDropdown.moveTermGroup' : 'entityDropdown.moveTerm',
+            )}
             open
             onCancel={onClose}
             buttons={[

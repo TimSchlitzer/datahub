@@ -48,7 +48,9 @@ export const DashboardStatsSummary = ({
     const { t } = useTranslation();
     // acryl-main only.
     const effectiveViewCount = (!!viewCountLast30Days && viewCountLast30Days) || viewCount;
-    const effectiveViewCountText = (!!viewCountLast30Days && t('entity.dashboard.statsSummary.viewsLastMonth')) || t('entity.dashboard.statsSummary.views');
+    const effectiveViewCountText =
+        (!!viewCountLast30Days && t('entity.dashboard.statsSummary.viewsLastMonth')) ||
+        t('entity.dashboard.statsSummary.views');
 
     const statsViews = [
         (!!chartCount && (
@@ -71,7 +73,9 @@ export const DashboardStatsSummary = ({
                     <Typography.Text type="secondary">
                         <PercentileLabel
                             percentile={viewCountPercentileLast30Days}
-                            description={t('entity.dashboard.statsSummary.moreViewsOften', { percentile: viewCountPercentileLast30Days })}
+                            description={t('entity.dashboard.statsSummary.moreViewsOften', {
+                                percentile: viewCountPercentileLast30Days,
+                            })}
                         />
                     </Typography.Text>
                 )}
@@ -86,7 +90,9 @@ export const DashboardStatsSummary = ({
                     <Typography.Text type="secondary">
                         <PercentileLabel
                             percentile={uniqueUserPercentileLast30Days}
-                            description={t('entity.dashboard.statsSummary.moreUsersThan', { percentile: uniqueUserPercentileLast30Days })}
+                            description={t('entity.dashboard.statsSummary.moreUsersThan', {
+                                percentile: uniqueUserPercentileLast30Days,
+                            })}
                         />
                     </Typography.Text>
                 )}
@@ -97,9 +103,17 @@ export const DashboardStatsSummary = ({
             <Popover
                 content={
                     <>
-                        {createdMs && <div>{t('entity.dashboard.statsSummary.createdOn', { date: toLocalDateTimeString(createdMs) })}</div>}
+                        {createdMs && (
+                            <div>
+                                {t('entity.dashboard.statsSummary.createdOn', {
+                                    date: toLocalDateTimeString(createdMs),
+                                })}
+                            </div>
+                        )}
                         <div>
-                            {t('entity.dashboard.statsSummary.changedOn', { date: toLocalDateTimeString(lastUpdatedMs) })}{' '}
+                            {t('entity.dashboard.statsSummary.changedOn', {
+                                date: toLocalDateTimeString(lastUpdatedMs),
+                            })}{' '}
                             <Tooltip title={t('entity.dashboard.statsSummary.lastChangedTooltip')}>
                                 <HelpIcon />
                             </Tooltip>

@@ -2,9 +2,9 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Input, Text } from '@components';
 import { Spin } from 'antd';
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { usePrevious } from 'react-js-cron/dist/cjs/utils';
 import { useDebounce } from 'react-use';
-import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { DBT_URN } from '@app/ingest/source/builder/constants';
@@ -115,7 +115,9 @@ export default function LineageFilterSearch({ data, numMatches, setNumMatches }:
                 <LoadingWrapper>{loading && <Spin indicator={<LoadingOutlined />} />}</LoadingWrapper>
             </SearchLine>
             <SearchMatchesText type="div" size="xs" color="gray">
-                {searchQuery.length >= 3 && (!loading || !!numMatches) && t('lineage.searchMatches', { count: numMatches })}
+                {searchQuery.length >= 3 &&
+                    (!loading || !!numMatches) &&
+                    t('lineage.searchMatches', { count: numMatches })}
             </SearchMatchesText>
         </>
     );

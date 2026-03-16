@@ -87,10 +87,8 @@ const SchemaSearchInput: React.FC<SchemaSearchProps> = ({
             </Popover>
             {searchInput.length > 0 && (
                 <MatchLabelText>
-                    {t('entity.dataset.schemaSearch.matched')} {matches.length} {pluralize(
-                        matches.length,
-                        t('entity.dataset.schemaSearch.column'),
-                    )}{' '}
+                    {t('entity.dataset.schemaSearch.matched')} {matches.length}{' '}
+                    {pluralize(matches.length, t('entity.dataset.schemaSearch.column'))}{' '}
                     {t('entity.dataset.schemaSearch.of')} {numRows}
                 </MatchLabelText>
             )}

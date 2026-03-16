@@ -2,9 +2,9 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { Modal } from '@components';
 import { Empty, Select, Tag, message } from 'antd';
 import React, { useRef, useState } from 'react';
-import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+import styled, { useTheme } from 'styled-components';
 
-import { ANTD_GRAY } from '@app/entityV2/shared/constants';
 import { OwnerLabel } from '@app/shared/OwnerLabel';
 import { useGetRecommendations } from '@app/shared/recommendation';
 import { addUserFiltersToSearchInput } from '@app/shared/userSearchUtils';
@@ -40,11 +40,13 @@ const LoadingWrapper = styled.div`
     svg {
         height: 15px;
         width: 15px;
-        color: ${ANTD_GRAY[8]};
+        color: ${(props) => props.theme.colors.textSecondary};
     }
 `;
 
 export const AddGroupMembersModal = ({ urn, visible, onCloseModal, onSubmit }: Props) => {
+    const { t } = useTranslation();
+    const theme = useTheme();
     const entityRegistry = useEntityRegistry();
     const [selectedMembers, setSelectedMembers] = useState<any[]>([]);
     const [inputValue, setInputValue] = useState('');
@@ -136,11 +138,11 @@ export const AddGroupMembersModal = ({ urn, visible, onCloseModal, onSubmit }: P
                     userUrns: selectedMemberUrns,
                 },
             });
-            message.success({ content: 'Group members added!', duration: 3 });
+            message.success({ content: t('group.membersAdded'), duration: 3 });
         } catch (e: unknown) {
             message.destroy();
             if (e instanceof Error) {
-                message.error({ content: `Failed to group members: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: `${t('group.membersAddError')} \n ${e.message || ''}`, duration: 3 });
             }
         } finally {
             onSubmit();
@@ -154,17 +156,17 @@ export const AddGroupMembersModal = ({ urn, visible, onCloseModal, onSubmit }: P
 
     return (
         <Modal
-            title="Add group members"
+            title={t('group.addGroupMembers')}
             open={visible}
             onCancel={onModalClose}
             buttons={[
                 {
-                    text: 'Cancel',
+                    text: t('common.cancel'),
                     variant: 'text',
                     onClick: onModalClose,
                 },
                 {
-                    text: 'Add',
+                    text: t('common.add'),
                     onClick: onAdd,
                     variant: 'filled',
                     disabled: selectedMembers.length === 0,
@@ -180,7 +182,7 @@ export const AddGroupMembersModal = ({ urn, visible, onCloseModal, onSubmit }: P
                 defaultOpen
                 mode="multiple"
                 ref={inputEl}
-                placeholder="Search for users..."
+                placeholder={t('group.searchForUsers')}
                 showSearch
                 filterOption={false}
                 defaultActiveFirstOption={false}
@@ -199,9 +201,9 @@ export const AddGroupMembersModal = ({ urn, visible, onCloseModal, onSubmit }: P
                 notFoundContent={
                     !loading ? (
                         <Empty
-                            description="No Users Found"
+                            description={t('group.noUsersFound')}
                             image={Empty.PRESENTED_IMAGE_SIMPLE}
-                            style={{ color: ANTD_GRAY[7] }}
+                            style={{ color: theme.colors.textSecondary }}
                         />
                     ) : null
                 }

@@ -160,9 +160,7 @@ export default function SelectServiceAccountModal({ visible, onClose, onSelectSe
             }
         >
             <ModalContent>
-                <DescriptionText size="sm">
-                    {t('settings.selectServiceAccountDescription')}
-                </DescriptionText>
+                <DescriptionText size="sm">{t('settings.selectServiceAccountDescription')}</DescriptionText>
                 <Input
                     label=""
                     placeholder={t('settings.searchServiceAccounts')}
@@ -177,10 +175,7 @@ export default function SelectServiceAccountModal({ visible, onClose, onSelectSe
                     </LoadingContainer>
                 )}
                 {!loading && serviceAccounts.length === 0 && !debouncedSearchText && (
-                    <Empty
-                        description={t('settings.noServiceAccountsFound')}
-                        image={Empty.PRESENTED_IMAGE_SIMPLE}
-                    />
+                    <Empty description={t('settings.noServiceAccountsFound')} image={Empty.PRESENTED_IMAGE_SIMPLE} />
                 )}
                 {!loading && serviceAccounts.length === 0 && debouncedSearchText && (
                     <Empty

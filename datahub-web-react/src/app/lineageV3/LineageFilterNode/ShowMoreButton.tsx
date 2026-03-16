@@ -103,9 +103,7 @@ export function ShowMoreButton({ data, numMatches }: Props) {
                     onClick={() => setPagination(Math.min(limit + LINEAGE_FILTER_PAGINATION, maximum))}
                 >
                     <Text>
-                        {limit + LINEAGE_FILTER_PAGINATION >= maximum
-                            ? t('lineage.showAll')
-                            : t('lineage.showMore')}
+                        {limit + LINEAGE_FILTER_PAGINATION >= maximum ? t('lineage.showAll') : t('lineage.showMore')}
                     </Text>
                     <KeyboardDoubleArrowDownIcon fontSize="inherit" />
                 </Button>,

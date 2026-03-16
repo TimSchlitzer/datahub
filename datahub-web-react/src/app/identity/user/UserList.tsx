@@ -2,8 +2,8 @@ import { UsergroupAddOutlined } from '@ant-design/icons';
 import { Button, Empty, List, Pagination } from 'antd';
 import * as QueryString from 'query-string';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router';
 import styled from 'styled-components/macro';
 
 import { useUserContext } from '@app/context/useUserContext';

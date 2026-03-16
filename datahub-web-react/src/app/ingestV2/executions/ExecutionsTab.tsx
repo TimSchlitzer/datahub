@@ -115,9 +115,7 @@ export const ExecutionsTab = ({
 
     return (
         <>
-            {error && (
-                <Message type="error" content={t('ingest.failedToLoadExecutionRequests')} />
-            )}
+            {error && <Message type="error" content={t('ingest.failedToLoadExecutionRequests')} />}
             <>
                 <SourceContainer>
                     <HeaderContainer>

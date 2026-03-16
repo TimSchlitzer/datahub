@@ -156,8 +156,10 @@ export default function ManageLineageModal({ node, direction, closeModal, refetc
         <ClickOutside onClickOutside={onCancelSelect} wrapperClassName="search-select-modal">
             <StyledModal
                 title={t(
-                    direction === LineageDirection.Upstream ? 'lineage.selectTheUpstreamsToAdd' : 'lineage.selectTheDownstreamsToAdd',
-                    { entity: node.entity?.name }
+                    direction === LineageDirection.Upstream
+                        ? 'lineage.selectTheUpstreamsToAdd'
+                        : 'lineage.selectTheDownstreamsToAdd',
+                    { entity: node.entity?.name },
                 )}
                 width={MODAL_WIDTH_PX}
                 open
@@ -172,14 +174,19 @@ export default function ManageLineageModal({ node, direction, closeModal, refetc
                         key: 'cancel',
                     },
                     {
-                        text: isSaving ? t('lineage.savingChanges') : t(
-                            direction === LineageDirection.Upstream ? 'lineage.setUpstreams' : 'lineage.setDownstreams'
-                        ),
+                        text: isSaving
+                            ? t('lineage.savingChanges')
+                            : t(
+                                  direction === LineageDirection.Upstream
+                                      ? 'lineage.setUpstreams'
+                                      : 'lineage.setDownstreams',
+                              ),
                         onClick: saveLineageChanges,
                         disabled: (entitiesToAdd.length === 0 && entitiesToRemove.length === 0) || isSaving,
                         key: 'save',
                     },
-                ]}>
+                ]}
+            >
                 <ModalContentContainer>
                     <SearchSection>
                         <SectionHeader>{t('lineage.searchAndAdd')}</SectionHeader>
@@ -196,7 +203,7 @@ export default function ManageLineageModal({ node, direction, closeModal, refetc
                             {t(
                                 direction === LineageDirection.Upstream
                                     ? 'lineage.currentUpstreams'
-                                    : 'lineage.currentDownstreams'
+                                    : 'lineage.currentDownstreams',
                             )}
                         </SectionHeader>
                         <ScrollableContent>

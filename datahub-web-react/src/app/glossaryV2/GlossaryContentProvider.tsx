@@ -60,10 +60,7 @@ const GlossaryContentProvider = (props: Props) => {
     return (
         <MainContentWrapper data-testid="glossary-entities-list">
             <HeaderWrapper data-testid="glossaryPageV2">
-                <PageTitle
-                    title={t('glossary.businessGlossary')}
-                    subTitle={t('glossary.businessGlossarySubtitle')}
-                />
+                <PageTitle title={t('glossary.businessGlossary')} subTitle={t('glossary.businessGlossarySubtitle')} />
                 <ButtonContainer>
                     <Button
                         data-testid="add-term-group-button-v2"

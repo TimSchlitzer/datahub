@@ -95,7 +95,9 @@ const DisplayPreferences = ({
                                 checked={formValues?.settings?.showInSearchFilters}
                                 onChange={(e) => handleDisplaySettingChange('showInSearchFilters', e.target.checked)}
                                 isDisabled={formValues?.settings?.isHidden}
-                                labelHoverText={t('govern.structuredProperties.displayPreferences.showInSearchFiltersTooltip')}
+                                labelHoverText={t(
+                                    'govern.structuredProperties.displayPreferences.showInSearchFiltersTooltip',
+                                )}
                             />
                         </StyledFormItem>
                         <CompoundedItemWrapper>
@@ -106,7 +108,9 @@ const DisplayPreferences = ({
                                     checked={formValues?.settings?.showInAssetSummary}
                                     onChange={(e) => handleDisplaySettingChange('showInAssetSummary', e.target.checked)}
                                     isDisabled={formValues?.settings?.isHidden}
-                                    labelHoverText={t('govern.structuredProperties.displayPreferences.showInAssetSidebarTooltip')}
+                                    labelHoverText={t(
+                                        'govern.structuredProperties.displayPreferences.showInAssetSidebarTooltip',
+                                    )}
                                     data-testid="structured-props-show-in-asset-summary-switch"
                                 />
                             </StyledFormItem>
@@ -116,7 +120,9 @@ const DisplayPreferences = ({
                                         <Checkbox
                                             label={t('govern.structuredProperties.displayPreferences.hideWhenEmpty')}
                                             isChecked={formValues?.settings?.hideInAssetSummaryWhenEmpty}
-                                            labelTooltip={t('govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip')}
+                                            labelTooltip={t(
+                                                'govern.structuredProperties.displayPreferences.hideWhenEmptyTooltip',
+                                            )}
                                             size="sm"
                                             gap="2px"
                                             onCheckboxChange={(isChecked) =>
@@ -144,8 +150,12 @@ const DisplayPreferences = ({
                                     (formValues?.settings?.isHidden ||
                                         !canBeAssetBadge(selectedValueType, allowedValues))
                                 }
-                                labelHoverText={t('govern.structuredProperties.displayPreferences.showAsAssetBadgeTooltip')}
-                                disabledHoverText={t('govern.structuredProperties.displayPreferences.showAsAssetBadgeDisabledTooltip')}
+                                labelHoverText={t(
+                                    'govern.structuredProperties.displayPreferences.showAsAssetBadgeTooltip',
+                                )}
+                                disabledHoverText={t(
+                                    'govern.structuredProperties.displayPreferences.showAsAssetBadgeDisabledTooltip',
+                                )}
                             />
                         </StyledFormItem>
                         <StyledFormItem name={['settings', 'showInColumnsTable']}>
@@ -157,8 +167,12 @@ const DisplayPreferences = ({
                                 isDisabled={
                                     !showInColumnsTable && (formValues?.settings?.isHidden || !hasColumnEntityType)
                                 }
-                                labelHoverText={t('govern.structuredProperties.displayPreferences.showInColumnsTableTooltip')}
-                                disabledHoverText={t('govern.structuredProperties.displayPreferences.showInColumnsTableDisabledTooltip')}
+                                labelHoverText={t(
+                                    'govern.structuredProperties.displayPreferences.showInColumnsTableTooltip',
+                                )}
+                                disabledHoverText={t(
+                                    'govern.structuredProperties.displayPreferences.showInColumnsTableDisabledTooltip',
+                                )}
                                 data-testid="structured-props-show-in-columns-table-switch"
                             />
                         </StyledFormItem>
@@ -174,7 +188,9 @@ const DisplayPreferences = ({
                         setShowReplaceBadge(false);
                         updateBadgePropertyToOff();
                     }}
-                    confirmButtonText={t('govern.structuredProperties.displayPreferences.updatePropertyModal.confirmButtonText')}
+                    confirmButtonText={t(
+                        'govern.structuredProperties.displayPreferences.updatePropertyModal.confirmButtonText',
+                    )}
                     modalTitle={t('govern.structuredProperties.displayPreferences.updatePropertyModal.title')}
                     modalText={
                         <p>

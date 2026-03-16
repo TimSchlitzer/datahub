@@ -1,6 +1,7 @@
 import { MoreOutlined, UserAddOutlined, UserDeleteOutlined } from '@ant-design/icons';
 import { Button, Col, Dropdown, Empty, MenuProps, Pagination, Row, Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -94,6 +95,7 @@ type Props = {
 };
 
 export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeMembers }: Props) {
+    const { t } = useTranslation();
     const entityRegistry = useEntityRegistry();
 
     const [page, setPage] = useState(1);
@@ -121,7 +123,7 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
         })
             .then(({ errors }) => {
                 if (!errors) {
-                    message.success({ content: 'Removed Group Member!', duration: 2 });
+                    message.success({ content: t('group.removedMember'), duration: 2 });
                     // Hack to deal with eventual consistency
                     setTimeout(() => {
                         // Reload the page.
@@ -132,7 +134,7 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
             })
             .catch((e) => {
                 message.destroy();
-                message.error({ content: `Failed to remove group member: \n ${e.message || ''}`, duration: 3 });
+                message.error({ content: `${t('group.removeError')} \n ${e.message || ''}`, duration: 3 });
             });
     };
 
@@ -158,7 +160,7 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
                 disabled: true,
                 label: (
                     <span>
-                        <UserAddOutlined /> Make owner
+                        <UserAddOutlined /> {t('group.makeOwner')}
                     </span>
                 ),
             },
@@ -168,7 +170,7 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
                 onClick: () => setMemberToRemove(urnID),
                 label: (
                     <span>
-                        <UserDeleteOutlined /> Remove from Group
+                        <UserDeleteOutlined /> {t('group.removeFromGroup')}
                     </span>
                 ),
             },
@@ -185,11 +187,11 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
                     data-testid="add-group-member-button"
                 >
                     <UserAddOutlined />
-                    <AddMemberText>Add Member</AddMemberText>
+                    <AddMemberText>{t('group.addMember')}</AddMemberText>
                 </AddMember>
             </Row>
             <GroupMemberWrapper>
-                {groupMembers.length === 0 && <NoGroupMembers description="No members in this group yet." />}
+                {groupMembers.length === 0 && <NoGroupMembers description={t('group.noMemberInGroup')} />}
                 {groupMembers
                     ? groupMembers.map((item) => {
                           const entityUrn = entityRegistry.getEntityUrl(EntityType.CorpUser, item.urn);
@@ -243,8 +245,8 @@ export default function GroupMembers({ urn, pageSize, isExternalGroup, onChangeM
                 isOpen={!!memberToRemove}
                 handleClose={() => setMemberToRemove(null)}
                 handleConfirm={() => removeGroupMember(memberToRemove as string)}
-                modalTitle="Confirm Group Member Removal"
-                modalText="Are you sure you want to remove this user from the group?"
+                modalTitle={t('group.removeConfirmTitle')}
+                modalText={t('group.removeConfirmContent')}
             />
         </>
     );

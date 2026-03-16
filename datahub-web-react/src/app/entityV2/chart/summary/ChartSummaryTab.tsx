@@ -46,9 +46,18 @@ export default function ChartSummaryTab(): JSX.Element | null {
                         <StyledDivider />
 
                         <SummaryColumns>
-                            {measureFields?.length && <FieldTableByTag title={t('entity.chart.summary.measures')} fields={measureFields} />}
-                            {dimensionFields?.length && <FieldTableByTag title={t('entity.chart.summary.dimensions')} fields={dimensionFields} />}
-                            {temporalFields?.length && <FieldTableByTag title={t('entity.chart.summary.temporals')} fields={temporalFields} />}
+                            {measureFields?.length && (
+                                <FieldTableByTag title={t('entity.chart.summary.measures')} fields={measureFields} />
+                            )}
+                            {dimensionFields?.length && (
+                                <FieldTableByTag
+                                    title={t('entity.chart.summary.dimensions')}
+                                    fields={dimensionFields}
+                                />
+                            )}
+                            {temporalFields?.length && (
+                                <FieldTableByTag title={t('entity.chart.summary.temporals')} fields={temporalFields} />
+                            )}
                         </SummaryColumns>
                     </>
                 )}
