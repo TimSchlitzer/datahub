@@ -4217,6 +4217,18 @@
       "searchUsersPlaceholder": "Benutzer suchen...",
       "setUserRole": "Benutzerrolle festlegen",
       "shareInviteLink": "Einladungslink teilen"
+    },
+    "resetToken": {
+      "modalTitle": "Reset User Password",
+      "shareLink": "Share reset link",
+      "shareLinkDesc": "Share this reset link to reset the credentials for {{username}}.",
+      "expiresIn24Hours": "This link will expire in 24 hours.",
+      "generateNew": "A new link must be generated",
+      "generateNewDesc": "You cannot view any old reset links. Please generate a new one below.",
+      "generateNewLink": "Generate a new link",
+      "generateNewLinkDesc": "Generate a new reset link! Note, any old links will cease to be active.",
+      "generated": "Generated new link to reset credentials",
+      "failedToCreate": "Failed to create new link to reset credentials : \n {{error}}"
     }
   },
   "recommendations": {
