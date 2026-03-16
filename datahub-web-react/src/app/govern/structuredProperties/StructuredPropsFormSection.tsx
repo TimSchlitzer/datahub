@@ -1,5 +1,6 @@
 import { Form, FormInstance } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import AllowedValuesField from '@app/govern/structuredProperties/AllowedValuesField';
 import RequiredAsterisk from '@app/govern/structuredProperties/RequiredAsterisk';
@@ -47,6 +48,7 @@ const StructuredPropsFormSection = ({
     valueField,
     setShowAllowedValuesDrawer,
 }: Props) => {
+    const { t } = useTranslation();
     const {
         handleSelectChange,
         handleSelectUpdateChange,
@@ -75,9 +77,9 @@ const StructuredPropsFormSection = ({
                 <RowContainer>
                     <FieldLabel>
                         <FlexContainer>
-                            Allowed Entity Types
+                            {t('govern.structuredProperties.formSection.allowedEntityTypes')}
                             <Tooltip
-                                title="Choose the types of entities that are allowed as values for this property"
+                                title={t('govern.structuredProperties.formSection.allowedEntityTypesTooltip')}
                                 showArrow={false}
                             >
                                 <Icon icon="Info" color="violet" size="lg" />
@@ -87,10 +89,10 @@ const StructuredPropsFormSection = ({
                             <SubTextContainer>
                                 <Text size="sm" weight="medium">
                                     <Tooltip
-                                        title="Once a property is created, entity types cannot be removed"
+                                        title={t('govern.structuredProperties.formSection.allowedEntityTypesAddOnlyTooltip')}
                                         showArrow={false}
                                     >
-                                        (Add-only)
+                                        {t('govern.structuredProperties.formSection.allowedEntityTypesAddOnly')}
                                     </Tooltip>
                                 </Text>
                             </SubTextContainer>
@@ -99,7 +101,7 @@ const StructuredPropsFormSection = ({
                     <Tooltip
                         title={
                             !formValues?.typeQualifier?.allowedTypes?.length &&
-                            'Any entity type will be accepted as a value'
+                            t('govern.structuredProperties.formSection.allowedEntityTypesAnyWarning')
                         }
                         showArrow={false}
                     >
@@ -111,7 +113,7 @@ const StructuredPropsFormSection = ({
                                         ? handleSelectUpdateChange(['typeQualifier', 'allowedTypes'], values)
                                         : handleSelectChange(['typeQualifier', 'allowedTypes'], values)
                                 }
-                                placeholder="Any"
+                                placeholder={t('govern.structuredProperties.formSection.appliesToPlaceholder')}
                                 isMultiSelect
                                 values={formValues?.typeQualifier?.allowedTypes}
                                 disabledValues={disabledTypeQualifierValues}
@@ -125,10 +127,10 @@ const StructuredPropsFormSection = ({
             <RowContainer>
                 <FieldLabel>
                     <FlexContainer>
-                        Applies to
+                        {t('govern.structuredProperties.formSection.appliesToLabel')}
                         <RequiredAsterisk />
                         <Tooltip
-                            title="Select the types of entities that this property can be added to"
+                            title={t('govern.structuredProperties.formSection.appliesToTooltip')}
                             showArrow={false}
                         >
                             <Icon icon="Info" color="violet" size="lg" />
@@ -138,10 +140,10 @@ const StructuredPropsFormSection = ({
                         <SubTextContainer>
                             <Text size="sm" weight="medium">
                                 <Tooltip
-                                    title="Once a property is created entity types cannot be removed"
+                                    title={t('govern.structuredProperties.formSection.appliesToAddOnlyTooltip')}
                                     showArrow={false}
                                 >
-                                    (Add-only)
+                                    {t('govern.structuredProperties.formSection.appliesToAddOnly')}
                                 </Tooltip>
                             </Text>
                         </SubTextContainer>
@@ -153,7 +155,7 @@ const StructuredPropsFormSection = ({
                     rules={[
                         {
                             required: true,
-                            message: 'Please select asset types this applies to',
+                            message: t('govern.structuredProperties.formSection.appliesToRequired'),
                         },
                     ]}
                 >
@@ -164,13 +166,13 @@ const StructuredPropsFormSection = ({
                                 ? handleSelectUpdateChange('entityTypes', values)
                                 : handleSelectChange('entityTypes', values)
                         }
-                        placeholder="Select Entity Types"
+                        placeholder={t('govern.structuredProperties.formSection.appliesToPlaceholder')}
                         isMultiSelect
                         values={formValues?.entityTypes ? formValues?.entityTypes : undefined}
                         disabledValues={disabledEntityTypeValues}
                         width="full"
                         showSelectAll
-                        selectAllLabel="All Asset Types"
+                        selectAllLabel={t('govern.structuredProperties.formSection.appliesToSelectAllLabel')}
                         data-testid="structured-props-select-input-applies-to"
                         optionListTestId="applies-to-options-list"
                     />

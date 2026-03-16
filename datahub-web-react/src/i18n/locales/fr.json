@@ -1213,7 +1213,8 @@
       "summary": {
         "contents": {
           "title": "Assets",
-          "viewAll": "View all"
+          "viewAll": "View all",
+          "filterPlaceholder": "Filter domain entities..."
         },
         "dataProducts": {
           "title": "Data Products",

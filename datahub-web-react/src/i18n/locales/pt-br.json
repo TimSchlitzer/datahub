@@ -1213,7 +1213,8 @@
       "summary": {
         "contents": {
           "title": "Ativos",
-          "viewAll": "Ver tudo"
+          "viewAll": "Ver tudo",
+          "filterPlaceholder": "Filter domain entities..."
         },
         "dataProducts": {
           "title": "Produtos de Dados",

@@ -1213,7 +1213,8 @@
       "summary": {
         "contents": {
           "title": "Vermögenswerte",
-          "viewAll": "Alle anzeigen"
+          "viewAll": "Alle anzeigen",
+          "filterPlaceholder": "Filter domain entities..."
         },
         "dataProducts": {
           "title": "Datenprodukte",

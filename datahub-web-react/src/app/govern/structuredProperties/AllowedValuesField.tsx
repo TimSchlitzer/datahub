@@ -1,5 +1,6 @@
 import { Icon, Text, Tooltip } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     FieldLabel,
@@ -23,15 +24,17 @@ interface Props {
 }
 
 const AllowedValuesField = ({ selectedValueType, allowedValues, valueField, setShowAllowedValuesDrawer }: Props) => {
+    const { t } = useTranslation();
+
     return (
         <>
             {isStringOrNumberTypeSelected(selectedValueType) && (
                 <RowContainer>
                     <FieldLabel>
                         <FlexContainer>
-                            Allowed Values
+                            {t('govern.structuredProperties.allowedValuesField.label')}
                             <Tooltip
-                                title="Define the set of valid values for this property. If none are provided, any value will be allowed"
+                                title={t('govern.structuredProperties.allowedValuesField.tooltip')}
                                 showArrow={false}
                             >
                                 <Icon icon="Info" color="violet" size="lg" />
@@ -51,7 +54,7 @@ const AllowedValuesField = ({ selectedValueType, allowedValues, valueField, setS
                                     );
                                 })}
                             </ValuesList>
-                            <Tooltip title="Update allowed values" showArrow={false}>
+                            <Tooltip title={t('govern.structuredProperties.allowedValuesField.updateTooltip')} showArrow={false}>
                                 <StyledIcon
                                     icon="ChevronRight"
                                     color="gray"
@@ -61,10 +64,14 @@ const AllowedValuesField = ({ selectedValueType, allowedValues, valueField, setS
                         </ItemsContainer>
                     ) : (
                         <ValueListContainer>
-                            Any
-                            <ValueType>{valueField === 'stringValue' ? 'text' : 'number'} </ValueType>
-                            value will be allowed
-                            <Tooltip title="Update allowed values" showArrow={false}>
+                            {t('govern.structuredProperties.allowedValuesField.anyValueText')}
+                            <ValueType>
+                                {valueField === 'stringValue'
+                                    ? t('govern.structuredProperties.allowedValuesField.textType')
+                                    : t('govern.structuredProperties.allowedValuesField.numberType')}
+                            </ValueType>
+                            {t('govern.structuredProperties.allowedValuesField.valueWillBeAllowed')}
+                            <Tooltip title={t('govern.structuredProperties.allowedValuesField.updateTooltip')} showArrow={false}>
                                 <Icon icon="Add" color="gray" onClick={() => setShowAllowedValuesDrawer(true)} />
                             </Tooltip>
                         </ValueListContainer>

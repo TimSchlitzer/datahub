@@ -1,6 +1,7 @@
 import { Icon, Input, Text, Tooltip } from '@components';
 import { Collapse, Form } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
     CollapseHeader,
@@ -14,6 +15,8 @@ interface Props {
 }
 
 const AdvancedOptions = ({ isEditMode }: Props) => {
+    const { t } = useTranslation();
+
     return (
         <StyledCollapse
             ghost
@@ -28,7 +31,7 @@ const AdvancedOptions = ({ isEditMode }: Props) => {
                 header={
                     <CollapseHeader>
                         <Text weight="bold" color="gray">
-                            Advanced Options
+                            {t('govern.structuredProperties.advancedOptions.label')}
                         </Text>
                     </CollapseHeader>
                 }
@@ -36,9 +39,9 @@ const AdvancedOptions = ({ isEditMode }: Props) => {
             >
                 <InputLabel>
                     <FlexContainer>
-                        Qualified Name
+                        {t('govern.structuredProperties.advancedOptions.qualifiedName')}
                         <Tooltip
-                            title="Optionally provide a dot-separated fully qualified name for this property. This name serves as an ID, and must be unique across properties"
+                            title={t('govern.structuredProperties.advancedOptions.qualifiedNameTooltip')}
                             showArrow={false}
                         >
                             <Icon icon="Info" color="violet" size="lg" />
@@ -46,7 +49,7 @@ const AdvancedOptions = ({ isEditMode }: Props) => {
                     </FlexContainer>
                 </InputLabel>
                 <Tooltip
-                    title={isEditMode && 'Once a property is created, Qualified Name cannot be changed'}
+                    title={isEditMode && t('govern.structuredProperties.advancedOptions.qualifiedNameCannotChange')}
                     showArrow={false}
                 >
                     <Form.Item
@@ -55,11 +58,15 @@ const AdvancedOptions = ({ isEditMode }: Props) => {
                             {
                                 pattern: /^[^\s]*$/,
                                 whitespace: true,
-                                message: 'Qualified name cannot contain spaces',
+                                message: t('govern.structuredProperties.advancedOptions.qualifiedNameSpaceError'),
                             },
                         ]}
                     >
-                        <Input label="" placeholder="Optional - Qualified Name" isDisabled={isEditMode} />
+                        <Input
+                            label=""
+                            placeholder={t('govern.structuredProperties.advancedOptions.qualifiedNamePlaceholder')}
+                            isDisabled={isEditMode}
+                        />
                     </Form.Item>
                 </Tooltip>
             </Collapse.Panel>

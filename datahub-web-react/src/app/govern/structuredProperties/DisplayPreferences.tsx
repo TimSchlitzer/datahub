@@ -12,7 +12,7 @@ import {
     TogglesContainer,
 } from '@app/govern/structuredProperties/styledComponents';
 import { StructuredProp, canBeAssetBadge, getDisplayName } from '@app/govern/structuredProperties/utils';
-import { Checkbox, Icon, Pill, Switch, Text } from '@src/alchemy-components';
+import { Checkbox, Icon, Switch, Text } from '@src/alchemy-components';
 import { ConfirmationModal } from '@src/app/sharedV2/modals/ConfirmationModal';
 import { useUpdateStructuredPropertyMutation } from '@src/graphql/structuredProperties.generated';
 import { AllowedValue, StructuredPropertyEntity } from '@src/types.generated';
@@ -192,17 +192,9 @@ const DisplayPreferences = ({
                         'govern.structuredProperties.displayPreferences.updatePropertyModal.confirmButtonText',
                     )}
                     modalTitle={t('govern.structuredProperties.displayPreferences.updatePropertyModal.title')}
-                    modalText={
-                        <p>
-                            <span>Another property </span>
-                            <Pill label={getDisplayName(badgeProperty)} size="sm" color="violet" clickable={false} />
-                            &nbsp;is already being shown on asset previews, but only one property is allowed at a time.
-                            Do you want to replace the current property? This will hide {getDisplayName(
-                                badgeProperty,
-                            )}{' '}
-                            on all asset previews.
-                        </p>
-                    }
+                    modalText={t('govern.structuredProperties.displayPreferences.updatePropertyModal.content', {
+                        propertyName: getDisplayName(badgeProperty),
+                    })}
                 />
             )}
         </>
