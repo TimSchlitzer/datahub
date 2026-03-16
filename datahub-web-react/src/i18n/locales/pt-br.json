@@ -1,15 +1,4 @@
 {
-  "adminHeader": {
-    "analyticsText": "Análises",
-    "analyticsTitle": "Ver análises de uso do DataHub",
-    "domainsDescription": "Gerenciar grupos relacionados de ativos de dados",
-    "domainsText": "Domínios",
-    "glossaryDescription": "Visualizar e modificar seu dicionário de dados",
-    "glossaryText": "Glossário",
-    "ingestionText": "Ingestão",
-    "ingestionTitle": "Conectar o DataHub às fontes de dados da sua organização",
-    "settingsTitle": "Gerenciar as configurações do DataHub"
-  },
   "analytics": {
     "chartsFailedToLoad": "Falha ao carregar gráficos",
     "domainsFailedToLoad": "Falha ao carregar domínios",
@@ -150,35 +139,9 @@
     "loggingIn": "Fazendo login..."
   },
   "authentification": {
-    "acceptedInvite": "Convite aceito!",
-    "confirmPassword": "Confirmar Senha",
-    "copiedInviteLinkToClipboard": "Link de convite copiado para a área de transferência",
-    "copyInviteLink": "Copiar link de convite.",
-    "copyInviteLinkDescription": "Copie um link de convite para enviar aos seus usuários. Quando eles se juntarem, os usuários serão automaticamente atribuídos ao papel selecionado.",
-    "failedToAcceptInvite": "Falha ao aceitar convite",
     "failedToLogIn": "Falha ao entrar.",
-    "generatedNewInviteLink": "Novo link de convite gerado",
-    "generateNewInviteLinkError": "Falha ao criar Token de Convite para o papel {{roleName}}",
-    "generateNewLink": "Gerar um novo link",
-    "generateNewLinkDescription": "Gere um novo link de redefinição! Nota: qualquer link antigo deixará de ser ativo.",
-    "generateNewLinkTitle": "Gere um novo link. Qualquer link antigo não será mais válido.",
     "loggingIn": "Entrando",
-    "newLinkMustBeGenerated": "Um novo link deve ser gerado",
-    "newLinkMustBeGeneratedDescription": "Você não pode visualizar nenhum link de redefinição antigo. Por favor, gere um novo abaixo.",
-    "resetCredentialError": "Falha ao criar novo link para redefinir credenciais",
-    "resetCredentials": "Redefinir credenciais",
-    "resetCredentialSuccess": "Novo link para redefinir credenciais gerado",
-    "resettingCredentials": "Redefinindo credenciais",
-    "resetUserPassword": "Redefinir Senha do Usuário",
-    "shareInviteLink": "Compartilhar Link de Convite",
-    "shareResetLink": "Compartilhar link de redefinição",
-    "shareResetLinkDescription": "Compartilhe este link de redefinição para redefinir as credenciais de {{username}}. Este link expirará em 24 horas.",
-    "signIn": "Entrar",
-    "signingUp": "Inscrevendo-se",
     "signInWithSso": "Entrar com SSO",
-    "signOut": "Sair",
-    "signUp": "Inscrever-se",
-    "userHasLoggedIn": "O usuário entrou.",
     "welcomeTitle": "Bem-vindo ao DataHub",
     "username": "Nome de usuário",
     "password": "Senha",
@@ -186,10 +149,6 @@
     "usernameRequired": "Por favor, preencha seu nome de usuário",
     "passwordRequired": "Por favor, preencha sua senha",
     "login": "Entrar"
-  },
-  "chart": {
-    "lastChangedTimeInSource": "O tempo em que o gráfico foi alterado pela última vez na plataforma de origem",
-    "onAContainedChart": "em um Gráfico contido"
   },
   "common": {
     "clone": "Clonar",
@@ -1461,22 +1420,7 @@
     "failedToFindRendererCorrespondingToRenderType": "Falha ao encontrar o renderizador correspondente ao tipo de renderização {{name}}",
     "pageNotFound": "A página que você solicitou não foi encontrada",
     "sidebarFailedToLoad": "A barra lateral falhou ao carregar.",
-    "unsupportedTestResultType": "Tipo de Resultado de Teste {{result}} fornecido não suportado.",
-    "view": {
-      "onlyVisibleToYou": "Visível apenas para você",
-      "visibleToEveryone": "Visível para todos",
-      "public": "Público",
-      "private": "Privado",
-      "myViews": "Minhas Visualizações",
-      "publicViews": "Visualizações Públicas",
-      "title": "Visualizações",
-      "subTitle": "Criar, editar e remover suas Visualizações. As Visualizações permitem que você salve e compartilhe conjuntos de filtros para reutilização ao navegar no DataHub.",
-      "createView": "Criar Visualização",
-      "noViewsYet": "Nenhuma visualização ainda!",
-      "loadingViews": "Carregando Visualizações...",
-      "failedToLoadViews": "Falha ao carregar as Visualizações! Um erro inesperado ocorreu.",
-      "searchViews": "Procurar Visualizações..."
-    }
+    "unsupportedTestResultType": "Tipo de Resultado de Teste {{result}} fornecido não suportado."
   },
   "entityDropdown": {
     "copyUrl": "Copiar URL",

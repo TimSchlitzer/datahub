@@ -1,15 +1,4 @@
 {
-  "adminHeader": {
-    "analyticsText": "Analytics",
-    "analyticsTitle": "DataHub-Nutzungsanalysen anzeigen",
-    "domainsDescription": "Verwandte Gruppen von Daten-Assets verwalten",
-    "domainsText": "Domänen",
-    "glossaryDescription": "Ihr Datenwörterbuch anzeigen und bearbeiten",
-    "glossaryText": "Glossar",
-    "ingestionText": "Ingestion",
-    "ingestionTitle": "DataHub mit den Datenquellen Ihrer Organisation verbinden",
-    "settingsTitle": "Ihre DataHub-Einstellungen verwalten"
-  },
   "analytics": {
     "chartsFailedToLoad": "Diagramme konnten nicht geladen werden",
     "domainsFailedToLoad": "Domänen konnten nicht geladen werden",
@@ -150,35 +139,9 @@
     "loggingIn": "Anmeldung läuft..."
   },
   "authentification": {
-    "acceptedInvite": "Einladung angenommen!",
-    "confirmPassword": "Passwort bestätigen",
-    "copiedInviteLinkToClipboard": "Einladungslink in die Zwischenablage kopiert",
-    "copyInviteLink": "Einladungslink kopieren.",
-    "copyInviteLinkDescription": "Kopieren Sie einen Einladungslink, um ihn an Ihre Benutzer zu senden. Wenn diese beitreten, werden sie automatisch der ausgewählten Rolle zugewiesen.",
-    "failedToAcceptInvite": "Einladung konnte nicht angenommen werden",
     "failedToLogIn": "Anmeldung fehlgeschlagen.",
-    "generatedNewInviteLink": "Neuer Einladungslink erstellt",
-    "generateNewInviteLinkError": "Einladungs-Token für die Rolle {{roleName}} konnte nicht erstellt werden",
-    "generateNewLink": "Neuen Link generieren",
-    "generateNewLinkDescription": "Generieren Sie einen neuen Zurücksetzungslink! Hinweis: Alle alten Links werden ungültig.",
-    "generateNewLinkTitle": "Neuen Link generieren. Alle alten Links werden ungültig.",
     "loggingIn": "Anmeldung läuft",
-    "newLinkMustBeGenerated": "Es muss ein neuer Link erstellt werden",
-    "newLinkMustBeGeneratedDescription": "Alte Zurücksetzungslinks können nicht eingesehen werden. Bitte generieren Sie unten einen neuen Link.",
-    "resetCredentialError": "Neuer Link zum Zurücksetzen der Anmeldedaten konnte nicht erstellt werden",
-    "resetCredentials": "Anmeldedaten zurücksetzen",
-    "resetCredentialSuccess": "Neuer Link zum Zurücksetzen der Anmeldedaten wurde erstellt",
-    "resettingCredentials": "Anmeldedaten werden zurückgesetzt",
-    "resetUserPassword": "Benutzerpasswort zurücksetzen",
-    "shareInviteLink": "Einladungslink teilen",
-    "shareResetLink": "Zurücksetzungslink teilen",
-    "shareResetLinkDescription": "Teilen Sie diesen Zurücksetzungslink, um die Anmeldedaten für {{username}} zurückzusetzen. Dieser Link läuft in 24 Stunden ab.",
-    "signIn": "Anmelden",
-    "signingUp": "Registrierung läuft",
     "signInWithSso": "Mit SSO anmelden",
-    "signOut": "Abmelden",
-    "signUp": "Registrieren",
-    "userHasLoggedIn": "Der Benutzer hat sich angemeldet.",
     "welcomeTitle": "Willkommen bei DataHub",
     "username": "Benutzername",
     "password": "Passwort",
@@ -186,10 +149,6 @@
     "usernameRequired": "Bitte geben Sie Ihren Benutzernamen ein",
     "passwordRequired": "Bitte geben Sie Ihr Passwort ein",
     "login": "Anmelden"
-  },
-  "chart": {
-    "lastChangedTimeInSource": "Der Zeitpunkt, zu dem das Diagramm zuletzt in der Quellplattform geändert wurde",
-    "onAContainedChart": "in einem enthaltenen Diagramm"
   },
   "common": {
     "clone": "Klonen",
@@ -1461,22 +1420,7 @@
     "failedToFindRendererCorrespondingToRenderType": "Kein Renderer für den Rendertyp {{name}} gefunden",
     "pageNotFound": "Die angeforderte Seite wurde nicht gefunden",
     "sidebarFailedToLoad": "Die Seitenleiste konnte nicht geladen werden.",
-    "unsupportedTestResultType": "Nicht unterstützter Testergebnistyp {{result}} angegeben.",
-    "view": {
-      "onlyVisibleToYou": "Nur für Sie sichtbar",
-      "visibleToEveryone": "Für alle sichtbar",
-      "public": "Öffentlich",
-      "private": "Privat",
-      "myViews": "Meine Ansichten",
-      "publicViews": "Öffentliche Ansichten",
-      "title": "Ansichten",
-      "subTitle": "Erstellen, bearbeiten und entfernen Sie Ihre Ansichten. Mit Ansichten können Sie Sätze von Filtern speichern und für die Wiederverwendung beim Durchsuchen von DataHub freigeben.",
-      "createView": "Ansicht erstellen",
-      "noViewsYet": "Noch keine Ansichten!",
-      "loadingViews": "Ansichten werden geladen...",
-      "failedToLoadViews": "Ansichten konnten nicht geladen werden! Ein unerwarteter Fehler ist aufgetreten.",
-      "searchViews": "Ansichten durchsuchen..."
-    }
+    "unsupportedTestResultType": "Nicht unterstützter Testergebnistyp {{result}} angegeben."
   },
   "entityDropdown": {
     "copyUrl": "URL kopieren",

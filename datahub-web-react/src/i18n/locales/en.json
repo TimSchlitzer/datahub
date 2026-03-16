@@ -1,15 +1,4 @@
 {
-  "adminHeader": {
-    "analyticsText": "Analytics",
-    "analyticsTitle": "View DataHub usage analytics",
-    "domainsDescription": "Manage related groups of data assets",
-    "domainsText": "Domains",
-    "glossaryDescription": "View and modify your data dictionary",
-    "glossaryText": "Glossary",
-    "ingestionText": "Ingestion",
-    "ingestionTitle": "Connect DataHub to your organization's data sources",
-    "settingsTitle": "Manage your DataHub settings"
-  },
   "analytics": {
     "chartsFailedToLoad": "Charts failed to load",
     "domainsFailedToLoad": "Domains failed to load",
@@ -150,35 +139,9 @@
     "loggingIn": "Logging In..."
   },
   "authentification": {
-    "acceptedInvite": "Accepted invite!",
-    "confirmPassword": "Confirm Password",
-    "copiedInviteLinkToClipboard": "Copied invite link to clipboard",
-    "copyInviteLink": "Copy invite link.",
-    "copyInviteLinkDescription": "Copy an invite link to send to your users. When they join, users will be automatically assigned to the selected role.",
-    "failedToAcceptInvite": "Failed to accept invite",
     "failedToLogIn": "Failed to log in.",
-    "generatedNewInviteLink": "Generated new invite link",
-    "generateNewInviteLinkError": "Failed to create Invite Token for role {{roleName}}",
-    "generateNewLink": "Generate a new link",
-    "generateNewLinkDescription": "Generate a new reset link! Note, any old links will cease to be active.",
-    "generateNewLinkTitle": "Generate a new link. Any old links will no longer be valid.",
     "loggingIn": "Logging in",
-    "newLinkMustBeGenerated": "A new link must be generated",
-    "newLinkMustBeGeneratedDescription": "You cannot view any old reset links. Please generate a new one below.",
-    "resetCredentialError": "Failed to create new link to reset credentials",
-    "resetCredentials": "Reset credentials",
-    "resetCredentialSuccess": "Generated new link to reset credentials",
-    "resettingCredentials": "Resetting credentials",
-    "resetUserPassword": "Reset User Password",
-    "shareInviteLink": "Share Invite Link",
-    "shareResetLink": "Share reset link",
-    "shareResetLinkDescription": "Share this reset link to reset the credentials for {{username}}. This link will expire in 24 hours.",
-    "signIn": "Sign In",
-    "signingUp": "Signing up",
     "signInWithSso": "Sign in with SSO",
-    "signOut": "Sign Out",
-    "signUp": "Sign Up",
-    "userHasLoggedIn": "The user has logged in.",
     "welcomeTitle": "Welcome to DataHub",
     "username": "Username",
     "password": "Password",
@@ -186,10 +149,6 @@
     "usernameRequired": "Please fill in your username",
     "passwordRequired": "Please fill in your password",
     "login": "Login"
-  },
-  "chart": {
-    "lastChangedTimeInSource": "The time at which the chart was last changed in the source platform",
-    "onAContainedChart": "on a contained Chart"
   },
   "common": {
     "clone": "Clone",
@@ -1461,22 +1420,7 @@
     "failedToFindRendererCorrespondingToRenderType": "Failed to find renderer corresponding to renderType {{name}}",
     "pageNotFound": "The page your requested was not found",
     "sidebarFailedToLoad": "The sidebar failed to load.",
-    "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided.",
-    "view": {
-      "onlyVisibleToYou": "Only visible to you",
-      "visibleToEveryone": "Visible to everyone",
-      "public": "Public",
-      "private": "Private",
-      "myViews": "My Views",
-      "publicViews": "Public Views",
-      "title": "Views",
-      "subTitle": "Create, edit, and remove your Views. Views allow you to save and share sets of filters for reuse when browsing DataHub.",
-      "createView": "Create View",
-      "noViewsYet": "No Views yet!",
-      "loadingViews": "Loading Views...",
-      "failedToLoadViews": "Failed to load Views! An unexpected error occurred.",
-      "searchViews": "Search Views..."
-    }
+    "unsupportedTestResultType": "Unsupported Test Result Type {{result}} provided."
   },
   "entityDropdown": {
     "copyUrl": "Copy URL",
