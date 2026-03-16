@@ -2659,7 +2659,9 @@
     "columns": "Columns",
     "running": "Running",
     "lastRun": "Last run",
-    "copyUrn": "Copy URN"
+    "copyUrn": "Copy URN",
+    "showFullTitles": "Show Full Titles",
+    "compressLineageTooltip": "Collapses related entities into a single lineage node"
   },
   "navigation": {
     "backToHome": "Back to Home",

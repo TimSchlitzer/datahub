@@ -2573,7 +2573,7 @@
     "collapseRelatedEntitiesIntoASingleLineageNode": "Colapsar entidades relacionadas em um único nó de linhagem",
     "columnHasNoLineage": "A coluna não tem linhagem",
     "columnLineage": "Linhagem de Coluna",
-    "compressLineage": "Comprimir Linhagem",
+    "compressLineage": "Compress Lineage",
     "confirm": "Confirmar",
     "currentDownstreams": "Downstreams Atuais",
     "currentUpstreams": "Upstreams Atuais",
@@ -2631,7 +2631,7 @@
     "setDownstreams": "Definir Downstreams",
     "setUpstreams": "Definir Upstreams",
     "showColumnLevelLineage": "Mostrar linhagem de nível de coluna",
-    "showColumns": "Mostrar Colunas",
+    "showColumns": "Show Columns",
     "showFullTitle": "Mostrar Títulos Completos",
     "showHiddenEdges": "Mostrar Arestas Ocultas",
     "timeRange": "Intervalo de Tempo",
@@ -2659,7 +2659,9 @@
     "showLess": "Show Less",
     "showMore": "Show More",
     "showPlus": "Show +{{count}}",
-    "copyUrn": "Copiar URN"
+    "copyUrn": "Copiar URN",
+    "showFullTitles": "Show Full Titles",
+    "compressLineageTooltip": "Collapses related entities into a single lineage node"
   },
   "navigation": {
     "backToHome": "Voltar para Início",
