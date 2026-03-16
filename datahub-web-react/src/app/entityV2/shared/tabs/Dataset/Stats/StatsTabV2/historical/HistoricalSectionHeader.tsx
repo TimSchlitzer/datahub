@@ -7,8 +7,8 @@ const HistoricalSectionHeader = () => {
     return (
         <>
             <PageTitle
-                title={t('entity.dataset.stats.historical.title')}
-                subTitle={t('entity.dataset.stats.historical.subTitle')}
+                title={t('entity.dataset.stats.historicalSection.title')}
+                subTitle={t('entity.dataset.stats.historicalSection.subTitle')}
                 variant="sectionHeader"
             />{' '}
         </>

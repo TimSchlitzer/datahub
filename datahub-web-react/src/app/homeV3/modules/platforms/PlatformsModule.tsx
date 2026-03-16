@@ -49,7 +49,7 @@ const PlatformsModule = (props: ModuleProps) => {
         const platformEntity = platforms.find((platform) => platform.platform.urn === entity.urn);
         return (
             <Tooltip
-                title={t('home.platforms.viewAssets', {
+                title={t('home.platformsSection.viewAssets', {
                     count: formatNumberWithoutAbbreviation(platformEntity?.count),
                     platform: platformEntity?.platform.name,
                 })}
@@ -65,9 +65,9 @@ const PlatformsModule = (props: ModuleProps) => {
             {platforms.length === 0 ? (
                 <EmptyContent
                     icon="Database"
-                    title={t('home.platforms.empty.title')}
-                    description={t('home.platforms.empty.description')}
-                    linkText={hasPermissionsToManageIngestion ? t('home.platforms.empty.linkText') : undefined}
+                    title={t('home.platformsSection.empty.title')}
+                    description={t('home.platformsSection.empty.description')}
+                    linkText={hasPermissionsToManageIngestion ? t('home.platformsSection.empty.linkText') : undefined}
                     onLinkClick={navigateToDataSources}
                 />
             ) : (
