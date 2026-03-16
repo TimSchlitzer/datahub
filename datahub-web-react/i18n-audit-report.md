@@ -1,27 +1,24 @@
 # i18n Translation Audit Report
 
-Generated: 2026-03-16T16:30:41.247Z
+Generated: 2026-03-16T18:38:44.826Z
 
 ## Summary
 
 | Locale          | Total Keys | Keys Present | Coverage |
 | --------------- | ---------- | ------------ | -------- |
-| **EN (source)** | **3528**   | **3528**     | **100%** |
-| DE              | 3528       | 3528         | 100%     |
-| ES              | 3528       | 3528         | 100%     |
-| FR              | 3528       | 3528         | 100%     |
-| PT-BR           | 3528       | 3528         | 100%     |
+| **EN (source)** | **3563**   | **3563**     | **100%** |
+| DE              | 3563       | 3563         | 100%     |
+| ES              | 3563       | 3563         | 100%     |
+| FR              | 3563       | 3563         | 100%     |
+| PT-BR           | 3563       | 3563         | 100%     |
 
 ## Keys Used in Code but Missing from en.json
 
-⚠️ **1 keys** are used in code but not in en.json:
-
-- `reporting.nullPercentage` (1 file)
-    - entityV2/dataset/profile/stats/snapshot/SnapshotStatsView.tsx
+✅ All keys used in code are present in en.json
 
 ## Unused Keys in en.json
 
-⚠️ **1931 keys** are in en.json but not used in code:
+⚠️ **1922 keys** are in en.json but not used in code:
 
 ### analytics
 
@@ -126,7 +123,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `common.addgroupMembers`
 - `common.advanced`
 - `common.advancedOptions`
-- `common.all`
 - `common.analytics`
 - `common.announcement`
 - `common.appearance`
@@ -183,7 +179,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `common.dependency_interval`
 - `common.deprecation`
 - `common.descriptionHelp`
-- `common.details`
 - `common.developer`
 - `common.documentation`
 - `common.domain`
@@ -341,7 +336,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `common.role`
 - `common.roleName`
 - `common.roles`
-- `common.rollback`
 - `common.row`
 - `common.rowCount`
 - `common.rows`
@@ -427,7 +421,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `copy.copyLink`
 - `copy.copyQuery`
 - `copy.copyShareableLinkToEntity`
-- `copy.copyURN`
 - `copy.copyUrnForThis`
 - `copy.urnTooltip`
 
@@ -1024,7 +1017,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `ingest.bigqueryBeta.section.projects`
 - `ingest.chooseATimezoneForTheSchedule`
 - `ingest.cli`
-- `ingest.cliExecution`
 - `ingest.cliVersion`
 - `ingest.common.advancedExtraEnvironmentVariableIngestion`
 - `ingest.common.advancedExtraPipLibrariesIngestion`
@@ -1219,7 +1211,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `ingest.lookml.lookmlPlatformToolTip`
 - `ingest.lookml.lookmlProjectName`
 - `ingest.manageIngestion`
-- `ingest.manualExecution`
 - `ingest.mariaDB.mariaDBFilterSectionTooltip`
 - `ingest.mariaDB.mariaDBHostAndPortToolTip`
 - `ingest.mariaDB.mariaDBPasswordToolTip`
@@ -1340,7 +1331,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `ingest.runIngestionWithoutASchedule`
 - `ingest.runOnASchedule`
 - `ingest.runOnSchedule`
-- `ingest.scheduledExecution`
 - `ingest.searchIngestionSources`
 - `ingest.searchSecrets`
 - `ingest.searchSources`
@@ -1388,7 +1378,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `lineage.clickToSeeColumnPathFrom_interval`
 - `lineage.collapseRelatedEntitiesIntoASingleLineageNode`
 - `lineage.columnLineage`
-- `lineage.compressLineage`
 - `lineage.currentDownstreams`
 - `lineage.currentUpstreams`
 - `lineage.dashboardHasNoDownstreamLineage`
@@ -1410,7 +1399,6 @@ Generated: 2026-03-16T16:30:41.247Z
 - `lineage.setDownstreams`
 - `lineage.setUpstreams`
 - `lineage.showColumnLevelLineage`
-- `lineage.showColumns`
 - `lineage.showFullTitle`
 - `lineage.unableToConnect`
 - `lineage.unknownTimeRange`
@@ -2121,7 +2109,7 @@ Generated: 2026-03-16T16:30:41.247Z
 
 ## Hardcoded Strings in JSX
 
-⚠️ **543 files** contain potential hardcoded strings:
+⚠️ **537 files** contain potential hardcoded strings:
 
 ### analyticsDashboard/components/AnalyticsPage.tsx
 
@@ -4036,13 +4024,6 @@ Generated: 2026-03-16T16:30:41.247Z
 
 - Line 201: `JSX text` — "Groups"
 
-### identity/user/ViewResetTokenModal.tsx
-
-- Line 90: `JSX text` — "Reset User Password"
-- Line 98: `JSX text` — "Share reset link"
-- Line 109: `JSX text` — "A new link must be generated"
-- Line 116: `JSX text` — "Generate a new link"
-
 ### ingest/ManageIngestionPage.tsx
 
 - Line 147: `prop: title` — "Manage Data Sources"
@@ -4154,16 +4135,6 @@ Generated: 2026-03-16T16:30:41.247Z
 
 - Line 25: `prop: title` — "View Ingestion Recipe"
 
-### ingestV2/executions/components/columns/ActionsColumn.tsx
-
-- Line 47: `JSX text` — "Cancel"
-
-### ingestV2/executions/components/columns/ExecutedByColumn.tsx
-
-- Line 24: `JSX text` — "Manual Execution"
-- Line 32: `JSX text` — "Scheduled Execution"
-- Line 35: `JSX text` — "CLI Execution"
-
 ### ingestV2/executions/components/reporting/StructuredReportItemContext.tsx
 
 - Line 35: `prop: title` — "Additional context about the source of the issue"
@@ -4172,10 +4143,6 @@ Generated: 2026-03-16T16:30:41.247Z
 ### ingestV2/shared/components/columns/SourceNameColumn.tsx
 
 - Line 73: `prop: title` — "This source is ingested from the command-line interface (CLI)"
-
-### ingestV2/shared/components/filters/ResultStatusFilter.tsx
-
-- Line 52: `prop: placeholder` — "Result Status"
 
 ### ingestV2/source/builder/IngestionDocumentationHint.tsx
 
@@ -4270,13 +4237,6 @@ Generated: 2026-03-16T16:30:41.247Z
 ### ingestV2/source/multiStepBuilder/steps/step2ConnectionDetails/sections/recipeSection/sections/syncScheduleSection/ScheduleSection.tsx
 
 - Line 118: `prop: label` — "Keep metadata current by automatically syncing on a regular interval"
-
-### lineage/controls/LineageVizToggles.tsx
-
-- Line 53: `JSX text` — "Show Full Titles"
-- Line 71: `JSX text` — "Compress Lineage"
-- Line 72: `prop: title` — "Collapses related entities into a single lineage node"
-- Line 93: `JSX text` — "Show Columns"
 
 ### lineage/LineageTimeSelector.tsx
 
@@ -4488,23 +4448,6 @@ Generated: 2026-03-16T16:30:41.247Z
 ### permissions/policy/PolicyActorForm.tsx
 
 - Line 269: `prop: placeholder` — "Ownership types"
-
-### permissions/policy/PolicyDetailsModal.tsx
-
-- Line 145: `JSX text` — "State"
-- Line 150: `JSX text` — "Description"
-- Line 157: `JSX text` — "Asset Type"
-- Line 175: `JSX text` — "Assets"
-- Line 192: `JSX text` — "Data Platform Instances"
-- Line 205: `JSX text` — "Domains"
-- Line 218: `JSX text` — "Containers"
-- Line 233: `JSX text` — "Privileges"
-- Line 241: `JSX text` — "Applies to Owners"
-- Line 246: `JSX text` — "Applies to Users"
-- Line 254: `JSX text` — "All Users"
-- Line 257: `JSX text` — "Applies to Groups"
-- Line 265: `JSX text` — "All Groups"
-- Line 268: `JSX text` — "Applies to Roles"
 
 ### permissions/policy/PolicyPrivilegeForm.tsx
 
@@ -4961,16 +4904,16 @@ Generated: 2026-03-16T16:30:41.247Z
 | home                        | 7     | 0    | 0            |
 | homeV2                      | 137   | 117  | 0            |
 | homeV3                      | 182   | 85   | 0            |
-| identity                    | 32    | 31   | 0            |
+| identity                    | 32    | 41   | 0            |
 | ingest                      | 96    | 0    | 0            |
-| ingestV2                    | 208   | 122  | 0            |
-| lineage                     | 43    | 0    | 0            |
+| ingestV2                    | 208   | 141  | 0            |
+| lineage                     | 43    | 4    | 0            |
 | lineageV2                   | 68    | 0    | 0            |
 | lineageV3                   | 89    | 55   | 0            |
 | LocaleSync.tsx              | 1     | 0    | 0            |
 | mfeframework                | 5     | 0    | 0            |
 | onboarding                  | 29    | 16   | 0            |
-| permissions                 | 16    | 68   | 0            |
+| permissions                 | 16    | 79   | 0            |
 | preview                     | 9     | 0    | 0            |
 | previewV2                   | 29    | 9    | 0            |
 | ProtectedRoutes.tsx         | 1     | 0    | 0            |
@@ -4996,8 +4939,8 @@ Generated: 2026-03-16T16:30:41.247Z
 
 ## Locale File Sizes
 
-- **EN**: 206.8 KB (3528 keys)
-- **DE**: 224.1 KB (3528 keys)
-- **ES**: 212.2 KB (3528 keys)
-- **FR**: 214.5 KB (3528 keys)
-- **PT-BR**: 224.1 KB (3528 keys)
+- **EN**: 208.5 KB (3563 keys)
+- **DE**: 227.6 KB (3563 keys)
+- **ES**: 224.7 KB (3563 keys)
+- **FR**: 231.4 KB (3563 keys)
+- **PT-BR**: 226.4 KB (3563 keys)
