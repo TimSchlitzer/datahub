@@ -1,5 +1,6 @@
 import { Affix, Row, Select, Typography } from 'antd';
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import StatsSection from '@app/entityV2/dataset/profile/stats/StatsSection';
@@ -61,6 +62,7 @@ export type Props = {
 };
 
 export default function HistoricalStatsView({ urn, toggleView }: Props) {
+    const { t } = useTranslation();
     const [getDataProfiles, { data: profilesData, loading: profilesLoading }] = useGetDataProfilesLazyQuery({
         fetchPolicy: 'cache-first',
     });
@@ -118,7 +120,7 @@ export default function HistoricalStatsView({ urn, toggleView }: Props) {
 
     const columnSelectView = (
         <span>
-            <SubHeaderText>Viewing stats for column</SubHeaderText>
+            <SubHeaderText>{t('entity.dataset.stats.columnStats.subTitle')}</SubHeaderText>
             <EmbeddedSelect style={{ width: 200 }} value={selectedFieldPath} onChange={onChangeSelectedFieldPath}>
                 {allFieldPaths.map((fieldPath) => (
                     <Select.Option value={fieldPath}>{fieldPath}</Select.Option>
@@ -159,13 +161,13 @@ export default function HistoricalStatsView({ urn, toggleView }: Props) {
 
     return (
         <>
-            {profilesLoading && <Message type="loading" content="Loading..." style={{ marginTop: '10%' }} />}
+            {profilesLoading && <Message type="loading" content={t('common.loading')} style={{ marginTop: '10%' }} />}
             <Affix offsetTop={127}>
                 <HeaderRow justify="space-between" align="middle">
                     <div>
-                        <Typography.Title level={2}>Profiling History</Typography.Title>
+                        <Typography.Title level={2}>{t('entity.dataset.stats.changeHistory.title')}</Typography.Title>
                         <span>
-                            <SubHeaderText>Viewing profiling history for the past</SubHeaderText>
+                            <SubHeaderText>{t('entity.dataset.stats.historicalSection.subTitle')}</SubHeaderText>
                             <EmbeddedSelect value={selectedLookbackWindow} onChange={onChangeSelectedLookbackWindow}>
                                 {LOOKBACK_WINDOWS.map((lookbackWindow) => (
                                     <Select.Option value={lookbackWindow.text}>{lookbackWindow.text}</Select.Option>
@@ -176,49 +178,49 @@ export default function HistoricalStatsView({ urn, toggleView }: Props) {
                     {toggleView}
                 </HeaderRow>
             </Affix>
-            <StatsSection title="Profiling Runs">
+            <StatsSection title={t('reporting.profilingRuns')}>
                 <Row>
                     <ProfilingRunsChart profiles={profiles} />
                 </Row>
             </StatsSection>
-            <StatsSection title="Historical Table Stats">
+            <StatsSection title={t('entity.dataset.stats.historicalSection.title')}>
                 <Row>
                     <StatChart
-                        title="Row Count Over Time"
+                        title={t('reporting.rowCountOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={rowCountChartValues}
                     />
                     <StatChart
-                        title="Column Count Over Time"
+                        title={t('reporting.columnCountOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={columnCountChartValues}
                     />
                 </Row>
             </StatsSection>
-            <StatsSection title="Historical Column Stats" rightFloatView={columnSelectView}>
+            <StatsSection title={t('reporting.historicalColumnStats')} rightFloatView={columnSelectView}>
                 <Row>
                     <StatChart
-                        title="Null Count Over Time"
+                        title={t('reporting.nullCountOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={nullCountChartValues}
                     />
                     <StatChart
-                        title="Null Percentage Over Time"
+                        title={t('reporting.nullPercentageOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={nullPercentageChartValues}
                     />
                     <StatChart
-                        title="Distinct Count Over Time"
+                        title={t('reporting.distinctCountOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={distinctCountChartValues}
                     />
                     <StatChart
-                        title="Distinct Percentage Over Time"
+                        title={t('reporting.distinctPercentageOverTime')}
                         tickInterval={graphTickInterval}
                         dateRange={graphDateRange}
                         values={distinctPercentageChartValues}

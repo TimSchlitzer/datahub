@@ -1,5 +1,6 @@
 import { Affix, Row, Typography } from 'antd';
 import React, { ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import DataProfileView from '@app/entityV2/dataset/profile/stats/snapshot/SnapshotStatsView';
@@ -18,13 +19,14 @@ export type Props = {
 };
 
 export default function LatestStatsView({ profile, toggleView }: Props) {
+    const { t } = useTranslation();
     const reportedAtDate = new Date(profile.timestampMillis);
     return (
         <>
             <Affix offsetTop={127}>
                 <HeaderRow justify="space-between" align="middle">
                     <div>
-                        <Typography.Title level={2}>Latest Stats</Typography.Title>
+                        <Typography.Title level={2}>{t('entity.dataset.stats.highlights.latest')}</Typography.Title>
                         <Typography.Text style={{ color: 'gray' }}>
                             Reported on {reportedAtDate.toLocaleDateString()} at {reportedAtDate.toLocaleTimeString()}
                         </Typography.Text>
