@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import UserWithAvatar from '@app/ingestV2/shared/components/UserWithAvatar';
@@ -19,20 +20,22 @@ interface SourceColumnProps {
 }
 
 export function ExecutedByColumn({ source, actor }: SourceColumnProps) {
+    const { t } = useTranslation();
+
     switch (source) {
         case MANUAL_INGESTION_SOURCE:
-            if (!actor) return <>Manual Execution</>;
+            if (!actor) return <>{t('ingest.manualExecution')}</>;
             return (
                 <UserContainer>
-                    Manual Execution by <UserWithAvatar user={actor} />
+                    {t('ingest.manualExecutionBy')} <UserWithAvatar user={actor} />
                 </UserContainer>
             );
 
         case SCHEDULED_INGESTION_SOURCE:
-            return <span>Scheduled Execution</span>;
+            return <span>{t('ingest.scheduledExecution')}</span>;
 
         case CLI_INGESTION_SOURCE:
-            return <span>CLI Execution</span>;
+            return <span>{t('ingest.cliExecution')}</span>;
 
         default:
             return <span>-</span>;
