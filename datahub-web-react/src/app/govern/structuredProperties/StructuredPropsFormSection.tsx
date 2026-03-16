@@ -89,7 +89,9 @@ const StructuredPropsFormSection = ({
                             <SubTextContainer>
                                 <Text size="sm" weight="medium">
                                     <Tooltip
-                                        title={t('govern.structuredProperties.formSection.allowedEntityTypesAddOnlyTooltip')}
+                                        title={t(
+                                            'govern.structuredProperties.formSection.allowedEntityTypesAddOnlyTooltip',
+                                        )}
                                         showArrow={false}
                                     >
                                         {t('govern.structuredProperties.formSection.allowedEntityTypesAddOnly')}

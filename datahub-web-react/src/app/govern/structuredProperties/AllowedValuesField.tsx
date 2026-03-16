@@ -54,7 +54,10 @@ const AllowedValuesField = ({ selectedValueType, allowedValues, valueField, setS
                                     );
                                 })}
                             </ValuesList>
-                            <Tooltip title={t('govern.structuredProperties.allowedValuesField.updateTooltip')} showArrow={false}>
+                            <Tooltip
+                                title={t('govern.structuredProperties.allowedValuesField.updateTooltip')}
+                                showArrow={false}
+                            >
                                 <StyledIcon
                                     icon="ChevronRight"
                                     color="gray"
@@ -71,7 +74,10 @@ const AllowedValuesField = ({ selectedValueType, allowedValues, valueField, setS
                                     : t('govern.structuredProperties.allowedValuesField.numberType')}
                             </ValueType>
                             {t('govern.structuredProperties.allowedValuesField.valueWillBeAllowed')}
-                            <Tooltip title={t('govern.structuredProperties.allowedValuesField.updateTooltip')} showArrow={false}>
+                            <Tooltip
+                                title={t('govern.structuredProperties.allowedValuesField.updateTooltip')}
+                                showArrow={false}
+                            >
                                 <Icon icon="Add" color="gray" onClick={() => setShowAllowedValuesDrawer(true)} />
                             </Tooltip>
                         </ValueListContainer>

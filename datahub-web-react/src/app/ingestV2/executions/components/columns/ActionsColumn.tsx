@@ -1,5 +1,6 @@
 import { Icon } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { EXECUTION_REQUEST_STATUS_RUNNING, EXECUTION_REQUEST_STATUS_SUCCESS } from '@app/ingestV2/executions/constants';
 import { ExecutionRequestRecord } from '@app/ingestV2/executions/types';
@@ -13,6 +14,7 @@ interface ActionsColumnProps {
 }
 
 export function ActionsColumn({ record, handleViewDetails, handleRollback, handleCancel }: ActionsColumnProps) {
+    const { t } = useTranslation();
     const items = [
         {
             key: '0',
@@ -23,7 +25,7 @@ export function ActionsColumn({ record, handleViewDetails, handleRollback, handl
                         navigator.clipboard.writeText(record.urn);
                     }}
                 >
-                    Copy URN
+                    {t('copy.copyURN')}
                 </MenuItem>
             ),
         },
@@ -35,7 +37,7 @@ export function ActionsColumn({ record, handleViewDetails, handleRollback, handl
                         handleViewDetails(record.urn);
                     }}
                 >
-                    Details
+                    {t('common.details')}
                 </MenuItem>
             ),
         },
@@ -44,7 +46,7 @@ export function ActionsColumn({ record, handleViewDetails, handleRollback, handl
     if (record.status === EXECUTION_REQUEST_STATUS_RUNNING) {
         items.push({
             key: '2',
-            label: <MenuItem onClick={() => handleCancel(record.urn)}>Cancel</MenuItem>,
+            label: <MenuItem onClick={() => handleCancel(record.urn)}>{t('common.cancel')}</MenuItem>,
         });
     }
 
@@ -57,7 +59,7 @@ export function ActionsColumn({ record, handleViewDetails, handleRollback, handl
                         icon="ArrowUUpLeft"
                         source="phosphor"
                         onClick={() => handleRollback(record.id)}
-                        tooltipText="Rollback"
+                        tooltipText={t('common.rollback')}
                     />
                 ) : null
             }
