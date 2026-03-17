@@ -3280,7 +3280,7 @@
       "labelBy": "Sortieren nach"
     },
     "sidebar": {
-      "navigate": "Navigieren",
+      "navigate": "Tag",
       "hide": "Navigationsbereich ausblenden",
       "open": "Navigationsbereich öffnen",
       "loadError": "Die Seitenleiste konnte nicht geladen werden.",
@@ -3927,7 +3927,7 @@
     "noTags": "Keine Tags gefunden",
     "noTagsSearched": "Keine Tags für Ihre Suchanfrage gefunden",
     "tagsDescription": "Tags können verwendet werden, um Datenvermögenswerte in DataHub zu organisieren.",
-    "tag": "Klonen",
+    "tag": "Tag",
     "color": "Farbe",
     "description": "Beschreibung",
     "owners": "Besitzer",
@@ -3938,7 +3938,7 @@
     "edit": "Bearbeiten",
     "copyUrn": "URN kopieren",
     "delete": "Löschen",
-    "name": "Klonen",
+    "name": "Tag",
     "enterTagName": "Tag-Namen eingeben",
     "tagDescription": "Tag-Beschreibung",
     "descriptionPlaceholder": "Beschreibung für Ihr neues Tag hinzufügen",
