@@ -12,6 +12,7 @@ import ModuleName from '@app/homeV3/module/components/ModuleName';
 import { DragIcon } from '@app/homeV3/module/components/SmallModule';
 import { ModuleProps } from '@app/homeV3/module/types';
 import { FloatingRightHeaderSection } from '@app/homeV3/styledComponents';
+import { DataHubPageModuleType } from '@types';
 
 const ModuleHeader = styled.div`
     position: relative;
@@ -65,6 +66,20 @@ const ViewAllButton = styled(Button)`
     padding-right: 8px;
 `;
 
+const MODULE_TYPE_TITLE_KEYS: Partial<Record<DataHubPageModuleType, string>> = {
+    [DataHubPageModuleType.OwnedAssets]: 'homeV3.addModuleMenu.yourAssets.title',
+    [DataHubPageModuleType.Domains]: 'homeV3.addModuleMenu.domains.title',
+    [DataHubPageModuleType.Platforms]: 'homeV3.addModuleMenu.platforms.title',
+    [DataHubPageModuleType.Assets]: 'homeV3.addModuleMenu.assets.title',
+    [DataHubPageModuleType.DataProducts]: 'homeV3.addModuleMenu.dataProducts.title',
+    [DataHubPageModuleType.ChildHierarchy]: 'homeV3.addModuleMenu.childHierarchy.title',
+    [DataHubPageModuleType.RelatedTerms]: 'homeV3.addModuleMenu.relatedTerms.title',
+    [DataHubPageModuleType.Lineage]: 'homeV3.addModuleMenu.lineage.title',
+    [DataHubPageModuleType.Columns]: 'homeV3.addModuleMenu.columns.title',
+    [DataHubPageModuleType.Hierarchy]: 'homeV3.addModuleMenu.hierarchy.title',
+    [DataHubPageModuleType.AssetCollection]: 'homeV3.addModuleMenu.collection.title',
+};
+
 interface Props extends ModuleProps {
     loading?: boolean;
     onClickViewAll?: () => void;
@@ -82,7 +97,9 @@ function LargeModule({
     dataTestId,
 }: React.PropsWithChildren<Props>) {
     const { t } = useTranslation();
-    const { name } = module.properties;
+    const { name, type } = module.properties;
+    const titleKey = MODULE_TYPE_TITLE_KEYS[type];
+    const displayName = titleKey ? t(titleKey) : name;
 
     const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
         id: `module-${module.urn}-${position.rowIndex}-${position.moduleIndex}`,
@@ -125,7 +142,7 @@ function LargeModule({
                             isDragging={isDragging}
                         />
                     )}
-                    <ModuleName text={name} />
+                    <ModuleName text={displayName} />
                     {/* TODO: implement description for modules CH-548 */}
                     {/* <ModuleDescription text={description} /> */}
                 </DragHandle>

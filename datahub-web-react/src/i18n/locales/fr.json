@@ -2543,7 +2543,12 @@
         "noEntitiesWithDirection": "Pas d'entités {{direction}}",
         "noTimeRangeSelected": "Aucune plage de temps sélectionnée",
         "noTransformationsToHide": "Pas de transformations à masquer",
-        "ordinalSuffix": ["er", "e", "e", "e"],
+        "ordinalSuffix": [
+            "er",
+            "e",
+            "e",
+            "e"
+        ],
         "platformLogo": "Logo de la plate-forme",
         "requiredWhenViewingColumnLineage": "Requis lors de l'affichage du lignage des colonnes",
         "savingChanges": "Enregistrement...",
@@ -4169,6 +4174,12 @@
                     }
                 }
             }
+        },
+        "view": {
+            "all": "Tout",
+            "createAView": "Créer une vue",
+            "createAViewDescription": "Créer des filtres de recherche enregistrés",
+            "manageAll": "Tout gérer"
         }
     },
     "identity": {
@@ -4409,7 +4420,8 @@
             "removeModuleTitle": "Supprimer le module ?"
         },
         "searchBar": {
-            "discover": "Découvrir"
+            "discover": "Découvrir",
+            "placeholder": "Trouver des tables, des données, des personnes et plus"
         },
         "selectAssetsSection": {
             "dynamicFilter": "Filtre dynamique",

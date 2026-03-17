@@ -4118,6 +4118,12 @@
           }
         }
       }
+    },
+    "view": {
+      "all": "Alle",
+      "createAView": "Ansicht erstellen",
+      "createAViewDescription": "Gespeicherte Suchfilter erstellen",
+      "manageAll": "Alle verwalten"
     }
   },
   "identity": {
@@ -4358,7 +4364,8 @@
       "removeModuleTitle": "Modul entfernen?"
     },
     "searchBar": {
-      "discover": "Entdecken"
+      "discover": "Entdecken",
+      "placeholder": "Tabellen, Datensätze, Personen und mehr finden"
     },
     "selectAssetsSection": {
       "dynamicFilter": "Dynamischer Filter",

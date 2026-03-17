@@ -32,7 +32,7 @@ export default function SearchBar() {
     return (
         <Container>
             <SearchBarV2
-                placeholderText={themeConfig.content.search.searchbarMessage}
+                placeholderText={t('homeV3.searchBar.placeholder')}
                 onSearch={search}
                 entityRegistry={entityRegistry}
                 width="100%"

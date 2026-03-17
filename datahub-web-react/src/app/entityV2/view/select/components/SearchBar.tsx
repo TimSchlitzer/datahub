@@ -3,6 +3,7 @@ import { colors } from '@components';
 import { MagnifyingGlass } from '@phosphor-icons/react';
 import { Input } from 'antd';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { ANTD_GRAY, REDESIGN_COLORS } from '@app/entityV2/shared/constants';
@@ -82,6 +83,7 @@ interface Props {
 }
 
 export default function SearchBar({ onClickManageViews, onChangeSearch, minWidth, fullWidth }: Props) {
+    const { t } = useTranslation();
     const isShowNavBarRedesign = useShowNavBarRedesign();
 
     return (
@@ -89,7 +91,7 @@ export default function SearchBar({ onClickManageViews, onChangeSearch, minWidth
             <div className="search-manage-container">
                 <StyledInput
                     className="style-input-container"
-                    placeholder={isShowNavBarRedesign ? 'Search views...' : 'Search'}
+                    placeholder={isShowNavBarRedesign ? t('placeholder.searchViews') : t('common.search')}
                     onChange={onChangeSearch}
                     allowClear
                     prefix={isShowNavBarRedesign ? <MagnifyingGlass size={20} /> : <SearchOutlinedStyle />}
@@ -99,7 +101,7 @@ export default function SearchBar({ onClickManageViews, onChangeSearch, minWidth
                     $minWidth={minWidth}
                 />
                 <div className="manage" onClick={() => onClickManageViews()} role="none">
-                    Manage all
+                    {t('entityV2.view.manageAll')}
                 </div>
             </div>
         </Wrapper>

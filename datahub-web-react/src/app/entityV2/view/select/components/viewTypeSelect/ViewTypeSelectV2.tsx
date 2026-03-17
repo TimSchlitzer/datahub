@@ -1,5 +1,6 @@
 import { Icon, Tooltip, borders, colors } from '@components';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { FontColorLevelOptions, FontColorOptions } from '@components/theme/config';
@@ -40,6 +41,7 @@ const INACTIVE_ICON_PROPS = {
 };
 
 export default function ViewTypeSelectV2({ publicViews, privateViews, onTypeSelect, bordered }: ViewTypeSelectProps) {
+    const { t } = useTranslation();
     const selectedOption = useMemo(() => {
         if (publicViews && privateViews) return 'all';
         if (!publicViews && privateViews) return 'private';
@@ -49,7 +51,7 @@ export default function ViewTypeSelectV2({ publicViews, privateViews, onTypeSele
 
     return (
         <Wrapper $bordered={bordered} data-testid="views-type-select">
-            <Tooltip placement="bottom" showArrow title="All">
+            <Tooltip placement="bottom" showArrow title={t('entityV2.view.all')}>
                 <IconWrapper onClick={() => onTypeSelect('all')} $active={selectedOption === 'all'}>
                     <Icon
                         icon="SquaresFour"
@@ -60,7 +62,7 @@ export default function ViewTypeSelectV2({ publicViews, privateViews, onTypeSele
                 </IconWrapper>
             </Tooltip>
 
-            <Tooltip placement="bottom" showArrow title="Private">
+            <Tooltip placement="bottom" showArrow title={t('entityV2.view.private')}>
                 <IconWrapper onClick={() => onTypeSelect('private')} $active={selectedOption === 'private'}>
                     <Icon
                         icon="Lock"
@@ -71,7 +73,7 @@ export default function ViewTypeSelectV2({ publicViews, privateViews, onTypeSele
                 </IconWrapper>
             </Tooltip>
 
-            <Tooltip placement="bottom" showArrow title="Public">
+            <Tooltip placement="bottom" showArrow title={t('entityV2.view.public')}>
                 <IconWrapper onClick={() => onTypeSelect('public')} $active={selectedOption === 'public'}>
                     <Icon
                         icon="GlobeHemisphereWest"

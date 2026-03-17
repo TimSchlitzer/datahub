@@ -4123,6 +4123,12 @@
           }
         }
       }
+    },
+    "view": {
+      "all": "All",
+      "createAView": "Create a View",
+      "createAViewDescription": "Create a set of saved search filters",
+      "manageAll": "Manage all"
     }
   },
   "identity": {
@@ -4358,7 +4364,8 @@
       "removeModuleTitle": "Remove module?"
     },
     "searchBar": {
-      "discover": "Discover"
+      "discover": "Discover",
+      "placeholder": "Find tables, dashboards, people, and more"
     },
     "selectAssetsSection": {
       "dynamicFilter": "Dynamic Filter",
