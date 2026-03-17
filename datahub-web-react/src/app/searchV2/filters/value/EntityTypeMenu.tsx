@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import OptionsDropdownMenu from '@app/searchV2/filters/OptionsDropdownMenu';
 import { mapFilterOption } from '@app/searchV2/filters/mapFilterOption';
+import { useFilterDisplayName } from '@app/searchV2/filters/utils';
 import { FilterField, FilterValue, FilterValueOption } from '@app/searchV2/filters/types';
 import { OptionMenu } from '@app/searchV2/filters/value/styledComponents';
 import {
@@ -40,7 +41,7 @@ export default function EntityTypeMenu({
     aggregationsEntityTypes,
 }: Props) {
     const entityRegistry = useEntityRegistry();
-    const { displayName } = field;
+    const displayName = useFilterDisplayName(field);
 
     // Ideally we would not have staged values, and filters would update automatically.
     const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);

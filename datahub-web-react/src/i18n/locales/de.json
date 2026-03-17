@@ -27,7 +27,7 @@
     "allDomains": "Alle Domänen",
     "domainLandscapeSummary": "Zusammenfassung der Domänenlandschaft",
     "noAnalyticsDataForDomain": "Keine Analysedaten für diese Domäne verfügbar",
-    "entityTypeTask": "AUFGABE",
+    "entityTypeTask": "Aufgabe",
     "entityTypePipeline": "PIPELINE"
   },
   "assertion": {
@@ -834,9 +834,9 @@
           "subTitle": "Statistiken nach Spalte",
           "table": {
             "column": "Spalte",
-            "max": "AUFGABE",
-            "min": "AUFGABE",
-            "nullPercentage": "AUFGABE",
+            "max": "Max",
+            "min": "Min",
+            "nullPercentage": "Null %",
             "type": "Typ",
             "uniqueValues": "Eindeutige Werte",
             "view": "Anzeigen"
@@ -894,7 +894,7 @@
           "descriptionLabel": "Abfragebeschreibung",
           "createdByLabel": "Erstellt von",
           "dateCreatedLabel": "Erstellungsdatum",
-          "powersLabel": "AUFGABE",
+          "powersLabel": "Powers",
           "topUsersLabel": "Top-Benutzer",
           "columnsLabel": "Spalten"
         },
@@ -1165,7 +1165,7 @@
       "tabs": {
         "relatedAssets": "Verwandte Vermögenswerte",
         "relatedTerms": "Verwandte Begriffe",
-        "schema": "AUFGABE"
+        "schema": "Schema"
       }
     },
     "domain": {

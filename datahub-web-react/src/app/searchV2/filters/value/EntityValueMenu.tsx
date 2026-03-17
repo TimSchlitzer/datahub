@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import OptionsDropdownMenu from '@app/searchV2/filters/OptionsDropdownMenu';
 import { mapFilterOption } from '@app/searchV2/filters/mapFilterOption';
+import { useFilterDisplayName } from '@app/searchV2/filters/utils';
 import { EntityFilterField, FilterValue, FilterValueOption } from '@app/searchV2/filters/types';
 import { OptionMenu } from '@app/searchV2/filters/value/styledComponents';
 import {
@@ -33,8 +35,9 @@ export default function EntityValueMenu({
     className,
 }: Props) {
     const entityRegistry = useEntityRegistry();
+    const { t } = useTranslation();
     const isSearchable = !!field.entityTypes?.length;
-    const { displayName } = field;
+    const displayName = useFilterDisplayName(field);
 
     // Ideally we would not have staged values, and filters would update automatically.
     const [searchQuery, setSearchQuery] = useState<string | undefined>(undefined);
@@ -82,7 +85,7 @@ export default function EntityValueMenu({
             searchQuery={searchQuery || ''}
             updateSearchQuery={setSearchQuery}
             isLoading={searchLoading}
-            searchPlaceholder={`Search for ${displayName}`}
+            searchPlaceholder={t('search.filters.searchFor', { field: displayName })}
             type={type}
             className={className}
         />
