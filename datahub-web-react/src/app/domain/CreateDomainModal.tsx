@@ -1,5 +1,6 @@
 import { Button, Collapse, Form, Input, Modal, Tag, Typography, message } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import analytics, { EventType } from '@app/analytics';
@@ -65,6 +66,7 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
     const isNestedDomainsEnabled = useIsNestedDomainsEnabled();
     const [createDomainMutation] = useCreateDomainMutation();
     const { entityData } = useDomainsContext();
+    const { t } = useTranslation();
     const [selectedParentUrn, setSelectedParentUrn] = useState<string>(
         (isNestedDomainsEnabled && entityData?.urn) || '',
     );
@@ -188,7 +190,7 @@ export default function CreateDomainModal({ onClose, onCreate }: Props) {
                 </FormItemWithMargin>
                 <FormItemWithMargin
                     label={<FormItemLabel>Description</FormItemLabel>}
-                    help="You can always change the description later."
+                    help={t('common.descriptionHelp')}
                 >
                     <FormItemNoMargin
                         name={DESCRIPTION_FIELD_NAME}

@@ -1,6 +1,7 @@
 import { FolderFilled } from '@ant-design/icons';
 import moment from 'moment-timezone';
 import React, { useLayoutEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { IconStyleType } from '@app/entity/Entity';
@@ -45,6 +46,7 @@ import {
     TEXT_FIELDS,
     TYPE_NAMES_FILTER_NAME,
     UNIT_SEPARATOR,
+    getTranslatedFieldLabel,
 } from '@app/searchV2/utils/constants';
 import { capitalizeFirstLetterOnly, forcePluralize, pluralizeIfIrregular } from '@app/shared/textUtil';
 import getTypeIcon from '@app/sharedV2/icons/getTypeIcon';
@@ -679,9 +681,15 @@ export function useElementDimensions(ref) {
 
 export function useFilterDisplayName(filter: FacetMetadata | FilterField, predicateDisplayName?: string) {
     const entityRegistry = useEntityRegistryV2();
+    const { t } = useTranslation();
 
     if (filter.entity) {
         return entityRegistry.getDisplayName(filter.entity.type, filter.entity);
+    }
+
+    const translated = getTranslatedFieldLabel(filter.field, t);
+    if (translated && translated !== filter.field) {
+        return translated;
     }
 
     return predicateDisplayName || filter.displayName || filter.field;
