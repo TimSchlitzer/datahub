@@ -1,16 +1,16 @@
 # i18n Translation Audit Report
 
-Generated: 2026-03-17T12:29:46.463Z
+Generated: 2026-03-17T15:07:36.334Z
 
 ## Summary
 
-| Locale | Total Keys | Keys Present | Coverage |
-|--------|------------|--------------|----------|
-| **EN (source)** | **3563** | **3563** | **100%** |
-| DE | 3563 | 3563 | 100% |
-| ES | 3563 | 3563 | 100% |
-| FR | 3563 | 3563 | 101% |
-| PT-BR | 3563 | 3563 | 100% |
+| Locale          | Total Keys | Keys Present | Coverage |
+| --------------- | ---------- | ------------ | -------- |
+| **EN (source)** | **3563**   | **3563**     | **100%** |
+| DE              | 3563       | 3563         | 100%     |
+| ES              | 3563       | 3563         | 100%     |
+| FR              | 3563       | 3563         | 101%     |
+| PT-BR           | 3563       | 3563         | 100%     |
 
 ## Keys Used in Code but Missing from en.json
 
@@ -4870,77 +4870,76 @@ Generated: 2026-03-17T12:29:46.463Z
 
 ## Per-Folder Key Usage Breakdown
 
-| Folder | Files | Keys | Dynamic Keys |
-|--------|-------|------|---------------|
-| AdminConsole.tsx | 1 | 0 | 0 |
-| analytics | 10 | 0 | 0 |
-| analyticsDashboard | 11 | 0 | 0 |
-| analyticsDashboardV2 | 15 | 11 | 0 |
-| appConfig | 1 | 0 | 0 |
-| applications | 6 | 29 | 0 |
-| AppProviders.tsx | 1 | 0 | 0 |
-| auth | 19 | 58 | 0 |
-| authorization | 1 | 0 | 0 |
-| browse | 5 | 0 | 0 |
-| browserId.ts | 1 | 0 | 0 |
-| buildEntityRegistry.ts | 1 | 0 | 0 |
-| buildEntityRegistryV2.ts | 1 | 0 | 0 |
-| businessAttribute | 8 | 39 | 0 |
-| context | 11 | 0 | 0 |
-| DataHubTitle.tsx | 1 | 0 | 0 |
-| dataviz | 15 | 0 | 0 |
-| document | 10 | 0 | 0 |
-| domain | 22 | 1 | 0 |
-| domainV2 | 24 | 41 | 0 |
-| embed | 8 | 0 | 0 |
-| EmbedRoutes.tsx | 1 | 0 | 0 |
-| entity | 594 | 32 | 0 |
-| EntityRegistryProvider.tsx | 1 | 0 | 0 |
-| entityV2 | 1077 | 551 | 0 |
-| glossary | 14 | 0 | 0 |
-| glossaryV2 | 16 | 17 | 0 |
-| govern | 19 | 82 | 0 |
-| home | 7 | 0 | 0 |
-| homeV2 | 137 | 117 | 0 |
-| homeV3 | 182 | 85 | 0 |
-| identity | 32 | 41 | 0 |
-| ingest | 96 | 0 | 0 |
-| ingestV2 | 209 | 141 | 0 |
-| lineage | 43 | 4 | 0 |
-| lineageV2 | 68 | 0 | 0 |
-| lineageV3 | 89 | 55 | 0 |
-| LocaleSync.tsx | 1 | 0 | 0 |
-| mfeframework | 5 | 0 | 0 |
-| onboarding | 29 | 16 | 0 |
-| permissions | 16 | 79 | 0 |
-| preview | 9 | 0 | 0 |
-| previewV2 | 29 | 9 | 0 |
-| ProtectedRoutes.tsx | 1 | 0 | 0 |
-| recommendations | 21 | 1 | 0 |
-| Routes.tsx | 1 | 0 | 0 |
-| search | 138 | 28 | 0 |
-| SearchRoutes.tsx | 1 | 0 | 0 |
-| searchV2 | 249 | 31 | 0 |
-| settings | 17 | 0 | 0 |
-| settingsV2 | 21 | 134 | 0 |
-| shared | 112 | 14 | 0 |
-| sharedV2 | 119 | 21 | 0 |
-| tags | 9 | 42 | 0 |
-| useAppConfig.ts | 1 | 0 | 0 |
-| useBuildEntityRegistry.ts | 1 | 0 | 0 |
-| useEntityRegistry.ts | 1 | 0 | 0 |
-| useGetAuthenticatedUser.tsx | 1 | 0 | 0 |
-| useIsThemeV2.tsx | 1 | 0 | 0 |
-| useLocale.ts | 1 | 0 | 0 |
-| useSetAppTheme.tsx | 1 | 0 | 0 |
-| useShowNavBarRedesign.tsx | 1 | 0 | 0 |
-| utils | 5 | 0 | 0 |
+| Folder                      | Files | Keys | Dynamic Keys |
+| --------------------------- | ----- | ---- | ------------ |
+| AdminConsole.tsx            | 1     | 0    | 0            |
+| analytics                   | 10    | 0    | 0            |
+| analyticsDashboard          | 11    | 0    | 0            |
+| analyticsDashboardV2        | 15    | 11   | 0            |
+| appConfig                   | 1     | 0    | 0            |
+| applications                | 6     | 29   | 0            |
+| AppProviders.tsx            | 1     | 0    | 0            |
+| auth                        | 19    | 58   | 0            |
+| authorization               | 1     | 0    | 0            |
+| browse                      | 5     | 0    | 0            |
+| browserId.ts                | 1     | 0    | 0            |
+| buildEntityRegistry.ts      | 1     | 0    | 0            |
+| buildEntityRegistryV2.ts    | 1     | 0    | 0            |
+| businessAttribute           | 8     | 39   | 0            |
+| context                     | 11    | 0    | 0            |
+| DataHubTitle.tsx            | 1     | 0    | 0            |
+| dataviz                     | 15    | 0    | 0            |
+| document                    | 10    | 0    | 0            |
+| domain                      | 22    | 1    | 0            |
+| domainV2                    | 24    | 41   | 0            |
+| embed                       | 8     | 0    | 0            |
+| EmbedRoutes.tsx             | 1     | 0    | 0            |
+| entity                      | 594   | 32   | 0            |
+| EntityRegistryProvider.tsx  | 1     | 0    | 0            |
+| entityV2                    | 1077  | 551  | 0            |
+| glossary                    | 14    | 0    | 0            |
+| glossaryV2                  | 16    | 17   | 0            |
+| govern                      | 19    | 82   | 0            |
+| home                        | 7     | 0    | 0            |
+| homeV2                      | 137   | 117  | 0            |
+| homeV3                      | 182   | 85   | 0            |
+| identity                    | 32    | 41   | 0            |
+| ingest                      | 96    | 0    | 0            |
+| ingestV2                    | 209   | 141  | 0            |
+| lineage                     | 43    | 4    | 0            |
+| lineageV2                   | 68    | 0    | 0            |
+| lineageV3                   | 89    | 55   | 0            |
+| LocaleSync.tsx              | 1     | 0    | 0            |
+| mfeframework                | 5     | 0    | 0            |
+| onboarding                  | 29    | 16   | 0            |
+| permissions                 | 16    | 79   | 0            |
+| preview                     | 9     | 0    | 0            |
+| previewV2                   | 29    | 9    | 0            |
+| ProtectedRoutes.tsx         | 1     | 0    | 0            |
+| recommendations             | 21    | 1    | 0            |
+| Routes.tsx                  | 1     | 0    | 0            |
+| search                      | 138   | 28   | 0            |
+| SearchRoutes.tsx            | 1     | 0    | 0            |
+| searchV2                    | 249   | 31   | 0            |
+| settings                    | 17    | 0    | 0            |
+| settingsV2                  | 21    | 134  | 0            |
+| shared                      | 112   | 14   | 0            |
+| sharedV2                    | 119   | 21   | 0            |
+| tags                        | 9     | 42   | 0            |
+| useAppConfig.ts             | 1     | 0    | 0            |
+| useBuildEntityRegistry.ts   | 1     | 0    | 0            |
+| useEntityRegistry.ts        | 1     | 0    | 0            |
+| useGetAuthenticatedUser.tsx | 1     | 0    | 0            |
+| useIsThemeV2.tsx            | 1     | 0    | 0            |
+| useLocale.ts                | 1     | 0    | 0            |
+| useSetAppTheme.tsx          | 1     | 0    | 0            |
+| useShowNavBarRedesign.tsx   | 1     | 0    | 0            |
+| utils                       | 5     | 0    | 0            |
 
 ## Locale File Sizes
 
 - **EN**: 208.5 KB (3563 keys)
-- **DE**: 227.5 KB (3563 keys)
+- **DE**: 228.0 KB (3563 keys)
 - **ES**: 219.1 KB (3563 keys)
 - **FR**: 251.0 KB (3611 keys)
-- **PT-BR**: 226.5 KB (3563 keys)
-
+- **PT-BR**: 226.6 KB (3563 keys)

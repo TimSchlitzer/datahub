@@ -2094,23 +2094,23 @@
     "errorRequestingIngestionRollback": "Fehler requesting Ingestion rollback",
     "executionCount": "execution Anzahl",
     "ExecutionStatusDisplayText": {
-      "cancelled": "Ansicht Ingested Assets",
+      "cancelled": "Abgebrochen",
       "failed": "Fehlgeschlagen",
       "rollbackFailed": "Rollback Fehlgeschlagen",
       "rolledBack": "Rolled Zurück",
       "rollingBack": "Rolling Zurück",
-      "running": "Ansicht Ingested Assets",
-      "succeeded": "Ansicht Ingested Assets",
+      "running": "Läuft",
+      "succeeded": "Erfolgreich",
       "upForRetry": "Up für Retry"
     },
     "ExecutionSummaryText": {
       "ingestionCompletedWithErrors": "Ingestion Abgeschlossen with errors",
       "ingestionIsInProcessOfRollingBack": "Ingestion is in the process von rolling Zurück",
-      "ingestionIsRunning": "Ansicht Ingested Assets",
+      "ingestionIsRunning": "Ingestion läuft",
       "ingestionRollbackFailed": "Ingestion rollback Fehlgeschlagen",
       "ingestionStatusNotRecognized": "Ingestion Status not recognized",
       "ingestionSuccessfullyCompleted": "Ingestion successfully Abgeschlossen",
-      "ingestionWasCancelled": "Ansicht Ingested Assets",
+      "ingestionWasCancelled": "Ingestion wurde abgebrochen",
       "ingestionWasRolledBack": "Ingestion was rolled Zurück"
     },
     "executorId": "Executor-ID",
@@ -2125,10 +2125,10 @@
     "failedToRemoveIngestionSource": "Fehlgeschlagen to Entfernen Ingestion Quelle",
     "failedToSubmitIngestionExecutionRequest": "Fehlgeschlagen to submit Ingestion execution request!",
     "failedToUpdateIngestionSource": "Fehlgeschlagen to Aktualisieren Ingestion Quelle!",
-    "fixLineInYourRecipeWithParsedLine": "Ansicht Ingested Assets",
+    "fixLineInYourRecipeWithParsedLine": "Fix line {{parsedLine}} in your recipe",
     "forMoreInformationAboutHowToConfigureARecipeText_component": "für Mehr information about how zu configure a recipe, see the {{sourceName}} source docs.",
     "foundInvalidYamlPleaseCheck": "Found invalid YAML. Please check your Rezept configuration.",
-    "foundInvalidYamlWithMessage": "Ansicht Ingested Assets",
+    "foundInvalidYamlWithMessage": "Found invalid YAML. {{message}}",
     "foundInvalidYAMLWithMessage": "Found invalid YAML. {{msg}} in order zu switch views.",
     "giveThisIngestionSourceAName": "Give this Ingestion Quelle a Name.",
     "hive": {
@@ -2152,11 +2152,11 @@
       "kafkaTopicDenyToolTip": "Provide an Optional Regular Expression (REGEX) to exclude specific Kafka Topic names from Ingestion.",
       "kafkaUsernameToolTip": "The SASL username. Erforderlich if the Security Protocol is SASL based. In the Confluent Control Center, you can find this in Cluster > Data Integration > API Keys.",
       "label": {
-        "bootstrapServers": "Ansicht Ingested Assets",
-        "saslMechanism": "Ansicht Ingested Assets",
-        "schemaRegistryCredentials": "Ansicht Ingested Assets",
-        "schemaRegistryURL": "Ansicht Ingested Assets",
-        "securityProtocol": "Ansicht Ingested Assets"
+        "bootstrapServers": "Bootstrap Servers",
+        "saslMechanism": "SASL Mechanism",
+        "schemaRegistryCredentials": "Schema Registry Credentials",
+        "schemaRegistryURL": "Schema Registry URL",
+        "securityProtocol": "Security Protocol"
       },
       "saslMechanismToolTip": "The SASL mechanism used for authentication. This field is Erforderlich if the selected Security Protocol is SASL based.",
       "schemaRegistryCredentialsToolTip": "API credentials für the Schema Registry. in Confluent Control Center, you can find these under Schema Registry > API Credentials.",
@@ -2166,20 +2166,20 @@
       },
       "securityProtocolToolTip": "The Security Protocol used für authentication."
     },
-    "lastExecution": "Ansicht Ingested Assets",
-    "lastStatus": "Ansicht Ingested Assets",
+    "lastExecution": "Last Execution",
+    "lastStatus": "Last Status",
     "loadingExecutionDetails": "Lädt execution Details",
     "loadingExecutions": "Lädt executions",
     "loadingIngestionSources": "Lädt Ingestion sources",
     "looker": {
       "label": {
-        "baseUrl": "Ansicht Ingested Assets"
+        "baseUrl": "Base URL"
       },
       "lookerAllowChartToolTip": "Only include specific Diagramme von providing the numeric id von a Chart, oder a Regular Expression (REGEX). If not provided, Alle Diagramme will be included.",
       "lookerAllowDashboardToolTip": "Only include specific Dashboards von providing the numeric id von a Dashboard, oder a Regular Expression (REGEX). If not provided, Alle Dashboards will be included.",
-      "lookerBaseUrlToolTip": "Ansicht Ingested Assets",
-      "lookerClientIDToolTip": "Ansicht Ingested Assets",
-      "lookerClientSecretToolTip": "Ansicht Ingested Assets",
+      "lookerBaseUrlToolTip": "The URL where your Looker instance is hosted.",
+      "lookerClientIDToolTip": "Looker API Client ID.",
+      "lookerClientSecretToolTip": "Looker API Client Secret.",
       "lookerDenyChartToolTip": "Exclude specific Diagramme von providing the numeric id von a Chart, oder a Regular Expression (REGEX). If not provided, Alle Diagramme will be included. Deny patterns always take precendence over Allow patterns.",
       "lookerDenyDashboardToolTip": "Exclude specific Dashboards von providing the numeric id von a Dashboard, oder a Regular Expression (REGEX). If not provided, Alle Dashboards will be included. Deny patterns always take precendence over Allow patterns.",
       "lookerFilterSectionTooltip": "Include or exclude specific Dashboard, Charts from Looker Ingestion.",
@@ -2195,11 +2195,11 @@
         "connectionToPlatformMap": "Verbindung To Plattform Map",
         "defaultDatabase": "Default Datenbank",
         "extractExternalLineage": "Extract External Abstammung",
-        "githubDeployKey": "Ansicht Ingested Assets",
-        "lookerBaseUrl": "Ansicht Ingested Assets",
-        "lookerClientID": "Ansicht Ingested Assets",
-        "lookerClientSecret": "Ansicht Ingested Assets",
-        "lookmlProjectName": "Ansicht Ingested Assets"
+        "githubDeployKey": "GitHub Deploy Key",
+        "lookerBaseUrl": "Looker Base URL",
+        "lookerClientID": "Looker Client ID",
+        "lookerClientSecret": "Looker Client Secret",
+        "lookmlProjectName": "LookML Project Name"
       },
       "lookmlAdvancedSectionTooltip": "In order to Ingestion LookML data properly, you must either fill out Looker API client information (Base URL, Client ID, Client Secret) or an offline specification of the Verbindung to Plattform mapping and the project Name (Verbindung To Plattform Map, Project Name).",
       "lookmlConnectionToPlatformMap": "A mapping of Looker Verbindung names to DataHub Data Plattform and Database names. This is used to Erstellen an accurate picture of the Lineage between LookML models and upstream Data Sources.",
@@ -2217,14 +2217,14 @@
     },
     "lookMlIngestionCannotText_component": "LookML Ingestion cannot currently be performed via UI-based Ingestion. This is a known problem the DataHub team is working to solve!",
     "manageIngestion": "Verwalten ingestion",
-    "manualExecution": "Ansicht Ingested Assets",
+    "manualExecution": "Manual Execution",
     "mariaDB": {
       "mariaDBFilterSectionTooltip": "Include or exclude specific Schemas, Tables and Views from Ingestion.",
       "mariaDBHostAndPortToolTip": "The host and port where MariaDB is running. For example, 'mariadb-server:5432'. Note: this host must be accessible on the network where DataHub is running (or allowed via an IP Allow Liste, AWS PrivateLink, etc).",
       "mariaDBPasswordToolTip": "The MariaDB password für the user.",
       "mariaDBUsernameToolTip": "The MariaDB username used zu extract metadata."
     },
-    "minuteHourDayMonthDayOfWeek": "Ansicht Ingested Assets",
+    "minuteHourDayMonthDayOfWeek": "$t(common.minute), $t(common.hour), $t(common.day), $t(common.month), $t(common.dayOfWeek)",
     "mssql": {
       "mssqlFilterSectionTooltip": "Include or exclude specific Schemas, Tables and Views from Ingestion.",
       "mssqlHostAndPortToolTip": "The host and port where SQL Server is running. For example, 'mssql-server:5432'. Note: this host must be accessible on the network where DataHub is running (or allowed via an IP Allow Liste, AWS PrivateLink, etc).",
@@ -2244,7 +2244,7 @@
     "noSecretsFound": "Nein Secrets found",
     "pleaseAddValidIngestionType": "Please Hinzufügen valid Ingestion Typ",
     "pleaseCheckYourRecipeConfiguration": "Please check your Rezept configuration.",
-    "pleaseFixRecipeLineWithParsedLine": "Ansicht Ingested Assets",
+    "pleaseFixRecipeLineWithParsedLine": "Please fix line {{parsedLine}} in your recipe.",
     "pleaseFixYourRecipe": "Please fix your Rezept",
     "postgres": {
       "postgresFilterSectionTooltip": "Include or exclude specific Schemas, Tables and Views from Ingestion.",
@@ -2254,27 +2254,27 @@
     },
     "powerBI": {
       "label": {
-        "extractEndorsementsAsTags": "Ansicht Ingested Assets",
-        "extractOwnership": "Ansicht Ingested Assets",
+        "extractEndorsementsAsTags": "Extract Endorsements as Tags",
+        "extractOwnership": "Extract Ownership",
         "includeReports": "Include Berichte",
-        "includeWorkspace": "Ansicht Ingested Assets",
-        "tenantID": "Ansicht Ingested Assets",
-        "useAdminAPIOnly": "Ansicht Ingested Assets"
+        "includeWorkspace": "Include Workspaces",
+        "tenantID": "Tenant ID",
+        "useAdminAPIOnly": "Use Admin APIs Only"
       },
       "powerBIAllowPatternToolTip": "Only include specific Workspaces von providing the unique id von a Workspace, oder a Regular Expression (REGEX). If not provided, Alle Workspaces will be included.",
-      "powerBIAzureClientIDToolTip": "Ansicht Ingested Assets",
-      "powerBIAzureClientSecretToolTip": "Ansicht Ingested Assets",
+      "powerBIAzureClientIDToolTip": "The Azure AD Client ID",
+      "powerBIAzureClientSecretToolTip": "The Azure AD Client Secret",
       "powerBIAzureTenantIDToolTip": "The Azure tenant id für your PowerBI instance.",
       "powerBIDenyPatternToolTip": "Exclude specific Workspaces von providing the unique id von a Workspace, oder a Regular Expression (REGEX). If not provided, Alle Workspaces will be included. Deny patterns always take precendence over Allow patterns.",
-      "powerBIExtractEndorsementsAsTagsToolTip": "Ansicht Ingested Assets",
+      "powerBIExtractEndorsementsAsTagsToolTip": "Extract PowerBI Endorsements as DataHub Tags.",
       "powerBIExtractOwnershipToolTip": "Extract Eigentümer Metadata defined inside PowerBI. Admin API access is Erforderlich if this setting is Aktiviert. Note that enabling this may overwrite owners that you Hinzufügen inside DataHub.",
       "powerBIFilterSectionTooltip": "Include or exclude specific PowerBI Workspaces from Ingestion.",
       "powerBIIncludeLineageToolTip": "Extract Abstammung between PowerBI Datensätze und the External Tabellen von which they are derived.",
       "powerBIIncludeReportsToolTip": "Extract PowerBI Berichte as Dashboard nodes in DataHub.",
-      "powerBIIncludeWorkspaceToolTip": "Ansicht Ingested Assets",
+      "powerBIIncludeWorkspaceToolTip": "Extract PowerBI Workspaces as Container nodes in DataHub.",
       "powerBIUseAdminAPIOnlyToolTip": "Only use the Admin APIs for extracting information from PowerBI. See the DataHub Ingestion Quelle Guide for more information.",
       "section": {
-        "workspaces": "Ansicht Ingested Assets"
+        "workspaces": "Workspaces"
       }
     },
     "provideTheExecutorIDToRouteRequestToText": "Provide the executor id zu route execution requests to. The built-in DataHub executor id is 'default'. Do not change this unless you have configured a custom executor.",
@@ -2284,17 +2284,17 @@
       },
       "label": {
         "accountID": "Konto ID",
-        "allowPatterns": "Ansicht Ingested Assets",
-        "clientID": "Ansicht Ingested Assets",
+        "allowPatterns": "Allow Patterns",
+        "clientID": "Client ID",
         "clientSecret": "client Geheimnis",
         "database": "Datenbank",
-        "denyPatterns": "Ansicht Ingested Assets",
+        "denyPatterns": "Deny Patterns",
         "extractOwners": "Extract Besitzer",
-        "githubRepo": "Ansicht Ingested Assets",
+        "githubRepo": "GitHub Repo",
         "hostAndPort": "Host und Port",
         "includeLineage": "Include Abstammung",
         "password": "Passwort",
-        "projectID": "Ansicht Ingested Assets",
+        "projectID": "Project ID",
         "username": "Benutzername"
       },
       "presto": {
@@ -2310,13 +2310,13 @@
         "redshiftUsernameToolTip": "A Redshift username used zu extract metadata."
       },
       "section": {
-        "dashboards": "Ansicht Ingested Assets",
+        "dashboards": "Dashboards",
         "tables": "Tabellen"
       },
       "snowFlake": {
         "label": {
           "role": "Rolle",
-          "warehouse": "Ansicht Ingested Assets"
+          "warehouse": "Warehouse"
         },
         "snowFlakeAccountIDToolTip": "The Snowflake Konto Identifier e.g. myorg-account123, account123-eu-central-1, account123.west-us-2.azure",
         "snowFlakeFilterSectionTooltip": "Include or exclude specific Databases, Schemas, Tables and Views from Ingestion.",
@@ -2330,13 +2330,13 @@
           "addProject": "Hinzufügen project"
         },
         "label": {
-          "hostURL": "Ansicht Ingested Assets",
-          "projects": "Ansicht Ingested Assets",
-          "tableauSite": "Ansicht Ingested Assets",
+          "hostURL": "Host URL",
+          "projects": "Projects",
+          "tableauSite": "Tableau Site",
           "tokenName": "Token-Name",
           "tokenValue": "token Wert"
         },
-        "tableauHostUrlToolTip": "Ansicht Ingested Assets",
+        "tableauHostUrlToolTip": "The URL where the Tableau instance is hosted.",
         "tableauPasswordToolTip": "Tableau password. Only Erforderlich if Token is not provided.",
         "tableauProjectToolTip": "The Liste of Projects to extract metadata for.",
         "tableauSiteToolTip": "The Tableau Site. Erforderlich for Tableau Online. Leave this blank to extract from the default site on Tableau Server.",
@@ -2359,8 +2359,8 @@
         "includeTableLineageLabel": "Include Tabelle Lineage",
         "includeTableLineageToolTip_component": "Extract Tabelle Lineage from Unity Catalog. Note that this requires that your Databricks accounts meets certain requirements. Ansicht them here",
         "section": {
-          "catalogs": "Ansicht Ingested Assets",
-          "metastores": "Ansicht Ingested Assets"
+          "catalogs": "Catalogs",
+          "metastores": "Metastores"
         },
         "tokenToolTip": "A personal Zugriff token associated mit the Databricks Konto used zu extract metadata.",
         "unityCatalogAllowToolTip": "Only include specific Catalogs by providing the Name of a Catalog, or a Regular Expression (REGEX) to include specific Catalogs. If not provided, all Catalogs will be included.",
@@ -2371,7 +2371,7 @@
         "unityMetaStoreIDDenyToolTip": "Exclude specific Metastores von providing the id von a Metastores, oder a Regular Expression (REGEX). If not provided, Alle Metastores will be included. Deny patterns always take precedence over Allow patterns.",
         "unityTableAllowToolTip": "Only include specific Tables by providing the fully-qualified Name of a Tabelle, or a Regular Expression (REGEX) to include specific Tables. If not provided, all Tables will be included.",
         "unityTableDenyToolTip": "Exclude specific Tables by providing the fully-qualified Name of a Tabelle, or a Regular Expression (REGEX) to exclude specific Tables. If not provided, all Tables will be included. Deny patterns always take precedence over Allow patterns.",
-        "workspaceURLLabel": "Ansicht Ingested Assets",
+        "workspaceURLLabel": "Workspace URL",
         "workspaceURLTooltip": "The URL für the Databricks workspace von which zu extract metadata."
       }
     },
@@ -2393,7 +2393,7 @@
       "failedToRemoveSecret": "Geheimnis konnte nicht entfernt werden",
       "failedToUpdateSecret": "Geheimnis konnte nicht aktualisiert werden!",
       "failedToUpdate": "Geheimnis konnte nicht aktualisiert werden!",
-      "name": "Ansicht Ingested Assets",
+      "name": "Name",
       "nameDescription": "Geben Sie Ihrem Geheimnis einen Namen. Dies ist das, was Sie verwenden, um auf das Geheimnis aus Ihren Rezepten zu verweisen.",
       "nameInputPlaceholder": "Ein Name für Ihr Geheimnis",
       "namePatternError": "Bitte beginnen Sie den Geheimnissnamen mit einem Buchstaben, gefolgt von Buchstaben, Ziffern oder Unterstrichen.",
@@ -2441,7 +2441,7 @@
       "lookerMetadataIntegration": "Um eine vollständige Looker-Metadatenintegration zu erhalten (einschließlich Looker-Ansichten und Lineage zu den zugrunde liegenden Warentabellen), müssen Sie auch ",
       "moreInfoAboutRecipe": "Weitere Informationen zur Konfiguration eines Rezepts finden Sie unter {{sourceDisplayName}} ",
       "mustAcknowledgeMessage": "Sie müssen diese Nachricht bestätigen, um fortzufahren!",
-      "name": "Ansicht Ingested Assets",
+      "name": "Name",
       "next": "Weiter",
       "noScheduleWarning": "Die Durchführung von Aufnahmen ohne Zeitplan kann zu veralteten Informationen führen.",
       "owners": "Besitzer",
@@ -2471,7 +2471,7 @@
     "runAScheduleToolTip": "Enable to Ausführung Ingestion on a Zeitplan. Running Ingestion on a Zeitplan helps to keep the information inside of DataHub up to date.",
     "runIngestionWithoutASchedule": "Running Ingestion without a Zeitplan may result in out-of-date information.",
     "runOnASchedule": "Ausführung on a Zeitplan",
-    "scheduledExecution": "Ansicht Ingested Assets",
+    "scheduledExecution": "Scheduled Execution",
     "searchIngestionSources": "Suche Ingestion sources",
     "searchSecrets": "Suche secrets...",
     "searchSources": "Suche sources",
@@ -2495,7 +2495,7 @@
     },
     "successfullyCreatedIngestionSource": "Successfully created Ingestion Quelle!",
     "successfullyRequestedIngestionRollback": "Successfully requested Ingestion rollback",
-    "successfullySubmittedCancellationRequest": "Ansicht Ingested Assets",
+    "successfullySubmittedCancellationRequest": "Successfully submitted cancellation request!",
     "successfullySubmittedIngestionExecutionRequest": "Successfully submitted Ingestion execution request!",
     "successfullyUpdatedIngestionSource": "Successfully updated Ingestion Quelle!",
     "testConnection": "Test Verbindung",
@@ -2504,7 +2504,7 @@
     "theFollowingConnectorCapabilitiesAreSupportedWithYourCredentials": "The following connector capabilities are supported mit your credentials",
     "thereWasAnUnexpectedErrorWhenTryingToTestYourConnection": "There was an unexpected Fehler when trying to Test your Verbindung. Please try again.",
     "errorWhenVerifyingResponses": "Fehler when verifying responses on Formular",
-    "thisCouldTakeAFewMinutes": "Ansicht Ingested Assets",
+    "thisCouldTakeAFewMinutes": "This could take a few minutes.",
     "toCompleteTheLookerIntegrationTextWithLink_component": "zu complete the Looker integration (including Looker views und Abstammung zu the underlying warehouse tables), you must also use the {{link}}",
     "ToGetCompleteLookerMetadataIntegrationText_component": "zu get complete Looker Metadaten integration (including Looker views und Abstammung zu the underlying warehouse tables), you must also use the DataHub lookml module.",
     "ui": "UI",
@@ -2541,8 +2541,8 @@
       "lastRun": "Letzter Lauf",
       "schedule": "Zeitplan",
       "source": "Quelle",
-      "status": "Ansicht Ingested Assets",
-      "name": "Ansicht Ingested Assets",
+      "status": "Status",
+      "name": "Name",
       "owner": "Besitzer",
       "someIngestSourcesMayBeHidden": "Einige Aufnahmequellen können verborgen sein"
     },
@@ -2552,15 +2552,15 @@
         "allStatuses": "Alle Statuses",
         "success": "Erfolg",
         "failed": "Fehlgeschlagen",
-        "running": "Ansicht Ingested Assets",
-        "cancelled": "Ansicht Ingested Assets",
-        "aborted": "Ansicht Ingested Assets",
+        "running": "Running",
+        "cancelled": "Cancelled",
+        "aborted": "Aborted",
         "rolledBack": "Rolled Zurück",
         "rollingBack": "Rolling Zurück",
         "rollbackFailed": "Rollback Fehlgeschlagen",
-        "duplicate": "Ansicht Ingested Assets"
+        "duplicate": "Duplicate"
       },
-      "resultStatus": "Ansicht Ingested Assets"
+      "resultStatus": "Result Status"
     }
   },
   "lineage": {
