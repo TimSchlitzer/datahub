@@ -3028,7 +3028,12 @@
     "selectAColumn": "Select column",
     "shortLabelForLink": "A short label for this link",
     "viewUsefulForDataAnalysts": "This View is useful for Data Analysts",
-    "yourPolicyNamePlaceholder": "Your policy name"
+    "yourPolicyNamePlaceholder": "Your policy name",
+    "startSearching": "Start searching",
+    "searchCatalogDescription": "Search through your data catalog to find datasets, schemas, and metadata",
+    "navigate": "Navigate",
+    "searchAll": "Search All",
+    "select": "Select"
   },
   "post": {
     "removePostDescription": "Are you sure you want to remove this Post?",

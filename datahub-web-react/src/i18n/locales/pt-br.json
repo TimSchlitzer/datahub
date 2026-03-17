@@ -3028,7 +3028,12 @@
     "selectAColumn": "Selecionar coluna",
     "shortLabelForLink": "Um rótulo curto para este link",
     "viewUsefulForDataAnalysts": "Esta Visualização é útil para Analistas de Dados",
-    "yourPolicyNamePlaceholder": "Nome da sua política"
+    "yourPolicyNamePlaceholder": "Nome da sua política",
+    "startSearching": "Começar a pesquisar",
+    "searchCatalogDescription": "Pesquise em seu catálogo de dados para encontrar conjuntos de dados, esquemas e metadados",
+    "navigate": "Navegar",
+    "searchAll": "Pesquisar tudo",
+    "select": "Selecionar"
   },
   "post": {
     "removePostDescription": "Tem certeza de que deseja remover esse post?",

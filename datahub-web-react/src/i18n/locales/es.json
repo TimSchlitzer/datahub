@@ -2944,7 +2944,12 @@
     "selectAColumn": "Seleccionar Columna",
     "shortLabelForLink": "A short Etiqueta para this link",
     "viewUsefulForDataAnalysts": "This Ver is useful para Datos Analysts",
-    "yourPolicyNamePlaceholder": "Your Política name"
+    "yourPolicyNamePlaceholder": "Your Política name",
+    "startSearching": "Comenzar a buscar",
+    "searchCatalogDescription": "Busca en tu catálogo de datos para encontrar conjuntos de datos, esquemas y metadatos",
+    "navigate": "Navegar",
+    "searchAll": "Buscar todo",
+    "select": "Seleccionar"
   },
   "post": {
     "removePostDescription": "Are you sure you want para Eliminar this Post?",
