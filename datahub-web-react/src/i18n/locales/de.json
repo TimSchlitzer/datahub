@@ -3227,11 +3227,11 @@
       },
       "fieldLabels": {
         "owners": "Besitzer",
-        "tags": "Suchanfragen der letzten Woche",
+        "tags": "Tag",
         "domains": "Bereich",
         "dataProduct": "Daten Product",
         "platform": "Plattform",
-        "fieldTags": "Spalte Tag",
+        "fieldTags": "Spalten-Tag",
         "glossaryTerms": "Glossar Begriff",
         "fieldGlossaryTerms": "Spalte Begriff",
         "fieldPaths": "Spalte Name",
@@ -3239,7 +3239,7 @@
         "fieldDescriptions": "Spalte Beschreibung",
         "removed": "Soft Gelöscht",
         "entity": "Entitätstyp",
-        "container": "Suchanfragen der letzten Woche",
+        "container": "Container",
         "typeNames": "sub Typ",
         "origin": "Umgebung",
         "degree": "Grad",
@@ -3247,10 +3247,10 @@
         "platformInstance": "Plattform instance",
         "hasActiveIncidents": "Has Aktiv Incidents",
         "hasFailingAssertions": "Has failing Assertions",
-        "hasSiblings": "Suchanfragen der letzten Woche",
-        "path": "Suchanfragen der letzten Woche",
-        "lastModified": "Suchanfragen der letzten Woche",
-        "structuredProperty": "Suchanfragen der letzten Woche"
+        "hasSiblings": "Hat Geschwister",
+        "path": "Pfad",
+        "lastModified": "Zuletzt geändert (in Quelle)",
+        "structuredProperty": "Strukturierte Eigenschaft"
       },
       "timeRange": {
         "last1Day": "Last 1 Tag",
