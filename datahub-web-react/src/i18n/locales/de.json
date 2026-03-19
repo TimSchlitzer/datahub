@@ -3280,7 +3280,7 @@
       "labelBy": "Sortieren nach"
     },
     "sidebar": {
-      "navigate": "Tag",
+      "navigate": "Tags",
       "hide": "Navigationsbereich ausblenden",
       "open": "Navigationsbereich öffnen",
       "loadError": "Die Seitenleiste konnte nicht geladen werden.",
