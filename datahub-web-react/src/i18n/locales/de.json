@@ -3280,7 +3280,7 @@
       "labelBy": "Sortieren nach"
     },
     "sidebar": {
-      "navigate": "Tags",
+      "navigate": "Navigieren",
       "hide": "Navigationsbereich ausblenden",
       "open": "Navigationsbereich öffnen",
       "loadError": "Die Seitenleiste konnte nicht geladen werden.",
@@ -3696,7 +3696,7 @@
     "glossary": "Glossar",
     "glossaryDescription": "Datenwörterbuch anzeigen und bearbeiten",
     "glossaryLongDescription": "Geschäftsglossar anzeigen und bearbeiten",
-    "tags": "Navigieren",
+    "tags": "Tags",
     "tagsDescription": "Tags anzeigen und bearbeiten",
     "businessAttribute": "Geschäftsattribut",
     "businessAttributes": "Geschäftsattribute",
