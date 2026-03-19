@@ -1,5 +1,6 @@
 import { Col } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { CSSObject } from 'styled-components';
 
 import { OwnershipContainer, ShowMoreText } from '@app/entityV2/shared/SidebarStyledComponents';
@@ -23,6 +24,7 @@ type Props = {
 };
 
 export const UserOwnershipSidebarSection = ({ ownershipResults }: Props) => {
+    const { t } = useTranslation();
     const [entityCount, setEntityCount] = useState(DEFAULT_MAX_ENTITIES_TO_SHOW);
     const ownedEntitiesTotal = ownershipResults?.total || 0;
     const ownedEntities = ownershipResults?.searchResults;
@@ -34,7 +36,7 @@ export const UserOwnershipSidebarSection = ({ ownershipResults }: Props) => {
 
     return (
         <SidebarSection
-            title="Owner Of"
+            title={t('entity.ownerOf')}
             count={ownedEntitiesTotal}
             showFullCount
             content={
@@ -64,7 +66,7 @@ export const UserOwnershipSidebarSection = ({ ownershipResults }: Props) => {
                         />
                     )}
                     {showAndMoreText && (
-                        <ShowMoreText>+ {ownedEntitiesTotal - entitiesAvailableCount} more</ShowMoreText>
+                        <ShowMoreText>+ {ownedEntitiesTotal - entitiesAvailableCount} {t('common.more')}</ShowMoreText>
                     )}
                 </>
             }

@@ -2,6 +2,7 @@ import { Button, Editor, Text, Tooltip } from '@components';
 import queryString from 'query-string';
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import DescriptionViewer from '@app/entityV2/summary/documentation/DescriptionViewer';
@@ -42,6 +43,7 @@ interface Props {
 }
 
 export default function AboutSection({ hideLinksButton }: Props) {
+    const { t } = useTranslation();
     const history = useHistory();
     const { search, pathname } = useLocation();
     const isEditingDescription = !!queryString.parse(search, { parseBooleans: true }).editingDescription;
@@ -82,7 +84,7 @@ export default function AboutSection({ hideLinksButton }: Props) {
         <div data-testid="about-section">
             <SectionHeaderWrapper>
                 <Text weight="bold" color="gray" colorLevel={600} size="sm">
-                    About
+                    {t('common.about')}
                 </Text>
                 <ButtonsWrapper>
                     {canEditDescription && (
