@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useEntityData } from '@app/entity/shared/EntityContext';
@@ -22,6 +23,7 @@ const StatContent = styled.div`
 `;
 
 const SidebarDatasetHeaderSection = () => {
+    const { t } = useTranslation();
     const { entityData } = useEntityData();
     const dataset = entityData as any;
 
@@ -55,9 +57,9 @@ const SidebarDatasetHeaderSection = () => {
         dataset?.statsSummary?.topUsersLast30Days?.find((user) => userExists(user))
     ) {
         columns.push({
-            title: 'Top Users',
+            title: t('entity.dataset.header.topUsers'),
             content: (
-                <Tooltip showArrow={false} title="Top users over the past 30 days">
+                <Tooltip showArrow={false} title={t('entity.dataset.header.topUsersTooltip')}>
                     <SidebarTopUsersHeaderSection />
                 </Tooltip>
             ),
@@ -69,15 +71,15 @@ const SidebarDatasetHeaderSection = () => {
      */
     if (dataset?.statsSummary?.queryCountLast30Days) {
         columns.push({
-            title: 'Queries',
+            title: t('entity.dataset.header.queries'),
             content: (
                 <Tooltip
                     showArrow={false}
-                    title={`${formatNumberWithoutAbbreviation(
-                        dataset?.statsSummary?.queryCountLast30Days,
-                    )} queries over the past 30 days`}
+                    title={t('entity.dataset.header.queriesTooltip', {
+                        count: formatNumberWithoutAbbreviation(dataset?.statsSummary?.queryCountLast30Days),
+                    })}
                 >
-                    <StatContent>{formatNumber(dataset?.statsSummary?.queryCountLast30Days)} queries</StatContent>
+                    <StatContent>{formatNumber(dataset?.statsSummary?.queryCountLast30Days)} {t('entity.dataset.header.queries').toLowerCase()}</StatContent>
                 </Tooltip>
             ),
         });
@@ -88,15 +90,15 @@ const SidebarDatasetHeaderSection = () => {
      */
     if (dataset?.statsSummary?.uniqueUserCountLast30Days) {
         columns.push({
-            title: 'Users',
+            title: t('entity.dataset.header.users'),
             content: (
                 <Tooltip
                     showArrow={false}
-                    title={`${formatNumberWithoutAbbreviation(
-                        dataset?.statsSummary?.uniqueUserCountLast30Days,
-                    )} users over the past 30 days`}
+                    title={t('entity.dataset.header.usersTooltip', {
+                        count: formatNumberWithoutAbbreviation(dataset?.statsSummary?.uniqueUserCountLast30Days),
+                    })}
                 >
-                    <StatContent>{formatNumber(dataset?.statsSummary?.uniqueUserCountLast30Days)} users</StatContent>
+                    <StatContent>{formatNumber(dataset?.statsSummary?.uniqueUserCountLast30Days)} {t('entity.dataset.header.users').toLowerCase()}</StatContent>
                 </Tooltip>
             ),
         });
@@ -107,13 +109,15 @@ const SidebarDatasetHeaderSection = () => {
      */
     if (isValuePresent(maybeLastProfile?.rowCount)) {
         columns.push({
-            title: 'Rows',
+            title: t('entity.dataset.header.rows'),
             content: (
                 <Tooltip
                     showArrow={false}
-                    title={`${formatNumberWithoutAbbreviation(maybeLastProfile?.rowCount)} rows`}
+                    title={t('entity.dataset.header.rowsTooltip', {
+                        count: formatNumberWithoutAbbreviation(maybeLastProfile?.rowCount),
+                    })}
                 >
-                    <StatContent>{formatNumber(maybeLastProfile?.rowCount)} rows</StatContent>
+                    <StatContent>{formatNumber(maybeLastProfile?.rowCount)} {t('entity.dataset.header.rows').toLowerCase()}</StatContent>
                 </Tooltip>
             ),
         });
@@ -124,8 +128,8 @@ const SidebarDatasetHeaderSection = () => {
      */
     if (isValuePresent(maybeLastProfile?.columnCount)) {
         columns.push({
-            title: 'Columns',
-            content: <StatContent>{formatNumber(maybeLastProfile?.columnCount)} columns</StatContent>,
+            title: t('entity.dataset.header.columnsCount'),
+            content: <StatContent>{formatNumber(maybeLastProfile?.columnCount)} {t('entity.dataset.header.columnsCount').toLowerCase()}</StatContent>,
         });
     }
 
@@ -136,13 +140,13 @@ const SidebarDatasetHeaderSection = () => {
         const formattedBytes = formatBytes(maybeLastProfile?.sizeInBytes, 0);
         const { number, unit } = formattedBytes;
         columns.push({
-            title: 'Size',
+            title: t('entity.dataset.header.size'),
             content: (
                 <Tooltip
                     showArrow={false}
-                    title={`Consumes ${formatNumberWithoutAbbreviation(
-                        maybeLastProfile?.sizeInBytes,
-                    )} bytes of storage.`}
+                    title={t('entity.dataset.header.storageBytes', {
+                        count: formatNumberWithoutAbbreviation(maybeLastProfile?.sizeInBytes),
+                    })}
                 >
                     <StatContent>
                         {number} {unit}

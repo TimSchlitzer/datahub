@@ -795,6 +795,20 @@
           "sampleValues": "Beispielwerte"
         }
       },
+      "header": {
+        "topUsers": "Top-Benutzer",
+        "topUsersTooltip": "Top-Benutzer der letzten 30 Tage",
+        "queries": "Abfragen",
+        "queriesTooltip": "{{count}} Abfragen der letzten 30 Tage",
+        "users": "Benutzer",
+        "usersTooltip": "{{count}} Benutzer der letzten 30 Tage",
+        "rows": "Zeilen",
+        "rowsTooltip": "{{count}} Zeilen",
+        "columnsCount": "Spalten",
+        "columnsCountTooltip": "{{count}} Spalten",
+        "size": "Größe",
+        "storageBytes": "Verbraucht {{count}} Bytes Speicher."
+      },
       "operations": {
         "table": {
           "time": "Zeit",
@@ -3729,7 +3743,7 @@
       "items": {
         "documents": "Dokumente",
         "glossary": "Glossar",
-        "tags": "Navigieren",
+        "tags": "Tags",
         "businessAttributes": "Business-Attribute",
         "applications": "Anwendungen",
         "domains": "Domänen",

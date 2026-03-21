@@ -795,6 +795,20 @@
                     "sampleValues": "TÂCHE"
                 }
             },
+            "header": {
+                "topUsers": "Utilisateurs principaux",
+                "topUsersTooltip": "Principaux utilisateurs des 30 derniers jours",
+                "queries": "Requêtes",
+                "queriesTooltip": "{{count}} requêtes au cours des 30 derniers jours",
+                "users": "Utilisateurs",
+                "usersTooltip": "{{count}} utilisateurs au cours des 30 derniers jours",
+                "rows": "Lignes",
+                "rowsTooltip": "{{count}} lignes",
+                "columnsCount": "Colonnes",
+                "columnsCountTooltip": "{{count}} colonnes",
+                "size": "Taille",
+                "storageBytes": "Consomme {{count}} octets de stockage."
+            },
             "operations": {
                 "table": {
                     "time": "TÂCHE",

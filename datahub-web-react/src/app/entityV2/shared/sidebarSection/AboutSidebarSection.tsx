@@ -3,6 +3,7 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import TextArea from 'antd/lib/input/TextArea';
 import Paragraph from 'antd/lib/typography/Paragraph';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { AboutSection, AboutSectionText, EmptyValue } from '@app/entityV2/shared/SidebarStyledComponents';
 import SectionActionButton from '@app/entityV2/shared/containers/profile/sidebar/SectionActionButton';
@@ -15,6 +16,7 @@ type Props = {
 };
 
 export const AboutSidebarSection = ({ aboutText, isProfileOwner, onSaveAboutMe }: Props) => {
+    const { t } = useTranslation();
     const [about, setAbout] = useState(aboutText);
     const [isAboutEditable, setIsAboutEditable] = useState(false);
 
@@ -31,7 +33,7 @@ export const AboutSidebarSection = ({ aboutText, isProfileOwner, onSaveAboutMe }
 
     return (
         <SidebarSection
-            title="About"
+            title={t('common.about')}
             content={
                 <AboutSection>
                     <AboutSectionText>

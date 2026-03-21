@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { GroupsSection } from '@app/entityV2/shared/SidebarStyledComponents';
 import { ANTD_GRAY, ANTD_GRAY_V2 } from '@app/entityV2/shared/constants';
@@ -28,11 +29,12 @@ type Props = {
 };
 
 export const UserGroupSideBarSection = ({ groupsDetails }: Props) => {
+    const { t } = useTranslation();
     const [entityCount, setEntityCount] = useState(DEFAULT_MAX_ENTITIES_TO_SHOW);
     const groupsDetailsCount = groupsDetails.length || 0;
     return (
         <SidebarSection
-            title="Groups"
+            title={t('common.groups')}
             content={
                 <>
                     <GroupsSection>

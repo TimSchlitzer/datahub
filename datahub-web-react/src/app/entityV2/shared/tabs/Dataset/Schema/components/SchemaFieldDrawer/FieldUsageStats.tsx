@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
 import { useBaseEntity } from '@app/entity/shared/EntityContext';
@@ -38,6 +39,7 @@ interface Props {
 }
 
 export default function FieldUsageStats({ expandedField }: Props) {
+    const { t } = useTranslation();
     const baseEntity = useBaseEntity<GetDatasetQuery>();
     const usageStats = baseEntity?.dataset?.usageStats;
     const hasUsageStats = useMemo(() => (usageStats?.aggregations?.fields?.length || 0) > 0, [usageStats]);
@@ -53,13 +55,13 @@ export default function FieldUsageStats({ expandedField }: Props) {
 
     return (
         <UsageSection>
-            <SectionHeader>Usage</SectionHeader>
+            <SectionHeader>{t('common.usage')}</SectionHeader>
             <UsageBarWrapper>
                 <UsageBarBackground>
                     <UsageBar width={((relevantUsageStats.count || 0) / maxFieldUsageCount) * USAGE_BAR_MAX_WIDTH} />
                 </UsageBarBackground>
                 <UsageTextWrapper>
-                    {formatNumberWithoutAbbreviation(relevantUsageStats.count || 0)} queries / month
+                    {t('entity.dataset.schema.drawer.usageQueries', { count: formatNumberWithoutAbbreviation(relevantUsageStats.count || 0) })}
                 </UsageTextWrapper>
             </UsageBarWrapper>
         </UsageSection>

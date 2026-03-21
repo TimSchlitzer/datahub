@@ -1,5 +1,6 @@
 import { Tooltip } from '@components';
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { pathMatchesNewPath } from '@app/entityV2/dataset/profile/schema/utils/utils';
 import { PopularityBars } from '@app/entityV2/shared/tabs/Dataset/Schema/components/SchemaFieldDrawer/PopularityBars';
@@ -14,6 +15,7 @@ type FieldPopularityProps = {
     displayOnDrawer?: boolean;
 };
 export const FieldPopularity = ({ isFieldSelected, usageStats, fieldPath, displayOnDrawer }: FieldPopularityProps) => {
+    const { t } = useTranslation();
     const maxFieldUsageCount = useMemo(
         () => Math.max(...(usageStats?.aggregations?.fields?.map((field) => field?.count || 0) || [])),
         [usageStats],
@@ -33,8 +35,8 @@ export const FieldPopularity = ({ isFieldSelected, usageStats, fieldPath, displa
             placement="top"
             title={
                 relevantUsageStats
-                    ? `${formatNumberWithoutAbbreviation(relevantUsageStats.count || 0)} queries / month`
-                    : 'No column usage data'
+                    ? t('entity.dataset.schema.drawer.usageQueries', { count: formatNumberWithoutAbbreviation(relevantUsageStats.count || 0) })
+                    : t('entity.dataset.schema.drawer.noUsageData')
             }
             showArrow={false}
         >

@@ -795,6 +795,20 @@
           "sampleValues": "TAREA"
         }
       },
+      "header": {
+        "topUsers": "Principales usuarios",
+        "topUsersTooltip": "Principales usuarios de los últimos 30 días",
+        "queries": "Consultas",
+        "queriesTooltip": "{{count}} consultas en los últimos 30 días",
+        "users": "Usuarios",
+        "usersTooltip": "{{count}} usuarios en los últimos 30 días",
+        "rows": "Filas",
+        "rowsTooltip": "{{count}} filas",
+        "columnsCount": "Columnas",
+        "columnsCountTooltip": "{{count}} columnas",
+        "size": "Tamaño",
+        "storageBytes": "Consume {{count}} bytes de almacenamiento."
+      },
       "operations": {
         "table": {
           "time": "TAREA",

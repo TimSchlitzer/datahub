@@ -795,6 +795,20 @@
           "sampleValues": "Sample Values"
         }
       },
+      "header": {
+        "topUsers": "Top Users",
+        "topUsersTooltip": "Top users over the past 30 days",
+        "queries": "Queries",
+        "queriesTooltip": "{{count}} queries over the past 30 days",
+        "users": "Users",
+        "usersTooltip": "{{count}} users over the past 30 days",
+        "rows": "Rows",
+        "rowsTooltip": "{{count}} rows",
+        "columnsCount": "Columns",
+        "columnsCountTooltip": "{{count}} columns",
+        "size": "Size",
+        "storageBytes": "Consumes {{count}} bytes of storage."
+      },
       "operations": {
         "table": {
           "time": "Time",

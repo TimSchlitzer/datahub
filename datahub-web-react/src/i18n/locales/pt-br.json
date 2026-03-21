@@ -795,6 +795,20 @@
           "sampleValues": "Valores de Amostra"
         }
       },
+      "header": {
+        "topUsers": "Principais usuários",
+        "topUsersTooltip": "Principais usuários dos últimos 30 dias",
+        "queries": "Consultas",
+        "queriesTooltip": "{{count}} consultas nos últimos 30 dias",
+        "users": "Usuários",
+        "usersTooltip": "{{count}} usuários nos últimos 30 dias",
+        "rows": "Linhas",
+        "rowsTooltip": "{{count}} linhas",
+        "columnsCount": "Colunas",
+        "columnsCountTooltip": "{{count}} colunas",
+        "size": "Tamanho",
+        "storageBytes": "Consome {{count}} bytes de armazenamento."
+      },
       "operations": {
         "table": {
           "time": "Hora",
